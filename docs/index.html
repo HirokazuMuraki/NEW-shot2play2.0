@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+NEW-shot2play Protocol Suite Version 2.0
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+
+<section>
+
+
+<h1>
+Technical Specification
+</h1>
+
+
+<p>
+NEW-shot2play Protocol Suite Version 2.0 defines a new protocol
+architecture that separates authentication and authorization through
+an entitlement-centric model.
+</p>
+
+
+<div class="normative must">
+
+<strong>STATUS: FROZEN</strong><br><br>
+
+Design Freeze Version 2.0 Revision 1.1 is the approved baseline
+architecture for Version 2.0 development.
+
+</div>
+
+
+</section>
+
+
+
+
+<section>
+
+
+<h2>
+Core Architecture
+</h2>
+
+
+<div class="object-definition">
+
+
+<pre>
+Authentication
+
+        ↓
+
+Entitlement
+
+        ↓
+
+Policy Evaluation
+
+        ↓
+
+Authorization
+
+        ↓
+
+Service
+</pre>
+
+
+</div>
+
+
+<p>
+Version 2.0 introduces Entitlement as a protocol-level object that
+connects authenticated identity with service authorization decisions.
+</p>
+
+
+</section>
+
+
+
+
+
+<section>
+
+
+<h2>
+Protocol Layers
+</h2>
+
+
+<table>
+
+<tr>
+<th>
+Layer
+</th>
+
+<th>
+Description
+</th>
+</tr>
+
+
+<tr>
+<td>
+Identity Layer
+</td>
+
+<td>
+Defines identity representation and lifecycle.
+</td>
+</tr>
+
+
+<tr>
+<td>
+Credential Layer
+</td>
+
+<td>
+Defines credential objects and trust relationships.
+</td>
+</tr>
+
+
+<tr>
+<td>
+Authentication Layer
+</td>
+
+<td>
+Provides authentication protocol inherited from Version 1.0.
+</td>
+</tr>
+
+
+<tr>
+<td>
+Entitlement Layer
+</td>
+
+<td>
+Defines rights, permissions, and usage qualifications.
+</td>
+</tr>
+
+
+<tr>
+<td>
+Policy Layer
+</td>
+
+<td>
+Defines policy evaluation and decision rules.
+</td>
+</tr>
+
+
+<tr>
+<td>
+Authorization Layer
+</td>
+
+<td>
+Generates conditional authorization decisions.
+</td>
+</tr>
+
+
+<tr>
+<td>
+Application Layer
+</td>
+
+<td>
+Provides services using authorization results.
+</td>
+</tr>
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Technical Specification Chapters
+</h2>
+
+
+<table>
+
+
+<tr>
+<th>
+Chapter
+</th>
+
+<th>
+Title
+</th>
+
+</tr>
+
+
+<tr>
+<td>
+Chapter 01
+</td>
+
+<td>
+<a href="chapter01_framework_overview.html">
+Framework Overview
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 02
+</td>
+
+<td>
+<a href="chapter02_protocol_architecture.html">
+Protocol Architecture
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 03
+</td>
+
+<td>
+<a href="chapter03_identity_credential_model.html">
+Identity and Credential Model
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 04
+</td>
+
+<td>
+<a href="chapter04_authentication_protocol.html">
+Authentication Protocol
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 05
+</td>
+
+<td>
+<a href="chapter05_entitlement_protocol.html">
+Entitlement Protocol
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 06
+</td>
+
+<td>
+<a href="chapter06_policy_evaluation.html">
+Policy Evaluation
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 07
+</td>
+
+<td>
+<a href="chapter07_authorization_protocol.html">
+Authorization Protocol
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 08
+</td>
+
+<td>
+<a href="chapter08_security_model.html">
+Security Model
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 09
+</td>
+
+<td>
+<a href="chapter09_conformance.html">
+Conformance Requirements
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Chapter 10
+</td>
+
+<td>
+<a href="chapter10_use_cases.html">
+Use Cases
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Appendix A
+</td>
+
+<td>
+<a href="appendix_a_glossary.html">
+Glossary
+</a>
+</td>
+</tr>
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Canonical Figures
+</h2>
+
+
+<table>
+
+<tr>
+<th>
+Figure
+</th>
+
+<th>
+Title
+</th>
+</tr>
+
+
+<tr>
+<td>
+Figure 01
+</td>
+
+<td>
+Overall Architecture
+</td>
+</tr>
+
+
+<tr>
+<td>
+Figure 02
+</td>
+
+<td>
+Authentication and Authorization Separation
+</td>
+</tr>
+
+
+<tr>
+<td>
+Figure 03
+</td>
+
+<td>
+Entitlement Object
+</td>
+</tr>
+
+
+<tr>
+<td>
+Figure 04
+</td>
+
+<td>
+Policy Evaluation Engine
+</td>
+</tr>
+
+
+<tr>
+<td>
+Figure 05
+</td>
+
+<td>
+Conditional Authorization
+</td>
+</tr>
+
+
+</table>
+
+
+</section>
+
+
+
+
+
+
+<section>
+
+
+<h2>
+Version Relationship
+</h2>
+
+
+<p>
+
+Version 1.0 remains the Baseline Specification
+(Normative Reference).
+
+</p>
+
+
+<p>
+
+Version 2.0 introduces additional protocol layers above
+Authentication Protocol and defines a new authorization framework.
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+
+</div>
+
+
+</body>
+
+</html>
