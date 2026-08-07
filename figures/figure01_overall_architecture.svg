@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1200"
+     height="1700"
+     viewBox="0 0 1200 1700">
+
+    <title>
+        Figure01 Overall Architecture
+    </title>
+
+    <desc>
+        NEW-shot2play Protocol Suite Version 2.0
+        Authentication to Authorization Architecture
+    </desc>
+
+
+    <!-- Background -->
+
+    <rect x="0"
+          y="0"
+          width="1200"
+          height="1700"
+          fill="white"/>
+
+
+    <!-- Title -->
+
+    <text x="600"
+          y="60"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="32"
+          font-weight="bold">
+        Figure01 Overall Architecture
+    </text>
+
+    <text x="600"
+          y="100"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="20">
+        NEW-shot2play Protocol Suite Version 2.0
+    </text>
+
+
+    <!-- Layer Boxes -->
+
+
+    <!-- Identity Layer -->
+
+    <rect x="250"
+          y="160"
+          width="500"
+          height="100"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="500"
+          y="200"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Identity Layer
+    </text>
+
+    <text x="500"
+          y="235"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Identity Object
+    </text>
+
+
+    <!-- Arrow -->
+
+    <line x1="500"
+          y1="260"
+          x2="500"
+          y2="320"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="490,315 510,315 500,330"
+             fill="black"/>
+
+
+    <!-- Credential Layer -->
+
+    <rect x="250"
+          y="330"
+          width="500"
+          height="100"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="500"
+          y="370"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Credential Layer
+    </text>
+
+    <text x="500"
+          y="405"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Credential Object
+    </text>
+
+
+    <line x1="500"
+          y1="430"
+          x2="500"
+          y2="490"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="490,485 510,485 500,500"
+             fill="black"/>
+
+
+    <!-- Authentication Layer -->
+
+    <rect x="250"
+          y="500"
+          width="500"
+          height="120"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="500"
+          y="540"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Authentication Layer
+    </text>
+
+    <text x="500"
+          y="575"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Authentication Object
+    </text>
+
+    <text x="500"
+          y="605"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="16">
+        Version 1.0 Foundation
+    </text>
+
+
+    <!-- Version Boundary -->
+
+    <line x1="150"
+          y1="680"
+          x2="1050"
+          y2="680"
+          stroke="black"
+          stroke-width="3"
+          stroke-dasharray="12,8"/>
+
+    <text x="600"
+          y="660"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18"
+          font-weight="bold">
+        Version 1.0 / Version 2.0 Boundary
+    </text>
+
+
+    <!-- Entitlement Layer -->
+
+    <rect x="250"
+          y="720"
+          width="500"
+          height="120"
+          fill="white"
+          stroke="black"
+          stroke-width="3"/>
+
+    <text x="500"
+          y="760"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Entitlement Layer
+    </text>
+
+    <text x="500"
+          y="795"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Entitlement Object
+    </text>
+
+    <text x="500"
+          y="825"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="16">
+        Innovation Boundary
+    </text>
+
+
+    <line x1="500"
+          y1="840"
+          x2="500"
+          y2="900"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="490,895 510,895 500,910"
+             fill="black"/>
+
+
+    <!-- Policy Layer -->
+
+    <rect x="250"
+          y="910"
+          width="500"
+          height="120"
+          fill="white"
+          stroke="black"
+          stroke-width="3"/>
+
+    <text x="500"
+          y="950"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Policy Layer
+    </text>
+
+    <text x="500"
+          y="985"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Policy Object
+    </text>
+
+    <text x="500"
+          y="1015"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Policy Evaluation Engine
+    </text>
+
+
+    <line x1="500"
+          y1="1030"
+          x2="500"
+          y2="1090"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="490,1085 510,1085 500,1100"
+             fill="black"/>
+
+
+    <!-- Authorization Layer -->
+
+    <rect x="250"
+          y="1100"
+          width="500"
+          height="120"
+          fill="white"
+          stroke="black"
+          stroke-width="3"/>
+
+    <text x="500"
+          y="1140"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Authorization Layer
+    </text>
+
+    <text x="500"
+          y="1175"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Authorization Object
+    </text>
+
+    <text x="500"
+          y="1205"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="16">
+        Conditional Authorization
+    </text>
+
+
+    <line x1="500"
+          y1="1220"
+          x2="500"
+          y2="1280"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="490,1275 510,1275 500,1290"
+             fill="black"/>
+
+
+    <!-- Application Layer -->
+
+    <rect x="250"
+          y="1290"
+          width="500"
+          height="100"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="500"
+          y="1330"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Application Layer
+    </text>
+
+    <text x="500"
+          y="1365"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Service Object
+    </text>
+
+
+    <!-- Innovation Area -->
+
+    <rect x="820"
+          y="720"
+          width="300"
+          height="300"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="970"
+          y="770"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="20"
+          font-weight="bold">
+        Version 2.0
+    </text>
+
+    <text x="970"
+          y="805"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Innovation Area
+    </text>
+
+    <text x="850"
+          y="860"
+          font-family="Arial, sans-serif"
+          font-size="16">
+        • Entitlement Object
+    </text>
+
+    <text x="850"
+          y="900"
+          font-family="Arial, sans-serif"
+          font-size="16">
+        • Policy Evaluation Engine
+    </text>
+
+    <text x="850"
+          y="940"
+          font-family="Arial, sans-serif"
+          font-size="16">
+        • Conditional Authorization
+    </text>
+
+    <text x="850"
+          y="980"
+          font-family="Arial, sans-serif"
+          font-size="16">
+        • Cross-Service Reuse
+    </text>
+
+
+    <!-- Footer -->
+
+    <text x="600"
+          y="1600"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Authentication → Entitlement → Policy → Authorization → Service
+    </text>
+
+
+</svg>
