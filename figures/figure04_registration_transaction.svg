@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1400"
+     height="1700"
+     viewBox="0 0 1400 1700">
+
+<title>Figure04 Registration Transaction</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Initial Credential and Identity Registration Model
+</desc>
+
+
+<rect x="0"
+      y="0"
+      width="1400"
+      height="1700"
+      fill="white"/>
+
+
+<!-- Title -->
+
+<text x="700"
+      y="60"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="32"
+      font-weight="bold">
+Figure04 Registration Transaction
+</text>
+
+<text x="700"
+      y="100"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+
+<!-- Registration Flow -->
+
+<text x="350"
+      y="160"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Registration Flow
+</text>
+
+
+<rect x="150" y="220"
+      width="400" height="100"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="350" y="280"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Registration Request
+</text>
+
+
+<line x1="350" y1="320"
+      x2="350" y2="380"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="340,375 360,375 350,390"
+         fill="black"/>
+
+
+<rect x="150" y="390"
+      width="400" height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="350" y="435"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Identity Verification
+</text>
+
+<text x="350" y="470"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Trust Establishment
+</text>
+
+
+<line x1="350" y1="500"
+      x2="350" y2="560"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="340,555 360,555 350,570"
+         fill="black"/>
+
+
+<rect x="150" y="570"
+      width="400" height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="350" y="620"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Credential Registration
+</text>
+
+<text x="350" y="655"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Public Key Registration
+</text>
+
+
+<line x1="350" y1="690"
+      x2="350" y2="750"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="340,745 360,745 350,760"
+         fill="black"/>
+
+
+<rect x="150" y="760"
+      width="400" height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="350" y="810"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Device Binding
+</text>
+
+<text x="350" y="845"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Credential Association
+</text>
+
+
+<line x1="350" y1="880"
+      x2="350" y2="940"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="340,935 360,935 350,950"
+         fill="black"/>
+
+
+<rect x="150" y="950"
+      width="400" height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="350" y="1010"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Registration Completion
+</text>
+
+
+
+<!-- Trust Relationship -->
+
+<text x="1025"
+      y="160"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Trust Relationship
+</text>
+
+
+<rect x="820" y="240"
+      width="400" height="100"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1020" y="300"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+User
+</text>
+
+
+<line x1="1020" y1="340"
+      x2="1020" y2="400"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1010,395 1030,395 1020,410"
+         fill="black"/>
+
+
+<rect x="820" y="420"
+      width="400" height="100"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1020" y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Device
+</text>
+
+
+<line x1="1020" y1="520"
+      x2="1020" y2="580"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1010,575 1030,575 1020,590"
+         fill="black"/>
+
+
+<rect x="820" y="600"
+      width="400" height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1020" y="650"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Credential
+</text>
+
+<text x="1020" y="685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Private Key Protected
+</text>
+
+
+<line x1="1020" y1="710"
+      x2="1020" y2="770"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1010,765 1030,765 1020,780"
+         fill="black"/>
+
+
+<rect x="820" y="790"
+      width="400" height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1020" y="840"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Server
+</text>
+
+<text x="1020" y="875"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Verification Data
+</text>
+
+
+
+<!-- Version 2.0 Extension -->
+
+<rect x="820"
+      y="1030"
+      width="400"
+      height="400"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1020"
+      y="1080"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Version 2.0 Extension
+</text>
+
+
+<text x="1020"
+      y="1160"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Credential
+</text>
+
+<text x="1020"
+      y="1210"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+↓
+</text>
+
+
+<text x="1020"
+      y="1260"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Entitlement Context
+</text>
+
+<text x="1020"
+      y="1310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+↓
+</text>
+
+
+<text x="1020"
+      y="1370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Authorization Capability
+</text>
+
+
+<!-- Footer -->
+
+<text x="700"
+      y="1550"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Identity → Credential → Device Binding → Future Authorization
+</text>
+
+
+</svg>
