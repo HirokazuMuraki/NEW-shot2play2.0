@@ -1,0 +1,58 @@
+NEW-shot2play Protocol Suite Version 2.0
+
+Specification Document License
+
+
+Copyright (c) Shot2Play Inc.
+
+All rights reserved.
+
+
+1. Specification Usage
+
+This document and associated specification materials may be viewed,
+studied, and referenced for the purpose of understanding the
+NEW-shot2play Protocol Suite Version 2.0.
+
+
+2. Implementation Reference
+
+Technical implementation based on this specification is permitted
+for evaluation, research, interoperability analysis, and
+implementation planning.
+
+
+3. Modification Restriction
+
+The official specification documents, including normative protocol
+definitions, MUST NOT be modified, redistributed, or represented as
+the official NEW-shot2play Protocol Suite specification without
+written authorization from Shot2Play Inc.
+
+
+4. Intellectual Property
+
+The copyright of this specification and associated materials is
+owned by Shot2Play Inc.
+
+Patent rights and patent applications related to the technology
+described in this specification are separately managed and are not
+granted by this document license.
+
+
+5. Trademark
+
+NEW-shot2play and related names are trademarks or protected names
+of Shot2Play Inc.
+
+
+6. Version Control
+
+Only officially released versions of this specification shall be
+considered normative references.
+
+Development versions are provided for review and engineering
+purposes.
+
+
+Shot2Play Inc.
