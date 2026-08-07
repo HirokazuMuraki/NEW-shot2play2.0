@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1400"
+     height="1700"
+     viewBox="0 0 1400 1700">
+
+<title>Figure03 Transaction Object Model</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Protocol Object Relationship Model
+</desc>
+
+
+<rect x="0"
+      y="0"
+      width="1400"
+      height="1700"
+      fill="white"/>
+
+
+<!-- Title -->
+
+<text x="700"
+      y="60"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="32"
+      font-weight="bold">
+Figure03 Transaction Object Model
+</text>
+
+<text x="700"
+      y="100"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+
+<!-- Main Object Chain -->
+
+<text x="350"
+      y="160"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Protocol Object Chain
+</text>
+
+
+<!-- Object boxes -->
+
+<rect x="150" y="220" width="400" height="120"
+      fill="white" stroke="black" stroke-width="2"/>
+
+<text x="350" y="275"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authentication Object
+</text>
+
+<text x="350" y="315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Identity Assurance
+</text>
+
+
+<line x1="350" y1="340"
+      x2="350" y2="400"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="340,395 360,395 350,410"
+         fill="black"/>
+
+
+<rect x="150" y="410" width="400" height="130"
+      fill="white" stroke="black" stroke-width="3"/>
+
+<text x="350" y="465"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Entitlement Object
+</text>
+
+<text x="350" y="505"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Rights and Conditions
+</text>
+
+
+<line x1="350" y1="540"
+      x2="350" y2="600"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="340,595 360,595 350,610"
+         fill="black"/>
+
+
+<rect x="150" y="610" width="400" height="120"
+      fill="white" stroke="black" stroke-width="3"/>
+
+<text x="350" y="665"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Policy Object
+</text>
+
+<text x="350" y="705"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Evaluation Rules
+</text>
+
+
+<line x1="350" y1="730"
+      x2="350" y2="790"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="340,785 360,785 350,800"
+         fill="black"/>
+
+
+<rect x="150" y="800" width="400" height="130"
+      fill="white" stroke="black" stroke-width="3"/>
+
+<text x="350" y="855"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authorization Object
+</text>
+
+<text x="350" y="895"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Permit / Deny Decision
+</text>
+
+
+<line x1="350" y1="930"
+      x2="350" y2="990"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="340,985 360,985 350,1000"
+         fill="black"/>
+
+
+<rect x="150" y="1000" width="400" height="120"
+      fill="white" stroke="black" stroke-width="2"/>
+
+<text x="350" y="1055"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service Request Object
+</text>
+
+<text x="350" y="1095"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Service Execution Target
+</text>
+
+
+
+<!-- Object Responsibility -->
+
+<rect x="800"
+      y="220"
+      width="450"
+      height="700"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+
+<text x="1025"
+      y="275"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Object Responsibility
+</text>
+
+
+<text x="850"
+      y="350"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authentication Object
+</text>
+
+<text x="850"
+      y="385"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Identity verification result
+</text>
+
+
+<text x="850"
+      y="480"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Entitlement Object
+</text>
+
+<text x="850"
+      y="515"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Rights and qualifications
+</text>
+
+
+<text x="850"
+      y="610"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Policy Object
+</text>
+
+<text x="850"
+      y="645"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision conditions
+</text>
+
+
+<text x="850"
+      y="740"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authorization Object
+</text>
+
+<text x="850"
+      y="775"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Final permission result
+</text>
+
+
+
+<!-- Scenario D -->
+
+<rect x="800"
+      y="980"
+      width="450"
+      height="460"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+
+<text x="1025"
+      y="1030"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Scenario D
+</text>
+
+<text x="1025"
+      y="1070"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Visit Based Entitlement
+</text>
+
+
+<text x="1025"
+      y="1150"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Visit Evidence
+</text>
+
+<text x="1025"
+      y="1200"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+↓
+</text>
+
+
+<text x="1025"
+      y="1270"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Discount Entitlement
+</text>
+
+<text x="1025"
+      y="1320"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+↓
+</text>
+
+
+<text x="1025"
+      y="1390"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+EC Authorization
+</text>
+
+
+<!-- Footer -->
+
+<text x="700"
+      y="1550"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Authentication Object → Entitlement Object → Policy Object → Authorization Object
+</text>
+
+
+</svg>
