@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1400"
+     height="1600"
+     viewBox="0 0 1400 1600">
+
+    <title>
+        Figure02 Transaction Framework
+    </title>
+
+    <desc>
+        NEW-shot2play Protocol Suite Version 2.0
+        Runtime Transaction Processing Framework
+    </desc>
+
+
+    <rect x="0"
+          y="0"
+          width="1400"
+          height="1600"
+          fill="white"/>
+
+
+    <!-- Title -->
+
+    <text x="700"
+          y="60"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="32"
+          font-weight="bold">
+        Figure02 Transaction Framework
+    </text>
+
+    <text x="700"
+          y="100"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="20">
+        NEW-shot2play Protocol Suite Version 2.0
+    </text>
+
+
+    <!-- Main Transaction Flow -->
+
+    <text x="350"
+          y="160"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Transaction Processing Flow
+    </text>
+
+
+    <!-- Request -->
+
+    <rect x="150"
+          y="220"
+          width="400"
+          height="90"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="350"
+          y="275"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="22"
+          font-weight="bold">
+        Request Initiation
+    </text>
+
+
+    <line x1="350"
+          y1="310"
+          x2="350"
+          y2="370"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="340,365 360,365 350,380"
+             fill="black"/>
+
+
+    <!-- Authentication Context -->
+
+    <rect x="150"
+          y="380"
+          width="400"
+          height="110"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="350"
+          y="420"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="21"
+          font-weight="bold">
+        Authentication Context
+    </text>
+
+    <text x="350"
+          y="455"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="17">
+        Identity Assurance
+    </text>
+
+
+    <line x1="350"
+          y1="490"
+          x2="350"
+          y2="550"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="340,545 360,545 350,560"
+             fill="black"/>
+
+
+    <!-- Entitlement -->
+
+    <rect x="150"
+          y="560"
+          width="400"
+          height="110"
+          fill="white"
+          stroke="black"
+          stroke-width="3"/>
+
+    <text x="350"
+          y="600"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="21"
+          font-weight="bold">
+        Entitlement Context
+    </text>
+
+    <text x="350"
+          y="635"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="17">
+        Rights and Qualifications
+    </text>
+
+
+    <line x1="350"
+          y1="670"
+          x2="350"
+          y2="730"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="340,725 360,725 350,740"
+             fill="black"/>
+
+
+    <!-- Policy -->
+
+    <rect x="150"
+          y="740"
+          width="400"
+          height="110"
+          fill="white"
+          stroke="black"
+          stroke-width="3"/>
+
+    <text x="350"
+          y="780"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="21"
+          font-weight="bold">
+        Policy Evaluation
+    </text>
+
+    <text x="350"
+          y="815"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="17">
+        Condition Assessment
+    </text>
+
+
+    <line x1="350"
+          y1="850"
+          x2="350"
+          y2="910"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="340,905 360,905 350,920"
+             fill="black"/>
+
+
+    <!-- Authorization -->
+
+    <rect x="150"
+          y="920"
+          width="400"
+          height="110"
+          fill="white"
+          stroke="black"
+          stroke-width="3"/>
+
+    <text x="350"
+          y="960"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="21"
+          font-weight="bold">
+        Authorization Result
+    </text>
+
+    <text x="350"
+          y="995"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="17">
+        Permit / Deny / Conditional
+    </text>
+
+
+    <line x1="350"
+          y1="1030"
+          x2="350"
+          y2="1090"
+          stroke="black"
+          stroke-width="3"/>
+
+    <polygon points="340,1085 360,1085 350,1100"
+             fill="black"/>
+
+
+    <!-- Service -->
+
+    <rect x="150"
+          y="1100"
+          width="400"
+          height="90"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="350"
+          y="1155"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="22"
+          font-weight="bold">
+        Service Execution
+    </text>
+
+
+    <!-- Scenario D -->
+
+    <text x="1050"
+          y="160"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="24"
+          font-weight="bold">
+        Scenario D
+    </text>
+
+    <text x="1050"
+          y="195"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Visit Based EC Discount
+    </text>
+
+
+    <rect x="850"
+          y="250"
+          width="400"
+          height="100"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="1050"
+          y="310"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="20">
+        Store Visit Event
+    </text>
+
+
+    <line x1="1050"
+          y1="350"
+          x2="1050"
+          y2="410"
+          stroke="black"
+          stroke-width="3"/>
+
+
+    <polygon points="1040,405 1060,405 1050,420"
+             fill="black"/>
+
+
+    <rect x="850"
+          y="420"
+          width="400"
+          height="100"
+          fill="white"
+          stroke="black"
+          stroke-width="2"/>
+
+    <text x="1050"
+          y="480"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="20">
+        Visit Evidence
+    </text>
+
+
+    <line x1="1050"
+          y1="520"
+          x2="1050"
+          y2="580"
+          stroke="black"
+          stroke-width="3"/>
+
+
+    <polygon points="1040,575 1060,575 1050,590"
+             fill="black"/>
+
+
+    <rect x="850"
+          y="590"
+          width="400"
+          height="100"
+          fill="white"
+          stroke="black"
+          stroke-width="3"/>
+
+    <text x="1050"
+          y="650"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="20">
+        Discount Entitlement
+    </text>
+
+
+    <line x1="1050"
+          y1="690"
+          x2="1050"
+          y2="750"
+          stroke="black"
+          stroke-width="3"/>
+
+
+    <polygon points="1040,745 1060,745 1050,760"
+             fill="black"/>
+
+
+    <rect x="850"
+          y="760"
+          width="400"
+          height="100"
+          fill="white"
+          stroke="black"
+          stroke-width="3"/>
+
+    <text x="1050"
+          y="820"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="20">
+        EC Access Authorization
+    </text>
+
+
+    <!-- Footer -->
+
+    <text x="700"
+          y="1450"
+          text-anchor="middle"
+          font-family="Arial, sans-serif"
+          font-size="18">
+        Authentication → Entitlement → Policy → Authorization → Service
+    </text>
+
+
+</svg>
