@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1500"
+     height="1900"
+     viewBox="0 0 1500 1900">
+
+<title>Figure06 Authentication Transaction</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Authentication Transaction and Verification Model
+</desc>
+
+<rect x="0"
+      y="0"
+      width="1500"
+      height="1900"
+      fill="white"/>
+
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="750"
+      y="60"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="32"
+      font-weight="bold">
+Figure06 Authentication Transaction
+</text>
+
+<text x="750"
+      y="100"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Device / Client Area -->
+<!-- ========================================================= -->
+
+<rect x="100"
+      y="150"
+      width="580"
+      height="1180"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="390"
+      y="205"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Device / Client
+</text>
+
+
+<!-- Authentication Request -->
+
+<rect x="180"
+      y="250"
+      width="420"
+      height="100"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="390"
+      y="310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Authentication Request
+</text>
+
+
+<line x1="390"
+      y1="350"
+      x2="390"
+      y2="400"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="380,395 400,395 390,410"
+         fill="black"/>
+
+
+<!-- One-Time QR Token -->
+
+<rect x="180"
+      y="410"
+      width="420"
+      height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="390"
+      y="460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+One-Time QR Token
+</text>
+
+<text x="390"
+      y="495"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Temporary / Single Use
+</text>
+
+
+<line x1="390"
+      y1="530"
+      x2="390"
+      y2="580"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="380,575 400,575 390,590"
+         fill="black"/>
+
+
+<!-- Challenge -->
+
+<rect x="180"
+      y="590"
+      width="420"
+      height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="390"
+      y="640"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Challenge
+</text>
+
+<text x="390"
+      y="675"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Transaction Freshness
+</text>
+
+
+<line x1="390"
+      y1="700"
+      x2="390"
+      y2="750"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="380,745 400,745 390,760"
+         fill="black"/>
+
+
+<!-- Device Credential -->
+
+<rect x="180"
+      y="760"
+      width="420"
+      height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="390"
+      y="810"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Device Credential
+</text>
+
+<text x="390"
+      y="845"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Private Key Protected
+</text>
+
+
+<line x1="390"
+      y1="880"
+      x2="390"
+      y2="930"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="380,925 400,925 390,940"
+         fill="black"/>
+
+
+<!-- Signature -->
+
+<rect x="180"
+      y="940"
+      width="420"
+      height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="390"
+      y="990"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Signature
+</text>
+
+<text x="390"
+      y="1025"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Cryptographic Proof
+</text>
+
+
+<line x1="390"
+      y1="1050"
+      x2="390"
+      y2="1100"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="380,1095 400,1095 390,1110"
+         fill="black"/>
+
+
+<!-- Authentication Result -->
+
+<rect x="180"
+      y="1110"
+      width="420"
+      height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="390"
+      y="1160"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Authentication Result
+</text>
+
+<text x="390"
+      y="1195"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Success / Failure
+</text>
+
+
+<text x="390"
+      y="1280"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Private Key remains on the registered device
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Authentication Server Area -->
+<!-- ========================================================= -->
+
+<rect x="820"
+      y="150"
+      width="580"
+      height="1180"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1110"
+      y="205"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Authentication Server
+</text>
+
+
+<!-- Authentication Transaction -->
+
+<rect x="900"
+      y="250"
+      width="420"
+      height="100"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1110"
+      y="310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Authentication Transaction
+</text>
+
+
+<line x1="1110"
+      y1="350"
+      x2="1110"
+      y2="400"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1100,395 1120,395 1110,410"
+         fill="black"/>
+
+
+<!-- Challenge Validation -->
+
+<rect x="900"
+      y="410"
+      width="420"
+      height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1110"
+      y="460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Challenge Validation
+</text>
+
+<text x="1110"
+      y="495"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Transaction Association
+</text>
+
+
+<line x1="1110"
+      y1="520"
+      x2="1110"
+      y2="570"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1100,565 1120,565 1110,580"
+         fill="black"/>
+
+
+<!-- QR Token Validation -->
+
+<rect x="900"
+      y="580"
+      width="420"
+      height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1110"
+      y="630"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+QR Token Validation
+</text>
+
+<text x="1110"
+      y="665"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Expiration / Single Use
+</text>
+
+
+<line x1="1110"
+      y1="700"
+      x2="1110"
+      y2="750"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1100,745 1120,745 1110,760"
+         fill="black"/>
+
+
+<!-- Signature Verification -->
+
+<rect x="900"
+      y="760"
+      width="420"
+      height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1110"
+      y="810"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Signature Verification
+</text>
+
+<text x="1110"
+      y="845"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Public Verification Information
+</text>
+
+
+<line x1="1110"
+      y1="880"
+      x2="1110"
+      y2="930"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1100,925 1120,925 1110,940"
+         fill="black"/>
+
+
+<!-- Registration State -->
+
+<rect x="900"
+      y="940"
+      width="420"
+      height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1110"
+      y="990"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Registration State
+</text>
+
+<text x="1110"
+      y="1025"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Credential / Device Binding
+</text>
+
+
+<line x1="1110"
+      y1="1050"
+      x2="1110"
+      y2="1100"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1100,1095 1120,1095 1110,1110"
+         fill="black"/>
+
+
+<!-- Verification Result -->
+
+<rect x="900"
+      y="1110"
+      width="420"
+      height="110"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1110"
+      y="1160"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Verification Result
+</text>
+
+<text x="1110"
+      y="1195"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Authenticated / Rejected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Transaction Boundary -->
+<!-- ========================================================= -->
+
+<line x1="680"
+      y1="680"
+      x2="820"
+      y2="680"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="810,670 810,690 830,680"
+         fill="black"/>
+
+<text x="750"
+      y="650"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Authentication Response
+</text>
+
+
+<line x1="820"
+      y1="1165"
+      x2="680"
+      y2="1165"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="690,1155 690,1175 670,1165"
+         fill="black"/>
+
+<text x="750"
+      y="1140"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Authentication Result
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Version 2.0 Extension -->
+<!-- ========================================================= -->
+
+<rect x="250"
+      y="1400"
+      width="1000"
+      height="430"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="750"
+      y="1455"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Version 2.0 Authentication Extension
+</text>
+
+
+<text x="750"
+      y="1515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Authentication Result
+</text>
+
+
+<line x1="750"
+      y1="1535"
+      x2="750"
+      y2="1565"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="740,1560 760,1560 750,1575"
+         fill="black"/>
+
+
+<text x="750"
+      y="1610"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Entitlement Context
+</text>
+
+
+<line x1="750"
+      y1="1630"
+      x2="750"
+      y2="1660"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="740,1655 760,1655 750,1670"
+         fill="black"/>
+
+
+<text x="750"
+      y="1705"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Policy Evaluation
+</text>
+
+
+<line x1="750"
+      y1="1725"
+      x2="750"
+      y2="1755"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="740,1750 760,1750 750,1765"
+         fill="black"/>
+
+
+<text x="750"
+      y="1805"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Authorization Decision
+</text>
+
+
+</svg>
