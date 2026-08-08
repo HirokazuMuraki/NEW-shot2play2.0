@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1800"
+     height="2300"
+     viewBox="0 0 1800 2300">
+
+<title>Figure11 Message Objects</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Message Object Model
+</desc>
+
+<rect x="0"
+      y="0"
+      width="1800"
+      height="2300"
+      fill="white"/>
+
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="900"
+      y="60"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure11 Message Objects
+</text>
+
+<text x="900"
+      y="100"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="900"
+      y="132"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Protocol Message Object Model
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Main Message Flow -->
+<!-- ========================================================= -->
+
+<rect x="70"
+      y="175"
+      width="980"
+      height="1600"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="560"
+      y="225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Logical Message Flow
+</text>
+
+
+<!-- Registration Request -->
+
+<rect x="250"
+      y="270"
+      width="620"
+      height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Registration Request
+</text>
+
+<text x="560"
+      y="350"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Registration Object
+</text>
+
+
+<line x1="560"
+      y1="390"
+      x2="560"
+      y2="425"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="550,420 570,420 560,435"
+         fill="black"/>
+
+
+<!-- Registration Response -->
+
+<rect x="250"
+      y="435"
+      width="620"
+      height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Registration Response
+</text>
+
+<text x="560"
+      y="515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Registration Result / Registration State
+</text>
+
+
+<line x1="560"
+      y1="555"
+      x2="560"
+      y2="590"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="550,585 570,585 560,600"
+         fill="black"/>
+
+
+<!-- Authentication Request -->
+
+<rect x="250"
+      y="600"
+      width="620"
+      height="130"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="645"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authentication Request
+</text>
+
+<text x="560"
+      y="680"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction / QR Token / Challenge
+</text>
+
+<text x="560"
+      y="705"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Expiration Context
+</text>
+
+
+<line x1="560"
+      y1="730"
+      x2="560"
+      y2="765"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="550,760 570,760 560,775"
+         fill="black"/>
+
+
+<!-- Authentication Response -->
+
+<rect x="250"
+      y="775"
+      width="620"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="820"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authentication Response
+</text>
+
+<text x="560"
+      y="855"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction Reference / Cryptographic Proof
+</text>
+
+<text x="560"
+      y="885"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication Result
+</text>
+
+
+<line x1="560"
+      y1="920"
+      x2="560"
+      y2="955"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="550,950 570,950 560,965"
+         fill="black"/>
+
+
+<!-- Authentication Verification -->
+
+<rect x="250"
+      y="965"
+      width="620"
+      height="100"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="1005"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Authentication Verification
+</text>
+
+<text x="560"
+      y="1035"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authenticated Identity Context
+</text>
+
+
+<line x1="560"
+      y1="1065"
+      x2="560"
+      y2="1100"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="550,1095 570,1095 560,1110"
+         fill="black"/>
+
+
+<!-- Entitlement Request -->
+
+<rect x="250"
+      y="1110"
+      width="620"
+      height="115"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="1155"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Entitlement Request
+</text>
+
+<text x="560"
+      y="1190"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Subject / Service / Capability Context
+</text>
+
+
+<line x1="560"
+      y1="1225"
+      x2="560"
+      y2="1260"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="550,1255 570,1255 560,1270"
+         fill="black"/>
+
+
+<!-- Entitlement Response -->
+
+<rect x="250"
+      y="1270"
+      width="620"
+      height="130"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="1315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Entitlement Response
+</text>
+
+<text x="560"
+      y="1350"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Capability / Scope / Entitlement State
+</text>
+
+<text x="560"
+      y="1375"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitled / Not Entitled / Expired / Revoked
+</text>
+
+
+<line x1="560"
+      y1="1400"
+      x2="560"
+      y2="1435"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="550,1430 570,1430 560,1445"
+         fill="black"/>
+
+
+<!-- Authorization Request -->
+
+<rect x="250"
+      y="1445"
+      width="620"
+      height="135"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="1490"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authorization Request
+</text>
+
+<text x="560"
+      y="1525"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Requested Action / Target Resource
+</text>
+
+<text x="560"
+      y="1550"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement Reference / Authorization Context
+</text>
+
+
+<line x1="560"
+      y1="1580"
+      x2="560"
+      y2="1615"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="550,1610 570,1610 560,1625"
+         fill="black"/>
+
+
+<!-- Authorization Decision -->
+
+<rect x="250"
+      y="1625"
+      width="620"
+      height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560"
+      y="1670"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authorization Decision
+</text>
+
+<text x="560"
+      y="1705"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Allowed / Denied
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Right: Message-to-Object Relationship -->
+<!-- ========================================================= -->
+
+<rect x="1100"
+      y="175"
+      width="630"
+      height="980"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1415"
+      y="225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Message-to-Object Relationship
+</text>
+
+
+<!-- Table Header -->
+
+<rect x="1150"
+      y="270"
+      width="530"
+      height="70"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="270"
+      x2="1430"
+      y2="340"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="312"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Message
+</text>
+
+<text x="1555"
+      y="312"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Data Object
+</text>
+
+
+<!-- Rows -->
+
+<rect x="1150"
+      y="340"
+      width="530"
+      height="75"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="340"
+      x2="1430"
+      y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Registration Request
+</text>
+
+<text x="1555"
+      y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Registration Object
+</text>
+
+
+<rect x="1150"
+      y="415"
+      width="530"
+      height="75"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="415"
+      x2="1430"
+      y2="490"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Registration Response
+</text>
+
+<text x="1555"
+      y="460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Registration Object
+</text>
+
+
+<rect x="1150"
+      y="490"
+      width="530"
+      height="75"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="490"
+      x2="1430"
+      y2="565"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authentication Request
+</text>
+
+<text x="1555"
+      y="535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authentication Object
+</text>
+
+
+<rect x="1150"
+      y="565"
+      width="530"
+      height="75"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="565"
+      x2="1430"
+      y2="640"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="610"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authentication Response
+</text>
+
+<text x="1555"
+      y="610"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authentication Object
+</text>
+
+
+<rect x="1150"
+      y="640"
+      width="530"
+      height="75"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="640"
+      x2="1430"
+      y2="715"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement Request
+</text>
+
+<text x="1555"
+      y="685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement Object
+</text>
+
+
+<rect x="1150"
+      y="715"
+      width="530"
+      height="75"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="715"
+      x2="1430"
+      y2="790"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="760"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement Response
+</text>
+
+<text x="1555"
+      y="760"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement Object
+</text>
+
+
+<rect x="1150"
+      y="790"
+      width="530"
+      height="75"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="790"
+      x2="1430"
+      y2="865"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authorization Request
+</text>
+
+<text x="1555"
+      y="835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authorization Object
+</text>
+
+
+<rect x="1150"
+      y="865"
+      width="530"
+      height="75"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1430"
+      y1="865"
+      x2="1430"
+      y2="940"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1290"
+      y="910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authorization Decision
+</text>
+
+<text x="1555"
+      y="910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authorization Object
+</text>
+
+
+<!-- Distinction -->
+
+<rect x="1150"
+      y="975"
+      width="530"
+      height="125"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1415"
+      y="1015"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Message ≠ Persistent Object
+</text>
+
+<text x="1415"
+      y="1050"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+A message carries or references
+</text>
+
+<text x="1415"
+      y="1075"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+data objects during protocol exchange.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Authentication Boundary -->
+<!-- ========================================================= -->
+
+<rect x="1100"
+      y="1200"
+      width="630"
+      height="450"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1415"
+      y="1250"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Authentication Message Boundary
+</text>
+
+<text x="1415"
+      y="1305"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Authentication Request
+</text>
+
+<text x="1415"
+      y="1340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1415"
+      y="1375"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Authentication Response
+</text>
+
+<text x="1415"
+      y="1410"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1415"
+      y="1445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Cryptographic Verification
+</text>
+
+<text x="1415"
+      y="1480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1415"
+      y="1515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Authenticated Identity
+</text>
+
+<text x="1415"
+      y="1570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authentication establishes identity assurance.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Version 2.0 Extension -->
+<!-- ========================================================= -->
+
+<rect x="200"
+      y="1830"
+      width="1400"
+      height="350"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="900"
+      y="1880"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Version 2.0 Authorization Message Extension
+</text>
+
+<text x="900"
+      y="1935"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Authenticated Identity
+</text>
+
+<text x="900"
+      y="1970"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="900"
+      y="2005"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Entitlement Request → Entitlement Response
+</text>
+
+<text x="900"
+      y="2040"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="900"
+      y="2075"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Authorization Request
+</text>
+
+<text x="900"
+      y="2110"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="900"
+      y="2145"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Authorization Decision → Service Action
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Footer -->
+<!-- ========================================================= -->
+
+<text x="900"
+      y="2240"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication messages establish identity assurance; authorization messages establish permission.
+</text>
+
+
+</svg>
