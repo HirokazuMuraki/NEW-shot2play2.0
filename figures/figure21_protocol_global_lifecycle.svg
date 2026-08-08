@@ -1,0 +1,914 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1900"
+     height="3100"
+     viewBox="0 0 1900 3100">
+
+<title>Figure21 Protocol Global Lifecycle</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Global Lifecycle integrating authentication, authorization,
+enforcement, service execution, consumption, entitlement state,
+failure recovery, and audit closure.
+</desc>
+
+<rect x="0" y="0" width="1900" height="3100" fill="white"/>
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="950" y="65"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure21 Protocol Global Lifecycle
+</text>
+
+<text x="950" y="105"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="950" y="138"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Authentication → Authorization → Enforcement → Consumption → Entitlement → Audit
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Global Lifecycle -->
+<!-- ========================================================= -->
+
+<rect x="70" y="180"
+      width="1760" height="1290"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Global Lifecycle
+</text>
+
+
+<!-- Transaction Initiation -->
+
+<rect x="700" y="275"
+      width="500" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Transaction Initiation
+</text>
+
+<text x="950" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction ID / Subject / Resource / Action
+</text>
+
+
+<line x1="950" y1="375"
+      x2="950" y2="415"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="940,410 960,410 950,425"
+         fill="black"/>
+
+
+<!-- Authentication -->
+
+<rect x="700" y="425"
+      width="500" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="465"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Authentication
+</text>
+
+<text x="950" y="495"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authentication Context / Authentication Result
+</text>
+
+
+<line x1="950" y1="525"
+      x2="950" y2="565"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="940,560 960,560 950,575"
+         fill="black"/>
+
+
+<!-- Authorization Request -->
+
+<rect x="700" y="575"
+      width="500" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="615"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Authorization Request
+</text>
+
+<text x="950" y="645"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Subject / Resource / Action / Policy / Entitlement Context
+</text>
+
+
+<line x1="950" y1="675"
+      x2="950" y2="715"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="940,710 960,710 950,725"
+         fill="black"/>
+
+
+<!-- Authorization Evaluation -->
+
+<rect x="700" y="725"
+      width="500" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="765"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Authorization Evaluation
+</text>
+
+<text x="950" y="795"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Policy + Entitlement + Authentication + Transaction Context
+</text>
+
+
+<line x1="950" y1="825"
+      x2="950" y2="865"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="940,860 960,860 950,875"
+         fill="black"/>
+
+
+<!-- Authorization Decision -->
+
+<rect x="700" y="875"
+      width="500" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="915"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Authorization Decision
+</text>
+
+<text x="950" y="945"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Allow / Deny / Conditional / Indeterminate / Error
+</text>
+
+
+<!-- Decision branches -->
+
+<line x1="700" y1="925"
+      x2="555" y2="925"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="560,915 560,935 545,925"
+         fill="black"/>
+
+<rect x="180" y="875"
+      width="365" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="362" y="915"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Deny / Error
+</text>
+
+<text x="362" y="945"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Protected execution rejected
+</text>
+
+
+<line x1="1200" y1="925"
+      x2="1345" y2="925"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1340,915 1340,935 1355,925"
+         fill="black"/>
+
+<rect x="1355" y="875"
+      width="365" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1537" y="915"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Allow
+</text>
+
+<text x="1537" y="945"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Protected execution permitted
+</text>
+
+
+<!-- Allow path -->
+
+<line x1="1537" y1="975"
+      x2="1537" y2="1025"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1527,1020 1547,1020 1537,1035"
+         fill="black"/>
+
+
+<rect x="1355" y="1035"
+      width="365" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1537" y="1075"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Enforcement
+</text>
+
+<text x="1537" y="1105"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision validity / correlation / conditions
+</text>
+
+
+<line x1="1537" y1="1135"
+      x2="1537" y2="1185"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1527,1180 1547,1180 1537,1195"
+         fill="black"/>
+
+
+<rect x="1355" y="1195"
+      width="365" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1537" y="1235"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Service Execution
+</text>
+
+<text x="1537" y="1265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Service Action / Execution Result
+</text>
+
+
+<line x1="1537" y1="1295"
+      x2="1537" y2="1345"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1527,1340 1547,1340 1537,1355"
+         fill="black"/>
+
+
+<rect x="1355" y="1355"
+      width="365" height="100"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1537" y="1395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Consumption
+</text>
+
+<text x="1537" y="1425"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Consumption Transaction / Idempotency
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Entitlement State -->
+<!-- ========================================================= -->
+
+<rect x="70" y="1490"
+      width="1760" height="430"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="1540"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Entitlement State Lifecycle
+</text>
+
+
+<rect x="145" y="1610"
+      width="300" height="110"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="295" y="1655"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Active
+</text>
+
+<text x="295" y="1685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Available entitlement
+</text>
+
+
+<line x1="445" y1="1665"
+      x2="495" y2="1665"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="490,1655 490,1675 505,1665"
+         fill="black"/>
+
+
+<rect x="505" y="1610"
+      width="300" height="110"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="655" y="1655"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Reserved
+</text>
+
+<text x="655" y="1685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction-bound state
+</text>
+
+
+<line x1="805" y1="1665"
+      x2="855" y2="1665"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="850,1655 850,1675 865,1665"
+         fill="black"/>
+
+
+<rect x="865" y="1610"
+      width="300" height="110"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1015" y="1655"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Consumed
+</text>
+
+<text x="1015" y="1685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Consumption completed
+</text>
+
+
+<line x1="1165" y1="1665"
+      x2="1215" y2="1665"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1210,1655 1210,1675 1225,1665"
+         fill="black"/>
+
+
+<rect x="1225" y="1610"
+      width="300" height="110"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1375" y="1655"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Exhausted
+</text>
+
+<text x="1375" y="1685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+No remaining entitlement
+</text>
+
+
+<line x1="1525" y1="1665"
+      x2="1575" y2="1665"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1570,1655 1570,1675 1585,1665"
+         fill="black"/>
+
+
+<rect x="1585" y="1610"
+      width="180" height="110"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1675" y="1655"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Final
+</text>
+
+<text x="1675" y="1685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+State
+</text>
+
+
+<text x="950" y="1780"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Other policy-defined states may include Suspended, Revoked, and Expired.
+</text>
+
+<text x="950" y="1820"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Every state transition remains correlated with the Transaction ID.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Failure / Recovery -->
+<!-- ========================================================= -->
+
+<rect x="70" y="1970"
+      width="1760" height="570"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="2020"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Failure / Recovery Branch
+</text>
+
+
+<rect x="145" y="2100"
+      width="330" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="310" y="2145"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Failure
+</text>
+
+<text x="310" y="2178"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Failure ID / Stage / Reason
+</text>
+
+
+<line x1="475" y1="2157"
+      x2="525" y2="2157"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="520,2147 520,2167 535,2157"
+         fill="black"/>
+
+
+<rect x="535" y="2100"
+      width="330" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="700" y="2145"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Recovery
+</text>
+
+<text x="700" y="2178"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Recovery ID / Retryability
+</text>
+
+
+<line x1="865" y1="2157"
+      x2="915" y2="2157"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="910,2147 910,2167 925,2157"
+         fill="black"/>
+
+
+<rect x="925" y="2100"
+      width="330" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1090" y="2145"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Retry
+</text>
+
+<text x="1090" y="2178"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Idempotent repeat
+</text>
+
+
+<line x1="1255" y1="2157"
+      x2="1305" y2="2157"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1300,2147 1300,2167 1315,2157"
+         fill="black"/>
+
+
+<rect x="1315" y="2100"
+      width="330" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1480" y="2145"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Compensation
+</text>
+
+<text x="1480" y="2178"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Original transaction referenced
+</text>
+
+
+<line x1="1645" y1="2157"
+      x2="1695" y2="2157"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1690,2147 1690,2167 1705,2157"
+         fill="black"/>
+
+
+<rect x="1705" y="2100"
+      width="80" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1745" y="2150"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Final
+</text>
+
+
+<rect x="350" y="2290"
+      width="1200" height="135"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="2335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Reconciliation
+</text>
+
+<text x="950" y="2370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Compare Authorization / Enforcement / Service / Consumption / Entitlement / Audit
+</text>
+
+<text x="950" y="2400"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Establish final consistent state when required.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Audit Closure -->
+<!-- ========================================================= -->
+
+<rect x="70" y="2580"
+      width="1760" height="420"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="2630"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Audit Closure
+</text>
+
+
+<rect x="150" y="2700"
+      width="450" height="145"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="375" y="2745"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Lifecycle Events
+</text>
+
+<text x="375" y="2780"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Initiation / Authentication / Authorization
+</text>
+
+<text x="375" y="2810"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Enforcement / Consumption / State / Recovery
+</text>
+
+
+<line x1="600" y1="2772"
+      x2="670" y2="2772"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="665,2762 665,2782 680,2772"
+         fill="black"/>
+
+
+<rect x="680" y="2700"
+      width="540" height="145"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="2745"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Final Transaction Result
+</text>
+
+<text x="950" y="2780"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Completed / Denied / Failed / Recovered
+</text>
+
+<text x="950" y="2810"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Compensated / Reconciled / Expired
+</text>
+
+
+<line x1="1220" y1="2772"
+      x2="1290" y2="2772"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1285,2762 1285,2782 1300,2772"
+         fill="black"/>
+
+
+<rect x="1300" y="2700"
+      width="450" height="145"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1525" y="2745"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+Audit Complete
+</text>
+
+<text x="1525" y="2780"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Final State / Completion Time
+</text>
+
+<text x="1525" y="2810"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction remains reconstructable
+</text>
+
+
+<text x="950" y="2910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Transaction ID remains the primary correlation key throughout the global lifecycle.
+</text>
+
+<text x="950" y="2945"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Future modifications require Design Freeze review.
+</text>
+
+
+</svg>
