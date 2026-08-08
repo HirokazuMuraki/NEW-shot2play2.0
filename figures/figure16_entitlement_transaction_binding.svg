@@ -1,0 +1,910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1900"
+     height="2850"
+     viewBox="0 0 1900 2850">
+
+<title>Figure16 Entitlement Transaction Binding</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Entitlement Transaction Binding Reference Model
+</desc>
+
+<rect x="0"
+      y="0"
+      width="1900"
+      height="2850"
+      fill="white"/>
+
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="950"
+      y="65"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure16 Entitlement Transaction Binding
+</text>
+
+<text x="950"
+      y="105"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="950"
+      y="137"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Transaction / Evidence / Entitlement / Authorization Binding
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Fundamental Binding Model -->
+<!-- ========================================================= -->
+
+<rect x="70"
+      y="180"
+      width="1760"
+      height="330"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950"
+      y="225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Fundamental Binding Model
+</text>
+
+<text x="950"
+      y="275"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Transaction → Evidence → Entitlement → Policy Evaluation
+</text>
+
+<text x="950"
+      y="315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="19"
+      font-weight="bold">
+↓
+</text>
+
+<text x="950"
+      y="350"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Authorization → Service Action → Entitlement State Update
+</text>
+
+<text x="950"
+      y="405"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Each state-changing result SHALL remain associated with the
+applicable Entitlement Identifier and causative Transaction.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Main Causal Flow -->
+<!-- ========================================================= -->
+
+<rect x="70"
+      y="550"
+      width="1120"
+      height="1420"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="630"
+      y="600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Causal Transaction Flow
+</text>
+
+
+<!-- Transaction -->
+
+<rect x="320"
+      y="650"
+      width="620"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="630"
+      y="695"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Transaction
+</text>
+
+<text x="630"
+      y="735"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Unique Transaction Identifier
+</text>
+
+<text x="630"
+      y="765"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Type / Subject / Service / Timestamp / Result
+</text>
+
+
+<line x1="630"
+      y1="795"
+      x2="630"
+      y2="840"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="620,835 640,835 630,850"
+         fill="black"/>
+
+
+<!-- Evidence -->
+
+<rect x="320"
+      y="850"
+      width="620"
+      height="155"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="630"
+      y="895"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Evidence
+</text>
+
+<text x="630"
+      y="935"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Evidence Identifier / Source / Event Type
+</text>
+
+<text x="630"
+      y="965"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Subject / Timestamp / Transaction Reference
+</text>
+
+
+<line x1="630"
+      y1="1005"
+      x2="630"
+      y2="1050"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="620,1045 640,1045 630,1060"
+         fill="black"/>
+
+
+<!-- Entitlement -->
+
+<rect x="320"
+      y="1060"
+      width="620"
+      height="170"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="630"
+      y="1105"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Entitlement
+</text>
+
+<text x="630"
+      y="1145"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement Identifier / Subject / Capability
+</text>
+
+<text x="630"
+      y="1175"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Resource / Service / Scope / Validity / State
+</text>
+
+<text x="630"
+      y="1205"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Created from traceable transaction or event
+</text>
+
+
+<line x1="630"
+      y1="1230"
+      x2="630"
+      y2="1275"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="620,1270 640,1270 630,1285"
+         fill="black"/>
+
+
+<!-- Authorization Request -->
+
+<rect x="320"
+      y="1285"
+      width="620"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="630"
+      y="1330"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authorization Request
+</text>
+
+<text x="630"
+      y="1370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authenticated Identity + Entitlement Reference
+</text>
+
+<text x="630"
+      y="1400"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Action / Resource / Policy Context
+</text>
+
+
+<line x1="630"
+      y1="1435"
+      x2="630"
+      y2="1480"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="620,1475 640,1475 630,1490"
+         fill="black"/>
+
+
+<!-- Policy Evaluation -->
+
+<rect x="320"
+      y="1490"
+      width="620"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="630"
+      y="1535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Policy Evaluation
+</text>
+
+<text x="630"
+      y="1575"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+State / Scope / Time / Revocation / Policy
+</text>
+
+<text x="630"
+      y="1605"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Current authoritative state is evaluated
+</text>
+
+
+<line x1="630"
+      y1="1640"
+      x2="630"
+      y2="1685"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="620,1680 640,1680 630,1695"
+         fill="black"/>
+
+
+<!-- Authorization Decision -->
+
+<rect x="320"
+      y="1695"
+      width="620"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="630"
+      y="1740"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authorization Decision
+</text>
+
+<text x="630"
+      y="1780"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+ALLOW / DENY
+</text>
+
+<text x="630"
+      y="1810"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision is bound to the evaluated request and state
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Object Reference Model -->
+<!-- ========================================================= -->
+
+<rect x="1240"
+      y="550"
+      width="590"
+      height="1420"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1535"
+      y="600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Object Reference Model
+</text>
+
+
+<!-- Transaction Ref -->
+
+<rect x="1290"
+      y="650"
+      width="490"
+      height="155"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1535"
+      y="695"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Transaction Reference
+</text>
+
+<text x="1535"
+      y="735"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction Identifier
+</text>
+
+<text x="1535"
+      y="765"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Causative event / state-changing operation
+</text>
+
+
+<!-- Evidence Ref -->
+
+<rect x="1290"
+      y="845"
+      width="490"
+      height="155"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1535"
+      y="890"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Evidence Reference
+</text>
+
+<text x="1535"
+      y="930"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Evidence Identifier
+</text>
+
+<text x="1535"
+      y="960"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Source event / transaction reference
+</text>
+
+
+<!-- Entitlement Ref -->
+
+<rect x="1290"
+      y="1040"
+      width="490"
+      height="175"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1535"
+      y="1085"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Entitlement Reference
+</text>
+
+<text x="1535"
+      y="1125"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement Identifier
+</text>
+
+<text x="1535"
+      y="1155"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Subject / Capability / Resource / Scope
+</text>
+
+<text x="1535"
+      y="1185"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authoritative state reference
+</text>
+
+
+<!-- Authorization Ref -->
+
+<rect x="1290"
+      y="1255"
+      width="490"
+      height="175"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1535"
+      y="1300"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Authorization Reference
+</text>
+
+<text x="1535"
+      y="1340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authorization Request Identifier
+</text>
+
+<text x="1535"
+      y="1370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision / Policy Context
+</text>
+
+<text x="1535"
+      y="1400"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Evaluated Entitlement State
+</text>
+
+
+<!-- Consumption Ref -->
+
+<rect x="1290"
+      y="1470"
+      width="490"
+      height="175"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1535"
+      y="1515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Consumption Reference
+</text>
+
+<text x="1535"
+      y="1555"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Consumption Transaction Identifier
+</text>
+
+<text x="1535"
+      y="1585"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Quantity Before / Quantity After
+</text>
+
+<text x="1535"
+      y="1615"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Consumption Time / Result
+</text>
+
+
+<!-- Traceability -->
+
+<rect x="1290"
+      y="1685"
+      width="490"
+      height="190"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1535"
+      y="1730"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Traceability
+</text>
+
+<text x="1535"
+      y="1770"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction ID ↔ Evidence ID
+</text>
+
+<text x="1535"
+      y="1800"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+↕
+</text>
+
+<text x="1535"
+      y="1830"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement ID ↔ Authorization ID
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Service / Consumption Flow -->
+<!-- ========================================================= -->
+
+<rect x="70"
+      y="2040"
+      width="1760"
+      height="430"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950"
+      y="2090"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Service / Consumption Flow
+</text>
+
+
+<rect x="145"
+      y="2140"
+      width="400"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="345"
+      y="2185"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Authorization = Allow
+</text>
+
+<text x="345"
+      y="2225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Protected action permitted
+</text>
+
+<text x="345"
+      y="2255"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Service MAY execute
+</text>
+
+
+<line x1="545"
+      y1="2212"
+      x2="665"
+      y2="2212"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="660,2202 660,2222 680,2212"
+         fill="black"/>
+
+
+<rect x="680"
+      y="2140"
+      width="540"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950"
+      y="2185"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Consumption Transaction
+</text>
+
+<text x="950"
+      y="2225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Unique transaction / idempotency reference
+</text>
+
+<text x="950"
+      y="2255"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Consumption occurs only after Allow
+</text>
+
+
+<line x1="1220"
+      y1="2212"
+      x2="1340"
+      y2="2212"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1335,2202 1335,2222 1355,2212"
+         fill="black"/>
+
+
+<rect x="1355"
+      y="2140"
+      width="400"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1555"
+      y="2185"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Entitlement State Update
+</text>
+
+<text x="1555"
+      y="2225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Quantity / Usage / State
+</text>
+
+<text x="1555"
+      y="2255"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+State update references causative transaction
+</text>
+
+
+<text x="950"
+      y="2345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+If Authorization = Deny → No Consumption → Entitlement State remains unchanged
+</text>
+
+<text x="950"
+      y="2380"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Failure after Allow SHALL be handled according to the applicable Service Profile.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Version 2.0 Example -->
+<!-- ========================================================= -->
+
+<rect x="70"
+      y="2520"
+      width="1760"
+      height="210"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950"
+      y="2565"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Version 2.0 Example
+</text>
+
+<text x="950"
+      y="2610"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+T1: Visit Transaction → E1: Visit Evidence → Q1: Discount Entitlement Created
+</text>
+
+<text x="950"
+      y="2645"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+T2: EC Authorization Request → Allow → T3: Consumption → Q1 State Updated
+</text>
+
+<text x="950"
+      y="2680"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+T1, T2, and T3 remain independently identifiable while remaining causally linked.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Footer -->
+<!-- ========================================================= -->
+
+<text x="950"
+      y="2800"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction, evidence, entitlement, authorization, and consumption
+remain explicitly traceable.
+</text>
+
+
+</svg>
