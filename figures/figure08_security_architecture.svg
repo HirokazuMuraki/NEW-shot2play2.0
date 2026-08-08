@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600"
+     height="1900"
+     viewBox="0 0 1600 1900">
+
+<title>Figure08 Security Architecture</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Security Architecture, Trust Boundaries, and Security Responsibilities
+</desc>
+
+<rect x="0"
+      y="0"
+      width="1600"
+      height="1900"
+      fill="white"/>
+
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="800"
+      y="60"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="32"
+      font-weight="bold">
+Figure08 Security Architecture
+</text>
+
+<text x="800"
+      y="100"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Device Trust Boundary -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="150"
+      width="560"
+      height="1130"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="360"
+      y="205"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Device Trust Boundary
+</text>
+
+<text x="360"
+      y="240"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Protected Device Environment
+</text>
+
+
+<!-- Device Security -->
+
+<rect x="150"
+      y="285"
+      width="420"
+      height="360"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="360"
+      y="335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Device Security
+</text>
+
+<line x1="190"
+      y1="360"
+      x2="530"
+      y2="360"
+      stroke="black"
+      stroke-width="1"/>
+
+<text x="360"
+      y="410"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Private Key Protection
+</text>
+
+<text x="360"
+      y="445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Private Key remains device-protected
+</text>
+
+<text x="360"
+      y="500"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Credential Protection
+</text>
+
+<text x="360"
+      y="535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Protected credential environment
+</text>
+
+<text x="360"
+      y="590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Device Binding
+</text>
+
+<text x="360"
+      y="625"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Credential associated with registration
+</text>
+
+
+<!-- Device Credential -->
+
+<rect x="150"
+      y="700"
+      width="420"
+      height="260"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="360"
+      y="750"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Protected Credential
+</text>
+
+<text x="360"
+      y="805"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+Private Key
+</text>
+
+<text x="360"
+      y="845"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+        ↓
+</text>
+
+<text x="360"
+      y="890"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+Signature Generation
+</text>
+
+<text x="360"
+      y="930"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Cryptographic proof of possession
+</text>
+
+
+<text x="360"
+      y="1030"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Private credential material never crosses the boundary
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Server Trust Boundary -->
+<!-- ========================================================= -->
+
+<rect x="960"
+      y="150"
+      width="560"
+      height="1130"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1240"
+      y="205"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Server Trust Boundary
+</text>
+
+<text x="1240"
+      y="240"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authoritative Server Environment
+</text>
+
+
+<!-- Server Security -->
+
+<rect x="1030"
+      y="285"
+      width="420"
+      height="360"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1240"
+      y="335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Server Security
+</text>
+
+<line x1="1070"
+      y1="360"
+      x2="1410"
+      y2="360"
+      stroke="black"
+      stroke-width="1"/>
+
+<text x="1240"
+      y="410"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Token State
+</text>
+
+<text x="1240"
+      y="445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Valid / Expired / Consumed / Invalid
+</text>
+
+<text x="1240"
+      y="500"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Registration State
+</text>
+
+<text x="1240"
+      y="535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Registered / Active / Revoked / Terminated
+</text>
+
+<text x="1240"
+      y="590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Verification State
+</text>
+
+<text x="1240"
+      y="625"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Token / Challenge / Signature validation
+</text>
+
+
+<!-- Server Verification -->
+
+<rect x="1030"
+      y="700"
+      width="420"
+      height="260"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1240"
+      y="750"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Server Verification
+</text>
+
+<text x="1240"
+      y="805"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+Public Verification Information
+</text>
+
+<text x="1240"
+      y="845"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+        ↓
+</text>
+
+<text x="1240"
+      y="890"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+Authentication Result
+</text>
+
+<text x="1240"
+      y="930"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Authenticated / Rejected
+</text>
+
+
+<text x="1240"
+      y="1030"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Private key is not stored on the server
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Cross Boundary -->
+<!-- ========================================================= -->
+
+<line x1="640"
+      y1="530"
+      x2="960"
+      y2="530"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="950,520 950,540 970,530"
+         fill="black"/>
+
+<text x="800"
+      y="490"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Authentication Data
+</text>
+
+<text x="800"
+      y="570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+QR Token / Challenge / Signature
+</text>
+
+
+<line x1="960"
+      y1="760"
+      x2="640"
+      y2="760"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="650,750 650,770 630,760"
+         fill="black"/>
+
+<text x="800"
+      y="720"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Authentication Result
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Authentication Security Layer -->
+<!-- ========================================================= -->
+
+<rect x="250"
+      y="1320"
+      width="1100"
+      height="230"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="800"
+      y="1370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Authentication Security
+</text>
+
+<text x="800"
+      y="1420"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+One-Time QR Token
+</text>
+
+<text x="800"
+      y="1455"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Challenge
+</text>
+
+<text x="800"
+      y="1490"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Signature
+</text>
+
+<text x="800"
+      y="1525"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Verification
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Authorization Security -->
+<!-- ========================================================= -->
+
+<rect x="250"
+      y="1600"
+      width="1100"
+      height="230"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="800"
+      y="1650"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Authorization Security
+</text>
+
+<text x="800"
+      y="1700"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Entitlement
+</text>
+
+<text x="800"
+      y="1735"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Policy Evaluation
+</text>
+
+<text x="800"
+      y="1770"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Authorization Decision
+</text>
+
+<text x="800"
+      y="1805"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication establishes identity assurance; authorization determines permitted actions.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Security Architecture Flow -->
+<!-- ========================================================= -->
+
+<text x="800"
+      y="1285"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Security Responsibility Flow
+</text>
+
+
+<line x1="800"
+      y1="1550"
+      x2="800"
+      y2="1590"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="790,1585 810,1585 800,1600"
+         fill="black"/>
+
+
+</svg>
