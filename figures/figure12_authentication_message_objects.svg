@@ -1,0 +1,901 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1900"
+     height="2450"
+     viewBox="0 0 1900 2450">
+
+<title>Figure12 Authentication Message Objects</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Authentication Message Objects
+</desc>
+
+<rect x="0"
+      y="0"
+      width="1900"
+      height="2450"
+      fill="white"/>
+
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="950"
+      y="60"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure12 Authentication Message Objects
+</text>
+
+<text x="950"
+      y="102"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="950"
+      y="135"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Authentication Message Object Model
+</text>
+
+
+<!-- ========================================================= -->
+<!-- LEFT: Authentication Message Structure -->
+<!-- ========================================================= -->
+
+<rect x="70"
+      y="180"
+      width="1000"
+      height="1690"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="570"
+      y="230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Authentication Message Structure
+</text>
+
+
+<!-- Authentication Request -->
+
+<rect x="250"
+      y="275"
+      width="640"
+      height="120"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="570"
+      y="320"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authentication Request
+</text>
+
+<text x="570"
+      y="355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction Identifier / Registration Reference
+</text>
+
+
+<line x1="570"
+      y1="395"
+      x2="570"
+      y2="430"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="560,425 580,425 570,440"
+         fill="black"/>
+
+
+<!-- Transaction Context -->
+
+<rect x="250"
+      y="440"
+      width="640"
+      height="155"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="570"
+      y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Transaction Context
+</text>
+
+<text x="570"
+      y="515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction ID / Registration ID
+</text>
+
+<text x="570"
+      y="542"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Creation / Expiration / Consumption State
+</text>
+
+<text x="570"
+      y="569"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authoritative server-side state
+</text>
+
+
+<line x1="570"
+      y1="595"
+      x2="570"
+      y2="630"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="560,625 580,625 570,640"
+         fill="black"/>
+
+
+<!-- QR Token + Challenge -->
+
+<rect x="150"
+      y="640"
+      width="840"
+      height="210"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="570"
+      y="680"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+QR Token + Challenge
+</text>
+
+<line x1="570"
+      y1="700"
+      x2="570"
+      y2="830"
+      stroke="black"
+      stroke-width="1"/>
+
+<line x1="170"
+      y1="715"
+      x2="970"
+      y2="715"
+      stroke="black"
+      stroke-width="1"/>
+
+<text x="350"
+      y="755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+QR Token
+</text>
+
+<text x="350"
+      y="790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Short-lived transaction reference
+</text>
+
+<text x="350"
+      y="817"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+One-time consumption
+</text>
+
+<text x="790"
+      y="755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Challenge
+</text>
+
+<text x="790"
+      y="790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction-specific value
+</text>
+
+<text x="790"
+      y="817"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Cryptographic binding
+</text>
+
+
+<line x1="570"
+      y1="850"
+      x2="570"
+      y2="885"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="560,880 580,880 570,895"
+         fill="black"/>
+
+
+<!-- Authentication Response -->
+
+<rect x="250"
+      y="895"
+      width="640"
+      height="175"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="570"
+      y="935"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Authentication Response
+</text>
+
+<text x="570"
+      y="970"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction Reference / Credential Identifier
+</text>
+
+<text x="570"
+      y="998"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Cryptographic Proof / Client Information
+</text>
+
+<text x="570"
+      y="1026"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Response bound to current Challenge
+</text>
+
+
+<line x1="570"
+      y1="1070"
+      x2="570"
+      y2="1105"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="560,1100 580,1100 570,1115"
+         fill="black"/>
+
+
+<!-- Cryptographic Proof -->
+
+<rect x="250"
+      y="1115"
+      width="640"
+      height="155"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="570"
+      y="1155"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Cryptographic Proof
+</text>
+
+<text x="570"
+      y="1190"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Proof of possession of registered private key
+</text>
+
+<text x="570"
+      y="1220"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Verified using registered public key
+</text>
+
+<text x="570"
+      y="1248"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Private key remains in protected client environment
+</text>
+
+
+<line x1="570"
+      y1="1270"
+      x2="570"
+      y2="1305"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="560,1300 580,1300 570,1315"
+         fill="black"/>
+
+
+<!-- Verification Result -->
+
+<rect x="250"
+      y="1315"
+      width="640"
+      height="175"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="570"
+      y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Verification Result
+</text>
+
+<text x="570"
+      y="1390"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction / Token / Challenge Validation
+</text>
+
+<text x="570"
+      y="1418"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Credential / Cryptographic Proof Validation
+</text>
+
+<text x="570"
+      y="1448"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Verified / Rejected
+</text>
+
+
+<line x1="570"
+      y1="1490"
+      x2="570"
+      y2="1525"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="560,1520 580,1520 570,1535"
+         fill="black"/>
+
+
+<!-- Authentication Result -->
+
+<rect x="250"
+      y="1535"
+      width="640"
+      height="140"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="570"
+      y="1575"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Authentication Result
+</text>
+
+<text x="570"
+      y="1610"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Authenticated Identity / Authentication Failure
+</text>
+
+<text x="570"
+      y="1640"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Result remains bound to the transaction
+</text>
+
+
+<!-- ========================================================= -->
+<!-- RIGHT TOP: Message Element Responsibility -->
+<!-- ========================================================= -->
+
+<rect x="1120"
+      y="180"
+      width="710"
+      height="1060"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1475"
+      y="230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Message Element Responsibility
+</text>
+
+
+<!-- Transaction ID -->
+
+<rect x="1180"
+      y="275"
+      width="590"
+      height="135"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1475"
+      y="315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Transaction Identifier
+</text>
+
+<text x="1475"
+      y="355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Binds all authentication elements
+</text>
+
+<text x="1475"
+      y="383"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+to one authentication transaction
+</text>
+
+
+<!-- QR Token -->
+
+<rect x="1180"
+      y="435"
+      width="590"
+      height="135"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1475"
+      y="475"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+QR Token
+</text>
+
+<text x="1475"
+      y="515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Short-lived transaction reference
+</text>
+
+<text x="1475"
+      y="543"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Consumed once and then invalidated
+</text>
+
+
+<!-- Challenge -->
+
+<rect x="1180"
+      y="595"
+      width="590"
+      height="135"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1475"
+      y="635"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Challenge
+</text>
+
+<text x="1475"
+      y="675"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Binds cryptographic proof
+</text>
+
+<text x="1475"
+      y="703"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+to the current transaction
+</text>
+
+
+<!-- Cryptographic Proof -->
+
+<rect x="1180"
+      y="755"
+      width="590"
+      height="155"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1475"
+      y="795"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Cryptographic Proof
+</text>
+
+<text x="1475"
+      y="835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Demonstrates private-key possession
+</text>
+
+<text x="1475"
+      y="865"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Verified against registered public key
+</text>
+
+<text x="1475"
+      y="892"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Private key never transmitted
+</text>
+
+
+<!-- Verification -->
+
+<rect x="1180"
+      y="935"
+      width="590"
+      height="175"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1475"
+      y="975"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Verification Result
+</text>
+
+<text x="1475"
+      y="1015"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction / Token / Challenge
+</text>
+
+<text x="1475"
+      y="1043"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Credential / Proof validation
+</text>
+
+<text x="1475"
+      y="1075"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Verified / Rejected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- RIGHT MIDDLE: Security / Replay Protection -->
+<!-- ========================================================= -->
+
+<rect x="1120"
+      y="1290"
+      width="710"
+      height="580"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1475"
+      y="1340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Security / Replay Protection
+</text>
+
+
+<text x="1475"
+      y="1400"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Unique Transaction
+</text>
+
+<text x="1475"
+      y="1435"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1475"
+      y="1470"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Short-Lived QR Token
+</text>
+
+<text x="1475"
+      y="1505"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1475"
+      y="1540"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Transaction-Specific Challenge
+</text>
+
+<text x="1475"
+      y="1575"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1475"
+      y="1610"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Cryptographic Proof
+</text>
+
+<text x="1475"
+      y="1645"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1475"
+      y="1680"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Server-Side Verification
+</text>
+
+<text x="1475"
+      y="1715"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1475"
+      y="1750"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+One-Time Consumption
+</text>
+
+<text x="1475"
+      y="1805"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Replay is rejected when any freshness condition fails.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Version 2.0 Extension -->
+<!-- ========================================================= -->
+
+<rect x="180"
+      y="1940"
+      width="1540"
+      height="350"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950"
+      y="1990"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Version 2.0 Authentication → Authorization Extension
+</text>
+
+<text x="950"
+      y="2045"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Authentication Request → Authentication Response
+</text>
+
+<text x="950"
+      y="2080"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="950"
+      y="2115"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Verification Result → Authenticated Identity
+</text>
+
+<text x="950"
+      y="2150"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="950"
+      y="2185"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Entitlement → Policy Evaluation
+</text>
+
+<text x="950"
+      y="2220"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="950"
+      y="2255"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Authorization Decision → Service
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Footer -->
+<!-- ========================================================= -->
+
+<text x="950"
+      y="2400"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication Message Objects establish identity assurance; authorization remains a separate decision boundary.
+</text>
+
+
+</svg>
