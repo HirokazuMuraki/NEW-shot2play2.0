@@ -1,0 +1,941 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1900"
+     height="3100"
+     viewBox="0 0 1900 3100">
+
+<title>Figure20 Audit and Traceability Model</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Audit and Traceability Model
+</desc>
+
+<rect x="0" y="0" width="1900" height="3100" fill="white"/>
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="950" y="65"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure20 Audit and Traceability Model
+</text>
+
+<text x="950" y="105"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="950" y="137"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Transaction → Correlation → Audit → Investigation
+</text>
+
+
+<!-- ========================================================= -->
+<!-- End-to-End Transaction Trace -->
+<!-- ========================================================= -->
+
+<rect x="70" y="180"
+      width="1760" height="620"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+End-to-End Transaction Trace
+</text>
+
+
+<!-- Trace boxes -->
+
+<rect x="125" y="280"
+      width="300" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="275" y="325"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Authentication Context
+</text>
+
+<text x="275" y="355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authentication ID
+</text>
+
+
+<line x1="425" y1="338"
+      x2="475" y2="338"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="470,328 470,348 485,338"
+         fill="black"/>
+
+
+<rect x="485" y="280"
+      width="300" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="635" y="325"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Authorization
+</text>
+
+<text x="635" y="355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Request ID / Decision ID
+</text>
+
+
+<line x1="785" y1="338"
+      x2="835" y2="338"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="830,328 830,348 845,338"
+         fill="black"/>
+
+
+<rect x="845" y="280"
+      width="300" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="995" y="325"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Enforcement
+</text>
+
+<text x="995" y="355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Enforcement Record
+</text>
+
+
+<line x1="1145" y1="338"
+      x2="1195" y2="338"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1190,328 1190,348 1205,338"
+         fill="black"/>
+
+
+<rect x="1205" y="280"
+      width="300" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1355" y="325"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Service Action
+</text>
+
+<text x="1355" y="355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Service Action ID
+</text>
+
+
+<line x1="1505" y1="338"
+      x2="1555" y2="338"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1550,328 1550,348 1565,338"
+         fill="black"/>
+
+
+<rect x="1565" y="280"
+      width="190" height="115"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1660" y="320"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Consumption
+</text>
+
+<text x="1660" y="350"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13">
+Transaction ID
+</text>
+
+<text x="950" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+↓
+</text>
+
+<rect x="550" y="475"
+      width="800" height="135"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="520"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Entitlement State Update
+</text>
+
+<text x="950" y="555"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement ID / State Version / Update Transaction ID
+</text>
+
+<text x="950" y="585"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+State transition remains correlated with the originating transaction.
+</text>
+
+
+<!-- Common correlation key -->
+
+<rect x="250" y="650"
+      width="1400" height="105"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="692"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Common Correlation Key
+</text>
+
+<text x="950" y="725"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Transaction Identifier = Primary correlation reference across the processing chain
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Audit Event Model -->
+<!-- ========================================================= -->
+
+<rect x="70" y="850"
+      width="1760" height="650"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="895"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Audit Event Model
+</text>
+
+
+<!-- Left column -->
+
+<rect x="120" y="950"
+      width="480" height="450"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="360" y="995"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Event Categories
+</text>
+
+<text x="170" y="1040"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication
+</text>
+
+<text x="170" y="1075"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Registration
+</text>
+
+<text x="170" y="1110"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authorization Request
+</text>
+
+<text x="170" y="1145"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authorization Decision
+</text>
+
+<text x="170" y="1180"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Enforcement
+</text>
+
+<text x="170" y="1215"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Service Action
+</text>
+
+<text x="170" y="1250"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Consumption
+</text>
+
+<text x="170" y="1285"
+      font-family="Arial, sans-serif"
+      font-size="15">
+State Update
+</text>
+
+<text x="170" y="1320"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Failure / Retry
+</text>
+
+<text x="170" y="1355"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Compensation / Reconciliation
+</text>
+
+
+<!-- Middle column -->
+
+<rect x="710" y="950"
+      width="480" height="450"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="995"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Audit Event Contents
+</text>
+
+<text x="760" y="1040"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Event Identifier
+</text>
+
+<text x="760" y="1075"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Event Type
+</text>
+
+<text x="760" y="1110"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Event Time
+</text>
+
+<text x="760" y="1145"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction Identifier
+</text>
+
+<text x="760" y="1180"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Actor / Subject Reference
+</text>
+
+<text x="760" y="1215"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource Reference
+</text>
+
+<text x="760" y="1250"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Result
+</text>
+
+<text x="760" y="1285"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Related Identifier
+</text>
+
+<line x1="760" y1="1315"
+      x2="1140" y2="1315"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="950" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Private keys and raw credential material SHALL NOT be recorded.
+</text>
+
+
+<!-- Right column -->
+
+<rect x="1300" y="950"
+      width="480" height="450"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1540" y="995"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Audit Protection
+</text>
+
+<text x="1350" y="1045"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Access Control
+</text>
+
+<text x="1350" y="1085"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Integrity Protection
+</text>
+
+<text x="1350" y="1125"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Append-Only Storage
+</text>
+
+<text x="1350" y="1165"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Cryptographic Hashing
+</text>
+
+<text x="1350" y="1205"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Digital Signature
+</text>
+
+<text x="1350" y="1245"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Secure Retention
+</text>
+
+<text x="1350" y="1285"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Immutable Storage
+</text>
+
+<text x="1540" y="1340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Implementation mechanism is policy-dependent.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Correlation Graph -->
+<!-- ========================================================= -->
+
+<rect x="70" y="1550"
+      width="1760" height="680"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="1600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Transaction Correlation Graph
+</text>
+
+
+<rect x="720" y="1660"
+      width="460" height="260"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="1710"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Transaction ID
+</text>
+
+<text x="950" y="1745"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Primary Correlation Key
+</text>
+
+
+<!-- left branch -->
+
+<line x1="720" y1="1720"
+      x2="590" y2="1720"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="595,1710 595,1730 580,1720"
+         fill="black"/>
+
+<rect x="140" y="1660"
+      width="440" height="120"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="360" y="1705"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Authentication ID
+</text>
+
+<text x="360" y="1738"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Subject / Device / Authentication Result
+</text>
+
+
+<line x1="720" y1="1810"
+      x2="590" y2="1810"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="595,1800 595,1820 580,1810"
+         fill="black"/>
+
+<rect x="140" y="1800"
+      width="440" height="120"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="360" y="1845"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Authorization Decision ID
+</text>
+
+<text x="360" y="1878"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Policy / Entitlement / Decision
+</text>
+
+
+<!-- right branch -->
+
+<line x1="1180" y1="1720"
+      x2="1310" y2="1720"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1305,1710 1305,1730 1320,1720"
+         fill="black"/>
+
+<rect x="1320" y="1660"
+      width="440" height="120"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1540" y="1705"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Consumption Transaction ID
+</text>
+
+<text x="1540" y="1738"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement / Amount / State Version
+</text>
+
+
+<line x1="1180" y1="1810"
+      x2="1310" y2="1810"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1305,1800 1305,1820 1320,1810"
+         fill="black"/>
+
+<rect x="1320" y="1800"
+      width="440" height="120"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1540" y="1845"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Recovery / Compensation ID
+</text>
+
+<text x="1540" y="1878"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Retry / Compensation / Reconciliation
+</text>
+
+
+<rect x="450" y="1980"
+      width="1000" height="150"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="2030"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Entitlement State
+</text>
+
+<text x="950" y="2065"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement ID / Previous State / Current State / State Version
+</text>
+
+<text x="950" y="2095"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+State transition is traceable to the originating transaction.
+</text>
+
+
+<text x="950" y="2165"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+One logical transaction → Multiple correlated records
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Investigation and Dispute Resolution -->
+<!-- ========================================================= -->
+
+<rect x="70" y="2280"
+      width="1760" height="500"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="2330"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Investigation and Dispute Resolution
+</text>
+
+
+<rect x="120" y="2390"
+      width="500" height="300"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="370" y="2435"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Investigation Entry Points
+</text>
+
+<text x="170" y="2480"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction ID
+</text>
+
+<text x="170" y="2515"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement ID
+</text>
+
+<text x="170" y="2550"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authorization Decision ID
+</text>
+
+<text x="170" y="2585"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Consumption Transaction ID
+</text>
+
+<text x="170" y="2620"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Recovery / Reconciliation ID
+</text>
+
+
+<rect x="700" y="2390"
+      width="500" height="300"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="950" y="2435"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Reconstruct Transaction
+</text>
+
+<text x="950" y="2480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+What was requested?
+</text>
+
+<text x="950" y="2515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Which authorization decision was made?
+</text>
+
+<text x="950" y="2550"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Was enforcement applied?
+</text>
+
+<text x="950" y="2585"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Was consumption recorded?
+</text>
+
+<text x="950" y="2620"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Which entitlement state changed?
+</text>
+
+
+<rect x="1280" y="2390"
+      width="490" height="300"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1525" y="2435"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Verifiable Outcome
+</text>
+
+<text x="1525" y="2480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Original Transaction
+</text>
+
+<text x="1525" y="2515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Failure / Recovery History
+</text>
+
+<text x="1525" y="2550"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Final State
+</text>
+
+<text x="1525" y="2590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Independently Verifiable
+</text>
+
+<text x="1525" y="2630"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13">
+from retained records
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Version 2.0 Example -->
+<!-- ========================================================= -->
+
+<rect x="70" y="2830"
+      width="1760" height="210"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="950" y="2870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Version 2.0 Example
+</text>
+
+<text x="950" y="2910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction ID → Authentication → Authorization = Allow → Enforcement → Service → Consumption
+</text>
+
+<text x="950" y="2945"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+→ Entitlement State Version N+1 → Audit Complete
+</text>
+
+<text x="950" y="2980"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Failure path: Failure Record → Recovery ID → Retry / Compensation / Reconciliation → Final Outcome
+</text>
+
+
+</svg>
