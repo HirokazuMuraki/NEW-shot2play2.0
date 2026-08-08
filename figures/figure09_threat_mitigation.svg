@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1800"
+     height="2200"
+     viewBox="0 0 1800 2200">
+
+<title>Figure09 Threat Mitigation</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Threat Mitigation and Security Control Mapping
+</desc>
+
+<rect x="0"
+      y="0"
+      width="1800"
+      height="2200"
+      fill="white"/>
+
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="900"
+      y="60"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure09 Threat Mitigation
+</text>
+
+<text x="900"
+      y="102"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="900"
+      y="135"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Threat-to-Control Mapping
+</text>
+
+
+<!-- ========================================================= -->
+<!-- ========================================================= -->
+<!-- Fundamental Model -->
+<!-- ========================================================= -->
+
+<rect x="250"
+      y="170"
+      width="1300"
+      height="130"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="900"
+      y="205"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Threat Mitigation Model
+</text>
+
+<text x="900"
+      y="260"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Threat → Attack Condition → Security Control → Security Result
+</text>
+
+
+<!-- Matrix Header -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="340"
+      width="1640"
+      height="90"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<line x1="430"
+      y1="340"
+      x2="430"
+      y2="430"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="340"
+      x2="850"
+      y2="430"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="340"
+      x2="1280"
+      y2="430"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Threat
+</text>
+
+<text x="640"
+      y="395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Attack Condition
+</text>
+
+<text x="1065"
+      y="395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Security Control
+</text>
+
+<text x="1500"
+      y="395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Security Result
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Row 1 -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="430"
+      width="1640"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="430"
+      y1="430"
+      x2="430"
+      y2="580"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="430"
+      x2="850"
+      y2="580"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="430"
+      x2="1280"
+      y2="580"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+QR Token Replay
+</text>
+
+<text x="640"
+      y="475"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Captured valid token
+</text>
+
+<text x="640"
+      y="505"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+presented again
+</text>
+
+<text x="1065"
+      y="465"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+One-Time Token
+</text>
+
+<text x="1065"
+      y="495"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Consumption State
+</text>
+
+<text x="1500"
+      y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Replay
+</text>
+
+<text x="1500"
+      y="510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Rejected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Row 2 -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="580"
+      width="1640"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="430"
+      y1="580"
+      x2="430"
+      y2="730"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="580"
+      x2="850"
+      y2="730"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="580"
+      x2="1280"
+      y2="730"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="630"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Token Expiration
+</text>
+
+<text x="640"
+      y="625"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Token remains available
+</text>
+
+<text x="640"
+      y="655"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+after validity period
+</text>
+
+<text x="1065"
+      y="615"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Short Validity
+</text>
+
+<text x="1065"
+      y="645"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Server Expiration Check
+</text>
+
+<text x="1500"
+      y="630"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Expired Token
+</text>
+
+<text x="1500"
+      y="660"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Rejected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Row 3 -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="730"
+      width="1640"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="430"
+      y1="730"
+      x2="430"
+      y2="880"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="730"
+      x2="850"
+      y2="880"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="730"
+      x2="1280"
+      y2="880"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="780"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Challenge Replay
+</text>
+
+<text x="640"
+      y="775"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Previous challenge
+</text>
+
+<text x="640"
+      y="805"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+used in another context
+</text>
+
+<text x="1065"
+      y="765"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction Binding
+</text>
+
+<text x="1065"
+      y="795"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Server State Validation
+</text>
+
+<text x="1500"
+      y="780"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Challenge Reuse
+</text>
+
+<text x="1500"
+      y="810"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Rejected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Row 4 -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="880"
+      width="1640"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="430"
+      y1="880"
+      x2="430"
+      y2="1030"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="880"
+      x2="850"
+      y2="1030"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="880"
+      x2="1280"
+      y2="1030"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="930"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Credential Theft
+</text>
+
+<text x="640"
+      y="925"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Attempt to obtain
+</text>
+
+<text x="640"
+      y="955"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+private credential
+</text>
+
+<text x="1065"
+      y="915"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Device-Protected
+</text>
+
+<text x="1065"
+      y="945"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Private Key
+</text>
+
+<text x="1500"
+      y="930"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Secret Material
+</text>
+
+<text x="1500"
+      y="960"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Remains Protected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Row 5 -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="1030"
+      width="1640"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="430"
+      y1="1030"
+      x2="430"
+      y2="1180"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="1030"
+      x2="850"
+      y2="1180"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="1030"
+      x2="1280"
+      y2="1180"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="1080"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Signature Forgery
+</text>
+
+<text x="640"
+      y="1075"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Response submitted
+</text>
+
+<text x="640"
+      y="1105"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+without valid private key
+</text>
+
+<text x="1065"
+      y="1065"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Cryptographic Signature
+</text>
+
+<text x="1065"
+      y="1095"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Server Verification
+</text>
+
+<text x="1500"
+      y="1080"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Invalid Signature
+</text>
+
+<text x="1500"
+      y="1110"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Rejected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Row 6 -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="1180"
+      width="1640"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="430"
+      y1="1180"
+      x2="430"
+      y2="1330"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="1180"
+      x2="850"
+      y2="1330"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="1180"
+      x2="1280"
+      y2="1330"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="1230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Revoked Device
+</text>
+
+<text x="640"
+      y="1225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Revoked credential
+</text>
+
+<text x="640"
+      y="1255"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+attempts authentication
+</text>
+
+<text x="1065"
+      y="1215"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Registration State
+</text>
+
+<text x="1065"
+      y="1245"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Revocation Validation
+</text>
+
+<text x="1500"
+      y="1230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Revoked Credential
+</text>
+
+<text x="1500"
+      y="1260"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Rejected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Row 7 -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="1330"
+      width="1640"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="430"
+      y1="1330"
+      x2="430"
+      y2="1480"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="1330"
+      x2="850"
+      y2="1480"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="1330"
+      x2="1280"
+      y2="1480"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="1380"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Transaction Tampering
+</text>
+
+<text x="640"
+      y="1375"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction data modified
+</text>
+
+<text x="640"
+      y="1405"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+before verification
+</text>
+
+<text x="1065"
+      y="1365"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Signature
+</text>
+
+<text x="1065"
+      y="1395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+State Validation
+</text>
+
+<text x="1500"
+      y="1380"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Modified Data
+</text>
+
+<text x="1500"
+      y="1410"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Rejected
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Row 8 -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="1480"
+      width="1640"
+      height="150"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="430"
+      y1="1480"
+      x2="430"
+      y2="1630"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="850"
+      y1="1480"
+      x2="850"
+      y2="1630"
+      stroke="black"
+      stroke-width="2"/>
+
+<line x1="1280"
+      y1="1480"
+      x2="1280"
+      y2="1630"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="255"
+      y="1530"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Unauthorized Action
+</text>
+
+<text x="640"
+      y="1525"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authenticated subject
+</text>
+
+<text x="640"
+      y="1555"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+requests restricted action
+</text>
+
+<text x="1065"
+      y="1515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement
+</text>
+
+<text x="1065"
+      y="1545"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy Evaluation
+</text>
+
+<text x="1500"
+      y="1530"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Unauthorized Action
+</text>
+
+<text x="1500"
+      y="1560"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Denied
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Defense in Depth -->
+<!-- ========================================================= -->
+
+<rect x="200"
+      y="1680"
+      width="1400"
+      height="220"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="900"
+      y="1725"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Defense-in-Depth
+</text>
+
+<text x="900"
+      y="1770"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Temporary Transaction State  ·  One-Time Token  ·  Challenge Freshness
+</text>
+
+<text x="900"
+      y="1805"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Device-Protected Credential  ·  Cryptographic Verification
+</text>
+
+<text x="900"
+      y="1840"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Registration Control  ·  Server-Side State  ·  Authorization Policy
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Version 2.0 Extension -->
+<!-- ========================================================= -->
+
+<rect x="200"
+      y="1950"
+      width="1400"
+      height="190"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="900"
+      y="1995"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Version 2.0 Authorization Extension
+</text>
+
+<text x="900"
+      y="2035"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Authentication Threats → Authentication Controls
+</text>
+
+<text x="900"
+      y="2068"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+↓
+</text>
+
+<text x="900"
+      y="2100"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Authenticated Identity → Entitlement → Policy Evaluation
+→ Authorization Decision
+</text>
+
+
+</svg>
