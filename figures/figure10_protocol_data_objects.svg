@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1800"
+     height="2200"
+     viewBox="0 0 1800 2200">
+
+<title>Figure10 Protocol Data Objects</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0
+Protocol Data Objects and Object Responsibilities
+</desc>
+
+<rect x="0"
+      y="0"
+      width="1800"
+      height="2200"
+      fill="white"/>
+
+
+<!-- ========================================================= -->
+<!-- Title -->
+<!-- ========================================================= -->
+
+<text x="900"
+      y="60"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure10 Protocol Data Objects
+</text>
+
+<text x="900"
+      y="102"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="900"
+      y="135"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Protocol Data Object Model
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Left: Object Relationship -->
+<!-- ========================================================= -->
+
+<rect x="80"
+      y="180"
+      width="850"
+      height="1460"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="505"
+      y="230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Protocol Data Objects
+</text>
+
+
+<!-- Registration Object -->
+
+<rect x="180"
+      y="285"
+      width="650"
+      height="190"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="505"
+      y="330"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Registration Object
+</text>
+
+<line x1="240"
+      y1="350"
+      x2="770"
+      y2="350"
+      stroke="black"
+      stroke-width="1"/>
+
+<text x="505"
+      y="390"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+User / Device / Credential Association
+</text>
+
+<text x="505"
+      y="425"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Public Key / Registration State
+</text>
+
+<text x="505"
+      y="460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Private key material remains outside the server object
+</text>
+
+
+<line x1="505"
+      y1="475"
+      x2="505"
+      y2="525"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="495,520 515,520 505,535"
+         fill="black"/>
+
+
+<!-- Authentication Object -->
+
+<rect x="180"
+      y="535"
+      width="650"
+      height="210"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="505"
+      y="580"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Authentication Object
+</text>
+
+<line x1="240"
+      y1="600"
+      x2="770"
+      y2="600"
+      stroke="black"
+      stroke-width="1"/>
+
+<text x="505"
+      y="640"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Transaction Identifier / Registration Identifier
+</text>
+
+<text x="505"
+      y="675"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+QR Token / Challenge / Expiration
+</text>
+
+<text x="505"
+      y="710"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Verification / Consumption State
+</text>
+
+
+<line x1="505"
+      y1="745"
+      x2="505"
+      y2="795"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="495,790 515,790 505,805"
+         fill="black"/>
+
+
+<!-- Entitlement Object -->
+
+<rect x="180"
+      y="805"
+      width="650"
+      height="190"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="505"
+      y="850"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Entitlement Object
+</text>
+
+<line x1="240"
+      y1="870"
+      x2="770"
+      y2="870"
+      stroke="black"
+      stroke-width="1"/>
+
+<text x="505"
+      y="910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Granted Capability / Scope
+</text>
+
+<text x="505"
+      y="945"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Effective Time / Entitlement State
+</text>
+
+<text x="505"
+      y="980"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Version 2.0 Authorization Layer
+</text>
+
+
+<line x1="505"
+      y1="995"
+      x2="505"
+      y2="1045"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="495,1040 515,1040 505,1055"
+         fill="black"/>
+
+
+<!-- Policy Object -->
+
+<rect x="180"
+      y="1055"
+      width="650"
+      height="190"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="505"
+      y="1100"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Policy Object
+</text>
+
+<line x1="240"
+      y1="1120"
+      x2="770"
+      y2="1120"
+      stroke="black"
+      stroke-width="1"/>
+
+<text x="505"
+      y="1160"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Subject / Resource / Action Conditions
+</text>
+
+<text x="505"
+      y="1195"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Context Conditions / Policy State
+</text>
+
+<text x="505"
+      y="1230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authorization rules are separate from authentication state
+</text>
+
+
+<line x1="505"
+      y1="1245"
+      x2="505"
+      y2="1295"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="495,1290 515,1290 505,1305"
+         fill="black"/>
+
+
+<!-- Authorization Object -->
+
+<rect x="180"
+      y="1305"
+      width="650"
+      height="250"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="505"
+      y="1350"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Authorization Object
+</text>
+
+<line x1="240"
+      y1="1370"
+      x2="770"
+      y2="1370"
+      stroke="black"
+      stroke-width="1"/>
+
+<text x="505"
+      y="1410"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Authorization Identifier
+</text>
+
+<text x="505"
+      y="1445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Entitlement / Policy References
+</text>
+
+<text x="505"
+      y="1480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Requested Action / Target Resource
+</text>
+
+<text x="505"
+      y="1515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Authorization Decision
+</text>
+
+<text x="505"
+      y="1545"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Allowed / Denied
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Right: Object Responsibility -->
+<!-- ========================================================= -->
+
+<rect x="1000"
+      y="180"
+      width="720"
+      height="1040"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1360"
+      y="230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Object Responsibility
+</text>
+
+
+<!-- Registration Responsibility -->
+
+<rect x="1060"
+      y="275"
+      width="600"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1360"
+      y="315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Registration Object
+</text>
+
+<text x="1360"
+      y="355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Credential and device registration
+</text>
+
+<text x="1360"
+      y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Registration state and revocation
+</text>
+
+
+<!-- Authentication Responsibility -->
+
+<rect x="1060"
+      y="450"
+      width="600"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1360"
+      y="490"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Authentication Object
+</text>
+
+<text x="1360"
+      y="530"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication transaction state
+</text>
+
+<text x="1360"
+      y="560"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Token, challenge, verification result
+</text>
+
+
+<!-- Entitlement Responsibility -->
+
+<rect x="1060"
+      y="625"
+      width="600"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1360"
+      y="665"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Entitlement Object
+</text>
+
+<text x="1360"
+      y="705"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Granted capability and scope
+</text>
+
+<text x="1360"
+      y="735"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Capability validity and state
+</text>
+
+
+<!-- Policy Responsibility -->
+
+<rect x="1060"
+      y="800"
+      width="600"
+      height="145"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1360"
+      y="840"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Policy Object
+</text>
+
+<text x="1360"
+      y="880"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authorization rules and conditions
+</text>
+
+<text x="1360"
+      y="910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource, action, and context constraints
+</text>
+
+
+<!-- Authorization Responsibility -->
+
+<rect x="1060"
+      y="975"
+      width="600"
+      height="180"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1360"
+      y="1015"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Authorization Object
+</text>
+
+<text x="1360"
+      y="1055"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authorization request and object references
+</text>
+
+<text x="1360"
+      y="1085"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy evaluation result
+</text>
+
+<text x="1360"
+      y="1115"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Allowed / Denied
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Separation Principle -->
+<!-- ========================================================= -->
+
+<rect x="1000"
+      y="1260"
+      width="720"
+      height="380"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1360"
+      y="1310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Object Separation Principle
+</text>
+
+<text x="1360"
+      y="1360"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Identity Registration
+</text>
+
+<text x="1360"
+      y="1395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1360"
+      y="1430"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Authentication Transaction
+</text>
+
+<text x="1360"
+      y="1465"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1360"
+      y="1500"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Entitlement + Policy
+</text>
+
+<text x="1360"
+      y="1535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="1360"
+      y="1570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Authorization Decision
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Version 2.0 Extension -->
+<!-- ========================================================= -->
+
+<rect x="250"
+      y="1700"
+      width="1300"
+      height="330"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="900"
+      y="1750"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Version 2.0 Authorization Extension
+</text>
+
+<text x="900"
+      y="1800"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Authentication
+</text>
+
+<text x="900"
+      y="1835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="900"
+      y="1870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Authenticated Identity
+</text>
+
+<text x="900"
+      y="1905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="900"
+      y="1940"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+Entitlement → Policy Evaluation
+</text>
+
+<text x="900"
+      y="1975"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18">
+↓
+</text>
+
+<text x="900"
+      y="2010"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Authorization Decision → Service
+</text>
+
+
+<!-- ========================================================= -->
+<!-- Footer -->
+<!-- ========================================================= -->
+
+<text x="900"
+      y="2155"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication establishes identity assurance; authorization determines permitted service actions.
+</text>
+
+
+</svg>
