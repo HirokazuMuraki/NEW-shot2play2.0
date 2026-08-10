@@ -1,0 +1,582 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1500"
+     height="1500"
+     viewBox="0 0 1500 1500">
+
+  <title>Figure34 — Authorization Decision State Lifecycle</title>
+
+  <defs>
+    <marker id="arrow"
+            markerWidth="9"
+            markerHeight="9"
+            refX="8"
+            refY="4.5"
+            orient="auto"
+            markerUnits="strokeWidth">
+      <path d="M0,0 L9,4.5 L0,9 Z"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1500" height="1500" fill="white"/>
+
+  <!-- ====================================================== -->
+  <!-- TITLE -->
+  <!-- ====================================================== -->
+
+  <text x="750" y="45"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="28"
+        font-weight="bold">
+    Figure34 — Authorization Decision State Lifecycle
+  </text>
+
+  <text x="750" y="75"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16">
+    Decision lifecycle, exceptional states, revalidation, and recovery
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- CENTRAL NORMAL FLOW -->
+  <!-- ====================================================== -->
+
+  <rect x="500" y="110"
+        width="500"
+        height="850"
+        rx="14"
+        ry="14"
+        fill="white"
+        stroke="#666"
+        stroke-width="2"/>
+
+  <text x="750" y="145"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21"
+        font-weight="bold">
+    Normal Authorization Flow
+  </text>
+
+  <!-- Decision Request -->
+  <rect x="600" y="180"
+        width="300" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#333" stroke-width="2"/>
+
+  <text x="750" y="220"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Decision Request
+  </text>
+
+  <!-- Evaluation -->
+  <rect x="600" y="290"
+        width="300" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#333" stroke-width="2"/>
+
+  <text x="750" y="330"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Evaluation
+  </text>
+
+  <!-- Decision Issued -->
+  <rect x="600" y="400"
+        width="300" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#222" stroke-width="3"/>
+
+  <text x="750" y="440"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Decision Issued
+  </text>
+
+  <!-- Decision Valid -->
+  <rect x="600" y="510"
+        width="300" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#222" stroke-width="3"/>
+
+  <text x="750" y="550"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Decision Valid
+  </text>
+
+  <!-- Enforcement -->
+  <rect x="600" y="620"
+        width="300" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#222" stroke-width="3"/>
+
+  <text x="750" y="660"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Enforcement
+  </text>
+
+  <!-- Service Execution -->
+  <rect x="600" y="730"
+        width="300" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#222" stroke-width="3"/>
+
+  <text x="750" y="770"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Service Execution
+  </text>
+
+  <!-- Completed -->
+  <rect x="600" y="840"
+        width="300" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#222" stroke-width="3"/>
+
+  <text x="750" y="880"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Completed
+  </text>
+
+  <!-- Main arrows -->
+  <line x1="750" y1="245" x2="750" y2="290"
+        stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <line x1="750" y1="355" x2="750" y2="400"
+        stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <line x1="750" y1="465" x2="750" y2="510"
+        stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <line x1="750" y1="575" x2="750" y2="620"
+        stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <line x1="750" y1="685" x2="750" y2="730"
+        stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <line x1="750" y1="795" x2="750" y2="840"
+        stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- LEFT EXCEPTION AREA -->
+  <!-- ====================================================== -->
+
+  <rect x="90" y="110"
+        width="280"
+        height="850"
+        rx="14" ry="14"
+        fill="white"
+        stroke="#666" stroke-width="2"/>
+
+  <text x="230" y="145"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21" font-weight="bold">
+    Exceptional States
+  </text>
+
+  <!-- Deny -->
+  <rect x="120" y="290"
+        width="220" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#555" stroke-width="2"/>
+
+  <text x="230" y="330"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Deny
+  </text>
+
+  <!-- Evaluation → Deny -->
+  <line x1="600" y1="322"
+        x2="340" y2="322"
+        stroke="#555" stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Invalid -->
+  <rect x="120" y="510"
+        width="220" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#555" stroke-width="2"/>
+
+  <text x="230" y="550"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Invalid
+  </text>
+
+  <!-- Decision Valid → Invalid -->
+  <line x1="600" y1="542"
+        x2="340" y2="542"
+        stroke="#555" stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- RECOVERY -->
+  <!-- ====================================================== -->
+
+  <rect x="120" y="660"
+        width="220" height="145"
+        rx="12" ry="12"
+        fill="white"
+        stroke="#666" stroke-width="2"/>
+
+  <text x="230" y="695"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="19" font-weight="bold">
+    Recovery
+  </text>
+
+  <text x="230" y="728"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    New Authorization Request
+  </text>
+
+  <text x="230" y="753"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    New Evaluation
+  </text>
+
+  <text x="230" y="780"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    Previous invalid state
+  </text>
+
+<!-- Deny → Recovery:
+     exit from the left side of Deny,
+     travel outside the Invalid box,
+     then enter Recovery from above -->
+ <path d="M120 322
+         L70 322
+         L70 625
+         L230 625
+         L230 660"
+      fill="none"
+      stroke="#555"
+      stroke-width="2"
+      marker-end="url(#arrow)"/>
+
+  <!-- Invalid → Recovery -->
+  <line x1="230" y1="575"
+        x2="230" y2="660"
+        stroke="#555"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- RIGHT EXCEPTION AREA -->
+  <!-- ====================================================== -->
+
+  <rect x="1130" y="110"
+        width="280"
+        height="850"
+        rx="14" ry="14"
+        fill="white"
+        stroke="#666" stroke-width="2"/>
+
+  <text x="1270" y="145"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21" font-weight="bold">
+    Revalidation
+  </text>
+
+  <!-- Revoked -->
+  <rect x="1160" y="510"
+        width="220" height="65"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#555" stroke-width="2"/>
+
+  <text x="1270" y="550"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18" font-weight="bold">
+    Revoked
+  </text>
+
+  <!-- Decision Valid → Revoked -->
+  <line x1="900" y1="542"
+        x2="1160" y2="542"
+        stroke="#555" stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Revalidation -->
+  <rect x="1160" y="660"
+        width="220" height="145"
+        rx="12" ry="12"
+        fill="white"
+        stroke="#666" stroke-width="2"/>
+
+  <text x="1270" y="695"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="19" font-weight="bold">
+    Revalidation
+  </text>
+
+  <text x="1270" y="728"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Context Change
+  </text>
+
+  <text x="1270" y="753"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Security State Change
+  </text>
+
+  <text x="1270" y="780"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    State Verification
+  </text>
+
+  <!-- Revoked → Revalidation -->
+  <line x1="1270" y1="575"
+        x2="1270" y2="660"
+        stroke="#555" stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- RECOVERY OUTPUT -->
+  <!-- ====================================================== -->
+
+  <rect x="120" y="850"
+        width="220" height="75"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#333" stroke-width="2"/>
+
+  <text x="230" y="880"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15" font-weight="bold">
+    New Authorization
+  </text>
+
+  <text x="230" y="903"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Request Created
+  </text>
+
+  <line x1="230" y1="805"
+        x2="230" y2="850"
+        stroke="#555" stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- REVALIDATION OUTPUT -->
+  <!-- ====================================================== -->
+
+  <rect x="1160" y="850"
+        width="220" height="75"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#333" stroke-width="2"/>
+
+  <text x="1270" y="880"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15" font-weight="bold">
+    Revalidation Result
+  </text>
+
+  <text x="1270" y="903"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Continue / Deny
+  </text>
+
+  <line x1="1270" y1="805"
+        x2="1270" y2="850"
+        stroke="#555" stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- DISTRIBUTED DECISION STATE -->
+  <!-- ====================================================== -->
+
+  <rect x="500" y="1030"
+        width="500" height="250"
+        rx="14" ry="14"
+        fill="white"
+        stroke="#666" stroke-width="2"/>
+
+  <text x="750" y="1065"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21" font-weight="bold">
+    Distributed Decision State
+  </text>
+
+  <text x="750" y="1092"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Authoritative state and propagated representation
+  </text>
+
+  <rect x="535" y="1120"
+        width="190" height="70"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#333" stroke-width="2"/>
+
+  <text x="630" y="1150"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15" font-weight="bold">
+    Authoritative
+  </text>
+
+  <text x="630" y="1172"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    Decision State
+  </text>
+
+  <rect x="775" y="1120"
+        width="190" height="70"
+        rx="9" ry="9"
+        fill="white"
+        stroke="#333" stroke-width="2"/>
+
+  <text x="870" y="1150"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15" font-weight="bold">
+    Local
+  </text>
+
+  <text x="870" y="1172"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    Representation
+  </text>
+
+  <line x1="725" y1="1155"
+        x2="775" y2="1155"
+        stroke="#555" stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <text x="750" y="1225"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    Inconsistency requires revalidation or Fail-Closed handling.
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- SECURITY INVARIANT -->
+  <!-- ====================================================== -->
+
+  <rect x="1120" y="1015"
+        width="300"
+        height="235"
+        rx="12" ry="12"
+        fill="white"
+        stroke="#666"
+        stroke-width="2"/>
+
+  <text x="1270" y="1050"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Security Invariant
+  </text>
+
+  <text x="1270" y="1085"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    Only a valid decision
+  </text>
+
+  <text x="1270" y="1108"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    may authorize protected
+  </text>
+
+  <text x="1270" y="1131"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    service execution.
+  </text>
+
+  <text x="1270" y="1170"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    Invalid, revoked,
+  </text>
+
+  <text x="1270" y="1193"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    stale, or inconsistent
+  </text>
+
+  <text x="1270" y="1216"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    state is rejected.
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- FOOTER -->
+  <!-- ====================================================== -->
+
+  <text x="750" y="1370"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Protected Service Execution requires a valid Authorization Decision and successful enforcement.
+  </text>
+
+</svg>
