@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 05 — Entitlement Protocol | NEW-shot2play Protocol Suite Version 2.0
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<h1>
+Chapter 05 — Entitlement Protocol
+</h1>
+
+<p>
+This chapter defines the Entitlement Protocol of the
+NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+The Entitlement Protocol defines an Entitlement as an independent
+protocol-level object representing a subject's eligibility,
+capability, permission, benefit, or usage right for a specified
+service, resource, or operation.
+</p>
+
+<div class="normative must">
+
+<strong>NORMATIVE PRINCIPLE</strong><br><br>
+
+An Entitlement SHALL be represented as an independent protocol
+object and SHALL remain logically distinguishable from the
+Authentication Object and Authentication Result.
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>
+5.1 Purpose and Scope
+</h2>
+
+<p>
+The purpose of the Entitlement Protocol is to establish a
+machine-processable representation of rights and eligibility that
+can be evaluated independently from the authentication operation.
+</p>
+
+<p>
+The Entitlement Protocol covers:
+</p>
+
+<ul>
+
+<li>
+Entitlement Object definition;
+</li>
+
+<li>
+Entitlement acquisition;
+</li>
+
+<li>
+Entitlement ownership and subject binding;
+</li>
+
+<li>
+Entitlement state;
+</li>
+
+<li>
+Entitlement validity;
+</li>
+
+<li>
+Entitlement scope;
+</li>
+
+<li>
+Entitlement quantity and usage;
+</li>
+
+<li>
+Entitlement consumption;
+</li>
+
+<li>
+Entitlement expiration;
+</li>
+
+<li>
+Entitlement revocation;
+</li>
+
+<li>
+transaction binding;
+</li>
+
+<li>
+policy interaction; and
+</li>
+
+<li>
+authorization interaction.
+</li>
+
+</ul>
+
+<p>
+The protocol MAY be applied to permissions, benefits, coupons,
+tickets, attendance rights, point balances, service eligibility,
+resource access rights, or other machine-processable forms of
+entitlement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.2 Entitlement as a Protocol Object
+</h2>
+
+<p>
+An Entitlement SHALL be represented as an independent logical object.
+</p>
+
+<p>
+The Entitlement Object SHALL be identifiable independently of the
+Authentication Transaction that established the identity of its
+subject.
+</p>
+
+<p>
+The object MAY represent:
+</p>
+
+<ul>
+
+<li>
+a right to access a service;
+</li>
+
+<li>
+a right to use a resource;
+</li>
+
+<li>
+a benefit associated with a transaction;
+</li>
+
+<li>
+a conditional permission;
+</li>
+
+<li>
+a limited-use capability;
+</li>
+
+<li>
+a monetary or non-monetary benefit; or
+</li>
+
+<li>
+another Service Profile defined eligibility.
+</li>
+
+</ul>
+
+<p>
+The meaning and applicability of an Entitlement SHALL be determined
+by its attributes, state, and the applicable Policy.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.3 Entitlement Object Identifier
+</h2>
+
+<p>
+Each Entitlement Object SHALL have an Entitlement Identifier that
+uniquely identifies the entitlement within the applicable protocol
+scope.
+</p>
+
+<p>
+The Entitlement Identifier SHALL remain stable for the logical
+lifetime of the Entitlement unless the protocol explicitly defines
+an object replacement operation.
+</p>
+
+<p>
+An implementation MUST NOT treat an arbitrary authentication
+identifier as an Entitlement Identifier unless the identifier is
+explicitly defined as such by the applicable protocol operation.
+</p>
+
+<p>
+The Entitlement Identifier MAY be referenced by:
+</p>
+
+<ul>
+
+<li>
+authorization requests;
+</li>
+
+<li>
+policy evaluation;
+</li>
+
+<li>
+consumption transactions;
+</li>
+
+<li>
+revocation operations;
+</li>
+
+<li>
+audit records; and
+</li>
+
+<li>
+cross-service entitlement operations.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+5.4 Entitlement Object Attributes
+</h2>
+
+<p>
+An Entitlement Object SHOULD contain sufficient attributes to permit
+its authoritative evaluation.
+</p>
+
+<p>
+Representative attributes include:
+</p>
+
+<ul>
+
+<li>
+Entitlement Identifier;
+</li>
+
+<li>
+Subject Identifier;
+</li>
+
+<li>
+Capability;
+</li>
+
+<li>
+Resource;
+</li>
+
+<li>
+Service;
+</li>
+
+<li>
+Scope;
+</li>
+
+<li>
+Acquisition Time;
+</li>
+
+<li>
+Effective Time;
+</li>
+
+<li>
+Expiration Time;
+</li>
+
+<li>
+Quantity;
+</li>
+
+<li>
+Usage Count;
+</li>
+
+<li>
+State;
+</li>
+
+<li>
+Revocation Status; and
+</li>
+
+<li>
+Transaction Reference.
+</li>
+
+</ul>
+
+<p>
+Additional attributes MAY be defined by a Service Profile provided
+that such attributes do not conflict with the normative semantics
+defined by this specification.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.5 Subject Binding
+</h2>
+
+<p>
+An Entitlement SHALL be associated with a Subject Identifier.
+</p>
+
+<p>
+The Subject Identifier establishes the subject to which the
+Entitlement applies.
+</p>
+
+<p>
+An Entitlement MUST NOT be treated as applicable to an authenticated
+subject solely because both operations occur within the same
+session.
+</p>
+
+<p>
+The applicable subject relationship SHALL be explicitly established
+by the Entitlement Object or by an authoritative binding mechanism.
+</p>
+
+<p>
+Where the subject binding cannot be established, the Entitlement
+SHALL NOT satisfy an authorization condition requiring that
+Entitlement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.6 Authentication Independence
+</h2>
+
+<p>
+The Entitlement lifecycle SHALL be logically independent from the
+Authentication lifecycle.
+</p>
+
+<div class="object-definition">
+
+<pre>
+Authentication
+       |
+       v
+Authenticated Identity
+
+Entitlement
+       |
+       v
+Entitlement State
+</pre>
+
+</div>
+
+<p>
+Authentication establishes identity verification.
+</p>
+
+<p>
+Entitlement processing establishes whether the subject possesses a
+specified right, benefit, capability, or eligibility.
+</p>
+
+<p>
+A successful authentication operation SHALL NOT automatically imply
+that an Entitlement exists.
+</p>
+
+<p>
+Conversely, an existing Entitlement SHALL remain a distinct
+protocol object even when a new authentication operation is
+performed for the same subject.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.7 Entitlement Acquisition
+</h2>
+
+<p>
+An Entitlement MAY be acquired as the result of an authoritative
+event or transaction.
+</p>
+
+<p>
+Representative acquisition events include:
+</p>
+
+<ul>
+
+<li>
+successful purchase;
+</li>
+
+<li>
+successful registration;
+</li>
+
+<li>
+physical or virtual visit;
+</li>
+
+<li>
+attendance;
+</li>
+
+<li>
+coupon issuance;
+</li>
+
+<li>
+point award;
+</li>
+
+<li>
+completion of a qualifying transaction;
+</li>
+
+<li>
+external business event; or
+</li>
+
+<li>
+another Service Profile defined event.
+</li>
+
+</ul>
+
+<p>
+The acquisition operation SHALL establish the initial Entitlement
+state and SHALL associate the Entitlement with the applicable
+subject.
+</p>
+
+<p>
+Where acquisition is based on a transaction or event, the
+Entitlement SHOULD retain a reference to the transaction or event
+that established it.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.8 Entitlement Lifecycle
+</h2>
+
+<figure>
+
+<img
+src="../figures/figure15_entitlement_lifecycle.svg"
+alt="Entitlement Lifecycle"
+>
+
+<figcaption>
+Figure 15 — Entitlement Lifecycle
+</figcaption>
+
+</figure>
+
+<p>
+An Entitlement SHALL have an explicit logical lifecycle.
+</p>
+
+<p>
+The representative lifecycle is:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Acquire
+   |
+   v
+Hold
+   |
+   v
+Use
+   |
+   v
+Consume
+   |
+   v
+Expire
+</pre>
+
+</div>
+
+<p>
+An Entitlement MAY transition from Hold to Revoke before normal
+expiration.
+</p>
+
+<p>
+The lifecycle state SHALL be authoritative for determining whether
+the Entitlement can contribute to an authorization decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.9 Entitlement State
+</h2>
+
+<p>
+The Entitlement Object SHALL maintain an explicit state sufficient
+to determine whether the entitlement is currently usable.
+</p>
+
+<p>
+Representative states include:
+</p>
+
+<ul>
+
+<li>
+Acquired;
+</li>
+
+<li>
+Held;
+</li>
+
+<li>
+Active;
+</li>
+
+<li>
+Consumed;
+</li>
+
+<li>
+Expired;
+</li>
+
+<li>
+Revoked; and
+</li>
+
+<li>
+Cancelled.
+</li>
+
+</ul>
+
+<p>
+A Service Profile MAY define additional states provided that the
+meaning of the normative states remains preserved.
+</p>
+
+<p>
+An Entitlement state transition SHALL be attributable to an
+authoritative event, transaction, or protocol operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.10 Effective Time and Expiration
+</h2>
+
+<p>
+An Entitlement MAY contain an Effective Time and an Expiration
+Time.
+</p>
+
+<p>
+Where Effective Time is defined, the Entitlement SHALL NOT satisfy
+an authorization condition before the applicable effective time.
+</p>
+
+<p>
+Where Expiration Time is defined, the Entitlement SHALL NOT satisfy
+an authorization condition after the applicable expiration time.
+</p>
+
+<p>
+Time evaluation SHALL use a trusted time source appropriate to the
+deployment environment.
+</p>
+
+<p>
+An implementation SHALL NOT extend the effective validity of an
+expired Entitlement merely because the subject has successfully
+authenticated again.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+5.11 Quantity and Usage Count
+</h2>
+
+<p>
+An Entitlement MAY define a Quantity representing the amount of
+authorized use or benefit associated with the Entitlement.
+</p>
+
+<p>
+Where Quantity is defined, the authoritative Entitlement state
+SHALL maintain sufficient information to determine the remaining
+available quantity.
+</p>
+
+<p>
+An implementation MAY maintain a Usage Count representing the number
+of completed uses or consumptions.
+</p>
+
+<p>
+Where both Quantity and Usage Count are defined, the relationship
+between them SHALL be determined by the applicable Service Profile.
+</p>
+
+<p>
+A request requiring a quantity greater than the remaining available
+quantity SHALL NOT satisfy an authorization condition requiring that
+Entitlement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.12 Entitlement Use
+</h2>
+
+<p>
+The Use state represents evaluation or application of an
+Entitlement for a requested service action.
+</p>
+
+<p>
+Use processing MAY verify:
+</p>
+
+<ul>
+
+<li>
+Subject binding;
+</li>
+
+<li>
+Entitlement state;
+</li>
+
+<li>
+Capability;
+</li>
+
+<li>
+Resource;
+</li>
+
+<li>
+Service;
+</li>
+
+<li>
+Scope;
+</li>
+
+<li>
+Effective Time;
+</li>
+
+<li>
+Expiration Time;
+</li>
+
+<li>
+Revocation Status;
+</li>
+
+<li>
+remaining quantity; and
+</li>
+
+<li>
+applicable usage conditions.
+</li>
+
+</ul>
+
+<p>
+A successful Use evaluation MAY contribute to an Authorization
+Allow decision.
+</p>
+
+<p>
+Use evaluation SHALL NOT by itself modify the authoritative
+Entitlement state unless the applicable operation explicitly
+defines a state-changing action.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.13 Entitlement Consumption
+</h2>
+
+<p>
+An Entitlement MAY be defined as consumable.
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>
+single-use coupons;
+</li>
+
+<li>
+tickets;
+</li>
+
+<li>
+one-time benefits;
+</li>
+
+<li>
+limited-use service rights;
+</li>
+
+<li>
+attendance rights; and
+</li>
+
+<li>
+point balances.
+</li>
+
+</ul>
+
+<p>
+A successful consumption operation SHALL update the authoritative
+Entitlement state.
+</p>
+
+<p>
+For a single-use Entitlement, successful consumption SHALL prevent
+the same Entitlement from being successfully consumed again.
+</p>
+
+<p>
+Consumption SHALL be associated with the applicable transaction and
+SHOULD retain sufficient information to establish the relationship
+between the service action and the state update.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.14 Consumption Atomicity
+</h2>
+
+<p>
+Where consumption changes the remaining quantity or otherwise
+changes authoritative Entitlement state, the state-changing
+operation SHALL provide atomicity appropriate to the deployment
+environment.
+</p>
+
+<p>
+An implementation SHALL prevent two concurrent service operations
+from consuming the same single-use Entitlement as though both
+operations were independently valid.
+</p>
+
+<p>
+Where distributed processing is used, the implementation SHALL
+provide an equivalent consistency mechanism.
+</p>
+
+<p>
+A failed consumption operation SHALL NOT leave the Entitlement in a
+state that incorrectly indicates successful consumption.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.15 Entitlement Revocation
+</h2>
+
+<p>
+An Entitlement MAY be revoked before its normal expiration.
+</p>
+
+<p>
+Revocation MAY be initiated by:
+</p>
+
+<ul>
+
+<li>
+security incident response;
+</li>
+
+<li>
+administrative action;
+</li>
+
+<li>
+user request;
+</li>
+
+<li>
+fraud detection;
+</li>
+
+<li>
+business rule;
+</li>
+
+<li>
+service termination;
+</li>
+
+<li>
+entitlement cancellation; or
+</li>
+
+<li>
+another authoritative revocation event.
+</li>
+
+</ul>
+
+<p>
+A revoked Entitlement SHALL NOT satisfy an authorization condition
+requiring an active Entitlement.
+</p>
+
+<p>
+Revocation SHALL be represented in the authoritative Entitlement
+state and SHALL remain distinguishable from normal expiration.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.16 Transaction Binding
+</h2>
+
+<figure>
+
+<img
+src="../figures/figure16_entitlement_transaction_binding.svg"
+alt="Entitlement Transaction Binding"
+>
+
+<figcaption>
+Figure 16 — Entitlement Transaction Binding
+</figcaption>
+
+</figure>
+
+<p>
+An Entitlement MAY be established, referenced, consumed, modified,
+or revoked through a protocol transaction.
+</p>
+
+<p>
+Where a transaction establishes or modifies an Entitlement, the
+Entitlement Object SHOULD retain the applicable Transaction
+Reference.
+</p>
+
+<p>
+The Transaction Reference SHALL permit an implementation to
+associate the Entitlement state with the authoritative event that
+created or modified that state.
+</p>
+
+<p>
+A transaction reference SHALL NOT by itself establish that an
+Entitlement remains valid. The authoritative current Entitlement
+state SHALL remain the basis for validity determination.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.17 Entitlement State Update
+</h2>
+
+<p>
+Any operation that changes authoritative Entitlement state SHALL be
+represented as an explicit state transition.
+</p>
+
+<p>
+Representative state-changing operations include:
+</p>
+
+<ul>
+
+<li>
+acquisition;
+</li>
+
+<li>
+activation;
+</li>
+
+<li>
+consumption;
+</li>
+
+<li>
+quantity adjustment;
+</li>
+
+<li>
+expiration;
+</li>
+
+<li>
+revocation; and
+</li>
+
+<li>
+cancellation.
+</li>
+
+</ul>
+
+<p>
+The resulting state SHALL be authoritative for subsequent
+authorization evaluation.
+</p>
+
+<p>
+An implementation SHALL NOT rely solely on a cached historical
+Entitlement state when a newer authoritative state is available.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.18 Cross-Service Entitlement Reuse
+</h2>
+
+<p>
+An Entitlement MAY be applicable to more than one Service or
+Resource where such reuse is explicitly permitted by the
+Entitlement Scope and applicable Policy.
+</p>
+
+<p>
+Cross-Service reuse is represented as:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Entitlement
+     |
+     +------------------+
+     |                  |
+     v                  v
+Service A          Service B
+     |                  |
+     +--------+---------+
+              |
+              v
+       Policy Evaluation
+              |
+              v
+       Authorization
+</pre>
+
+</div>
+
+<p>
+The existence of an Entitlement applicable to one service SHALL NOT
+automatically make the Entitlement applicable to another service.
+</p>
+
+<p>
+The applicable Service, Resource, Scope, and Policy conditions SHALL
+be evaluated independently for each authorization request.
+</p>
+
+<p>
+Where cross-service reuse is permitted, the Entitlement Identifier
+MAY remain common while the authorization context and applicable
+Policy differ between services.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.19 Conditional Entitlement
+</h2>
+
+<p>
+An Entitlement MAY be subject to conditions that determine when,
+where, or for which service action the entitlement is applicable.
+</p>
+
+<p>
+Representative conditions include:
+</p>
+
+<ul>
+
+<li>
+service condition;
+</li>
+
+<li>
+resource condition;
+</li>
+
+<li>
+time condition;
+</li>
+
+<li>
+location condition;
+</li>
+
+<li>
+transaction condition;
+</li>
+
+<li>
+device condition;
+</li>
+
+<li>
+risk condition; and
+</li>
+
+<li>
+completion of a preceding event.
+</li>
+
+</ul>
+
+<p>
+A conditional Entitlement SHALL NOT be interpreted as unconditionally
+valid merely because the Entitlement Object exists.
+</p>
+
+<p>
+The applicable Policy SHALL determine whether the conditions have
+been satisfied for the current authorization request.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.20 Entitlement and Policy Evaluation
+</h2>
+
+<p>
+The Entitlement Layer SHALL provide authoritative Entitlement state
+to the Policy Layer where the applicable Policy requires
+Entitlement information.
+</p>
+
+<div class="object-definition">
+
+<pre>
+Authenticated Identity
+        +
+Entitlement State
+        +
+Authorization Request
+        +
+Authorization Context
+        |
+        v
+Policy Evaluation
+</pre>
+
+</div>
+
+<p>
+Policy Evaluation SHALL determine whether the current Entitlement
+state satisfies the conditions defined by the applicable Policy.
+</p>
+
+<p>
+The existence of an Entitlement SHALL therefore be treated as an
+input to Policy Evaluation rather than as an unconditional
+Authorization Allow.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.21 Entitlement and Authorization
+</h2>
+
+<p>
+An Entitlement MAY contribute to an Authorization Decision when all
+applicable entitlement and policy conditions are satisfied.
+</p>
+
+<p>
+The authorization processing relationship is:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Identity
+   +
+Entitlement
+   +
+Policy
+   +
+Context
+   |
+   v
+Authorization Evaluation
+   |
+   v
+Authorization Decision
+</pre>
+
+</div>
+
+<p>
+An Entitlement SHALL NOT by itself bypass Policy Evaluation where a
+Policy is applicable.
+</p>
+
+<p>
+An Authorization Allow decision SHALL be based on the authoritative
+current Entitlement state.
+</p>
+
+<p>
+An expired, revoked, cancelled, invalid, or otherwise inapplicable
+Entitlement SHALL NOT produce an Allow decision where the Policy
+requires a valid Entitlement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.22 Entitlement Security Requirements
+</h2>
+
+<p>
+An implementation SHALL protect the integrity, authenticity, and
+authoritative state of Entitlement Objects.
+</p>
+
+<p>
+At minimum, the implementation SHALL:
+</p>
+
+<ul>
+
+<li>
+protect Entitlement Identifiers against unintended substitution;
+</li>
+
+<li>
+protect Subject Binding against unauthorized modification;
+</li>
+
+<li>
+protect Entitlement state against unauthorized modification;
+</li>
+
+<li>
+prevent unauthorized extension of validity;
+</li>
+
+<li>
+prevent unauthorized restoration of a revoked Entitlement;
+</li>
+
+<li>
+prevent unauthorized replay of a consumption operation;
+</li>
+
+<li>
+maintain transaction traceability for state-changing operations;
+</li>
+
+<li>
+enforce applicable quantity and usage limits; and</li>
+
+<li>
+ensure that invalid Entitlement state cannot satisfy an applicable
+authorization condition.
+</li>
+
+</ul>
+
+<p>
+Where Entitlement state is distributed across multiple processing
+nodes, the implementation SHALL provide an authoritative state
+resolution mechanism appropriate to the deployment environment.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.23 Entitlement Audit and Traceability
+</h2>
+
+<p>
+Entitlement state changes SHOULD be auditable.
+</p>
+
+<p>
+Representative audit information includes:
+</p>
+
+<ul>
+
+<li>
+Entitlement Identifier;
+</li>
+
+<li>
+Subject Identifier;
+</li>
+
+<li>
+Transaction Identifier;
+</li>
+
+<li>
+previous state;
+</li>
+
+<li>
+resulting state;
+</li>
+
+<li>
+operation type;
+</li>
+
+<li>
+operation timestamp; and
+</li>
+
+<li>
+applicable service or resource.
+</li>
+
+</ul>
+
+<p>
+Audit information SHOULD permit reconstruction of the authoritative
+Entitlement lifecycle without requiring disclosure of protected
+credential material.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.24 Conformance Requirements
+</h2>
+
+<p>
+An implementation claiming conformance to the Entitlement Protocol
+SHALL:
+</p>
+
+<ol>
+
+<li>
+implement an identifiable Entitlement Object;
+</li>
+
+<li>
+maintain an explicit Subject Binding;
+</li>
+
+<li>
+maintain authoritative Entitlement state;
+</li>
+
+<li>
+support applicable lifecycle transitions;
+</li>
+
+<li>
+enforce Effective Time and Expiration Time where defined;
+</li>
+
+<li>
+enforce Revocation Status where defined;
+</li>
+
+<li>
+enforce applicable Quantity and Usage restrictions;
+</li>
+
+<li>
+prevent unauthorized repeated consumption;
+</li>
+
+<li>
+maintain applicable Transaction References;
+</li>
+
+<li>
+evaluate cross-service applicability according to Scope and Policy;
+</li>
+
+<li>
+maintain separation between Authentication and Entitlement state;
+</li>
+
+<li>
+provide Entitlement state to Policy Evaluation where required; and</li>
+
+<li>
+prevent an invalid Entitlement from producing an Authorization
+Allow decision.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+5.25 Summary
+</h2>
+
+<p>
+The Entitlement Protocol defines the Entitlement as an independent
+protocol-level object representing a subject's right, capability,
+benefit, or eligibility for a specified service, resource, or
+operation.
+</p>
+
+<p>
+The Entitlement Object has its own identifier, subject binding,
+state, validity, scope, quantity, usage, transaction references, and
+revocation status.
+</p>
+
+<p>
+The Entitlement lifecycle is independent from authentication and
+continues to exist as an authoritative state object after the
+authentication operation has completed.
+</p>
+
+<p>
+The protocol further permits Entitlements to be consumed, revoked,
+evaluated under conditional rules, and reused across multiple
+services where explicitly permitted.
+</p>
+
+<p>
+The resulting architecture is:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Authentication
+      |
+      v
+Authenticated Identity
+      |
+      +----------------------+
+      |                      |
+      v                      v
+Entitlement             Policy
+      |                      |
+      +----------+-----------+
+                 |
+                 v
+       Authorization Evaluation
+                 |
+                 v
+       Authorization Decision
+                 |
+                 v
+              Service
+</pre>
+
+</div>
+
+<p>
+This architecture separates identity verification from the
+independent determination of whether a subject possesses a currently
+valid right to perform a requested service action.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+5.26 Chapter Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter04_authentication_protocol.html">
+Previous Chapter: Chapter 04 — Authentication Protocol
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="chapter06_policy_evaluation.html">
+Next Chapter: Chapter 06 — Policy Evaluation
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
+
