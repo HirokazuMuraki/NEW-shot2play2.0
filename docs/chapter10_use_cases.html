@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 10 — Use Cases
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<h1>
+Chapter 10 — Use Cases
+</h1>
+
+<p>
+This chapter defines representative use cases for the
+NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+The use cases demonstrate how Authentication, Entitlement,
+Policy Evaluation, Authorization, and Service Enforcement
+operate as a coordinated protocol framework.
+</p>
+
+<p>
+The examples in this chapter are representative applications
+of the protocol model and do not limit the protocol to the
+specific services, resources, transactions, or business
+conditions described herein.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.1 Purpose and Scope
+</h2>
+
+<p>
+The purpose of this chapter is to demonstrate representative
+operational scenarios enabled by the Version 2.0 protocol
+architecture.
+</p>
+
+<p>
+Each use case identifies the relevant protocol state and
+illustrates how that state contributes to an Authorization
+Decision and subsequent Service execution.
+</p>
+
+<p>
+The use cases are intended to clarify the interaction between
+Authentication, Entitlement, Policy Evaluation, Authorization,
+and Service Enforcement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.2 Basic Authorization Flow
+</h2>
+
+<p>
+A subject first establishes an authenticated identity.
+The system then determines whether an applicable Entitlement
+exists and evaluates the conditions defined by the applicable
+Policy.
+</p>
+
+<p>
+The resulting information is used to establish an
+Authorization Decision.
+</p>
+
+<p>
+The protected Service executes the requested operation only
+when an effective Allow decision exists.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.3 Authentication Does Not Constitute Authorization
+</h2>
+
+<p>
+Successful Authentication establishes the authenticated state
+of a subject but does not, by itself, establish permission to
+perform a protected Service operation.
+</p>
+
+<p>
+Authorization MUST be evaluated independently of the fact that
+the subject has successfully authenticated.
+</p>
+
+<p>
+An authenticated subject MAY therefore be denied access when
+no applicable Entitlement exists or when the applicable Policy
+conditions are not satisfied.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.4 Entitlement-Based Service Access
+</h2>
+
+<p>
+A subject MAY possess an Entitlement permitting access to a
+specified Service, resource, or operation.
+</p>
+
+<p>
+The Entitlement MAY define the permitted scope, validity
+period, usage conditions, transaction restrictions, or other
+Policy-defined constraints.
+</p>
+
+<p>
+The Authorization Decision MUST be based on the effective
+Entitlement and the applicable Policy.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.5 Time-Limited Entitlement
+</h2>
+
+<p>
+An Entitlement MAY define an effective time and an expiration
+time.
+</p>
+
+<p>
+Before the effective time, the Entitlement MUST NOT be treated
+as effective.
+</p>
+
+<p>
+After expiration, the Entitlement MUST NOT be used as the basis
+for authorizing a protected operation.
+</p>
+
+<p>
+Where an expired Entitlement is the only applicable
+authorization basis, the Authorization Decision MUST be Deny.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.6 Conditional Entitlement
+</h2>
+
+<p>
+An Entitlement MAY become effective only when one or more
+conditions defined by Policy are satisfied.
+</p>
+
+<p>
+Such conditions MAY include time, location, transaction state,
+resource state, prior activity, or another defined contextual
+condition.
+</p>
+
+<p>
+The existence of an Entitlement alone does not establish that
+its conditions have been satisfied.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.7 Policy-Dependent Entitlement
+</h2>
+
+<p>
+The applicability of an Entitlement MAY be determined by
+evaluating the Entitlement together with a Policy.
+</p>
+
+<p>
+The Policy Evaluation process MUST determine whether the
+Entitlement applies to the current request and authorization
+context.
+</p>
+
+<p>
+The same Entitlement MAY therefore result in different
+Authorization Decisions when the applicable Policy conditions
+or context differ.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.8 Visit-Based Entitlement
+</h2>
+
+<p>
+A Service MAY establish an Entitlement as a result of a
+defined real-world or digital event.
+</p>
+
+<p>
+For example, a subject who completes a visit authentication
+MAY receive an Entitlement permitting a discount on a
+subsequent e-commerce transaction.
+</p>
+
+<p>
+The resulting Entitlement MAY specify the applicable Service,
+validity period, transaction scope, or usage restriction.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.9 Entitlement and Transaction Binding
+</h2>
+
+<p>
+An Entitlement MAY be bound to a specific transaction.
+</p>
+
+<p>
+When transaction binding is required, the Authorization
+process MUST verify that the Entitlement applies to the
+transaction being processed.
+</p>
+
+<p>
+An Entitlement established for one transaction MUST NOT
+automatically authorize another transaction unless the
+applicable Policy explicitly permits such reuse.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.10 Entitlement with Usage Limit
+</h2>
+
+<p>
+An Entitlement MAY specify a maximum permitted usage count.
+</p>
+
+<p>
+When a protected operation consumes permitted usage, the
+corresponding usage state MUST be updated according to the
+applicable Policy.
+</p>
+
+<p>
+After the permitted usage count has been exhausted, subsequent
+operations MUST NOT be authorized by that Entitlement.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+10.11 Policy Evaluation Before Authorization
+</h2>
+
+<p>
+Before an Authorization Decision is generated, the applicable
+Policy MUST be evaluated against the current authorization
+context.
+</p>
+
+<p>
+The evaluation MAY consider the subject, Entitlement, requested
+Service, requested operation, resource, transaction state,
+time, and other Policy-defined conditions.
+</p>
+
+<p>
+An Authorization Decision MUST NOT be generated as an Allow
+decision when a mandatory Policy condition is not satisfied.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.12 Context-Dependent Authorization
+</h2>
+
+<p>
+An Authorization Decision MAY depend on contextual information
+that is independent of the authenticated identity itself.
+</p>
+
+<p>
+For example, an Entitlement MAY permit an operation only during
+a defined time interval or only when a specified transaction
+state exists.
+</p>
+
+<p>
+The Authorization process MUST evaluate the context required by
+the applicable Policy.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.13 Service-Specific Policy
+</h2>
+
+<p>
+Different Services MAY apply different Policies to the same
+authenticated subject or Entitlement.
+</p>
+
+<p>
+An Entitlement that is valid for one Service MUST NOT
+automatically authorize access to another Service unless the
+applicable Policy permits such use.
+</p>
+
+<p>
+The Authorization Decision MUST therefore include the Service
+scope applicable to the request.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.14 Operation-Specific Authorization
+</h2>
+
+<p>
+An Entitlement MAY permit one operation while prohibiting
+another operation against the same resource.
+</p>
+
+<p>
+For example, an Entitlement MAY permit viewing a resource while
+prohibiting modification or deletion of that resource.
+</p>
+
+<p>
+The Authorization Decision MUST consider the requested
+operation as part of the effective authorization scope.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.15 Resource-Specific Authorization
+</h2>
+
+<p>
+An Authorization Decision MAY be restricted to a particular
+resource or resource class.
+</p>
+
+<p>
+The resource scope MUST be explicitly represented or otherwise
+determinable from the applicable authorization context.
+</p>
+
+<p>
+Authorization for one resource MUST NOT automatically authorize
+access to another resource unless such inheritance is explicitly
+permitted by Policy.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.16 Session Authorization Continuity
+</h2>
+
+<p>
+An Authorization Decision MAY remain applicable during a Session
+after the original Authentication operation has completed.
+</p>
+
+<p>
+Where authorization continuity is permitted, the Authorization
+state MUST remain associated with the applicable Session and
+authorization context.
+</p>
+
+<p>
+A Service MUST NOT treat the mere existence of a Session as
+unrestricted authorization.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.17 Authorization Decision Expiration
+</h2>
+
+<p>
+An Authorization Decision MAY have a validity period independent
+of the lifetime of the authenticated Session.
+</p>
+
+<p>
+When the Authorization Decision expires, it MUST NOT continue
+to authorize a protected operation.
+</p>
+
+<p>
+Where continued access is permitted by Policy, a new
+Authorization Decision MUST be established.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.18 Authorization Revocation
+</h2>
+
+<p>
+An Entitlement, Policy condition, or other authorization basis
+MAY be revoked before its originally defined expiration time.
+</p>
+
+<p>
+When revocation invalidates an existing Authorization Decision,
+subsequent protected operations MUST be denied unless another
+valid authorization basis exists.
+</p>
+
+<p>
+Revocation MUST be applied at the applicable authorization
+enforcement boundary.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.19 Fail-Closed Authorization
+</h2>
+
+<p>
+When a required authorization state cannot be established as
+valid, the Service MUST fail closed when required by Policy.
+</p>
+
+<p>
+Examples include an unavailable authorization state, an
+unverifiable authorization binding, an expired decision, or
+an unresolved revocation state.
+</p>
+
+<p>
+Failure to obtain sufficient information for an Allow decision
+MUST NOT be interpreted as permission to execute the protected
+operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.20 Authorization Decision Binding
+</h2>
+
+<p>
+An Authorization Decision MAY be bound to the subject,
+Entitlement, Policy version, Service, operation, resource,
+transaction, or other authorization context used to generate
+the decision.
+</p>
+
+<p>
+When such binding is required, the Service MUST verify that the
+request remains within the scope of the Authorization Decision.
+</p>
+
+<p>
+A request that falls outside the established binding MUST NOT
+be authorized using the existing decision.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+10.21 Cross-Service Entitlement
+</h2>
+
+<p>
+An Entitlement MAY be applicable to more than one Service.
+</p>
+
+<p>
+When an Entitlement is shared across Services, the applicable
+Service scope MUST be explicitly represented or determinable from
+the applicable Policy.
+</p>
+
+<p>
+Each Service MUST independently enforce the authorization scope
+applicable to its own protected operations.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.22 Common Entitlement with Service-Specific Policy
+</h2>
+
+<p>
+Multiple Services MAY rely on a common Entitlement while applying
+different Policies to their respective operations.
+</p>
+
+<p>
+A common Entitlement therefore does not require identical
+Authorization Decisions across all Services.
+</p>
+
+<p>
+Each Service MUST evaluate the Policy applicable to its own
+authorization request.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.23 Cross-Service Authorization Context
+</h2>
+
+<p>
+Authorization context MAY be established by one Service and
+subsequently referenced by another Service when permitted by
+Policy.
+</p>
+
+<p>
+The receiving Service MUST verify the integrity and applicability
+of the referenced context before using it for authorization.
+</p>
+
+<p>
+Context established for one Service MUST NOT automatically be
+trusted by another Service without an applicable trust or
+validation rule.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.24 Cross-Service Entitlement Transfer
+</h2>
+
+<p>
+An Entitlement MAY permit a subject to access a second Service
+after a qualifying event has been established by a first Service.
+</p>
+
+<p>
+For example, a visit authentication performed by one Service MAY
+establish an Entitlement that permits a discount operation in an
+e-commerce Service.
+</p>
+
+<p>
+The second Service MUST evaluate the transferred authorization
+context according to its applicable Policy.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.25 Cross-Service State Continuity
+</h2>
+
+<p>
+Authorization state MAY remain effective while a subject moves
+between Services when the applicable Policy permits continuity.
+</p>
+
+<p>
+The authorization state MUST remain associated with the identity,
+Entitlement, Policy, and other context required to preserve its
+meaning.
+</p>
+
+<p>
+A Service MUST NOT assume authorization continuity when required
+state cannot be established or validated.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.26 Distributed Authorization
+</h2>
+
+<p>
+Authorization Decisions MAY be generated or enforced across
+multiple distributed components.
+</p>
+
+<p>
+Each component participating in authorization MUST operate on an
+authorization state that is consistent with the applicable
+protocol and Policy.
+</p>
+
+<p>
+Distributed processing MUST NOT result in an authorization scope
+broader than the effective authorization state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.27 Authorization State Reconstruction
+</h2>
+
+<p>
+A Service MAY reconstruct authorization state after a restart,
+failover, or other loss of transient execution state.
+</p>
+
+<p>
+Reconstructed state MUST be derived from authoritative protocol
+objects or other trusted state defined by Policy.
+</p>
+
+<p>
+A Service MUST NOT treat incomplete or unverifiable reconstructed
+state as sufficient for an Allow decision when the applicable
+Policy requires complete authorization state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.28 Authorization Decision Caching
+</h2>
+
+<p>
+A Service MAY cache an Authorization Decision to reduce repeated
+evaluation.
+</p>
+
+<p>
+A cached decision MUST remain subject to the validity period,
+authorization scope, Policy version, and revocation conditions
+that governed the original decision.
+</p>
+
+<p>
+A cached decision MUST NOT be used after its effective validity
+has expired or when Policy requires re-evaluation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.29 Risk- or Context-Dependent Authorization
+</h2>
+
+<p>
+A Policy MAY cause the Authorization Decision to depend on a
+risk value or other dynamically evaluated context.
+</p>
+
+<p>
+For example, a Service MAY require additional conditions before
+permitting a high-risk operation even when the subject possesses
+a valid Entitlement.
+</p>
+
+<p>
+The resulting Authorization Decision MUST reflect the effective
+Policy and the evaluated context.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.30 Emergency Authorization
+</h2>
+
+<p>
+A Policy MAY define an emergency authorization mechanism for
+circumstances in which ordinary authorization conditions cannot
+be satisfied through normal operation.
+</p>
+
+<p>
+Emergency authorization MUST be explicitly distinguishable from
+ordinary authorization.
+</p>
+
+<p>
+The emergency authorization MAY be restricted by time, scope,
+operation, resource, usage count, or other Policy-defined
+conditions.
+</p>
+
+<p>
+When the emergency condition terminates, the emergency
+authorization MUST cease to provide authorization.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+10.31 Use Case Summary
+</h2>
+
+<p>
+The use cases defined in this chapter demonstrate that
+Authentication, Entitlement, Policy Evaluation, Authorization,
+and Service Enforcement form distinct but coordinated stages of
+the Version 2.0 protocol framework.
+</p>
+
+<p>
+Authentication establishes the authenticated state of the
+subject. Entitlement establishes the authorization basis.
+Policy Evaluation determines the applicability of that basis
+under current conditions. Authorization produces the effective
+decision, and Service Enforcement applies that decision to the
+protected operation.
+</p>
+
+<p>
+The use cases further demonstrate that authorization MAY depend
+on time, transaction state, resource scope, Service scope,
+cross-Service context, usage limits, revocation state, and
+other Policy-defined conditions.
+</p>
+
+<p>
+These conditions MAY change after Authentication has completed.
+Accordingly, the authorization state MUST remain independently
+manageable from the authentication state.
+</p>
+
+<p>
+The examples also demonstrate that authorization state MAY be
+maintained, transferred, reconstructed, cached, revoked, or
+re-evaluated according to Policy while remaining subject to
+Service enforcement and fail-closed requirements.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+10.32 Chapter Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter09_conformance.html">
+Previous Chapter: Chapter 09 — Conformance Requirements
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="chapter11_implementation_guidance.html">
+Next Chapter: Chapter 11 — Implementation Guidance
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>
