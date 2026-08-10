@@ -1,0 +1,967 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2400"
+     height="3500"
+     viewBox="0 0 2400 3500">
+
+<title>Figure30 Distributed Authorization Decision Consistency Model</title>
+
+<desc>
+Distributed authorization decision lineage and consistency model.
+Local service decisions are independently evaluated while authoritative
+security state, transaction binding, revocation, expiration and scope
+constraints remain consistent across the decision lineage.
+</desc>
+
+<rect x="0" y="0" width="2400" height="3500" fill="white"/>
+
+<!-- ========================================================= -->
+<!-- TITLE -->
+<!-- ========================================================= -->
+
+<text x="1200" y="65"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="36"
+      font-weight="bold">
+Figure30 Distributed Authorization Decision Consistency Model
+</text>
+
+<text x="1200" y="102"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="1200" y="132"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Decision Lineage · Cross-Service Consistency · Effective Authorization
+</text>
+
+
+<!-- ========================================================= -->
+<!-- CORE PRINCIPLE -->
+<!-- ========================================================= -->
+
+<rect x="80" y="180"
+      width="2240"
+      height="230"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Core Principle
+</text>
+
+<text x="1200" y="270"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Local authorization decisions MAY differ across services.
+</text>
+
+<text x="1200" y="305"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+Security-critical state and decision lineage SHALL remain consistent.
+</text>
+
+<text x="1200" y="350"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17"
+      font-weight="bold">
+Consistency does not require identical local decisions.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- ROOT DECISION -->
+<!-- ========================================================= -->
+
+<rect x="650" y="480"
+      width="1100"
+      height="220"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="525"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Root Decision
+</text>
+
+<text x="1200" y="565"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Root Decision ID · Request ID · Transaction ID
+</text>
+
+<text x="1200" y="600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Subject · Entitlement · Initial Scope · Security Constraints
+</text>
+
+<text x="1200" y="635"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy Reference · Validity · Provenance
+</text>
+
+<!-- ROOT → LINEAGE -->
+<line x1="1200" y1="700"
+      x2="1200" y2="750"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1192,744 1208,744 1200,756"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- DECISION LINEAGE -->
+<!-- ========================================================= -->
+
+<rect x="760" y="770"
+      width="880"
+      height="190"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="815"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Decision Lineage
+</text>
+
+<text x="1200" y="855"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Root ID · Parent ID · Derived Decision ID
+</text>
+
+<text x="1200" y="890"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction ID · Service ID · Correlation ID
+</text>
+
+<text x="1200" y="925"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Every derived decision remains traceable to its parent.
+</text>
+
+
+<!-- LINEAGE → DISTRIBUTION BAR -->
+
+<line x1="1200" y1="960"
+      x2="1200" y2="1020"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1192,1014 1208,1014 1200,1026"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- DISTRIBUTION BUS -->
+<!-- ========================================================= -->
+
+<line x1="300" y1="1055"
+      x2="2100" y2="1055"
+      stroke="black"
+      stroke-width="3"/>
+
+<line x1="300" y1="1055"
+      x2="300" y2="1100"
+      stroke="black"
+      stroke-width="3"/>
+
+<line x1="850" y1="1055"
+      x2="850" y2="1100"
+      stroke="black"
+      stroke-width="3"/>
+
+<line x1="1550" y1="1055"
+      x2="1550" y2="1100"
+      stroke="black"
+      stroke-width="3"/>
+
+<line x1="2100" y1="1055"
+      x2="2100" y2="1100"
+      stroke="black"
+      stroke-width="3"/>
+
+
+<!-- ========================================================= -->
+<!-- DISTRIBUTED LOCAL DECISIONS -->
+<!-- ========================================================= -->
+
+<rect x="70" y="1100"
+      width="2260"
+      height="650"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="1145"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Distributed Local Authorization Decisions
+</text>
+
+<text x="1200" y="1178"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Each service evaluates verified upstream context against its own local policy.
+</text>
+
+
+<!-- SERVICE A -->
+
+<rect x="110" y="1220"
+      width="450"
+      height="430"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="335" y="1265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service A
+</text>
+
+<text x="335" y="1310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+ALLOW
+</text>
+
+<text x="335" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Local Resource
+</text>
+
+<text x="335" y="1390"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Local Action
+</text>
+
+<text x="335" y="1425"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Local Policy
+</text>
+
+<text x="335" y="1470"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Parent Decision verified
+</text>
+
+<text x="335" y="1510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Scope preserved / reduced
+</text>
+
+<text x="335" y="1570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Derived Decision A
+</text>
+
+
+<!-- SERVICE B -->
+
+<rect x="590" y="1220"
+      width="450"
+      height="430"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="815" y="1265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service B
+</text>
+
+<text x="815" y="1310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+ALLOW
+</text>
+
+<text x="815" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Local Resource
+</text>
+
+<text x="815" y="1390"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Local Action
+</text>
+
+<text x="815" y="1425"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Local Policy
+</text>
+
+<text x="815" y="1470"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Parent Decision verified
+</text>
+
+<text x="815" y="1510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Scope preserved / reduced
+</text>
+
+<text x="815" y="1570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Derived Decision B
+</text>
+
+
+<!-- SERVICE C -->
+
+<rect x="1070" y="1220"
+      width="450"
+      height="430"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1295" y="1265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service C
+</text>
+
+<text x="1295" y="1310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+DENY
+</text>
+
+<text x="1295" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Different Resource
+</text>
+
+<text x="1295" y="1390"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Different Action
+</text>
+
+<text x="1295" y="1425"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Stricter Local Policy
+</text>
+
+<text x="1295" y="1470"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Parent Decision verified
+</text>
+
+<text x="1295" y="1510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Scope independently constrained
+</text>
+
+<text x="1295" y="1570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Valid Local Denial
+</text>
+
+
+<!-- SERVICE D -->
+
+<rect x="1550" y="1220"
+      width="740"
+      height="430"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1920" y="1265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service D
+</text>
+
+<text x="1920" y="1310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+REAUTHORIZE
+</text>
+
+<text x="1920" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Additional Assurance
+</text>
+
+<text x="1920" y="1390"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+New Local Conditions
+</text>
+
+<text x="1920" y="1425"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Higher Resource Sensitivity
+</text>
+
+<text x="1920" y="1470"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Parent Decision remains lineage input
+</text>
+
+<text x="1920" y="1510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+New evaluation required
+</text>
+
+<text x="1920" y="1570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Controlled Reauthorization
+</text>
+
+
+<!-- ========================================================= -->
+<!-- LOCAL INDEPENDENCE NOTE -->
+<!-- ========================================================= -->
+
+<rect x="420" y="1775"
+      width="1560"
+      height="190"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="1820"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Local Decision Independence
+</text>
+
+<text x="1200" y="1860"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+ALLOW / DENY / REAUTHORIZE MAY DIFFER WITHOUT A CONSISTENCY VIOLATION
+</text>
+
+<text x="1200" y="1905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Consistency concerns authoritative security constraints, not identical local results.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- AUTHORITATIVE SECURITY STATE -->
+<!-- ========================================================= -->
+
+<rect x="220" y="2010"
+      width="1960"
+      height="430"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="2055"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Authoritative Security State
+</text>
+
+<text x="1200" y="2088"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Security-critical state constrains every dependent decision.
+</text>
+
+
+<!-- SECURITY STATE CARDS -->
+
+<rect x="270" y="2130"
+      width="420"
+      height="230"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="480" y="2175"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Revocation
+</text>
+
+<text x="480" y="2220"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authorized → Revoked
+</text>
+
+<text x="480" y="2260"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Prior authorization cannot
+</text>
+
+<text x="480" y="2290"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+remain active where policy requires.
+</text>
+
+<text x="480" y="2335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Invalidating state
+</text>
+
+
+<rect x="720" y="2130"
+      width="420"
+      height="230"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="930" y="2175"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Expiration
+</text>
+
+<text x="930" y="2220"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Validity lifetime elapsed
+</text>
+
+<text x="930" y="2260"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Context / Session / Transaction
+</text>
+
+<text x="930" y="2290"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+may also expire.
+</text>
+
+<text x="930" y="2335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Inactive after expiration
+</text>
+
+
+<rect x="1170" y="2130"
+      width="420"
+      height="230"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1380" y="2175"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Transaction State
+</text>
+
+<text x="1380" y="2220"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Active / Cancelled
+</text>
+
+<text x="1380" y="2260"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction mismatch
+</text>
+
+<text x="1380" y="2290"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+invalidates reuse.
+</text>
+
+<text x="1380" y="2335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Transaction binding
+</text>
+
+
+<rect x="1620" y="2130"
+      width="510"
+      height="230"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1875" y="2175"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Entitlement / Context
+</text>
+
+<text x="1875" y="2220"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement revoked
+</text>
+
+<text x="1875" y="2260"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Security Context invalid
+</text>
+
+<text x="1875" y="2290"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Risk / assurance failure
+</text>
+
+<text x="1875" y="2335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Dependent decisions constrained
+</text>
+
+
+<!-- ========================================================= -->
+<!-- SECURITY STATE → CONSISTENCY -->
+<!-- ========================================================= -->
+
+<line x1="1200" y1="2440"
+      x2="1200" y2="2495"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1192,2489 1208,2489 1200,2501"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- CONSISTENCY VERIFICATION -->
+<!-- ========================================================= -->
+
+<rect x="350" y="2515"
+      width="1700"
+      height="370"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="2560"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Consistency Verification
+</text>
+
+<text x="1200" y="2595"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Verify the effective state before protected execution.
+</text>
+
+<text x="1200" y="2640"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Decision Lineage · Parent Validity · Transaction Binding
+</text>
+
+<text x="1200" y="2675"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Revocation · Expiration · Effective Scope · Local Policy
+</text>
+
+<text x="1200" y="2710"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource · Action · Security Context
+</text>
+
+<rect x="620" y="2750"
+      width="1160"
+      height="85"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1200" y="2785"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Conflict → DENY / REAUTHORIZE / RECHECK / INVALIDATE / REDUCE SCOPE / FAIL CLOSED
+</text>
+
+<text x="1200" y="2818"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Never silently select the more permissive state.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- EFFECTIVE AUTHORIZATION -->
+<!-- ========================================================= -->
+
+<line x1="1200" y1="2886"
+      x2="1200" y2="2940"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1192,2934 1208,2934 1200,2946"
+         fill="black"/>
+
+
+<rect x="520" y="2960"
+      width="1360"
+      height="250"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="3005"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Effective Authorization State
+</text>
+
+<text x="1200" y="3045"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Verified Lineage + Current Security State + Effective Scope + Local Policy
+</text>
+
+<text x="1200" y="3085"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+The effective state SHALL NOT be more permissive than any applicable constraint.
+</text>
+
+<text x="1200" y="3130"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Only the effective state may authorize protected service execution.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- SERVICE EXECUTION -->
+<!-- ========================================================= -->
+
+<line x1="1200" y1="3210"
+      x2="1200" y2="3265"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1192,3259 1208,3259 1200,3271"
+         fill="black"/>
+
+
+<rect x="760" y="3285"
+      width="880"
+      height="135"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="3330"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Service Execution
+</text>
+
+<text x="1200" y="3370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Execute only when all required authorization constraints are satisfied.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<text x="1200" y="3470"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Decision Lineage · Security-State Consistency · Scope Non-Expansion · Effective Authorization
+</text>
+
+</svg>
