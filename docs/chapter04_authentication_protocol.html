@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 04 — Authentication Protocol | NEW-shot2play Protocol Suite Version 2.0
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<h1>
+Chapter 04 — Authentication Protocol
+</h1>
+
+<p>
+This chapter defines the Authentication Protocol of the
+NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+The Authentication Protocol establishes authenticated identity
+evidence for a protocol transaction. It does not, by itself,
+establish an authorization decision or permission to execute a
+service action.
+</p>
+
+<div class="normative must">
+
+<strong>NORMATIVE PRINCIPLE</strong><br><br>
+
+Authentication establishes identity evidence.<br>
+Authentication success SHALL NOT by itself constitute authorization.
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>
+4.1 Purpose and Scope
+</h2>
+
+<p>
+The purpose of the Authentication Protocol is to establish whether
+a presented authentication operation satisfies the applicable
+authentication requirements for an Identity Object and Credential
+Object.
+</p>
+
+<p>
+The Authentication Protocol covers:
+</p>
+
+<ul>
+
+<li>
+authentication request construction;
+</li>
+
+<li>
+credential presentation;
+</li>
+
+<li>
+credential verification;
+</li>
+
+<li>
+identity association;
+</li>
+
+<li>
+authentication state evaluation;
+</li>
+
+<li>
+authentication result generation;
+</li>
+
+<li>
+authentication transaction traceability; and
+</li>
+
+<li>
+propagation of authenticated identity evidence to subsequent
+protocol layers.
+</li>
+
+</ul>
+
+<p>
+The protocol does not define an entitlement as a consequence of
+authentication success unless an explicitly defined business event
+or entitlement rule separately creates such an entitlement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.2 Relationship to Version 1.0
+</h2>
+
+<p>
+Version 2.0 incorporates the Authentication Protocol defined by
+Version 1.0 as the normative authentication reference.
+</p>
+
+<p>
+Version 1.0 remains the Baseline Specification
+(Normative Reference) and SHALL NOT be modified by Version 2.0.
+</p>
+
+<p>
+Version 2.0 extends the protocol architecture above the
+Authentication Layer by defining Entitlement, Policy, and
+Authorization processing.
+</p>
+
+<p>
+Accordingly, an implementation conforming to Version 2.0 MAY use
+the authentication mechanisms defined in Version 1.0 while applying
+the additional protocol-layer requirements defined by this
+specification.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.3 Authentication Boundary
+</h2>
+
+<p>
+The Authentication Layer forms a protocol boundary between
+credential verification and the subsequent authorization-related
+layers.
+</p>
+
+<div class="object-definition">
+
+<pre>
+Identity
+   +
+Credential
+   +
+Authentication Request
+        |
+        v
+Authentication Processing
+        |
+        v
+Authentication Result
+        |
+        v
+Entitlement
+        |
+        v
+Policy Evaluation
+        |
+        v
+Authorization
+        |
+        v
+Service
+</pre>
+
+</div>
+
+<p>
+The Authentication Layer SHALL produce an Authentication Result
+that can be independently consumed by subsequent protocol layers.
+</p>
+
+<p>
+The Authentication Layer SHALL NOT directly determine whether a
+requested service action is authorized unless the authorization
+decision is explicitly defined as part of a separate authorization
+operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.4 Authentication Inputs
+</h2>
+
+<p>
+An authentication operation SHALL identify the inputs required to
+establish authentication according to the applicable authentication
+method and policy.
+</p>
+
+<p>
+Representative inputs include:
+</p>
+
+<ul>
+
+<li>
+Identity Identifier or claimed identity;
+</li>
+
+<li>
+Credential Identifier;
+</li>
+
+<li>
+credential verification material;
+</li>
+
+<li>
+authentication challenge;
+</li>
+
+<li>
+authentication response;
+</li>
+
+<li>
+authentication transaction identifier;
+</li>
+
+<li>
+authentication timestamp; and
+</li>
+
+<li>
+applicable authentication policy.
+</li>
+
+</ul>
+
+<p>
+An implementation MAY require additional inputs where required by
+the selected authentication method.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.5 Authentication Request
+</h2>
+
+<p>
+An Authentication Request represents an operation requesting the
+establishment or verification of authenticated identity.
+</p>
+
+<p>
+The request SHOULD contain:
+</p>
+
+<ul>
+
+<li>
+Authentication Request Identifier;
+</li>
+
+<li>
+Subject or Identity Identifier;
+</li>
+
+<li>
+Credential Reference;
+</li>
+
+<li>
+Authentication Method;
+</li>
+
+<li>
+Challenge or transaction nonce where applicable;
+</li>
+
+<li>
+Request Timestamp; and
+</li>
+
+<li>
+applicable protocol context.
+</li>
+
+</ul>
+
+<p>
+The Authentication Request Identifier SHALL uniquely identify the
+authentication operation within the applicable protocol scope.
+</p>
+
+<p>
+An Authentication Request SHALL NOT be reused as a different
+logical authentication transaction.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.6 Authentication Transaction
+</h2>
+
+<p>
+An authentication operation SHALL be represented by an
+Authentication Transaction.
+</p>
+
+<p>
+The Authentication Transaction provides traceability for the
+authentication operation and MAY be referenced by subsequent
+Entitlement, Policy, Authorization, and audit processing.
+</p>
+
+<p>
+Representative transaction attributes include:
+</p>
+
+<ul>
+
+<li>
+Authentication Transaction Identifier;
+</li>
+
+<li>
+Identity Identifier;
+</li>
+
+<li>
+Credential Identifier;
+</li>
+
+<li>
+Authentication Method;
+</li>
+
+<li>
+Challenge Reference;
+</li>
+
+<li>
+Request Timestamp;
+</li>
+
+<li>
+Completion Timestamp;
+</li>
+
+<li>
+Authentication Result; and
+</li>
+
+<li>
+Failure Reason where applicable.
+</li>
+
+</ul>
+
+<p>
+The Authentication Transaction SHALL remain distinguishable from
+the Identity Object, Credential Object, and Authentication Object.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.7 Credential Verification
+</h2>
+
+<p>
+The Authentication Layer SHALL verify the presented credential
+according to the applicable authentication method.
+</p>
+
+<p>
+Credential verification MAY include:
+</p>
+
+<ul>
+
+<li>
+cryptographic signature verification;
+</li>
+
+<li>
+challenge-response verification;
+</li>
+
+<li>
+credential status verification;
+</li>
+
+<li>
+credential expiration verification;
+</li>
+
+<li>
+credential revocation verification;
+</li>
+
+<li>
+trust-anchor verification; or
+</li>
+
+<li>
+other protocol-defined verification procedures.
+</li>
+
+</ul>
+
+<p>
+A credential SHALL NOT be accepted solely because the credential
+identifier is syntactically valid.
+</p>
+
+<p>
+Where credential validity cannot be established, the authentication
+operation SHALL fail unless the applicable protocol explicitly
+defines another safe outcome.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.8 Identity Association
+</h2>
+
+<p>
+A successfully verified credential SHALL be associated with the
+Identity Object to which the credential is validly bound.
+</p>
+
+<p>
+The association SHALL be established according to the applicable
+credential registration and trust rules.
+</p>
+
+<p>
+An authentication operation MUST NOT treat an arbitrary identifier
+contained in a credential as sufficient proof of identity
+association.
+</p>
+
+<p>
+Where the credential-to-identity relationship cannot be established,
+the authentication operation SHALL NOT produce a successful
+Authentication Result.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.9 Authentication State
+</h2>
+
+<p>
+Authentication processing SHALL maintain an explicit state for the
+authentication operation.
+</p>
+
+<p>
+Representative states include:
+</p>
+
+<ul>
+
+<li>
+Initiated;
+</li>
+
+<li>
+Challenge Issued;
+</li>
+
+<li>
+Credential Presented;
+</li>
+
+<li>
+Verification Processing;
+</li>
+
+<li>
+Authenticated;
+</li>
+
+<li>
+Rejected; and
+</li>
+
+<li>
+Expired or Cancelled.
+</li>
+
+</ul>
+
+<p>
+The actual state set MAY be extended by an implementation where
+such extension does not conflict with the normative state
+transitions defined by the protocol.
+</p>
+
+<p>
+A terminal authentication failure SHALL NOT be interpreted as an
+authenticated state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.10 Authentication State Transition
+</h2>
+
+<figure>
+
+<img
+src="../figures/figure07_authentication_state_transition.svg"
+alt="Authentication State Transition"
+>
+
+<figcaption>
+Figure 07 — Authentication State Transition
+</figcaption>
+
+</figure>
+
+<p>
+The authentication state SHALL transition according to the outcome
+of the applicable authentication processing.
+</p>
+
+<p>
+A representative successful transition is:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Initiated
+    |
+    v
+Challenge Issued
+    |
+    v
+Credential Presented
+    |
+    v
+Verification
+    |
+    v
+Authenticated
+</pre>
+
+</div>
+
+<p>
+A verification failure SHALL transition to a failure state and
+SHALL NOT transition to Authenticated.
+</p>
+
+<p>
+An expired, cancelled, revoked, or otherwise invalid authentication
+operation SHALL NOT be converted into a successful authentication
+state by subsequent processing unless a new authentication
+operation is explicitly initiated.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.11 Authentication Transaction Figure
+</h2>
+
+<figure>
+
+<img
+src="../figures/figure06_authentication_transaction.svg"
+alt="Authentication Transaction"
+>
+
+<figcaption>
+Figure 06 — Authentication Transaction
+</figcaption>
+
+</figure>
+
+<p>
+Figure 06 illustrates the transaction-level structure of the
+Authentication Protocol.
+</p>
+
+<p>
+The transaction representation provides the protocol boundary
+between the authentication request, credential verification,
+authentication result, and subsequent protocol processing.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+4.12 Authentication Result
+</h2>
+
+<p>
+A successful authentication operation SHALL produce an
+Authentication Result.
+</p>
+
+<p>
+The Authentication Result represents the protocol-level result of
+identity verification and SHALL be distinguishable from an
+Authorization Decision.
+</p>
+
+<p>
+Representative Authentication Result attributes include:
+</p>
+
+<ul>
+
+<li>
+Authentication Result Identifier;
+</li>
+
+<li>
+Authentication Transaction Identifier;
+</li>
+
+<li>
+Identity Identifier;
+</li>
+
+<li>
+Authentication Method;
+</li>
+
+<li>
+Authentication Assurance Information where applicable;
+</li>
+
+<li>
+Authentication Timestamp;
+</li>
+
+<li>
+Authentication Status; and
+</li>
+
+<li>
+Failure or rejection information where applicable.
+</li>
+
+</ul>
+
+<p>
+A successful Authentication Result SHALL indicate only that the
+applicable authentication requirements have been satisfied.
+</p>
+
+<p>
+It SHALL NOT indicate that the subject is entitled to access a
+particular service or resource.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.13 Authentication Success and Failure
+</h2>
+
+<p>
+The Authentication Protocol SHALL produce a determinate result for
+each completed authentication operation.
+</p>
+
+<p>
+The result SHALL be one of the protocol-defined successful,
+rejected, expired, cancelled, or otherwise failed outcomes.
+</p>
+
+<p>
+A successful result requires all mandatory authentication conditions
+to be satisfied.
+</p>
+
+<p>
+A failure condition SHALL prevent the Authentication Result from
+being represented as successfully authenticated.
+</p>
+
+<p>
+Authentication failure MAY result from:
+</p>
+
+<ul>
+
+<li>
+invalid credentials;
+</li>
+
+<li>
+invalid cryptographic proof;
+</li>
+
+<li>
+credential expiration;
+</li>
+
+<li>
+credential revocation;
+</li>
+
+<li>
+challenge mismatch;
+</li>
+
+<li>
+challenge expiration;
+</li>
+
+<li>
+replay detection;
+</li>
+
+<li>
+identity association failure;
+</li>
+
+<li>
+authentication policy failure; or
+</li>
+
+<li>
+other protocol-defined verification failures.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+4.14 Replay Resistance and Freshness
+</h2>
+
+<p>
+An authentication operation SHALL provide sufficient freshness to
+prevent an authentication response from being accepted as a
+substitute for a previously completed authentication operation.
+</p>
+
+<p>
+Where the authentication method uses a challenge, nonce, timestamp,
+transaction identifier, or equivalent freshness mechanism, the
+verification process SHALL validate the applicable freshness
+condition.
+</p>
+
+<p>
+A challenge or authentication transaction identifier that has
+already been consumed SHALL NOT be accepted for a new authentication
+operation where reuse could permit replay.
+</p>
+
+<p>
+An implementation MAY use additional replay detection mechanisms
+provided that such mechanisms do not weaken the authentication
+requirements.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.15 Authentication Context
+</h2>
+
+<p>
+An Authentication Result MAY contain or reference authentication
+context required by subsequent protocol layers.
+</p>
+
+<p>
+Representative context includes:
+</p>
+
+<ul>
+
+<li>
+Authentication Method;
+</li>
+
+<li>
+Authentication Assurance Level;
+</li>
+
+<li>
+Authentication Timestamp;
+</li>
+
+<li>
+Authentication Transaction Identifier;
+</li>
+
+<li>
+Credential Identifier;
+</li>
+
+<li>
+Device or execution context where applicable; and
+</li>
+
+<li>
+security-related verification state.
+</li>
+
+</ul>
+
+<p>
+Authentication Context SHALL remain distinguishable from Policy
+Context and Authorization Context.
+</p>
+
+<p>
+A subsequent protocol layer MAY use Authentication Context as an
+input to policy evaluation without treating such context as an
+authorization decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.16 Authentication-to-Entitlement Boundary
+</h2>
+
+<p>
+The Authentication Layer SHALL provide authenticated identity
+evidence to the Entitlement Layer through an explicit protocol
+boundary.
+</p>
+
+<div class="object-definition">
+
+<pre>
+Authentication Result
+        |
+        v
+Authenticated Identity
+        |
+        v
+Entitlement Evaluation
+</pre>
+
+</div>
+
+<p>
+Authentication success SHALL NOT automatically create an
+Entitlement unless an independent entitlement rule defines the
+authentication event as an entitlement-acquisition event.
+</p>
+
+<p>
+Where an Entitlement is created as a consequence of an authentication
+event, the creation SHALL be represented as a separate entitlement
+operation and SHALL retain the applicable transaction or event
+reference.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.17 Authentication-to-Policy Boundary
+</h2>
+
+<p>
+The Policy Layer MAY use authenticated identity and Authentication
+Context as inputs to Policy Evaluation.
+</p>
+
+<p>
+The Authentication Layer SHALL NOT modify Policy state merely
+because authentication succeeds.
+</p>
+
+<p>
+The separation is represented as:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Authentication Result
+        |
+        v
+Authentication Context
+        |
+        v
+Policy Evaluation
+</pre>
+
+</div>
+
+<p>
+Policy Evaluation SHALL independently determine whether the
+authenticated subject satisfies the conditions of the applicable
+Policy Object.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.18 Authentication-to-Authorization Boundary
+</h2>
+
+<p>
+The Authorization Layer MAY use the Authentication Result as one
+input to an Authorization Evaluation.
+</p>
+
+<p>
+Authentication SHALL NOT be treated as a substitute for entitlement
+validation or policy evaluation.
+</p>
+
+<p>
+The authorization processing model is therefore:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Authenticated Identity
+        +
+Entitlement State
+        +
+Policy
+        +
+Authorization Context
+        |
+        v
+Authorization Evaluation
+        |
+        v
+Authorization Decision
+</pre>
+
+</div>
+
+<p>
+An implementation SHALL preserve the logical distinction between
+Authentication Result and Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.19 Authentication Security Requirements
+</h2>
+
+<p>
+An implementation conforming to this specification SHALL protect
+the integrity and authenticity of Authentication Results.
+</p>
+
+<p>
+At minimum, the implementation SHALL:
+</p>
+
+<ul>
+
+<li>
+protect authentication transaction identifiers against unintended
+reuse;
+</li>
+
+<li>
+protect challenges and equivalent freshness values against
+unauthorized modification;
+</li>
+
+<li>
+prevent invalid credentials from producing successful
+authentication results;
+</li>
+
+<li>
+prevent expired or revoked credentials from being accepted where
+such status is applicable;
+</li>
+
+<li>
+prevent authentication failures from being represented as
+successful authentication states; and
+</li>
+
+<li>
+preserve the association between an Authentication Result and its
+Authentication Transaction.
+</li>
+
+</ul>
+
+<p>
+Security controls MAY be implemented using cryptographic,
+transactional, stateful, or equivalent mechanisms appropriate to
+the selected authentication method.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.20 Authentication Audit and Traceability
+</h2>
+
+<p>
+Authentication operations SHALL provide sufficient information to
+establish traceability between the authentication request,
+verification operation, and resulting authentication state.
+</p>
+
+<p>
+Where audit logging is implemented, the log SHOULD contain:
+</p>
+
+<ul>
+
+<li>
+Authentication Transaction Identifier;
+</li>
+
+<li>
+Identity Identifier;
+</li>
+
+<li>
+authentication outcome;
+</li>
+
+<li>
+authentication timestamp;
+</li>
+
+<li>
+authentication method;
+</li>
+
+<li>
+relevant failure reason; and
+</li>
+
+<li>
+references to associated protocol transactions.
+</li>
+
+</ul>
+
+<p>
+Audit information SHALL NOT be interpreted as authorization state.
+</p>
+
+<p>
+Sensitive credential material SHALL NOT be recorded in audit
+records unless explicitly required by a controlled security
+procedure and protected accordingly.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.21 Conformance Requirements
+</h2>
+
+<p>
+An implementation claiming conformance to the Authentication
+Protocol SHALL:
+</p>
+
+<ol>
+
+<li>
+implement the authentication processing required by the applicable
+authentication method;
+</li>
+
+<li>
+maintain an explicit authentication transaction;
+</li>
+
+<li>
+produce a determinate Authentication Result;
+</li>
+
+<li>
+reject invalid or unverifiable authentication evidence;
+</li>
+
+<li>
+enforce applicable freshness and replay protections;
+</li>
+
+<li>
+maintain the distinction between authentication and authorization;
+</li>
+
+<li>
+preserve the identity association established by authentication;
+</li>
+
+<li>
+provide the Authentication Result to subsequent protocol layers
+through an explicit interface; and
+</li>
+
+<li>
+not represent authentication success as an Authorization Decision.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+4.22 Summary
+</h2>
+
+<p>
+The Authentication Protocol establishes authenticated identity
+evidence within the NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+The protocol defines a distinct Authentication Transaction,
+Authentication State, and Authentication Result.
+</p>
+
+<p>
+Authentication success establishes identity verification but does
+not independently establish entitlement, policy satisfaction, or
+authorization.
+</p>
+
+<p>
+The resulting separation establishes the following protocol
+boundary:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Identity
+   |
+Credential
+   |
+Authentication
+   |
+Authentication Result
+   |
+Entitlement
+   |
+Policy Evaluation
+   |
+Authorization
+   |
+Service
+</pre>
+
+</div>
+
+<p>
+This separation permits the same authenticated identity to be
+evaluated against different Entitlements, Policies, services, and
+authorization contexts without modifying the authentication
+operation itself.
+</p>
+
+<p>
+The Authentication Layer therefore functions as the identity
+verification boundary of the Version 2.0 protocol architecture,
+while authorization remains an independent downstream decision
+process.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+4.23 Chapter Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter03_identity_credential_model.html">
+Previous Chapter: Chapter 03 — Identity and Credential Model
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="chapter05_entitlement_protocol.html">
+Next Chapter: Chapter 05 — Entitlement Protocol
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
+
