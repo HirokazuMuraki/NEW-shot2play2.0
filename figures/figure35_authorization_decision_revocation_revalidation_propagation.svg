@@ -1,0 +1,676 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600"
+     height="1500"
+     viewBox="0 0 1600 1500">
+
+  <title>Figure35 — Authorization Decision Revocation and Revalidation Propagation</title>
+
+  <defs>
+    <marker id="arrow"
+            markerWidth="10"
+            markerHeight="10"
+            refX="9"
+            refY="5"
+            orient="auto"
+            markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1600" height="1500" fill="white"/>
+
+  <!-- ====================================================== -->
+  <!-- TITLE -->
+  <!-- ====================================================== -->
+
+  <text x="800" y="42"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="28"
+        font-weight="bold">
+    Figure35 — Authorization Decision Revocation and Revalidation Propagation
+  </text>
+
+  <text x="800" y="72"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16">
+    Invalidation propagation, downstream enforcement, revalidation, and decision replacement
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- MAIN FLOW BOUNDARY -->
+  <!-- ====================================================== -->
+
+  <rect x="500" y="105"
+        width="600"
+        height="1180"
+        rx="16"
+        ry="16"
+        fill="white"
+        stroke="#555"
+        stroke-width="2"/>
+
+  <text x="800" y="140"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21"
+        font-weight="bold">
+    Authorization State Transition
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- MAIN FLOW BOXES -->
+  <!-- ====================================================== -->
+
+  <!-- 1 -->
+  <rect x="625" y="180"
+        width="350"
+        height="72"
+        rx="10" ry="10"
+        fill="white"
+        stroke="#222"
+        stroke-width="2"/>
+
+  <text x="800" y="211"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Revocation / Security
+  </text>
+
+  <text x="800" y="234"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16">
+    State Change
+  </text>
+
+  <!-- 2 -->
+  <rect x="625" y="315"
+        width="350"
+        height="72"
+        rx="10" ry="10"
+        fill="white"
+        stroke="#222"
+        stroke-width="2"/>
+
+  <text x="800" y="358"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Decision Invalidation
+  </text>
+
+  <!-- 3 -->
+  <rect x="625" y="450"
+        width="350"
+        height="72"
+        rx="10" ry="10"
+        fill="white"
+        stroke="#222"
+        stroke-width="2"/>
+
+  <text x="800" y="493"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Invalidation Propagation
+  </text>
+
+  <!-- 4 -->
+  <rect x="625" y="585"
+        width="350"
+        height="72"
+        rx="10" ry="10"
+        fill="white"
+        stroke="#222"
+        stroke-width="2"/>
+
+  <text x="800" y="616"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Downstream State
+  </text>
+
+  <text x="800" y="639"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16">
+    Enforcement
+  </text>
+
+  <!-- 5 -->
+  <rect x="625" y="720"
+        width="350"
+        height="72"
+        rx="10" ry="10"
+        fill="white"
+        stroke="#222"
+        stroke-width="2"/>
+
+  <text x="800" y="763"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Revalidation
+  </text>
+
+  <!-- 6 -->
+  <rect x="625" y="855"
+        width="350"
+        height="72"
+        rx="10" ry="10"
+        fill="white"
+        stroke="#222"
+        stroke-width="2"/>
+
+  <text x="800" y="886"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    New Authorization
+  </text>
+
+  <text x="800" y="909"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16">
+    Evaluation
+  </text>
+
+  <!-- 7 -->
+  <rect x="625" y="990"
+        width="350"
+        height="72"
+        rx="10" ry="10"
+        fill="white"
+        stroke="#222"
+        stroke-width="3"/>
+
+  <text x="800" y="1021"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    New Authorization
+  </text>
+
+  <text x="800" y="1044"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16">
+    Decision
+  </text>
+
+  <!-- 8 -->
+  <rect x="625" y="1125"
+        width="350"
+        height="72"
+        rx="10" ry="10"
+        fill="white"
+        stroke="#333"
+        stroke-width="2"/>
+
+  <text x="800" y="1156"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Protected Service
+  </text>
+
+  <text x="800" y="1179"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16">
+    Execution
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- MAIN FLOW ARROWS -->
+  <!-- ====================================================== -->
+
+  <line x1="800" y1="252"
+        x2="800" y2="315"
+        stroke="#333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="800" y1="387"
+        x2="800" y2="450"
+        stroke="#333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="800" y1="522"
+        x2="800" y2="585"
+        stroke="#333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="800" y1="657"
+        x2="800" y2="720"
+        stroke="#333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="800" y1="792"
+        x2="800" y2="855"
+        stroke="#333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="800" y1="927"
+        x2="800" y2="990"
+        stroke="#333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="800" y1="1062"
+        x2="800" y2="1125"
+        stroke="#333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- LEFT: INVALIDATION BASIS -->
+  <!-- ====================================================== -->
+
+  <rect x="70" y="180"
+        width="350"
+        height="385"
+        rx="14" ry="14"
+        fill="white"
+        stroke="#666"
+        stroke-width="2"/>
+
+  <text x="245" y="215"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="20"
+        font-weight="bold">
+    Invalidation Basis
+  </text>
+
+  <rect x="105" y="245"
+        width="280"
+        height="60"
+        rx="8" ry="8"
+        fill="white"
+        stroke="#444"
+        stroke-width="2"/>
+
+  <text x="245" y="282"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15">
+    Entitlement Revocation
+  </text>
+
+  <rect x="105" y="325"
+        width="280"
+        height="60"
+        rx="8" ry="8"
+        fill="white"
+        stroke="#444"
+        stroke-width="2"/>
+
+  <text x="245" y="362"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15">
+    Policy / Security Change
+  </text>
+
+  <rect x="105" y="405"
+        width="280"
+        height="60"
+        rx="8" ry="8"
+        fill="white"
+        stroke="#444"
+        stroke-width="2"/>
+
+  <text x="245" y="442"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15">
+    Context / Transaction Change
+  </text>
+
+  <rect x="105" y="485"
+        width="280"
+        height="60"
+        rx="8" ry="8"
+        fill="white"
+        stroke="#444"
+        stroke-width="2"/>
+
+  <text x="245" y="522"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15">
+    Security Incident
+  </text>
+
+  <!-- Left basis → main flow -->
+  <path d="M420 330
+           L470 330
+           L470 216
+           L625 216"
+        fill="none"
+        stroke="#555"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- LEFT: INVALIDATION IDENTITY -->
+  <!-- ====================================================== -->
+
+  <rect x="70" y="635"
+        width="350"
+        height="300"
+        rx="14" ry="14"
+        fill="white"
+        stroke="#666"
+        stroke-width="2"/>
+
+  <text x="245" y="670"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="20"
+        font-weight="bold">
+    Invalidation Identity
+  </text>
+
+  <text x="245" y="710"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Decision Identifier
+  </text>
+
+  <text x="245" y="737"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Authorization Request Identifier
+  </text>
+
+  <text x="245" y="764"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Subject / Entitlement Identifier
+  </text>
+
+  <text x="245" y="791"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Policy / Service Identifier
+  </text>
+
+  <text x="245" y="818"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Transaction / Security State Identifier
+  </text>
+
+  <text x="245" y="862"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    The identity identifies the affected
+  </text>
+
+  <text x="245" y="884"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    authorization state.
+  </text>
+
+  <!-- Identity → Invalidation -->
+  <path d="M420 785
+           L470 785
+           L470 351
+           L625 351"
+        fill="none"
+        stroke="#555"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- RIGHT: DISTRIBUTED PROPAGATION -->
+  <!-- ====================================================== -->
+
+  <rect x="1180" y="300"
+        width="350"
+        height="370"
+        rx="14" ry="14"
+        fill="white"
+        stroke="#666"
+        stroke-width="2"/>
+
+  <text x="1355" y="335"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="20"
+        font-weight="bold">
+    Distributed Propagation
+  </text>
+
+  <rect x="1215" y="370"
+        width="280"
+        height="60"
+        rx="8" ry="8"
+        fill="white"
+        stroke="#444"
+        stroke-width="2"/>
+
+  <text x="1355" y="407"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15">
+    Authorization Service
+  </text>
+
+  <rect x="1215" y="450"
+        width="280" height="60"
+        rx="8" ry="8"
+        fill="white"
+        stroke="#444" stroke-width="2"/>
+
+  <text x="1355" y="487"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15">
+    Enforcement Node
+  </text>
+
+  <rect x="1215" y="530"
+        width="280" height="60"
+        rx="8" ry="8"
+        fill="white"
+        stroke="#444" stroke-width="2"/>
+
+  <text x="1355" y="567"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15">
+    Cached Decision Store
+  </text>
+
+  <rect x="1215" y="610"
+        width="280"
+        height="60"
+        rx="8" ry="8"
+        fill="white"
+        stroke="#444"
+        stroke-width="2"/>
+
+  <text x="1355" y="647"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15">
+    Application Service
+  </text>
+
+  <!-- Propagation from main flow to distributed nodes -->
+  <path d="M975 486
+           L1080 486
+           L1080 400
+           L1215 400"
+        fill="none"
+        stroke="#555"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- RIGHT: REVALIDATION INPUTS -->
+  <!-- ====================================================== -->
+
+  <rect x="1180" y="760"
+        width="350"
+        height="310"
+        rx="14" ry="14"
+        fill="white"
+        stroke="#666"
+        stroke-width="2"/>
+
+  <text x="1355" y="795"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="20"
+        font-weight="bold">
+    Revalidation Inputs
+  </text>
+
+  <text x="1355" y="835"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Current Identity
+  </text>
+
+  <text x="1355" y="862"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Current Entitlement State
+  </text>
+
+  <text x="1355" y="889"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Current Policy
+  </text>
+
+  <text x="1355" y="916"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Current Authorization Context
+  </text>
+
+  <text x="1355" y="943"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Current Transaction / Security State
+  </text>
+
+  <text x="1355" y="985"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    Revalidation uses current authoritative state.
+  </text>
+
+  <!-- Inputs → Revalidation -->
+  <path d="M1180 915
+           L1120 915
+           L1120 756
+           L975 756"
+        fill="none"
+        stroke="#555"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- ====================================================== -->
+  <!-- SECURITY INVARIANT -->
+  <!-- ====================================================== -->
+
+  <rect x="1180" y="1130"
+        width="350"
+        height="245"
+        rx="14" ry="14"
+        fill="white"
+        stroke="#666"
+        stroke-width="2"/>
+
+  <text x="1355" y="1167"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="20"
+        font-weight="bold">
+    Security Invariant
+  </text>
+
+  <text x="1355" y="1205"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Invalidated decisions SHALL NOT
+  </text>
+
+  <text x="1355" y="1229"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    authorize protected service execution.
+  </text>
+
+  <text x="1355" y="1270"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    A new Allow decision requires
+  </text>
+
+  <text x="1355" y="1294"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    current valid authorization state.
+  </text>
+
+  <text x="1355" y="1335"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="13">
+    Stale or inconsistent state is rejected.
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- FOOTER -->
+  <!-- ====================================================== -->
+
+  <text x="800" y="1430"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    An invalidated decision is replaced only after successful revalidation and new authorization evaluation.
+  </text>
+
+</svg>
