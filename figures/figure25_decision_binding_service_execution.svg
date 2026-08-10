@@ -1,0 +1,1211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2200"
+     height="3000"
+     viewBox="0 0 2200 3000">
+
+<title>Figure25 Decision Binding and Service Execution Model</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0.
+Authorization decision binding, verification, enforcement,
+protected service execution, replay prevention, conditional execution,
+reauthentication, reentitlement, reauthorization, and audit trace.
+</desc>
+
+<rect x="0" y="0" width="2200" height="3000" fill="white"/>
+
+<!-- ========================================================= -->
+<!-- TITLE -->
+<!-- ========================================================= -->
+
+<text x="1100" y="65"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure25 Decision Binding and Service Execution Model
+</text>
+
+<text x="1100" y="105"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="1100" y="140"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Authorization Decision → Binding → Verification → Enforcement → Service Execution
+</text>
+
+
+<!-- ========================================================= -->
+<!-- MAIN AUTHORIZATION-TO-EXECUTION FLOW -->
+<!-- ========================================================= -->
+
+<rect x="60" y="180"
+      width="2080" height="820"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Authorization-to-Execution Processing
+</text>
+
+
+<!-- Authorization Decision -->
+
+<rect x="90" y="300"
+      width="360" height="510"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="270" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Authorization Decision
+</text>
+
+<text x="270" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision produced by Authorization Domain
+</text>
+
+<line x1="135" y1="415"
+      x2="405" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="270" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision ID
+</text>
+
+<text x="270" y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision Result
+</text>
+
+<text x="270" y="510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Subject / Transaction
+</text>
+
+<text x="270" y="540"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Resource / Action
+</text>
+
+<text x="270" y="570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Policy / Version
+</text>
+
+<text x="270" y="600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement
+</text>
+
+<text x="270" y="630"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Creation / Expiration
+</text>
+
+<text x="270" y="660"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision Version
+</text>
+
+<text x="270" y="690"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Integrity Protection
+</text>
+
+<line x1="135" y1="720"
+      x2="405" y2="720"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="270" y="755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+Uniquely identifiable
+</text>
+
+
+<!-- Arrow -->
+
+<line x1="450" y1="555"
+      x2="500" y2="555"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="495,545 495,565 510,555"
+         fill="black"/>
+
+
+<!-- Decision Binding -->
+
+<rect x="510" y="300"
+      width="360" height="510"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="690" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Decision Binding
+</text>
+
+<text x="690" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Bind decision to operation
+</text>
+
+<line x1="555" y1="415"
+      x2="825" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="690" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision ↔ Subject
+</text>
+
+<text x="690" y="485"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision ↔ Transaction
+</text>
+
+<text x="690" y="520"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision ↔ Resource
+</text>
+
+<text x="690" y="555"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision ↔ Action
+</text>
+
+<text x="690" y="590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision ↔ Policy Version
+</text>
+
+<text x="690" y="625"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision ↔ Entitlement
+</text>
+
+<line x1="555" y1="655"
+      x2="825" y2="655"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="690" y="695"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+Required binding failure
+</text>
+
+<text x="690" y="720"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+→ Invalid Decision
+</text>
+
+
+<!-- Arrow -->
+
+<line x1="870" y1="555"
+      x2="920" y2="555"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="915,545 915,565 930,555"
+         fill="black"/>
+
+
+<!-- Binding Verification -->
+
+<rect x="930" y="300"
+      width="360" height="510"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1110" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Binding Verification
+</text>
+
+<text x="1110" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Verify before enforcement
+</text>
+
+<line x1="975" y1="415"
+      x2="1245" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1110" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision Integrity
+</text>
+
+<text x="1110" y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision Freshness
+</text>
+
+<text x="1110" y="510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Subject Match
+</text>
+
+<text x="1110" y="540"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction Match
+</text>
+
+<text x="1110" y="570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Resource / Action Match
+</text>
+
+<text x="1110" y="600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Policy Version
+</text>
+
+<text x="1110" y="630"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Entitlement / Request Consistency
+</text>
+
+<line x1="975" y1="660"
+      x2="1245" y2="660"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1110" y="700"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+All required checks
+</text>
+
+<text x="1110" y="725"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+must succeed.
+</text>
+
+
+<!-- Arrow -->
+
+<line x1="1290" y1="555"
+      x2="1340" y2="555"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1335,545 1335,565 1350,555"
+         fill="black"/>
+
+
+<!-- Enforcement -->
+
+<rect x="1350" y="300"
+      width="360" height="510"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1530" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Enforcement
+</text>
+
+<text x="1530" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Final execution determination
+</text>
+
+<line x1="1395" y1="415"
+      x2="1665" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1530" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+EXECUTE
+</text>
+
+<text x="1530" y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+REJECT
+</text>
+
+<text x="1530" y="510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+REAUTH
+</text>
+
+<text x="1530" y="540"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+REENTITLE
+</text>
+
+<text x="1530" y="570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+REAUTHORIZE
+</text>
+
+<text x="1530" y="600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+RECOVER
+</text>
+
+<line x1="1395" y1="630"
+      x2="1665" y2="630"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1530" y="670"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+Failure SHALL NOT
+</text>
+
+<text x="1530" y="695"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+degrade into execution.
+</text>
+
+
+<!-- Arrow -->
+
+<line x1="1710" y1="555"
+      x2="1760" y2="555"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1755,545 1755,565 1770,555"
+         fill="black"/>
+
+
+<!-- Service Execution -->
+
+<rect x="1770" y="300"
+      width="360" height="510"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1950" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Service Execution
+</text>
+
+<text x="1950" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Authorized operation only
+</text>
+
+<line x1="1815" y1="415"
+      x2="2085" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1950" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Preserve Decision Scope
+</text>
+
+<text x="1950" y="485"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Preserve Resource
+</text>
+
+<text x="1950" y="520"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Preserve Action
+</text>
+
+<text x="1950" y="555"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Preserve Transaction
+</text>
+
+<text x="1950" y="590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+No Scope Expansion
+</text>
+
+<line x1="1815" y1="625"
+      x2="2085" y2="625"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1950" y="665"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+Execution occurs only
+</text>
+
+<text x="1950" y="690"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+after successful enforcement.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- BINDING DIMENSIONS -->
+<!-- ========================================================= -->
+
+<rect x="60" y="1060"
+      width="2080" height="510"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="1110"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Decision Binding Dimensions
+</text>
+
+
+<rect x="110" y="1180"
+      width="610" height="300"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="415" y="1225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Operation Identity
+</text>
+
+<text x="415" y="1270"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Subject
+</text>
+
+<text x="415" y="1305"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Transaction
+</text>
+
+<text x="415" y="1340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Resource
+</text>
+
+<text x="415" y="1375"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Action
+</text>
+
+<text x="415" y="1420"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+All security-relevant operation
+</text>
+
+<text x="415" y="1445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+identifiers SHALL be consistent.
+</text>
+
+
+<rect x="795" y="1180"
+      width="610" height="300"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1100" y="1225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Authorization Context
+</text>
+
+<text x="1100" y="1270"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Policy Identifier
+</text>
+
+<text x="1100" y="1305"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Policy Version
+</text>
+
+<text x="1100" y="1340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Entitlement Identifier / Version
+</text>
+
+<text x="1100" y="1375"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Decision Version
+</text>
+
+<text x="1100" y="1420"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Decision validity depends on the
+</text>
+
+<text x="1100" y="1445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+authorization context.
+</text>
+
+
+<rect x="1480" y="1180"
+      width="610" height="300"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1785" y="1225"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Temporal and Integrity State
+</text>
+
+<text x="1785" y="1270"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Creation Time
+</text>
+
+<text x="1785" y="1305"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Expiration Time
+</text>
+
+<text x="1785" y="1340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Integrity Protection
+</text>
+
+<text x="1785" y="1375"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Consumption State
+</text>
+
+<text x="1785" y="1420"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Expired, revoked, consumed, or
+</text>
+
+<text x="1785" y="1445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+invalid decisions SHALL be rejected.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- REPLAY / CONSUMPTION -->
+<!-- ========================================================= -->
+
+<rect x="60" y="1630"
+      width="2080" height="420"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="1680"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Decision Consumption and Replay Prevention
+</text>
+
+
+<rect x="130" y="1750"
+      width="480" height="210"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="370" y="1795"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Decision Lifecycle
+</text>
+
+<text x="370" y="1835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+ISSUED → VALID → CONSUMED
+</text>
+
+<text x="370" y="1870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+EXPIRED / REVOKED / INVALID
+</text>
+
+<text x="370" y="1910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Terminal states SHALL NOT authorize
+</text>
+
+<text x="370" y="1935"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+a new protected operation.
+</text>
+
+
+<line x1="610" y1="1855"
+      x2="680" y2="1855"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="675,1845 675,1865 690,1855"
+         fill="black"/>
+
+
+<rect x="690" y="1750"
+      width="720" height="210"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1050" y="1795"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Replay Prevention
+</text>
+
+<text x="1050" y="1835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction Binding · Decision ID · Nonce · Request ID
+</text>
+
+<text x="1050" y="1870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Expiration · Consumption State · Sequence · Replay Record
+</text>
+
+<text x="1050" y="1910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Replay detection SHALL precede protected execution
+</text>
+
+
+<line x1="1410" y1="1855"
+      x2="1480" y2="1855"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1475,1845 1475,1865 1490,1855"
+         fill="black"/>
+
+
+<rect x="1490" y="1750"
+      width="580" height="210"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1780" y="1795"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Consumption Scope
+</text>
+
+<text x="1780" y="1835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Single-use / Limited-use
+</text>
+
+<text x="1780" y="1870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Time-limited / Transaction-scoped
+</text>
+
+<text x="1780" y="1905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Consumption semantics SHALL be explicit.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- CONDITIONAL AND RECOVERY -->
+<!-- ========================================================= -->
+
+<rect x="60" y="2110"
+      width="2080" height="500"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="2160"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Conditional and Recovery Paths
+</text>
+
+
+<rect x="110" y="2225"
+      width="620" height="285"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="420" y="2270"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Reauthentication
+</text>
+
+<text x="420" y="2310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authorization Decision
+</text>
+
+<text x="420" y="2340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ REAUTH
+</text>
+
+<text x="420" y="2370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication Update
+</text>
+
+<text x="420" y="2400"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ Security Context Update
+</text>
+
+<text x="420" y="2430"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ Policy Reevaluation
+</text>
+
+<text x="420" y="2460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ New Decision → Binding → Enforcement
+</text>
+
+
+<rect x="790" y="2225"
+      width="620" height="285"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1100" y="2270"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Reentitlement
+</text>
+
+<text x="1100" y="2310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authorization Decision
+</text>
+
+<text x="1100" y="2340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ REENTITLE
+</text>
+
+<text x="1100" y="2370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement Establishment / Update
+</text>
+
+<text x="1100" y="2400"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ Entitlement Validation
+</text>
+
+<text x="1100" y="2430"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ Security Context Update
+</text>
+
+<text x="1100" y="2460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ New Decision → Binding → Enforcement
+</text>
+
+
+<rect x="1470" y="2225"
+      width="620" height="285"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1780" y="2270"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Reauthorization
+</text>
+
+<text x="1780" y="2310"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Existing Decision
+</text>
+
+<text x="1780" y="2340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ Material Context Change
+</text>
+
+<text x="1780" y="2370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ Decision Invalidation
+</text>
+
+<text x="1780" y="2400"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ New Policy Evaluation
+</text>
+
+<text x="1780" y="2430"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ New Authorization Decision
+</text>
+
+<text x="1780" y="2460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+↓ Binding → Enforcement → Execution
+</text>
+
+
+<!-- ========================================================= -->
+<!-- SCOPE / PARAMETER / TRANSACTION -->
+<!-- ========================================================= -->
+
+<rect x="60" y="2660"
+      width="2080" height="250"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="2710"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="25"
+      font-weight="bold">
+Scope Preservation and Transaction Continuity
+</text>
+
+<text x="1100" y="2755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authorization Scope = Subject + Transaction + Resource + Action + Policy Version + Applicable Entitlement
+</text>
+
+<text x="1100" y="2790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Material parameter changes MAY require binding update or policy reevaluation.
+</text>
+
+<text x="1100" y="2825"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Service Execution SHALL NOT expand the scope granted by the authorization decision.
+</text>
+
+<text x="1100" y="2860"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction states: CREATED → AUTHORIZED → EXECUTING → COMPLETED / FAILED / CANCELLED / EXPIRED
+</text>
+
+
+<!-- ========================================================= -->
+<!-- AUDIT -->
+<!-- ========================================================= -->
+
+<rect x="60" y="2940"
+      width="2080"
+      height="50"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1100" y="2973"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="13"
+      font-weight="bold">
+Audit: Request ID · Transaction ID · Authentication ID · Entitlement ID · Policy / Version · Evaluation ID · Decision ID · Enforcement ID · Service Execution ID
+</text>
+
+</svg>
