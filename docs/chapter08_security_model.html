@@ -1,0 +1,2701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 08 — Security Model | NEW-shot2play Protocol Suite Version 2.0
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Chapter 08 — Security Model<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<h1>
+Chapter 08 — Security Model
+</h1>
+
+<p>
+This chapter defines the security model of the NEW-shot2play
+Protocol Suite Version 2.0.
+</p>
+
+<p>
+The security model establishes the trust assumptions, security
+boundaries, protected objects, security contexts, threat conditions,
+and required security properties governing the protocol layers
+defined by this specification.
+</p>
+
+<p>
+The requirements in this chapter apply to the Identity, Credential,
+Authentication, Entitlement, Policy, Authorization, and Application
+Layers unless a more specific requirement explicitly states
+otherwise.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.1 Purpose and Scope
+</h2>
+
+<p>
+The purpose of the Security Model is to ensure that authentication,
+entitlement, policy evaluation, authorization, and service execution
+remain distinguishable security functions.
+</p>
+
+<p>
+The security model SHALL prevent an authenticated identity,
+Entitlement Object, Policy Evaluation result, or Authorization
+Decision from being treated as a substitute for another security
+function unless such substitution is explicitly defined by this
+specification.
+</p>
+
+<p>
+The security model SHALL protect the transition from authenticated
+identity to authorized Service Execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.2 Security Objectives
+</h2>
+
+<p>
+A conforming implementation SHALL provide security properties
+sufficient to achieve the following objectives:
+</p>
+
+<ol>
+
+<li>
+prevent unauthorized access to protected Services;
+</li>
+
+<li>
+prevent unauthorized creation or modification of Entitlement
+state;
+</li>
+
+<li>
+prevent unauthorized Policy Evaluation;
+</li>
+
+<li>
+prevent unauthorized Authorization Decisions;
+</li>
+
+<li>
+prevent unauthorized modification of Authorization state;
+</li>
+
+<li>
+prevent unauthorized reuse of expired or revoked authorization
+state;
+</li>
+
+<li>
+preserve authorization semantics across distributed components;
+</li>
+
+<li>
+maintain traceability of security-relevant protocol operations;
+</li>
+
+<li>
+maintain security state consistency where required; and</li>
+
+<li>
+fail closed when required authorization conditions cannot be
+established.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+8.3 Security Model Principles
+</h2>
+
+<p>
+The Security Model SHALL be based on the following principles.
+</p>
+
+<ol>
+
+<li>
+Authentication establishes an authenticated security context but
+does not by itself establish authorization.
+</li>
+
+<li>
+Entitlement establishes rights, qualifications, or other
+authorization-relevant state but does not by itself constitute
+Service authorization.
+</li>
+
+<li>
+Policy Evaluation determines whether applicable conditions are
+satisfied.
+</li>
+
+<li>
+Authorization produces an explicit Decision governing a protected
+operation.
+</li>
+
+<li>
+Service Execution SHALL occur only within the scope of a valid
+Authorization Decision.
+</li>
+
+<li>
+Security-relevant state changes SHALL be capable of invalidating
+dependent state.
+</li>
+
+<li>
+Security failures SHALL NOT be converted into successful
+authorization merely because an earlier state was valid.
+</li>
+
+<li>
+A downstream component SHALL NOT broaden an upstream authorization
+constraint.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+8.4 Protected Security Objects
+</h2>
+
+<p>
+The following protocol objects SHALL be treated as security-relevant
+objects:
+</p>
+
+<table>
+
+<tr>
+<th>
+Object
+</th>
+
+<th>
+Security Role
+</th>
+</tr>
+
+<tr>
+<td>
+Identity Object
+</td>
+
+<td>
+Represents the identity subject associated with protocol
+operations.
+</td>
+</tr>
+
+<tr>
+<td>
+Credential Object
+</td>
+
+<td>
+Represents credential material or credential references used for
+authentication.
+</td>
+</tr>
+
+<tr>
+<td>
+Authentication Object
+</td>
+
+<td>
+Represents authentication state and authentication results.
+</td>
+</tr>
+
+<tr>
+<td>
+Entitlement Object
+</td>
+
+<td>
+Represents authorization-relevant rights, qualifications, or
+conditions.
+</td>
+</tr>
+
+<tr>
+<td>
+Policy Object
+</td>
+
+<td>
+Represents rules governing policy evaluation.
+</td>
+</tr>
+
+<tr>
+<td>
+Authorization Object
+</td>
+
+<td>
+Represents authorization state and the resulting Authorization
+Decision.
+</td>
+</tr>
+
+<tr>
+<td>
+Session Object
+</td>
+
+<td>
+Represents an active protocol or service security context.
+</td>
+</tr>
+
+<tr>
+<td>
+Service Object
+</td>
+
+<td>
+Represents a protected Service and its executable operations.
+</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<section>
+
+<h2>
+8.5 Security-Sensitive State
+</h2>
+
+<p>
+Security-sensitive state SHALL include any state whose modification,
+removal, replay, substitution, or invalidation could alter the
+authorization outcome.
+</p>
+
+<p>
+Security-sensitive state MAY include:
+</p>
+
+<ul>
+
+<li>
+identity binding;
+</li>
+
+<li>
+credential status;
+</li>
+
+<li>
+authentication status;
+</li>
+
+<li>
+Entitlement status;
+</li>
+
+<li>
+Entitlement validity interval;
+</li>
+
+<li>
+Entitlement scope;
+</li>
+
+<li>
+Policy version;
+</li>
+
+<li>
+Policy Evaluation result;
+</li>
+
+<li>
+Authorization Decision;
+</li>
+
+<li>
+Decision state;
+</li>
+
+<li>
+Authorization Scope;
+</li>
+
+<li>
+revocation state;
+</li>
+
+<li>
+invalidation state;
+</li>
+
+<li>
+security context;
+</li>
+
+<li>
+transaction state; and</li>
+
+<li>
+Service execution state.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+8.6 Trust Model
+</h2>
+
+<p>
+The Version 2.0 architecture SHALL operate under an explicit Trust
+Model.
+</p>
+
+<p>
+Trust SHALL NOT be inferred solely from network location, transport
+connectivity, successful authentication, or possession of an
+Authorization Object.
+</p>
+
+<p>
+A component SHALL be trusted only for the security functions and
+state transitions for which it has been explicitly authorized.
+</p>
+
+<p>
+In particular, successful authentication SHALL NOT grant a
+component authority to create, modify, or broaden Entitlement or
+Authorization state unless such authority is explicitly assigned.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.7 Trust Domains
+</h2>
+
+<p>
+An implementation MAY divide the protocol environment into
+multiple Trust Domains.
+</p>
+
+<p>
+A Trust Domain is an administrative or security boundary within
+which a defined set of components, objects, and operations share
+specified trust assumptions.
+</p>
+
+<p>
+Trust Domains MAY include:
+</p>
+
+<ul>
+
+<li>
+Identity Trust Domain;
+</li>
+
+<li>
+Credential Trust Domain;
+</li>
+
+<li>
+Authentication Trust Domain;
+</li>
+
+<li>
+Entitlement Trust Domain;
+</li>
+
+<li>
+Policy Trust Domain;
+</li>
+
+<li>
+Authorization Trust Domain; and</li>
+
+<li>
+Service Trust Domain.
+</li>
+
+</ul>
+
+<p>
+A Trust Domain boundary SHALL NOT automatically imply that all
+security properties of one Domain are valid within another Domain.
+Cross-Domain state SHALL be subject to explicit validation and
+trust rules.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.8 Trust Establishment
+</h2>
+
+<p>
+A component that receives security-sensitive protocol state SHALL
+establish sufficient trust in the source and integrity of that state
+before relying upon it for a security decision.
+</p>
+
+<p>
+Trust establishment MAY include:
+</p>
+
+<ul>
+
+<li>
+cryptographic verification;
+</li>
+
+<li>
+issuer validation;
+</li>
+
+<li>
+credential validation;
+</li>
+
+<li>
+object integrity verification;
+</li>
+
+<li>
+state validation;
+</li>
+
+<li>
+scope validation;
+</li>
+
+<li>
+version validation; and</li>
+
+<li>
+revocation or invalidation status validation.
+</li>
+
+</ul>
+
+<p>
+A component SHALL NOT rely upon unverified security-sensitive state
+to authorize protected Service Execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.9 Security Boundary
+</h2>
+
+<p>
+The protocol SHALL maintain explicit security boundaries between
+security functions.
+</p>
+
+<p>
+At minimum, the following boundaries SHALL be recognized:
+</p>
+
+<ul>
+
+<li>
+authentication boundary;
+</li>
+
+<li>
+entitlement boundary;
+</li>
+
+<li>
+policy boundary;
+</li>
+
+<li>
+authorization boundary;
+</li>
+
+<li>
+service enforcement boundary; and</li>
+
+<li>
+cross-service trust boundary.
+</li>
+
+</ul>
+
+<p>
+A security boundary defines the point at which security-sensitive
+state SHALL be validated before being accepted by another security
+function or Trust Domain.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.10 Security Boundary Enforcement
+</h2>
+
+<p>
+A receiving component SHALL validate security-sensitive state when
+that state crosses a defined security boundary.
+</p>
+
+<p>
+Validation SHALL be performed before the receiving component relies
+upon the state for a security-sensitive operation.
+</p>
+
+<p>
+Boundary enforcement SHALL prevent:
+</p>
+
+<ul>
+
+<li>
+unauthorized state substitution;
+</li>
+
+<li>
+scope expansion;
+</li>
+
+<li>
+trust escalation;
+</li>
+
+<li>
+unauthorized replay;
+</li>
+
+<li>
+invalid state propagation; and</li>
+
+<li>
+unauthorized authorization inheritance.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+8.11 Security Context
+</h2>
+
+<p>
+A Security Context is the collection of security-relevant state
+required by a protocol component to evaluate or enforce a security
+condition.
+</p>
+
+<p>
+A Security Context MAY contain:
+</p>
+
+<ul>
+
+<li>
+Identity reference;
+</li>
+
+<li>
+Authentication state;
+</li>
+
+<li>
+Entitlement reference;
+</li>
+
+<li>
+Entitlement state;
+</li>
+
+<li>
+Policy reference;
+</li>
+
+<li>
+Policy Evaluation result;
+</li>
+
+<li>
+Authorization reference;
+</li>
+
+<li>
+Authorization Decision;
+</li>
+
+<li>
+Decision state;
+</li>
+
+<li>
+Service reference;
+</li>
+
+<li>
+Resource reference;
+</li>
+
+<li>
+Action reference;
+</li>
+
+<li>
+transaction state;
+</li>
+
+<li>
+security state; and</li>
+
+<li>
+validity information.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+8.12 Security Context Integrity
+</h2>
+
+<p>
+A Security Context SHALL preserve the semantic relationship between
+its constituent security objects.
+</p>
+
+<p>
+A component SHALL NOT construct an Allow-capable Security Context
+from incompatible, expired, revoked, or otherwise invalid security
+objects.
+</p>
+
+<p>
+Where a Security Context is reconstructed in a distributed
+environment, the reconstruction process SHALL preserve the
+authorization semantics defined by the originating protocol state.
+</p>
+
+<p>
+A failure to reconstruct a valid Security Context SHALL result in
+Fail-Closed behavior where the Security Context is required for
+authorization.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.13 Security Context Propagation
+</h2>
+
+<p>
+Where authorization processing spans multiple components, the
+required Security Context SHALL be propagated or reconstructable
+across the applicable processing boundaries.
+</p>
+
+<p>
+Security Context propagation SHALL preserve:
+</p>
+
+<ul>
+
+<li>
+identity binding;
+</li>
+
+<li>
+Entitlement binding;
+</li>
+
+<li>
+Policy binding;
+</li>
+
+<li>
+Authorization binding;
+</li>
+
+<li>
+Service binding;
+</li>
+
+<li>
+scope restrictions; and</li>
+
+<li>
+security state.
+</li>
+
+</ul>
+
+<p>
+A component SHALL NOT silently discard security state that is
+required to preserve an existing authorization constraint.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.14 Security Context Change
+</h2>
+
+<p>
+A security-relevant change to any object represented within a
+Security Context SHALL be capable of causing the affected context
+to become invalid or require revalidation.
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>
+Identity status change;
+</li>
+
+<li>
+Credential status change;
+</li>
+
+<li>
+Entitlement revocation;
+</li>
+
+<li>
+Entitlement expiration;
+</li>
+
+<li>
+Policy version change;
+</li>
+
+<li>
+Policy invalidation;
+</li>
+
+<li>
+Authorization revocation;
+</li>
+
+<li>
+security state change; and</li>
+
+<li>
+Service or resource state change.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+8.15 Security State Precedence
+</h2>
+
+<p>
+Where multiple security states apply to the same protected
+operation, the implementation SHALL apply the most restrictive
+applicable security state.
+</p>
+
+<p>
+An Invalid, Revoked, Expired, or otherwise security-invalid state
+SHALL take precedence over a previously established Allow state
+where the invalid state affects a required authorization condition.
+</p>
+
+<p>
+A newer security state SHALL NOT be ignored merely because an older
+state remains cached or otherwise available.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.16 Security Model Summary
+</h2>
+
+<p>
+The Security Model establishes the trust and security boundaries
+required to protect the Version 2.0 protocol architecture.
+</p>
+
+<p>
+The model treats Identity, Credential, Authentication, Entitlement,
+Policy, Authorization, Session, and Service state as distinct
+security objects and requires explicit validation when security
+state crosses trust or processing boundaries.
+</p>
+
+<p>
+Security Context integrity, propagation, change handling, and state
+precedence provide the foundation for the threat and security
+requirements defined in the subsequent sections of this chapter.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.17 Threat Model
+</h2>
+
+<p>
+The Version 2.0 Threat Model defines the classes of threats that
+MUST be considered when implementing, deploying, or operating the
+NEW-shot2play Protocol Suite.
+</p>
+
+<p>
+The Threat Model SHALL consider threats against protocol objects,
+security state, trust relationships, policy evaluation, authorization
+decisions, service execution, and the propagation of security
+context across processing boundaries.
+</p>
+
+<p>
+A conforming implementation SHALL NOT assume that successful
+authentication eliminates threats occurring at subsequent protocol
+layers.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.18 Threat Actors
+</h2>
+
+<p>
+The following threat actors SHALL be considered within the scope of
+the Version 2.0 security analysis.
+</p>
+
+<table>
+
+<tr>
+<th>
+Threat Actor
+</th>
+
+<th>
+Description
+</th>
+</tr>
+
+<tr>
+<td>
+Unauthenticated Attacker
+</td>
+
+<td>
+An entity that has not established a valid Authentication state and
+attempts to obtain access to protected protocol functions or
+Service resources.
+</td>
+</tr>
+
+<tr>
+<td>
+Authenticated but Unauthorized Actor
+</td>
+
+<td>
+An authenticated entity that does not possess sufficient Entitlement
+or Authorization for the requested operation.
+</td>
+</tr>
+
+<tr>
+<td>
+Compromised Client
+</td>
+
+<td>
+A client environment in which application state, local storage,
+credentials, or security context may have been compromised.
+</td>
+</tr>
+
+<tr>
+<td>
+Compromised Service Component
+</td>
+
+<td>
+A Service-side component that attempts to bypass or modify required
+authorization enforcement.
+</td>
+</tr>
+
+<tr>
+<td>
+Malicious Insider
+</td>
+
+<td>
+A trusted administrative or operational actor that misuses granted
+privileges or attempts unauthorized state modification.
+</td>
+</tr>
+
+<tr>
+<td>
+Compromised Protocol Component
+</td>
+
+<td>
+A protocol component that has been compromised and attempts to
+produce, modify, replay, suppress, or substitute security-sensitive
+state.
+</td>
+</tr>
+
+<tr>
+<td>
+Network Attacker
+</td>
+
+<td>
+An attacker capable of observing, delaying, replaying, modifying, or
+injecting protocol messages within an accessible communication path.
+</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<section>
+
+<h2>
+8.19 Attack Surface
+</h2>
+
+<p>
+The attack surface SHALL include every interface through which an
+attacker may influence security-relevant protocol state or Service
+execution.
+</p>
+
+<p>
+The attack surface includes, at minimum:
+</p>
+
+<ul>
+
+<li>
+Identity registration and update interfaces;
+</li>
+
+<li>
+Credential registration and validation interfaces;
+</li>
+
+<li>
+Authentication transactions;
+</li>
+
+<li>
+Entitlement creation and modification interfaces;
+</li>
+
+<li>
+Policy definition and version management;
+</li>
+
+<li>
+Policy Evaluation requests;
+</li>
+
+<li>
+Authorization requests;
+</li>
+
+<li>
+Authorization Decision propagation;
+</li>
+
+<li>
+Service enforcement interfaces;
+</li>
+
+<li>
+revocation and invalidation mechanisms;
+</li>
+
+<li>
+cross-service protocol interfaces;
+</li>
+
+<li>
+distributed Security Context propagation;
+</li>
+
+<li>
+audit and trace interfaces; and</li>
+
+<li>
+administrative control interfaces.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+8.20 Threat Classes
+</h2>
+
+<p>
+Threats within the Version 2.0 architecture SHALL be classified
+according to the security property or protocol function that may be
+affected.
+</p>
+
+<table>
+
+<tr>
+<th>
+Threat Class
+</th>
+
+<th>
+Primary Target
+</th>
+</tr>
+
+<tr>
+<td>
+Identity Threat
+</td>
+
+<td>
+Identity binding and identity state.
+</td>
+</tr>
+
+<tr>
+<td>
+Credential Threat
+</td>
+
+<td>
+Credential confidentiality, integrity, validity, and lifecycle.
+</td>
+</tr>
+
+<tr>
+<td>
+Authentication Threat
+</td>
+
+<td>
+Authentication state and authentication result integrity.
+</td>
+</tr>
+
+<tr>
+<td>
+Entitlement Threat
+</td>
+
+<td>
+Entitlement creation, scope, validity, and lifecycle.
+</td>
+</tr>
+
+<tr>
+<td>
+Policy Threat
+</td>
+
+<td>
+Policy integrity, versioning, and evaluation semantics.
+</td>
+</tr>
+
+<tr>
+<td>
+Authorization Threat
+</td>
+
+<td>
+Authorization Decision integrity, scope, state, and lifecycle.
+</td>
+</tr>
+
+<tr>
+<td>
+Context Threat
+</td>
+
+<td>
+Security Context construction, propagation, and continuity.
+</td>
+</tr>
+
+<tr>
+<td>
+Service Enforcement Threat
+</td>
+
+<td>
+Application of Authorization Decisions to protected operations.
+</td>
+</tr>
+
+<tr>
+<td>
+Propagation Threat
+</td>
+
+<td>
+Security state consistency across distributed components.
+</td>
+</tr>
+
+<tr>
+<td>
+Lifecycle Threat
+</td>
+
+<td>
+Expiration, revocation, invalidation, and revalidation.
+</td>
+</tr>
+
+</table>
+
+</section>
+
+
+<section>
+
+<h2>
+8.21 Identity Threats
+</h2>
+
+<p>
+Identity-related threats SHALL include attempts to associate a
+security operation with an incorrect, substituted, duplicated, or
+otherwise invalid Identity Object.
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>
+identity substitution;
+</li>
+
+<li>
+identity impersonation;
+</li>
+
+<li>
+identity binding corruption;
+</li>
+
+<li>
+unauthorized identity reassignment; and</li>
+
+<li>
+use of stale identity state.
+</li>
+
+</ul>
+
+<p>
+An implementation SHALL validate the identity binding required by
+the applicable protocol operation before relying upon downstream
+security state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.22 Credential Threats
+</h2>
+
+<p>
+Credential-related threats SHALL include unauthorized disclosure,
+substitution, replay, modification, misuse, or lifecycle
+manipulation of Credential Objects.
+</p>
+
+<p>
+Credential compromise SHALL NOT automatically imply that all
+downstream Authorization state is valid.
+</p>
+
+<p>
+Where credential status is a required authorization condition, a
+credential status change SHALL be capable of causing dependent
+security state to require revalidation or become invalid.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.23 Authentication Threats
+</h2>
+
+<p>
+Authentication threats SHALL include attempts to obtain or maintain
+an Authentication state without satisfying the required
+authentication conditions.
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>
+authentication replay;
+</li>
+
+<li>
+challenge substitution;
+</li>
+
+<li>
+authentication result substitution;
+</li>
+
+<li>
+stale authentication state;
+</li>
+
+<li>
+session fixation; and</li>
+
+<li>
+unauthorized reuse of authentication state.
+</li>
+
+</ul>
+
+<p>
+Authentication success SHALL establish only the authentication
+properties defined by the Authentication Protocol.
+</p>
+
+<p>
+An implementation SHALL NOT interpret authentication success as
+implicit satisfaction of Entitlement, Policy, or Authorization
+conditions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.24 Entitlement Threats
+</h2>
+
+<p>
+Entitlement-related threats are a primary security concern of
+Version 2.0 because the Entitlement Object forms the protocol-level
+connection between authenticated identity and authorization
+processing.
+</p>
+
+<p>
+Threats SHALL include:
+</p>
+
+<ul>
+
+<li>
+unauthorized Entitlement creation;
+</li>
+
+<li>
+Entitlement substitution;
+</li>
+
+<li>
+Entitlement scope expansion;
+</li>
+
+<li>
+unauthorized Entitlement modification;
+</li>
+
+<li>
+Entitlement replay;
+</li>
+
+<li>
+use of expired Entitlement state;
+</li>
+
+<li>
+use of revoked Entitlement state;
+</li>
+
+<li>
+incorrect subject binding;
+</li>
+
+<li>
+incorrect Service binding; and</li>
+
+<li>
+unauthorized cross-Service reuse.
+</li>
+
+</ul>
+
+<p>
+An implementation SHALL verify the subject, scope, validity,
+conditions, issuer, and applicable Service binding of an Entitlement
+before relying upon it for Policy Evaluation or Authorization.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.25 Policy Threats
+</h2>
+
+<p>
+Policy threats SHALL include unauthorized modification,
+substitution, downgrade, replay, or incorrect selection of a Policy
+Object.
+</p>
+
+<p>
+A Policy Evaluation Engine SHALL evaluate the Policy version and
+policy state applicable to the current authorization request.
+</p>
+
+<p>
+A stale Policy version SHALL NOT be used to produce an Authorization
+Decision when a newer mandatory Policy version applies.
+</p>
+
+<p>
+Unauthorized Policy modification SHALL be capable of invalidating
+dependent Evaluation Results and Authorization Decisions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.26 Authorization Threats
+</h2>
+
+<p>
+Authorization threats SHALL include any attempt to cause a Service
+to execute an operation that is not permitted by the applicable
+Authorization Decision.
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>
+Authorization Decision forgery;
+</li>
+
+<li>
+Authorization Decision substitution;
+</li>
+
+<li>
+scope expansion;
+</li>
+
+<li>
+decision replay;
+</li>
+
+<li>
+decision reuse after expiration;
+</li>
+
+<li>
+decision reuse after revocation;
+</li>
+
+<li>
+decision state corruption;
+</li>
+
+<li>
+unauthorized decision propagation; and</li>
+
+<li>
+bypass of Service-side enforcement.
+</li>
+
+</ul>
+
+<p>
+An Authorization Decision SHALL be bound to the security context,
+scope, and conditions under which the decision was produced.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.27 Security Context Threats
+</h2>
+
+<p>
+Security Context threats SHALL include unauthorized construction,
+modification, omission, substitution, or reconstruction of
+security-relevant context.
+</p>
+
+<p>
+A distributed component SHALL NOT reconstruct an Authorization-capable
+Security Context using incomplete or incompatible security state.
+</p>
+
+<p>
+Security Context reconstruction SHALL preserve the dependencies
+between Identity, Entitlement, Policy, Authorization, and Service
+state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.28 Decision Binding Threats
+</h2>
+
+<p>
+An Authorization Decision SHALL be protected against separation from
+the security conditions under which it was produced.
+</p>
+
+<p>
+A conforming implementation SHALL prevent an Authorization Decision
+from being detached from required:
+</p>
+
+<ul>
+
+<li>
+Identity binding;
+</li>
+
+<li>
+Entitlement binding;
+</li>
+
+<li>
+Policy binding;
+</li>
+
+<li>
+Service binding;
+</li>
+
+<li>
+resource binding;
+</li>
+
+<li>
+action scope; and</li>
+
+<li>
+security state.
+</li>
+
+</ul>
+
+<p>
+A decision that cannot be reliably associated with its required
+security conditions SHALL NOT authorize protected Service
+Execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.29 Propagation Threats
+</h2>
+
+<p>
+Propagation threats SHALL include unauthorized alteration, loss,
+reordering, duplication, suppression, or inconsistent interpretation
+of security state as it moves between protocol components.
+</p>
+
+<p>
+Where the same Authorization Decision is processed by multiple
+components, each component SHALL preserve the security constraints
+associated with that Decision.
+</p>
+
+<p>
+A downstream component SHALL NOT interpret a propagated decision as
+having broader scope than the originating decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.30 Lifecycle Threats
+</h2>
+
+<p>
+Lifecycle threats SHALL include the unauthorized continued use of
+security state after expiration, revocation, invalidation, or other
+security-relevant state changes.
+</p>
+
+<p>
+An implementation SHALL define and enforce lifecycle transitions
+for security-sensitive objects.
+</p>
+
+<p>
+At minimum, lifecycle processing SHALL account for:
+</p>
+
+<ul>
+
+<li>
+creation;
+</li>
+
+<li>
+activation;
+</li>
+
+<li>
+validity;
+</li>
+
+<li>
+expiration;
+</li>
+
+<li>
+revocation;
+</li>
+
+<li>
+invalidation;
+</li>
+
+<li>
+revalidation;
+</li>
+
+<li>
+recovery; and</li>
+
+<li>
+final termination.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+8.31 Replay Threats
+</h2>
+
+<p>
+Replay attacks SHALL be considered against all security-sensitive
+protocol messages and objects for which repeated use could alter a
+security decision or Service outcome.
+</p>
+
+<p>
+Replay protection MAY be provided through transaction identifiers,
+nonces, timestamps, validity intervals, state tracking, unique
+object identifiers, cryptographic binding, or equivalent
+mechanisms.
+</p>
+
+<p>
+A replayed security object SHALL NOT be accepted when its lifecycle
+state or transaction context no longer permits its use.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.32 Substitution Threats
+</h2>
+
+<p>
+Substitution threats SHALL include attempts to replace one
+security-sensitive object, state, or result with another object that
+is syntactically valid but semantically unauthorized.
+</p>
+
+<p>
+Implementations SHALL validate semantic bindings in addition to
+message syntax and cryptographic integrity.
+</p>
+
+<p>
+In particular, successful verification of an object SHALL NOT by
+itself establish that the object is applicable to the current
+Identity, Service, Resource, Action, Policy, or transaction.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.33 Scope Expansion Threats
+</h2>
+
+<p>
+Scope expansion SHALL be treated as a security violation when an
+operation obtains permissions, resources, Services, Actions, or
+conditions broader than those established by the applicable
+Entitlement or Authorization state.
+</p>
+
+<p>
+A downstream component SHALL inherit restrictions from upstream
+security state.
+</p>
+
+<p>
+A downstream component MAY further restrict scope but SHALL NOT
+broaden a required restriction without a new valid authorization
+process.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.34 Revocation and Invalidation Threats
+</h2>
+
+<p>
+Revocation and invalidation mechanisms SHALL be protected against
+unauthorized suppression, delay, substitution, or incomplete
+propagation.
+</p>
+
+<p>
+When a security state change invalidates dependent authorization
+state, the invalidation SHALL propagate to all components that may
+otherwise rely upon the affected state.
+</p>
+
+<p>
+A component SHALL NOT continue to treat a known-invalid
+Authorization Decision as valid merely because the Decision was
+previously accepted.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.35 Fail-Open Threats
+</h2>
+
+<p>
+A Fail-Open condition occurs when an implementation permits
+protected Service Execution despite being unable to establish a
+required security condition.
+</p>
+
+<p>
+Fail-Open behavior SHALL be treated as a security threat.
+</p>
+
+<p>
+Where a required Authorization condition cannot be established, the
+implementation SHALL reject the protected operation unless an
+explicitly defined exception permits continued execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.36 Fail-Closed Requirement
+</h2>
+
+<p>
+The Version 2.0 authorization architecture SHALL implement
+Fail-Closed behavior for security conditions that are mandatory for
+the requested operation.
+</p>
+
+<p>
+The following conditions SHALL result in denial or equivalent
+non-authorized behavior when they cannot be reliably established:
+</p>
+
+<ul>
+
+<li>
+required Identity validity;
+</li>
+
+<li>
+required Authentication validity;
+</li>
+
+<li>
+required Entitlement validity;
+</li>
+
+<li>
+required Policy validity;
+</li>
+
+<li>
+required Authorization validity;
+</li>
+
+<li>
+required Security Context integrity;
+</li>
+
+<li>
+required revocation state;
+</li>
+
+<li>
+required invalidation state; and</li>
+
+<li>
+required Service or resource security state.
+</li>
+
+</ul>
+
+</section>
+
+
+
+<section>
+
+<h2>
+8.37 Security Requirements
+</h2>
+
+<p>
+A conforming implementation SHALL implement the security
+requirements defined in this chapter together with the normative
+requirements applicable to the individual protocol layers.
+</p>
+
+<p>
+Security requirements SHALL apply to both protocol state and the
+processing behavior of components that create, evaluate, propagate,
+or enforce that state.
+</p>
+
+<p>
+An implementation SHALL NOT claim conformance solely on the basis
+of cryptographic message protection if the implementation fails to
+enforce the semantic security requirements defined by this
+specification.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.38 Authentication Security Requirements
+</h2>
+
+<p>
+The Authentication Layer SHALL establish an authenticated security
+state only after the applicable authentication conditions have been
+satisfied.
+</p>
+
+<p>
+Authentication state SHALL be bound to the Identity Object for which
+the authentication was performed.
+</p>
+
+<p>
+Authentication state SHALL NOT be transferable to another Identity
+Object without a new authentication operation.
+</p>
+
+<p>
+An implementation SHALL protect authentication transactions against
+replay, substitution, and unauthorized modification.
+</p>
+
+<p>
+Authentication state SHALL have a defined validity condition.
+</p>
+
+<p>
+When authentication state becomes invalid and that state is required
+by a downstream authorization condition, dependent authorization
+processing SHALL require revalidation or SHALL fail closed.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.39 Entitlement Security Requirements
+</h2>
+
+<p>
+The Entitlement Layer SHALL protect the integrity, authenticity,
+scope, validity, and lifecycle of every Entitlement Object used for
+authorization.
+</p>
+
+<p>
+An Entitlement Object SHALL identify or otherwise securely bind the
+subject to which the entitlement applies.
+</p>
+
+<p>
+An Entitlement Object SHALL define sufficient information to
+determine its applicable scope and validity.
+</p>
+
+<p>
+An implementation SHALL prevent unauthorized modification of:
+</p>
+
+<ul>
+
+<li>
+subject binding;
+</li>
+
+<li>
+Service binding;
+</li>
+
+<li>
+scope;
+</li>
+
+<li>
+conditions;
+</li>
+
+<li>
+validity interval;
+</li>
+
+<li>
+quantity or usage restrictions; and</li>
+
+<li>
+revocation state.
+</li>
+
+</ul>
+
+<p>
+An Entitlement that has expired, been revoked, or otherwise become
+invalid SHALL NOT be used as a valid authorization input.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.40 Policy Security Requirements
+</h2>
+
+<p>
+Policy Objects SHALL be protected against unauthorized creation,
+modification, substitution, rollback, and unauthorized version
+selection.
+</p>
+
+<p>
+The Policy Evaluation Engine SHALL evaluate the Policy Object that
+is applicable to the current request and security context.
+</p>
+
+<p>
+Policy evaluation SHALL preserve the distinction between policy
+conditions and authorization results.
+</p>
+
+<p>
+A Policy Evaluation Result SHALL NOT be treated as an Authorization
+Decision unless the authorization process explicitly establishes
+that result as an authorization input.
+</p>
+
+<p>
+A Policy version that is no longer valid SHALL NOT be used for a
+security decision when a newer mandatory version applies.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.41 Authorization Security Requirements
+</h2>
+
+<p>
+The Authorization Layer SHALL produce an explicit Authorization
+Decision for each protected operation for which authorization is
+required.
+</p>
+
+<p>
+An Authorization Decision SHALL identify or securely bind the
+security context under which the decision was produced.
+</p>
+
+<p>
+An Authorization Decision SHALL include or reference sufficient
+information to determine:
+</p>
+
+<ul>
+
+<li>
+the authorized subject;
+</li>
+
+<li>
+the authorized Service;
+</li>
+
+<li>
+the authorized Resource or operation;
+</li>
+
+<li>
+the applicable scope;
+</li>
+
+<li>
+the applicable conditions;
+</li>
+
+<li>
+the Decision state; and</li>
+
+<li>
+the validity or lifecycle state.
+</li>
+
+</ul>
+
+<p>
+An Allow decision SHALL NOT be considered valid solely because the
+underlying message is syntactically correct.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.42 Service Enforcement Security Requirements
+</h2>
+
+<p>
+A Service that performs a protected operation SHALL enforce the
+applicable Authorization Decision before executing that operation.
+</p>
+
+<p>
+Service enforcement SHALL verify that the Authorization Decision
+applies to:
+</p>
+
+<ul>
+
+<li>
+the requesting subject;
+</li>
+
+<li>
+the requested Service;
+</li>
+
+<li>
+the requested Resource;
+</li>
+
+<li>
+the requested Action;
+</li>
+
+<li>
+the applicable scope; and</li>
+
+<li>
+the current security state.
+</li>
+
+</ul>
+
+<p>
+A Service SHALL NOT execute a protected operation based solely on
+Authentication success.
+</p>
+
+<p>
+A Service SHALL NOT expand an Authorization Scope beyond the scope
+established by the applicable Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.43 Revocation and Revalidation
+</h2>
+
+<p>
+Security-sensitive objects and decisions SHALL support revocation
+and revalidation where their continued validity depends upon
+changeable security state.
+</p>
+
+<p>
+When an Entitlement, Policy, Credential, Authentication state, or
+other dependency becomes invalid, dependent Authorization state
+SHALL be revalidated where required by the applicable dependency
+relationship.
+</p>
+
+<p>
+A revalidation operation SHALL evaluate the current applicable
+security state rather than merely confirm that a previous decision
+was once valid.
+</p>
+
+<p>
+A revoked or invalidated Authorization Decision SHALL NOT be reused
+for a protected operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.44 Security Event Handling
+</h2>
+
+<p>
+Security-relevant state changes SHALL generate or otherwise produce
+events sufficient to permit dependent security state to be updated,
+invalidated, or revalidated.
+</p>
+
+<p>
+Security events MAY include:
+</p>
+
+<ul>
+
+<li>
+Identity state changes;
+</li>
+
+<li>
+Credential state changes;
+</li>
+
+<li>
+Authentication state changes;
+</li>
+
+<li>
+Entitlement creation;
+</li>
+
+<li>
+Entitlement modification;
+</li>
+
+<li>
+Entitlement expiration;
+</li>
+
+<li>
+Entitlement revocation;
+</li>
+
+<li>
+Policy version changes;
+</li>
+
+<li>
+Policy invalidation;
+</li>
+
+<li>
+Authorization revocation;
+</li>
+
+<li>
+Security Context invalidation; and</li>
+
+<li>
+Service security state changes.
+</li>
+
+</ul>
+
+<p>
+A security event that affects an active authorization dependency
+SHALL be processed according to the dependency and invalidation
+rules applicable to that state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.45 Audit and Traceability
+</h2>
+
+<p>
+Security-sensitive protocol operations SHALL be traceable to the
+extent necessary to establish the origin, processing history, and
+result of a security decision.
+</p>
+
+<p>
+Audit records SHOULD permit correlation of:
+</p>
+
+<ul>
+
+<li>
+Identity;
+</li>
+
+<li>
+Authentication transaction;
+</li>
+
+<li>
+Entitlement;
+</li>
+
+<li>
+Policy version;
+</li>
+
+<li>
+Policy Evaluation;
+</li>
+
+<li>
+Authorization Decision;
+</li>
+
+<li>
+Service execution;
+</li>
+
+<li>
+revocation or invalidation event; and</li>
+
+<li>
+resulting security state.
+</li>
+
+</ul>
+
+<p>
+Audit information SHALL NOT be used as a substitute for real-time
+authorization enforcement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.46 Cross-Service Security
+</h2>
+
+<p>
+Cross-Service use of Entitlement or Authorization state SHALL be
+subject to explicit Service binding and scope validation.
+</p>
+
+<p>
+An Entitlement MAY be reusable across multiple Services only when
+the Entitlement explicitly permits such reuse and the receiving
+Service validates the applicable conditions.
+</p>
+
+<p>
+A Service SHALL NOT infer cross-Service authorization merely from
+the existence of a valid authorization state in another Service.
+</p>
+
+<p>
+Cross-Service reuse SHALL preserve all applicable restrictions,
+conditions, validity intervals, and security dependencies.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.47 Distributed Security
+</h2>
+
+<p>
+A distributed implementation SHALL preserve security semantics when
+security processing is divided among multiple components.
+</p>
+
+<p>
+Each component SHALL receive or reconstruct sufficient Security
+Context to perform its assigned security function.
+</p>
+
+<p>
+A component SHALL NOT assume that a security condition remains valid
+solely because another component previously accepted that condition.
+</p>
+
+<p>
+Where distributed components maintain cached security state, the
+implementation SHALL define the conditions under which that state
+MUST be refreshed, invalidated, or revalidated.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.48 Security Invariants
+</h2>
+
+<p>
+The following security invariants SHALL hold throughout protected
+Service processing.
+</p>
+
+<ol>
+
+<li>
+Authentication SHALL NOT by itself constitute Authorization.
+</li>
+
+<li>
+Authorization SHALL NOT exceed the applicable Entitlement scope.
+</li>
+
+<li>
+Policy Evaluation SHALL NOT silently broaden security constraints.
+</li>
+
+<li>
+A downstream component SHALL NOT broaden an upstream restriction.
+</li>
+
+<li>
+An invalid dependency SHALL NOT produce a valid Allow decision.
+</li>
+
+<li>
+A revoked Authorization Decision SHALL NOT authorize protected
+Service Execution.
+</li>
+
+<li>
+An expired security object SHALL NOT be treated as unexpired.
+</li>
+
+<li>
+A Security Context SHALL NOT contain mutually incompatible
+security states.
+</li>
+
+<li>
+A Service SHALL NOT execute a protected operation when a mandatory
+authorization condition cannot be established.
+</li>
+
+<li>
+Security state changes SHALL be capable of invalidating dependent
+state where the dependency requires such invalidation.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+8.49 Security Failure Handling
+</h2>
+
+<p>
+Security processing failures SHALL be handled according to the
+security function affected by the failure.
+</p>
+
+<p>
+A failure that prevents reliable establishment of a mandatory
+security condition SHALL result in a non-authorized outcome.
+</p>
+
+<p>
+Security failures SHALL NOT be converted into successful
+authorization through default values, stale cached state, or
+implicit assumptions.
+</p>
+
+<p>
+Where an implementation cannot distinguish between a valid and an
+invalid security state, it SHALL treat the affected state as
+invalid for purposes of protected Service Execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.50 Security Recovery
+</h2>
+
+<p>
+A security recovery procedure MAY restore operation after a
+security-relevant failure, provided that recovery does not bypass
+required authentication, entitlement, policy, or authorization
+processing.
+</p>
+
+<p>
+Recovery SHALL establish a new valid security state or restore a
+previous state only when the validity of that state can be
+independently established.
+</p>
+
+<p>
+Recovery SHALL NOT reactivate a revoked or invalidated Authorization
+Decision solely because the decision was valid before the failure.
+</p>
+
+<p>
+Where required security state cannot be restored or revalidated,
+the affected operation SHALL remain non-authorized.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+8.51 Security Model Conformance
+</h2>
+
+<p>
+An implementation conforms to the Version 2.0 Security Model only
+if it satisfies the mandatory security requirements defined in this
+chapter and the security requirements of the applicable protocol
+layers.
+</p>
+
+<p>
+A conforming implementation SHALL:
+</p>
+
+<ul>
+
+<li>
+maintain the separation between Authentication and Authorization;
+</li>
+
+<li>
+protect security-sensitive protocol objects;
+</li>
+
+<li>
+enforce applicable Entitlement and Policy conditions;
+</li>
+
+<li>
+bind Authorization Decisions to their required Security Context;
+</li>
+
+<li>
+preserve security constraints during propagation;
+</li>
+
+<li>
+process revocation and invalidation state;
+</li>
+
+<li>
+prevent unauthorized scope expansion;
+</li>
+
+<li>
+enforce Fail-Closed behavior where mandatory security conditions
+cannot be established; and</li>
+
+<li>
+maintain the security invariants defined by this chapter.
+</li>
+
+</ul>
+
+<p>
+Additional implementation-specific security controls MAY be used
+provided that they do not weaken or bypass the mandatory security
+properties defined by this specification.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+8.52 Chapter Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter07_authorization_protocol.html">
+Previous Chapter: Chapter 07 — Authorization Protocol
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="chapter09_conformance.html">
+Next Chapter: Chapter 09 — Conformance Requirements
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>
+
