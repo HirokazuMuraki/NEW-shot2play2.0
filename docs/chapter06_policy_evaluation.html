@@ -1,0 +1,2149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 06 — Policy Evaluation | NEW-shot2play Protocol Suite Version 2.0
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<h1>
+Chapter 06 — Policy Evaluation
+</h1>
+
+<p>
+This chapter defines the Policy Evaluation Layer of the
+NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+The Policy Evaluation Layer determines whether the conditions
+applicable to an authorization request are satisfied by evaluating
+the authenticated identity, applicable Entitlement state,
+authorization request, and authorization context against the
+applicable Policy.
+</p>
+
+<div class="normative must">
+
+<strong>NORMATIVE PRINCIPLE</strong><br><br>
+
+Policy Evaluation SHALL determine whether the conditions governing
+an authorization request are satisfied. Policy Evaluation SHALL NOT
+be treated as equivalent to Authentication.
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>
+6.1 Purpose and Scope
+</h2>
+
+<p>
+The purpose of the Policy Evaluation Layer is to provide a
+deterministic and auditable mechanism for evaluating authorization
+conditions before an Authorization Decision is generated.
+</p>
+
+<p>
+This chapter defines:
+</p>
+
+<ul>
+
+<li>
+Policy Object;
+</li>
+
+<li>
+Policy Identifier;
+</li>
+
+<li>
+Policy conditions;
+</li>
+
+<li>
+Policy inputs;
+</li>
+
+<li>
+Authorization Context;
+</li>
+
+<li>
+condition evaluation;
+</li>
+
+<li>
+multiple-condition evaluation;
+</li>
+
+<li>
+policy precedence;
+</li>
+
+<li>
+policy conflict handling;
+</li>
+
+<li>
+evaluation failure handling;
+</li>
+
+<li>
+policy versioning;
+</li>
+
+<li>
+policy state;
+</li>
+
+<li>
+evaluation traceability; and
+</li>
+
+<li>
+interaction with Authorization.
+</li>
+
+</ul>
+
+<p>
+The Policy Layer SHALL operate between the Entitlement Layer and
+the Authorization Layer in accordance with the Version2.0
+architecture.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.2 Policy as a Protocol Object
+</h2>
+
+<p>
+A Policy SHALL be represented as an identifiable logical object.
+</p>
+
+<p>
+A Policy defines one or more conditions governing whether a
+specified action is permitted for a specified subject, entitlement,
+resource, service, or context.
+</p>
+
+<p>
+The Policy Object SHALL be logically distinguishable from:
+</p>
+
+<ul>
+
+<li>
+Identity Object;
+</li>
+
+<li>
+Credential Object;
+</li>
+
+<li>
+Authentication Object;
+</li>
+
+<li>
+Entitlement Object;
+</li>
+
+<li>
+Authorization Object; and
+</li>
+
+<li>
+Service Object.
+</li>
+
+</ul>
+
+<p>
+A Policy MAY reference other protocol objects as evaluation inputs
+without becoming identical to those objects.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.3 Policy Identifier
+</h2>
+
+<p>
+Each Policy Object SHALL have a Policy Identifier that uniquely
+identifies the Policy within the applicable protocol scope.
+</p>
+
+<p>
+The Policy Identifier MAY be referenced by:
+</p>
+
+<ul>
+
+<li>
+Authorization Requests;
+</li>
+
+<li>
+Policy Evaluation;
+</li>
+
+<li>
+Authorization Decisions;
+</li>
+
+<li>
+audit records; and
+</li>
+
+<li>
+Policy administration operations.
+</li>
+
+</ul>
+
+<p>
+A Policy Identifier SHALL NOT by itself indicate that the Policy is
+currently active.
+</p>
+
+<p>
+The authoritative Policy state and applicable Policy version SHALL
+be evaluated before the Policy is used for an Authorization
+Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.4 Policy Object Attributes
+</h2>
+
+<p>
+A Policy Object SHOULD contain sufficient information to permit its
+authoritative evaluation.
+</p>
+
+<p>
+Representative attributes include:
+</p>
+
+<ul>
+
+<li>
+Policy Identifier;
+</li>
+
+<li>
+Policy Version;
+</li>
+
+<li>
+Policy State;
+</li>
+
+<li>
+Subject Conditions;
+</li>
+
+<li>
+Entitlement Conditions;
+</li>
+
+<li>
+Resource Conditions;
+</li>
+
+<li>
+Action Conditions;
+</li>
+
+<li>
+Service Conditions;
+</li>
+
+<li>
+Time Conditions;
+</li>
+
+<li>
+Location Conditions;
+</li>
+
+<li>
+Device Conditions;
+</li>
+
+<li>
+Risk Conditions; and
+</li>
+
+<li>
+Evaluation Rules.
+</li>
+
+</ul>
+
+<p>
+A Service Profile MAY define additional attributes provided that
+their semantics remain compatible with the normative evaluation
+model defined in this specification.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.5 Policy Conditions
+</h2>
+
+<p>
+A Policy SHALL define one or more conditions applicable to the
+authorization operation.
+</p>
+
+<p>
+Representative conditions include:
+</p>
+
+<ul>
+
+<li>
+Subject condition;
+</li>
+
+<li>
+Entitlement condition;
+</li>
+
+<li>
+Resource condition;
+</li>
+
+<li>
+Action condition;
+</li>
+
+<li>
+Service condition;
+</li>
+
+<li>
+time condition;
+</li>
+
+<li>
+location condition;
+</li>
+
+<li>
+device condition;
+</li>
+
+<li>
+risk condition; and
+</li>
+
+<li>
+transaction condition.
+</li>
+
+</ul>
+
+<p>
+A condition SHALL have an unambiguous evaluation result.
+</p>
+
+<p>
+A condition MAY evaluate to:
+</p>
+
+<ul>
+
+<li>
+True;
+</li>
+
+<li>
+False; or
+</li>
+
+<li>
+Indeterminate.
+</li>
+
+</ul>
+
+<p>
+Unless an applicable Policy explicitly defines another behavior,
+an Indeterminate condition SHALL NOT be treated as True.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.6 Policy Evaluation Inputs
+</h2>
+
+<p>
+Policy Evaluation SHALL operate on the applicable inputs for the
+current authorization request.
+</p>
+
+<p>
+Representative inputs include:
+</p>
+
+<ul>
+
+<li>
+Authenticated Identity;
+</li>
+
+<li>
+Authorization Request;
+</li>
+
+<li>
+Entitlement State;
+</li>
+
+<li>
+Policy Object;
+</li>
+
+<li>
+Authorization Context;
+</li>
+
+<li>
+Transaction State; and
+</li>
+
+<li>
+applicable external event state.
+</li>
+
+</ul>
+
+<p>
+The set of required inputs SHALL be determined by the applicable
+Policy.
+</p>
+
+<p>
+An implementation MUST NOT assume that all Policies require the
+same set of inputs.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.7 Authorization Context
+</h2>
+
+<p>
+Authorization Context contains contextual information required by
+the applicable Policy for evaluating an authorization request.
+</p>
+
+<p>
+Representative context includes:
+</p>
+
+<ul>
+
+<li>
+Current Time;
+</li>
+
+<li>
+Service Context;
+</li>
+
+<li>
+Device Context;
+</li>
+
+<li>
+Session Context;
+</li>
+
+<li>
+Transaction Context;
+</li>
+
+<li>
+Risk Context; and</li>
+
+<li>
+External Event Context.
+</li>
+
+</ul>
+
+<p>
+Context information SHALL be evaluated according to the applicable
+Policy.
+</p>
+
+<p>
+Context information SHALL NOT be treated as universally trusted
+merely because it was supplied by the requesting party.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.8 Context Assembly
+</h2>
+
+<p>
+Before Policy Evaluation, the implementation SHOULD assemble the
+context required by the applicable Policy.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure24_context_assembly_policy_decision.svg"
+alt="Context Assembly Policy Decision"
+>
+
+<figcaption>
+Figure 24 — Context Assembly and Policy Decision
+</figcaption>
+
+</figure>
+
+<p>
+Context Assembly MAY combine information obtained from:
+</p>
+
+<ul>
+
+<li>
+the authenticated session;
+</li>
+
+<li>
+the Authorization Request;
+</li>
+
+<li>
+the Entitlement Object;
+</li>
+
+<li>
+the Service Object;
+</li>
+
+<li>
+the transaction state;
+</li>
+
+<li>
+trusted infrastructure; and</li>
+
+<li>
+other authoritative event sources.
+</li>
+
+</ul>
+
+<p>
+Each context element SHOULD retain sufficient provenance to permit
+its authority and freshness to be evaluated.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.9 Input Authority and Provenance
+</h2>
+
+<p>
+Policy Evaluation SHALL distinguish between authoritative and
+non-authoritative input.
+</p>
+
+<p>
+An implementation SHOULD maintain provenance information for
+security-relevant inputs.
+</p>
+
+<p>
+Representative provenance information includes:
+</p>
+
+<ul>
+
+<li>
+source identifier;
+</li>
+
+<li>
+source type;
+</li>
+
+<li>
+creation time;
+</li>
+
+<li>
+observation time;
+</li>
+
+<li>
+transaction reference;
+</li>
+
+<li>
+integrity status; and
+</li>
+
+<li>
+trust status.
+</li>
+
+</ul>
+
+<p>
+Where an applicable Policy requires an authoritative input, an
+unverified or unauthenticated input SHALL NOT satisfy that
+condition.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.10 Condition Evaluation
+</h2>
+
+<p>
+Each Policy condition SHALL be evaluated against the applicable
+current inputs.
+</p>
+
+<p>
+The evaluation process SHALL determine whether the condition is
+satisfied for the current authorization request.
+</p>
+
+<p>
+An implementation SHALL NOT substitute a historical condition result
+for a current result where the applicable input may have changed.
+</p>
+
+<p>
+For example, an Entitlement condition SHALL be evaluated against the
+authoritative current Entitlement state rather than solely against
+the state observed when the Entitlement was originally acquired.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.11 Multiple Condition Evaluation
+</h2>
+
+<p>
+A Policy MAY require multiple conditions to be satisfied.
+</p>
+
+<p>
+A multiple-condition Policy MAY be represented as:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Condition A
+     +
+Condition B
+     +
+Condition C
+     +
+Condition D
+     |
+     v
+Policy Evaluation
+     |
+     v
+Evaluation Result
+</pre>
+
+</div>
+
+<p>
+Where a Policy requires all conditions to be satisfied, every
+required condition SHALL evaluate to True before the Policy can
+produce a successful evaluation result.
+</p>
+
+<p>
+Where a Policy explicitly defines an alternative logical
+relationship, that relationship SHALL be evaluated according to the
+Policy definition.
+</p>
+
+<p>
+An implementation MUST NOT silently change the logical relationship
+between Policy conditions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.12 Evaluation Result
+</h2>
+
+<p>
+Policy Evaluation SHALL produce an explicit evaluation result.
+</p>
+
+<p>
+Representative results include:
+</p>
+
+<ul>
+
+<li>
+Permit;
+</li>
+
+<li>
+Deny; and
+</li>
+
+<li>
+Indeterminate.
+</li>
+
+</ul>
+
+<p>
+The evaluation result SHALL be associated with the Policy Object,
+Policy Version, Authorization Request, and applicable evaluation
+context where such association is required for traceability.
+</p>
+
+<p>
+An Indeterminate result SHALL NOT be interpreted as Permit unless
+the applicable Policy explicitly defines such behavior and the
+result remains consistent with the security requirements of this
+specification.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+6.13 Policy Version
+</h2>
+
+<p>
+Each Policy SHALL have a Policy Version or an equivalent mechanism
+that permits the exact Policy definition used for an evaluation to
+be identified.
+</p>
+
+<p>
+A Policy Version SHOULD be immutable after activation.
+</p>
+
+<p>
+When a Policy definition is changed, the implementation SHOULD
+create a new Policy Version rather than silently modifying the
+semantics of an already evaluated Policy Version.
+</p>
+
+<p>
+An Authorization Decision SHOULD retain a reference to the Policy
+Version used to generate the decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.14 Policy State
+</h2>
+
+<p>
+A Policy SHALL have an authoritative state indicating whether the
+Policy is available for evaluation.
+</p>
+
+<p>
+Representative Policy states include:
+</p>
+
+<ul>
+
+<li>
+Draft;
+</li>
+
+<li>
+Active;
+</li>
+
+<li>
+Suspended;
+</li>
+
+<li>
+Retired; and
+</li>
+
+<li>
+Revoked.
+</li>
+
+</ul>
+
+<p>
+Only a Policy that is valid for the current evaluation SHALL be used
+to generate an authorization result.
+</p>
+
+<p>
+A Draft, Suspended, Retired, or Revoked Policy SHALL NOT be treated
+as an Active Policy unless the applicable Service Profile explicitly
+defines such behavior.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.15 Policy Activation
+</h2>
+
+<p>
+A Policy SHALL NOT become authoritative merely because a Policy
+Object has been created.
+</p>
+
+<p>
+Policy activation SHALL establish the state under which the Policy
+may be used for evaluation.
+</p>
+
+<p>
+An implementation SHOULD maintain:
+</p>
+
+<ul>
+
+<li>
+activation time;
+</li>
+
+<li>
+Policy Version;
+</li>
+
+<li>
+activation authority; and
+</li>
+
+<li>
+activation transaction reference.
+</li>
+
+</ul>
+
+<p>
+A Policy evaluation performed before the effective activation time
+SHALL NOT use that Policy as an active authorization condition.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.16 Policy Effective Time
+</h2>
+
+<p>
+A Policy MAY define an Effective Time and an Expiration Time.
+</p>
+
+<p>
+Where such times are defined, the Policy SHALL be considered
+applicable only within the specified validity interval.
+</p>
+
+<p>
+The implementation SHALL use an authoritative time source or a
+trusted time representation when time validity is security
+significant.
+</p>
+
+<p>
+Clock uncertainty SHALL NOT be silently interpreted as proof that a
+time condition is satisfied.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.17 Policy Precedence
+</h2>
+
+<p>
+Multiple Policies MAY apply to the same Authorization Request.
+</p>
+
+<p>
+Where multiple applicable Policies exist, the implementation SHALL
+determine which Policy result has precedence according to an
+explicitly defined precedence model.
+</p>
+
+<p>
+Precedence MAY be established by:
+</p>
+
+<ul>
+
+<li>
+Policy priority;
+</li>
+
+<li>
+Policy scope;
+</li>
+
+<li>
+Policy specificity;
+</li>
+
+<li>
+Policy version;
+</li>
+
+<li>
+administrative authority; or</li>
+
+<li>
+an explicitly defined Policy combination rule.
+</li>
+
+</ul>
+
+<p>
+Precedence SHALL NOT be determined by an implementation-specific
+ordering that is unknown to the Policy definition.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.18 Specificity and Generality
+</h2>
+
+<p>
+A Policy MAY be more specific than another Policy.
+</p>
+
+<p>
+For example, a Policy applying to a specific Service and Resource
+may be more specific than a Policy applying to all Services of the
+same class.
+</p>
+
+<p>
+Where specificity is used to establish precedence, the definition
+of specificity SHALL be deterministic and SHALL be applied
+consistently by all conforming implementations.
+</p>
+
+<p>
+A more specific Policy SHALL NOT automatically override a higher
+authority Policy unless the applicable precedence rules explicitly
+permit such an override.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.19 Policy Conflict
+</h2>
+
+<p>
+A Policy Conflict occurs when two or more applicable Policy results
+cannot be simultaneously satisfied under the applicable Policy
+combination rules.
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>
+one Policy produces Permit while another produces Deny;
+</li>
+
+<li>
+two Policies impose incompatible resource restrictions; or
+</li>
+
+<li>
+Policy versions applicable to the same request produce
+incompatible results.
+</li>
+
+</ul>
+
+<p>
+A conforming implementation SHALL apply the defined conflict
+resolution rule rather than selecting a result arbitrarily.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.20 Deny Precedence
+</h2>
+
+<p>
+Unless an explicitly defined Policy model provides another
+security-equivalent rule, a Deny result SHALL take precedence over a
+Permit result when required authorization conditions conflict.
+</p>
+
+<div class="normative must">
+
+<strong>FAIL-CLOSED PRINCIPLE</strong><br><br>
+
+Where a required Policy condition cannot be established as
+satisfied, the implementation SHALL NOT generate an Allow result
+solely from the existence of another satisfied condition.
+
+</div>
+
+<p>
+This requirement prevents an incomplete evaluation from being
+converted into an authorization grant.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.21 Indeterminate Evaluation
+</h2>
+
+<p>
+An evaluation SHALL be considered Indeterminate when a required
+input or condition cannot be reliably evaluated.
+</p>
+
+<p>
+Indeterminate evaluation MAY result from:
+</p>
+
+<ul>
+
+<li>
+unavailable Entitlement state;
+</li>
+
+<li>
+unavailable Policy state;
+</li>
+
+<li>
+untrusted context;
+</li>
+
+<li>
+expired context;
+</li>
+
+<li>
+inconsistent distributed state;
+</li>
+
+<li>
+failed integrity verification;
+</li>
+
+<li>
+unavailable external event state; or</li>
+
+<li>
+evaluation processing failure.
+</li>
+
+</ul>
+
+<p>
+An Indeterminate result SHALL be distinguishable from a successful
+Permit result.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.22 Fail-Closed Evaluation
+</h2>
+
+<p>
+Where a required authorization condition cannot be established,
+Policy Evaluation SHALL fail closed.
+</p>
+
+<p>
+Fail-Closed means that the absence, invalidity, inconsistency, or
+unavailability of a required authorization input SHALL prevent an
+Allow result.
+</p>
+
+<p>
+Fail-Closed evaluation SHALL apply to security-relevant failures
+including:
+</p>
+
+<ul>
+
+<li>
+invalid Policy;
+</li>
+
+<li>
+invalid Entitlement;
+</li>
+
+<li>
+expired Entitlement;
+</li>
+
+<li>
+revoked Entitlement;
+</li>
+
+<li>
+invalid context;
+</li>
+
+<li>
+missing required context;
+</li>
+
+<li>
+policy conflict; and</li>
+
+<li>
+integrity failure.
+</li>
+
+</ul>
+
+<p>
+An implementation MAY provide a separate recovery or retry
+mechanism, but such mechanism SHALL NOT bypass the authorization
+requirements.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.23 Policy Update
+</h2>
+
+<p>
+A Policy update SHALL be performed through an identifiable
+administrative or protocol operation.
+</p>
+
+<p>
+A Policy update SHOULD establish:
+</p>
+
+<ul>
+
+<li>
+Policy Identifier;
+</li>
+
+<li>
+new Policy Version;
+</li>
+
+<li>
+previous Policy Version, where applicable;
+</li>
+
+<li>
+update timestamp;
+</li>
+
+<li>
+update authority; and</li>
+
+<li>
+update transaction reference.
+</li>
+
+</ul>
+
+<p>
+A Policy update SHALL NOT silently alter the historical meaning of a
+completed Policy Evaluation.
+</p>
+
+<p>
+Previously generated Authorization Decisions SHOULD remain
+traceable to the Policy Version used when those decisions were
+generated.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.24 Policy Evaluation Consistency
+</h2>
+
+<p>
+Where multiple Policy Evaluation instances process the same
+authorization request, they SHOULD use semantically equivalent
+Policy definitions and authoritative input state.
+</p>
+
+<p>
+Distributed implementations SHALL define how Policy state is
+synchronized or reconstructed.
+</p>
+
+<p>
+An implementation MUST NOT produce an Allow result solely because
+one evaluation node possesses information that another required
+evaluation node has determined to be invalid or unavailable.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.25 Policy Evaluation and Entitlement State
+</h2>
+
+<p>
+Policy Evaluation SHALL evaluate Entitlement conditions against the
+authoritative Entitlement state applicable to the request.
+</p>
+
+<p>
+The Policy Layer SHALL NOT assume that an Entitlement remains valid
+merely because it was valid at the time of Authentication.
+</p>
+
+<p>
+Changes to Entitlement state, including expiration, consumption,
+revocation, or invalidation, SHALL be capable of affecting
+subsequent Policy Evaluation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.26 Policy Evaluation and Authorization Boundary
+</h2>
+
+<p>
+Policy Evaluation SHALL determine whether the conditions required
+for authorization are satisfied.
+</p>
+
+<p>
+The Authorization Layer SHALL convert the applicable evaluation
+results into an Authorization Decision according to the
+Authorization Protocol.
+</p>
+
+<p>
+Policy Evaluation SHALL NOT itself be treated as execution of the
+requested Service Action.
+</p>
+
+<div class="object-definition">
+
+<pre>
+Policy
+
+   +
+
+Identity
+
+   +
+
+Entitlement
+
+   +
+
+Request
+
+   +
+
+Context
+
+   |
+
+   v
+
+Policy Evaluation
+
+   |
+
+   v
+
+Evaluation Result
+
+   |
+
+   v
+
+Authorization Decision
+
+   |
+
+   v
+
+Service Action
+</pre>
+
+</div>
+
+<p>
+This separation SHALL preserve the architectural boundary between
+Policy Evaluation and Authorization.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.27 Evaluation Trace
+</h2>
+
+<p>
+A Policy Evaluation SHOULD produce sufficient trace information to
+permit the basis of the evaluation result to be reconstructed.
+</p>
+
+<p>
+Representative trace information includes:
+</p>
+
+<ul>
+
+<li>
+Policy Identifier;
+</li>
+
+<li>
+Policy Version;
+</li>
+
+<li>
+Policy State;
+</li>
+
+<li>
+Authorization Request Identifier;
+</li>
+
+<li>
+Entitlement Identifier;
+</li>
+
+<li>
+input references;
+</li>
+
+<li>
+condition results;
+</li>
+
+<li>
+evaluation timestamp;
+</li>
+
+<li>
+evaluation instance identifier; and</li>
+
+<li>
+evaluation result.
+</li>
+
+</ul>
+
+<p>
+Security-sensitive trace information SHALL be protected against
+unauthorized modification.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+6.28 Policy Evaluation Security Requirements
+</h2>
+
+<p>
+A conforming implementation SHALL protect Policy Evaluation against
+unauthorized modification, substitution, replay, and bypass.
+</p>
+
+<p>
+The implementation SHALL ensure that:
+</p>
+
+<ul>
+
+<li>
+the Policy used for evaluation is identifiable;
+</li>
+
+<li>
+the Policy Version used for evaluation is identifiable;
+</li>
+
+<li>
+required Entitlement state is authoritative;
+</li>
+
+<li>
+security-relevant context is integrity protected;
+</li>
+
+<li>
+expired or revoked inputs are not treated as valid;
+</li>
+
+<li>
+evaluation failures cannot silently produce Allow;
+</li>
+
+<li>
+Policy conflicts are resolved according to deterministic rules; and
+</li>
+
+<li>
+the Authorization Layer receives an evaluation result that is
+traceable to its evaluation inputs.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+6.29 Policy Substitution Protection
+</h2>
+
+<p>
+An implementation SHALL prevent an unauthorized Policy from being
+substituted for the Policy identified by the applicable
+Authorization Request or Service configuration.
+</p>
+
+<p>
+Where Policy integrity is cryptographically protected, the
+implementation SHALL verify the applicable integrity information
+before evaluation.
+</p>
+
+<p>
+A failed Policy integrity verification SHALL cause the evaluation
+to fail closed.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.30 Policy Replay Protection
+</h2>
+
+<p>
+A Policy Evaluation SHALL consider Policy freshness where Policy
+state may change during the lifetime of an authorization operation.
+</p>
+
+<p>
+An implementation SHOULD use Policy Version, effective time,
+expiration time, state version, or an equivalent mechanism to detect
+stale Policy information.
+</p>
+
+<p>
+A stale Policy SHALL NOT be used to produce an Allow result where
+the applicable authorization requirements require current Policy
+state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.31 Evaluation Context Integrity
+</h2>
+
+<p>
+Security-relevant context SHALL be protected against unauthorized
+modification between context acquisition and Policy Evaluation.
+</p>
+
+<p>
+Where context is obtained from another protocol component or
+service, the receiving implementation SHOULD verify the source and
+integrity of that context.
+</p>
+
+<p>
+Context that fails the required integrity or trust verification
+SHALL NOT satisfy a Policy condition requiring trusted context.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.32 Policy Evaluation Atomicity
+</h2>
+
+<p>
+Where multiple required inputs must represent a consistent state,
+the implementation SHOULD evaluate those inputs against a coherent
+authorization context.
+</p>
+
+<p>
+An implementation SHALL define behavior for inconsistent state.
+</p>
+
+<p>
+Where inconsistency affects a security-relevant condition and the
+condition cannot be reliably established, the evaluation SHALL fail
+closed.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.33 Policy Evaluation and Conditional Authorization
+</h2>
+
+<p>
+Policy Evaluation provides the logical basis for Conditional
+Authorization.
+</p>
+
+<p>
+Conditional Authorization SHALL depend on the satisfaction of the
+conditions specified by the applicable Policy.
+</p>
+
+<p>
+A condition MAY reference:
+</p>
+
+<ul>
+
+<li>
+identity;
+</li>
+
+<li>
+Entitlement;
+</li>
+
+<li>
+service;
+</li>
+
+<li>
+resource;
+</li>
+
+<li>
+transaction;
+</li>
+
+<li>
+time;
+</li>
+
+<li>
+location;
+</li>
+
+<li>
+device;
+</li>
+
+<li>
+risk; or</li>
+
+<li>
+an external event.
+</li>
+
+</ul>
+
+<p>
+The ability to express such conditions permits authorization to be
+based on state established outside the immediate Authentication
+transaction.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.34 Cross-Service Policy Evaluation
+</h2>
+
+<p>
+A Policy MAY reference an Entitlement or other authoritative state
+originating from a different Service.
+</p>
+
+<p>
+Where Cross-Service Entitlement Reuse is permitted, the receiving
+Service SHALL evaluate:
+</p>
+
+<ul>
+
+<li>
+the identity binding;
+</li>
+
+<li>
+Entitlement validity;
+</li>
+
+<li>
+Entitlement scope;
+</li>
+
+<li>
+Entitlement issuer or authority;
+</li>
+
+<li>
+Policy applicability; and</li>
+
+<li>
+current contextual conditions.
+</li>
+
+</ul>
+
+<p>
+The receiving Service SHALL NOT assume that an Entitlement issued
+by another Service is automatically sufficient for authorization.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.35 Policy Evaluation Independence from Authentication
+</h2>
+
+<p>
+Policy Evaluation SHALL be logically independent from the
+Authentication operation that established the authenticated
+identity.
+</p>
+
+<p>
+Authentication establishes an identity assertion or authenticated
+session state.
+</p>
+
+<p>
+Policy Evaluation determines whether the conditions applicable to
+the requested operation are satisfied.
+</p>
+
+<p>
+Accordingly, successful Authentication SHALL NOT by itself imply
+successful Policy Evaluation.
+</p>
+
+<div class="normative must">
+
+<strong>SEPARATION REQUIREMENT</strong><br><br>
+
+A conforming implementation MUST NOT treat successful Authentication
+as equivalent to Permit.
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>
+6.36 Policy Evaluation and Authorization Decision
+</h2>
+
+<p>
+The Authorization Layer SHALL consume the applicable Policy
+Evaluation result together with the other required authorization
+inputs.
+</p>
+
+<p>
+The Authorization Decision SHALL remain bound to the Policy
+evaluation that supports the decision.
+</p>
+
+<p>
+If a required Policy Evaluation result becomes invalid before the
+Authorization Decision is enforced, the implementation SHALL
+prevent enforcement of the invalid result.
+</p>
+
+<p>
+This requirement establishes a security boundary between Policy
+Evaluation and Service execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.37 Policy Evaluation Failure Handling
+</h2>
+
+<p>
+A Policy Evaluation failure SHALL be distinguishable from a
+successful Permit result.
+</p>
+
+<p>
+Failure handling MAY include:
+</p>
+
+<ul>
+
+<li>
+retry;
+</li>
+
+<li>
+reconstruction of missing context;
+</li>
+
+<li>
+retrieval of authoritative Policy state;
+</li>
+
+<li>
+retrieval of current Entitlement state; or</li>
+
+<li>
+generation of a Deny or Fail-Closed result.
+</li>
+
+</ul>
+
+<p>
+Recovery processing SHALL NOT bypass required Policy conditions.
+</p>
+
+<p>
+If recovery does not establish the required conditions, the
+evaluation SHALL remain unsuccessful.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+6.38 Policy Evaluation Conformance Requirements
+</h2>
+
+<p>
+An implementation conforms to the Policy Evaluation requirements of
+this chapter only if it:
+</p>
+
+<ul>
+
+<li>
+represents applicable Policies as identifiable logical objects;
+</li>
+
+<li>
+evaluates required Policy conditions;
+</li>
+
+<li>
+uses authoritative inputs for security-relevant conditions;
+</li>
+
+<li>
+distinguishes True, False, and Indeterminate evaluation states;
+</li>
+
+<li>
+applies deterministic Policy precedence;
+</li>
+
+<li>
+handles Policy conflicts explicitly;
+</li>
+
+<li>
+fails closed when required authorization conditions cannot be
+established;
+</li>
+
+<li>
+protects Policy and evaluation context integrity;
+</li>
+
+<li>
+maintains Policy Version traceability; and</li>
+
+<li>
+preserves the separation between Policy Evaluation and
+Authorization.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+6.39 Design Invariants
+</h2>
+
+<p>
+The following invariants SHALL apply to the Policy Evaluation Layer.
+</p>
+
+<ol>
+
+<li>
+Authentication success SHALL NOT imply Policy success.
+</li>
+
+<li>
+Policy Evaluation SHALL use the Policy applicable to the current
+authorization operation.
+</li>
+
+<li>
+A required invalid input SHALL prevent an Allow result.
+</li>
+
+<li>
+Indeterminate SHALL NOT silently become Permit.
+</li>
+
+<li>
+Policy conflicts SHALL be resolved deterministically.
+</li>
+
+<li>
+Expired or revoked authorization inputs SHALL NOT satisfy required
+validity conditions.
+</li>
+
+<li>
+Policy Evaluation SHALL remain distinguishable from Service
+execution.
+</li>
+
+<li>
+An Authorization Decision SHALL remain traceable to the Policy
+evaluation supporting that decision.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+6.40 Summary
+</h2>
+
+<p>
+The Policy Evaluation Layer provides the rule-processing component
+between Entitlement and Authorization in the NEW-shot2play Protocol
+Suite Version 2.0.
+</p>
+
+<p>
+The Policy Object defines the conditions under which an
+authorization request may be permitted. Policy Evaluation combines
+the applicable Policy with authenticated identity, Entitlement
+state, Authorization Request, and required contextual information.
+</p>
+
+<p>
+The model establishes that:
+</p>
+
+<ol>
+
+<li>
+Policy is a protocol-level object;
+</li>
+
+<li>
+Policy conditions SHALL be explicitly evaluable;
+</li>
+
+<li>
+Policy state and Policy Version SHALL be identifiable;
+</li>
+
+<li>
+context SHALL be evaluated according to its authority and
+provenance;
+</li>
+
+<li>
+multiple applicable Policies SHALL be resolved using deterministic
+precedence rules;
+</li>
+
+<li>
+Policy conflicts SHALL NOT be resolved arbitrarily;
+</li>
+
+<li>
+Indeterminate and evaluation failure states SHALL remain distinct
+from Permit;
+</li>
+
+<li>
+required authorization conditions SHALL fail closed when they
+cannot be established;
+</li>
+
+<li>
+Policy Evaluation SHALL remain independent from Authentication;
+</li>
+
+<li>
+Policy Evaluation SHALL remain logically distinct from
+Authorization; and</li>
+
+<li>
+the resulting evaluation SHALL provide a traceable basis for the
+Authorization Decision.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+6.41 Chapter Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter05_entitlement_protocol.html">
+Previous Chapter: Chapter 05 — Entitlement Protocol
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="chapter07_authorization_protocol.html">
+Next Chapter: Chapter 07 — Authorization Protocol
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
+
