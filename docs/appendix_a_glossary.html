@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Appendix A — Glossary
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<h1>
+Appendix A — Glossary
+</h1>
+
+<p>
+This appendix defines the principal terms used throughout the
+NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+The definitions in this appendix apply to the interpretation of
+the protocol architecture, protocol objects, state transitions,
+security requirements, conformance requirements, and use cases
+defined in this specification.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.1 Authentication
+</h2>
+
+<p>
+Authentication is the process by which a subject establishes
+an authenticated identity or authenticated state using an
+applicable authentication mechanism.
+</p>
+
+<p>
+Authentication establishes identity-related state but does not,
+by itself, establish authorization to perform a protected
+operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.2 Credential
+</h2>
+
+<p>
+A Credential is information or cryptographic material used by
+an Authentication mechanism to establish or verify the
+authenticated state of a subject.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.3 Identity
+</h2>
+
+<p>
+Identity is the protocol representation of the subject that is
+associated with an authenticated state and with applicable
+Entitlements, Policies, and Authorization Decisions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.4 Subject
+</h2>
+
+<p>
+A Subject is an entity for which Authentication, Entitlement,
+Policy Evaluation, or Authorization is performed.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.5 Session
+</h2>
+
+<p>
+A Session is a protocol or Service context within which
+authenticated and, where applicable, authorization state may
+remain associated with a subject across one or more operations.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.6 Entitlement
+</h2>
+
+<p>
+An Entitlement is an authorization basis associated with a
+subject that defines or contributes to the conditions under
+which access to a Service, resource, operation, transaction,
+or other protected object may be permitted.
+</p>
+
+<p>
+An Entitlement does not necessarily constitute an unconditional
+authorization to execute an operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.7 Entitlement Scope
+</h2>
+
+<p>
+Entitlement Scope is the set of Services, resources, operations,
+transactions, or other targets to which an Entitlement applies.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.8 Entitlement State
+</h2>
+
+<p>
+Entitlement State is the current protocol state associated with
+an Entitlement, including its applicability, validity,
+expiration, usage, revocation, and other Policy-defined
+conditions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.9 Policy
+</h2>
+
+<p>
+A Policy is a set of rules and conditions used to determine the
+applicability of an Entitlement and the conditions under which
+an Authorization Decision may be established or enforced.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.10 Policy Evaluation
+</h2>
+
+<p>
+Policy Evaluation is the process of evaluating applicable
+Policies against the current authorization context to determine
+whether the conditions required for authorization are satisfied.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.11 Policy Version
+</h2>
+
+<p>
+Policy Version identifies the specific version of a Policy under
+which an Entitlement or Authorization Decision was evaluated.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.12 Authorization
+</h2>
+
+<p>
+Authorization is the protocol process by which the system
+determines whether a subject is permitted to perform a specified
+operation against a specified Service, resource, transaction,
+or other protected target.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.13 Authorization Decision
+</h2>
+
+<p>
+An Authorization Decision is the effective result of the
+Authorization process for a particular authorization request
+and context.
+</p>
+
+<p>
+An Authorization Decision MAY permit or deny the requested
+operation and MAY include scope, validity, binding, or other
+Policy-defined conditions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.14 Authorization State
+</h2>
+
+<p>
+Authorization State is the protocol state representing the
+current authorization condition applicable to a subject,
+Entitlement, Service, resource, transaction, or operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.15 Authorization Context
+</h2>
+
+<p>
+Authorization Context is the collection of identity,
+Entitlement, Policy, transaction, Service, resource, temporal,
+and other contextual information required to evaluate or enforce
+an Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.16 Authorization Scope
+</h2>
+
+<p>
+Authorization Scope is the set of operations, resources,
+Services, transactions, or other targets for which an
+Authorization Decision is effective.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.17 Decision Binding
+</h2>
+
+<p>
+Decision Binding is the association of an Authorization Decision
+with the subject, Entitlement, Policy, Service, operation,
+resource, transaction, or other context on which the decision
+depends.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.18 Service
+</h2>
+
+<p>
+A Service is a protected application, system function, resource
+provider, or other execution boundary to which the protocol
+applies an Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.19 Service Enforcement
+</h2>
+
+<p>
+Service Enforcement is the application of an effective
+Authorization Decision at the boundary of a protected Service
+before execution of the requested operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.20 Transaction
+</h2>
+
+<p>
+A Transaction is a defined interaction or operation whose state
+MAY be used as part of an Entitlement, Policy Evaluation,
+Authorization Decision, or Service Enforcement process.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.21 Effective Time
+</h2>
+
+<p>
+Effective Time is the time from which an Entitlement,
+Authorization Decision, or other time-dependent protocol object
+is permitted to become effective.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.22 Expiration
+</h2>
+
+<p>
+Expiration is the condition under which an Entitlement,
+Authorization Decision, or other time-dependent protocol object
+ceases to be effective because its defined validity period has
+ended.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.23 Revocation
+</h2>
+
+<p>
+Revocation is the explicit invalidation of an Entitlement,
+Authorization Decision, or other authorization basis before its
+previously defined expiration.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.24 Usage Count
+</h2>
+
+<p>
+Usage Count is the number of permitted or consumed uses
+associated with an Entitlement or other Policy-controlled
+authorization condition.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.25 Cross-Service Authorization
+</h2>
+
+<p>
+Cross-Service Authorization is authorization in which an
+Entitlement, authorization context, or other authorization
+state established in relation to one Service is used by another
+Service in accordance with applicable Policy.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.26 Authorization Continuity
+</h2>
+
+<p>
+Authorization Continuity is the continued applicability of
+authorization state across multiple operations, Sessions,
+Services, or execution components when permitted by Policy.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.27 Authorization State Reconstruction
+</h2>
+
+<p>
+Authorization State Reconstruction is the process of restoring
+or deriving authorization state from authoritative or trusted
+protocol state after a restart, failover, state loss, or other
+interruption.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.28 Authorization Decision Caching
+</h2>
+
+<p>
+Authorization Decision Caching is the temporary retention of an
+Authorization Decision for subsequent use without repeating the
+complete authorization evaluation, subject to its validity,
+scope, revocation, and Policy requirements.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.29 Fail-Closed
+</h2>
+
+<p>
+Fail-Closed is the security behavior in which a protected
+operation is denied when the system cannot establish sufficient
+valid authorization state to permit execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.30 Protected Operation
+</h2>
+
+<p>
+A Protected Operation is an operation whose execution is subject
+to an Authorization Decision and Service Enforcement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.31 Authorization Request
+</h2>
+
+<p>
+An Authorization Request is a request to determine whether a
+specified subject is permitted to perform a specified operation
+against a specified Service, resource, transaction, or other
+protected target.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.32 Authorization State Continuity
+</h2>
+
+<p>
+Authorization State Continuity is the preservation of the
+semantic validity of authorization state while the subject or
+request progresses through permitted protocol or Service
+transitions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.33 Normative Requirement
+</h2>
+
+<p>
+A Normative Requirement is a mandatory requirement expressed by
+this specification using terms such as MUST or MUST NOT.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.34 Conforming Implementation
+</h2>
+
+<p>
+A Conforming Implementation is an implementation that satisfies
+all mandatory requirements applicable to the protocol behavior,
+objects, state transitions, security controls, and Service
+Enforcement defined by this specification.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.35 Appendix Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter10_use_cases.html">
+Previous: Chapter 10 — Use Cases
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>
