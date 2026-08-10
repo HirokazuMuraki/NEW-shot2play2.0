@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2200"
+     height="3000"
+     viewBox="0 0 2200 3000">
+
+<title>Figure26 Authorization Scope Propagation and Delegation Boundary Model</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0.
+Controlled authorization scope propagation, scope narrowing,
+delegation boundaries, service boundaries, resource boundaries,
+cross-service verification, and reauthorization.
+</desc>
+
+<rect x="0" y="0" width="2200" height="3000" fill="white"/>
+
+<!-- ========================================================= -->
+<!-- TITLE -->
+<!-- ========================================================= -->
+
+<text x="1100" y="65"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="34"
+      font-weight="bold">
+Figure26 Authorization Scope Propagation and Delegation Boundary Model
+</text>
+
+<text x="1100" y="105"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="1100" y="140"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Originating Authorization → Controlled Propagation → Boundary Verification → Effective Scope → Execution
+</text>
+
+
+<!-- ========================================================= -->
+<!-- MAIN PROPAGATION MODEL -->
+<!-- ========================================================= -->
+
+<rect x="60" y="180"
+      width="2080" height="790"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Controlled Authorization Scope Propagation
+</text>
+
+
+<!-- Originating Authorization -->
+
+<rect x="90" y="300"
+      width="430" height="500"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="305" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Originating Authorization
+</text>
+
+<text x="305" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Scope established after policy evaluation
+</text>
+
+<line x1="135" y1="415"
+      x2="475" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="305" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Subject
+</text>
+
+<text x="305" y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction
+</text>
+
+<text x="305" y="510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource / Scope
+</text>
+
+<text x="305" y="540"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Action
+</text>
+
+<text x="305" y="570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy / Version
+</text>
+
+<text x="305" y="600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement
+</text>
+
+<text x="305" y="630"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Validity / Consumption
+</text>
+
+<line x1="135" y1="660"
+      x2="475" y2="660"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="305" y="700"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Originating scope is the
+</text>
+
+<text x="305" y="725"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+maximum authority boundary.
+</text>
+
+
+<!-- Arrow -->
+
+<line x1="520" y1="550"
+      x2="570" y2="550"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="565,540 565,560 580,550"
+         fill="black"/>
+
+
+<!-- Propagation Controller -->
+
+<rect x="580" y="300"
+      width="430" height="500"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="795" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Propagation Controller
+</text>
+
+<text x="795" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Determine whether propagation is permitted
+</text>
+
+<line x1="625" y1="415"
+      x2="965" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="795" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Direct Propagation
+</text>
+
+<text x="795" y="485"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Restricted Propagation
+</text>
+
+<text x="795" y="520"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Derived Scope
+</text>
+
+<text x="795" y="555"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Delegated Scope
+</text>
+
+<text x="795" y="590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Reauthorization Required
+</text>
+
+<text x="795" y="625"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Propagation Prohibited
+</text>
+
+<line x1="625" y1="655"
+      x2="965" y2="655"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="795" y="695"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Derived Scope ⊆ Originating Scope
+</text>
+
+
+<!-- Arrow -->
+
+<line x1="1010" y1="550"
+      x2="1060" y2="550"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1055,540 1055,560 1070,550"
+         fill="black"/>
+
+
+<!-- Boundary Verification -->
+
+<rect x="1070" y="300"
+      width="430" height="500"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1285" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Boundary Verification
+</text>
+
+<text x="1285" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Receiving service verifies scope
+</text>
+
+<line x1="1115" y1="415"
+      x2="1455" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1285" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Integrity / Issuer
+</text>
+
+<text x="1285" y="480"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Subject / Transaction
+</text>
+
+<text x="1285" y="510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource / Action Scope
+</text>
+
+<text x="1285" y="540"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy / Entitlement
+</text>
+
+<text x="1285" y="570"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Validity / Delegation
+</text>
+
+<text x="1285" y="600"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Consumption / Request
+</text>
+
+<line x1="1115" y1="630"
+      x2="1455" y2="630"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1285" y="670"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Verification failure
+</text>
+
+<text x="1285" y="695"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+→ Reject / Reauthorize
+</text>
+
+
+<!-- Arrow -->
+
+<line x1="1500" y1="550"
+      x2="1550" y2="550"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1545,540 1545,560 1560,550"
+         fill="black"/>
+
+
+<!-- Effective Scope -->
+
+<rect x="1560" y="300"
+      width="500" height="500"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1810" y="345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Effective Authorization Scope
+</text>
+
+<text x="1810" y="385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Scope actually available to downstream execution
+</text>
+
+<line x1="1610" y1="415"
+      x2="2010" y2="415"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1810" y="450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Subject Continuity
+</text>
+
+<text x="1810" y="485"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction Continuity
+</text>
+
+<text x="1810" y="520"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource Boundary
+</text>
+
+<text x="1810" y="555"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Action Boundary
+</text>
+
+<text x="1810" y="590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy / Entitlement Continuity
+</text>
+
+<text x="1810" y="625"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Temporal / Consumption Boundary
+</text>
+
+<line x1="1610" y1="655"
+      x2="2010" y2="655"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1810" y="695"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+No authority expansion
+</text>
+
+<!-- Arrow to execution -->
+
+<line x1="1810" y1="800"
+      x2="1810" y2="865"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1800,860 1820,860 1810,875"
+         fill="black"/>
+
+<text x="1810" y="900"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Controlled Execution
+</text>
+
+
+<!-- ========================================================= -->
+<!-- SCOPE BOUNDARIES -->
+<!-- ========================================================= -->
+
+<rect x="60" y="1030"
+      width="2080" height="620"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="1080"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Authorization Boundary Model
+</text>
+
+
+<rect x="100" y="1145"
+      width="620" height="410"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="410" y="1190"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Service Boundary
+</text>
+
+<text x="410" y="1235"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Authentication Service
+</text>
+
+<text x="410" y="1265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement Service
+</text>
+
+<text x="410" y="1295"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy / Authorization Service
+</text>
+
+<text x="410" y="1325"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Enforcement Service
+</text>
+
+<text x="410" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource / Payment / Inventory Service
+</text>
+
+<line x1="145" y1="1380"
+      x2="675" y2="1380"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="410" y="1420"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Authorization in one service
+</text>
+
+<text x="410" y="1445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+does not imply unrestricted
+</text>
+
+<text x="410" y="1470"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+authority in another.
+</text>
+
+
+<rect x="790" y="1145"
+      width="620" height="410"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1100" y="1190"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Resource / Action Boundary
+</text>
+
+<text x="1100" y="1235"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource R1 / READ
+</text>
+
+<text x="1100" y="1275"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+≠ Resource R2 / READ
+</text>
+
+<text x="1100" y="1315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+READ ≠ WRITE
+</text>
+
+<text x="1100" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+WRITE ≠ DELETE
+</text>
+
+<text x="1100" y="1395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+EXECUTE ≠ ADMINISTER
+</text>
+
+<line x1="835" y1="1425"
+      x2="1365" y2="1425"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1100" y="1465"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Each resource and action
+</text>
+
+<text x="1100" y="1490"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+remains independently constrained.
+</text>
+
+
+<rect x="1480" y="1145"
+      width="620" height="410"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1790" y="1190"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Temporal / Parameter Boundary
+</text>
+
+<text x="1790" y="1235"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Not-Before
+</text>
+
+<text x="1790" y="1265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Expiration
+</text>
+
+<text x="1790" y="1295"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Amount / Quantity
+</text>
+
+<text x="1790" y="1325"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Destination / Account
+</text>
+
+<text x="1790" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Geographic / Time Scope
+</text>
+
+<line x1="1525" y1="1380"
+      x2="2055" y2="1380"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1790" y="1420"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Downstream service MAY narrow
+</text>
+
+<text x="1790" y="1445"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+but SHALL NOT extend validity.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- SCOPE NARROWING / EXPANSION -->
+<!-- ========================================================= -->
+
+<rect x="60" y="1710"
+      width="2080" height="520"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="1760"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Scope Narrowing and Expansion Control
+</text>
+
+
+<rect x="110" y="1830"
+      width="900" height="300"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="560" y="1875"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Permitted: Scope Narrowing
+</text>
+
+<text x="560" y="1925"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Originating: R1 / READ + WRITE
+</text>
+
+<text x="560" y="1970"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+↓
+</text>
+
+<text x="560" y="2010"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Service A: R1 / WRITE
+</text>
+
+<text x="560" y="2050"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+↓
+</text>
+
+<text x="560" y="2090"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Service B: R1 / READ
+</text>
+
+
+<rect x="1120" y="1830"
+      width="970" height="300"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1605" y="1875"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Prohibited: Scope Expansion
+</text>
+
+<text x="1605" y="1925"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Originating: R1 / READ
+</text>
+
+<text x="1605" y="1970"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+↓
+</text>
+
+<text x="1605" y="2010"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Requested: R2 / WRITE
+</text>
+
+<text x="1605" y="2050"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+↓ REJECT or REAUTHORIZE
+</text>
+
+<text x="1605" y="2090"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+No implicit authority expansion
+</text>
+
+
+<!-- ========================================================= -->
+<!-- DELEGATION -->
+<!-- ========================================================= -->
+
+<rect x="60" y="2290"
+      width="2080" height="440"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="2340"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Delegation Boundary and Chain
+</text>
+
+
+<rect x="110" y="2410"
+      width="1280" height="230"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="750" y="2455"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Controlled Delegation
+</text>
+
+<text x="750" y="2500"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Original Subject → Authorization Domain → Service A
+</text>
+
+<text x="750" y="2540"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+→ Delegated Service B → Delegated Service C
+</text>
+
+<text x="750" y="2580"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Each delegation step SHALL remain within the authority
+</text>
+
+<text x="750" y="2605"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+received from the preceding step.
+</text>
+
+
+<rect x="1460" y="2410"
+      width="630" height="230"
+      rx="8"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1775" y="2455"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+Delegation Controls
+</text>
+
+<text x="1775" y="2495"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Delegation Depth
+</text>
+
+<text x="1775" y="2525"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Delegation Expiration
+</text>
+
+<text x="1775" y="2555"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Delegation Policy
+</text>
+
+<text x="1775" y="2585"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Revocation / Chain Identifier
+</text>
+
+
+<!-- ========================================================= -->
+<!-- CROSS-SERVICE / EXTERNAL BOUNDARY -->
+<!-- ========================================================= -->
+
+<rect x="60" y="2790"
+      width="2080" height="170"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1100" y="2835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Cross-Service and External Trust Boundary
+</text>
+
+<text x="1100" y="2875"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Direct Trust · Federated Trust · Cryptographic Trust · Trusted Internal Reference · Explicit Delegation
+</text>
+
+<text x="1100" y="2905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+External parties SHALL NOT receive unrestricted authority from an internal authorization decision.
+</text>
+
+<text x="1100" y="2935"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Boundary crossing MAY require Independent Authentication · Restricted Scope · Delegation Token · Reauthorization
+</text>
+
+
+<!-- ========================================================= -->
+<!-- AUDIT -->
+<!-- ========================================================= -->
+
+<rect x="60" y="2980"
+      width="2080"
+      height="15"
+      rx="5"
+      fill="white"
+      stroke="black"
+      stroke-width="2"/>
+
+</svg>
