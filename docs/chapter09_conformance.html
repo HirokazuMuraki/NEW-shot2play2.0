@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 09 — Conformance Requirements
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<h1>
+Chapter 09 — Conformance Requirements
+</h1>
+
+<p>
+This chapter defines the normative conformance requirements for
+implementations of the NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+A conforming implementation MUST satisfy the mandatory requirements
+defined by this specification and MUST NOT implement protocol
+behavior that contradicts a mandatory requirement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.1 Purpose and Scope
+</h2>
+
+<p>
+The purpose of this chapter is to define a common basis for
+determining whether an implementation conforms to Version 2.0.
+</p>
+
+<p>
+Conformance SHALL be evaluated against the protocol architecture,
+protocol objects, state transitions, security requirements,
+authorization semantics, and service enforcement requirements
+defined throughout this specification.
+</p>
+
+<p>
+This chapter does not define a separate protocol. It defines the
+criteria by which an implementation of the Version 2.0 protocol
+architecture can be evaluated.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.2 Conformance Principle
+</h2>
+
+<p>
+Conformance SHALL be based on observable protocol behavior and
+security-relevant state transitions rather than on internal software
+architecture.
+</p>
+
+<p>
+An implementation MAY use any internal software architecture,
+programming language, database technology, deployment model, or
+cryptographic implementation provided that its externally
+observable behavior satisfies the mandatory requirements of this
+specification.
+</p>
+
+<p>
+An implementation SHALL NOT claim conformance when an internal
+optimization causes externally observable behavior to violate a
+mandatory protocol requirement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.3 Normative Language
+</h2>
+
+<p>
+The key words MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD,
+SHOULD NOT, MAY, and OPTIONAL in this specification are to be
+interpreted as normative requirements.
+</p>
+
+<table>
+
+<tr>
+<th>
+Term
+</th>
+
+<th>
+Meaning
+</th>
+</tr>
+
+<tr>
+<td>
+MUST / SHALL
+</td>
+
+<td>
+The requirement is mandatory for conformance.
+</td>
+</tr>
+
+<tr>
+<td>
+MUST NOT / SHALL NOT
+</td>
+
+<td>
+The behavior is prohibited for a conforming implementation.
+</td>
+</tr>
+
+<tr>
+<td>
+SHOULD
+</td>
+
+<td>
+The behavior is recommended unless a documented implementation
+constraint provides a valid reason not to implement it.
+</td>
+</tr>
+
+<tr>
+<td>
+SHOULD NOT
+</td>
+
+<td>
+The behavior is discouraged unless a documented requirement
+justifies its use.
+</td>
+</tr>
+
+<tr>
+<td>
+MAY
+</td>
+
+<td>
+The behavior is permitted but is not required for conformance.
+</td>
+</tr>
+
+<tr>
+<td>
+OPTIONAL
+</td>
+
+<td>
+The capability may be implemented without affecting basic
+conformance, subject to any applicable requirements.
+</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<section>
+
+<h2>
+9.4 Conformance Units
+</h2>
+
+<p>
+Conformance SHALL be evaluated at the level of protocol functions,
+objects, state transitions, and externally observable behavior.
+</p>
+
+<p>
+The principal conformance units are:
+</p>
+
+<ul>
+
+<li>
+Identity processing;
+</li>
+
+<li>
+Credential processing;
+</li>
+
+<li>
+Authentication processing;
+</li>
+
+<li>
+Entitlement processing;
+</li>
+
+<li>
+Policy Evaluation;
+</li>
+
+<li>
+Authorization processing;
+</li>
+
+<li>
+Session and security-state processing;
+</li>
+
+<li>
+Service enforcement;
+</li>
+
+<li>
+security event processing; and</li>
+
+<li>
+cross-Service security processing.
+</li>
+
+</ul>
+
+<p>
+An implementation MAY conform to a subset of optional capabilities
+without implementing every optional feature defined by the complete
+protocol suite.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.5 Conformance Classes
+</h2>
+
+<p>
+Version 2.0 defines conformance classes to distinguish the minimum
+protocol implementation from implementations that provide
+additional protocol capabilities.
+</p>
+
+<table>
+
+<tr>
+<th>
+Conformance Class
+</th>
+
+<th>
+Description
+</th>
+</tr>
+
+<tr>
+<td>
+Core Conformance
+</td>
+
+<td>
+Implements the mandatory protocol architecture, object model,
+security model, and authorization processing requirements.
+</td>
+</tr>
+
+<tr>
+Service Conformance
+</td>
+
+<td>
+Implements Core Conformance together with Service-side enforcement
+of Authorization Decisions.
+</td>
+
+<tr>
+Distributed Conformance
+</td>
+
+<td>
+Implements the requirements necessary to preserve security state and
+authorization semantics across multiple protocol components.
+</td>
+
+<tr>
+Cross-Service Conformance
+</td>
+
+<td>
+Implements explicit cross-Service Entitlement or Authorization
+processing according to the requirements of this specification.
+</td>
+
+</tr>
+
+<tr>
+Full Suite Conformance
+</td>
+
+<td>
+Implements all mandatory capabilities of the Version 2.0 protocol
+suite and all declared optional capabilities.
+</td>
+
+</tr>
+
+</table>
+
+</section>
+
+
+<section>
+
+<h2>
+9.6 Core Conformance
+</h2>
+
+<p>
+A Core Conformant implementation MUST implement the mandatory
+Identity, Credential, Authentication, Entitlement, Policy,
+Authorization, and security requirements defined by Version 2.0.
+</p>
+
+<p>
+A Core Conformant implementation MUST preserve the architectural
+separation between Authentication and Authorization.
+</p>
+
+<p>
+A Core Conformant implementation MUST treat Entitlement as a
+protocol-level object where Entitlement processing is required by
+the applicable authorization flow.
+</p>
+
+<p>
+A Core Conformant implementation MUST NOT infer authorization solely
+from successful authentication.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.7 Service Conformance
+</h2>
+
+<p>
+A Service Conformant implementation MUST enforce Authorization
+Decisions before executing protected Service operations.
+</p>
+
+<p>
+Service enforcement MUST verify the applicability of the
+Authorization Decision to the requested subject, Service, Resource,
+Action, and security context.
+</p>
+
+<p>
+A Service Conformant implementation MUST implement the applicable
+Fail-Closed requirements defined in Chapter 08.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.8 Distributed Conformance
+</h2>
+
+<p>
+A Distributed Conformant implementation MUST preserve the semantic
+meaning of security state when protocol processing is distributed
+across multiple components.
+</p>
+
+<p>
+Distributed components MUST NOT broaden authorization scope during
+Security Context propagation or reconstruction.
+</p>
+
+<p>
+A distributed implementation MUST define how stale, revoked,
+expired, or invalidated security state is detected and handled.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.9 Cross-Service Conformance
+</h2>
+
+<p>
+A Cross-Service Conformant implementation MUST explicitly identify
+the conditions under which Entitlement or Authorization state may be
+used across Service boundaries.
+</p>
+
+<p>
+Cross-Service reuse MUST preserve the applicable subject binding,
+scope, conditions, validity, and security dependencies.
+</p>
+
+<p>
+A receiving Service MUST independently determine whether a
+cross-Service security object is applicable to the requested
+operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.10 Full Suite Conformance
+</h2>
+
+<p>
+A Full Suite Conformant implementation MUST satisfy all mandatory
+requirements applicable to the Version 2.0 protocol suite.
+</p>
+
+<p>
+Where an implementation declares support for an optional capability,
+the implementation MUST satisfy all normative requirements
+associated with that capability.
+</p>
+
+<p>
+A Full Suite Conformant implementation MUST NOT declare support for a
+capability that is implemented only partially when the missing
+functionality affects a mandatory security or protocol property.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.11 Identity Layer Conformance
+</h2>
+
+<p>
+An implementation claiming Identity Layer conformance MUST represent
+Identity Objects according to the object model defined by this
+specification.
+</p>
+
+<p>
+Identity state MUST be uniquely associated with the identity
+semantics required by the applicable protocol operation.
+</p>
+
+<p>
+Identity processing MUST preserve the distinction between identity
+representation and authentication state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.12 Credential Layer Conformance
+</h2>
+
+<p>
+An implementation claiming Credential Layer conformance MUST
+implement the required Credential Object lifecycle and validation
+semantics.
+</p>
+
+<p>
+Credential state MUST NOT be treated as equivalent to Authentication
+state.
+</p>
+
+<p>
+Where Credential status is a required dependency of downstream
+security processing, changes in Credential state MUST be capable of
+triggering the applicable revalidation or invalidation behavior.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.13 Authentication Layer Conformance
+</h2>
+
+<p>
+An implementation claiming Authentication Layer conformance MUST
+implement the Authentication Protocol requirements defined by
+Version 2.0 and the applicable inherited requirements from Version
+1.0.
+</p>
+
+<p>
+Authentication success MUST produce the Authentication state defined
+by the protocol and MUST NOT directly create an Authorization
+Decision unless the authorization process explicitly performs the
+required authorization evaluation.
+</p>
+
+<p>
+Authentication transaction integrity, replay protection, and state
+validity MUST be preserved.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.14 Entitlement Layer Conformance
+</h2>
+
+<p>
+An implementation claiming Entitlement Layer conformance MUST
+support the required Entitlement Object semantics.
+</p>
+
+<p>
+The implementation MUST preserve subject binding, Service binding,
+scope, validity, conditions, and lifecycle state.
+</p>
+
+<p>
+An implementation MUST reject an Entitlement that is invalid for the
+current authorization context.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.15 Policy Layer Conformance
+</h2>
+
+<p>
+An implementation claiming Policy Layer conformance MUST evaluate
+the applicable Policy Object according to the Policy Evaluation
+requirements of Version 2.0.
+</p>
+
+<p>
+Policy version and validity MUST be considered when determining
+whether a Policy Object may be used for a current authorization
+operation.
+</p>
+
+<p>
+A Policy Evaluation Result MUST remain distinguishable from the
+Authorization Decision that may subsequently depend upon it.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.16 Authorization Layer Conformance
+</h2>
+
+<p>
+An implementation claiming Authorization Layer conformance MUST
+produce and manage Authorization Decisions according to the
+requirements of this specification.
+</p>
+
+<p>
+Authorization Decisions MUST be bound to the applicable security
+context and MUST preserve all applicable scope and conditions.
+</p>
+
+<p>
+The implementation MUST support the lifecycle behavior required for
+Authorization Decisions, including expiration, invalidation,
+revocation, and revalidation where applicable.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.17 Application Layer Conformance
+</h2>
+
+<p>
+An implementation claiming Application Layer conformance MUST
+enforce applicable Authorization Decisions before executing protected
+Service operations.
+</p>
+
+<p>
+The Application Layer MUST NOT bypass the Authorization Layer by
+directly interpreting Authentication state as permission to execute
+a protected operation.
+</p>
+
+<p>
+Application-layer behavior MUST preserve the security restrictions
+established by upstream protocol layers.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.18 Object Conformance
+</h2>
+
+<p>
+A conforming implementation MUST preserve the semantic meaning of
+the protocol objects defined by Version 2.0.
+</p>
+
+<table>
+
+<tr>
+<th>
+Object
+</th>
+
+<th>
+Conformance Requirement
+</th>
+</tr>
+
+<tr>
+<td>
+Identity Object
+</td>
+
+<td>
+MUST preserve identity semantics and applicable identity binding.
+</td>
+</tr>
+
+<tr>
+<td>
+Credential Object
+</td>
+
+<td>
+MUST preserve credential validity and lifecycle semantics.
+</td>
+</tr>
+
+<tr>
+<td>
+Authentication Object
+</td>
+
+<td>
+MUST represent the applicable authentication result and state.
+</td>
+</tr>
+
+<tr>
+<td>
+Entitlement Object
+</td>
+
+<td>
+MUST preserve subject, scope, conditions, and validity.
+</td>
+</tr>
+
+<tr>
+<td>
+Policy Object
+</td>
+
+<td>
+MUST preserve policy semantics and version identity.
+</td>
+</tr>
+
+<tr>
+<td>
+Authorization Object
+</td>
+
+<td>
+MUST preserve the authorization decision and its security binding.
+</td>
+</tr>
+
+<tr>
+<td>
+Session Object
+</td>
+
+<td>
+MUST preserve applicable session and security-state semantics.
+</td>
+</tr>
+
+<tr>
+<td>
+Service Object
+</td>
+
+<td>
+MUST identify the Service context applicable to enforcement.
+</td>
+</tr>
+
+</table>
+
+</section>
+
+
+
+<section>
+
+<h2>
+9.19 Event Conformance
+</h2>
+
+<p>
+A conforming implementation MUST process protocol events according
+to the Event Model defined by Version 2.0.
+</p>
+
+<p>
+Events that change security-relevant protocol state MUST be capable
+of causing the dependent state to be updated, invalidated, or
+revalidated where required by the applicable dependency.
+</p>
+
+<p>
+An implementation MUST NOT silently discard a security-relevant
+event when doing so could leave dependent authorization state
+incorrectly valid.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.20 State Transition Conformance
+</h2>
+
+<p>
+A conforming implementation MUST perform protocol state transitions
+according to the state transition requirements applicable to each
+protocol object.
+</p>
+
+<p>
+A state transition MUST NOT bypass a mandatory predecessor state.
+</p>
+
+<p>
+An implementation MUST NOT transition a protocol object into a state
+that is inconsistent with its applicable dependencies.
+</p>
+
+<p>
+Invalid, expired, or revoked states MUST NOT be represented as
+currently valid security states.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.21 Lifecycle Conformance
+</h2>
+
+<p>
+Protocol objects that define a lifecycle MUST implement the
+applicable lifecycle states and transitions.
+</p>
+
+<p>
+Lifecycle processing MUST preserve the distinction between creation,
+activation, validity, expiration, revocation, invalidation, and
+termination where those states are defined by the applicable
+object.
+</p>
+
+<p>
+An implementation MAY internally combine lifecycle states provided
+that the externally observable behavior remains equivalent to the
+normative lifecycle defined by this specification.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.22 Security Context Conformance
+</h2>
+
+<p>
+A conforming implementation MUST maintain the Security Context
+required for the current protocol operation.
+</p>
+
+<p>
+The Security Context MUST contain or securely reference the security
+state required to evaluate the applicable authorization conditions.
+</p>
+
+<p>
+A Security Context MUST NOT be modified in a manner that broadens
+the permissions, scope, or validity of the associated security
+state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.23 Security Context Propagation Conformance
+</h2>
+
+<p>
+Where Security Context is propagated between protocol components,
+the receiving component MUST verify that the propagated state is
+authentic, applicable, and sufficiently current.
+</p>
+
+<p>
+Security Context propagation MUST preserve the semantic restrictions
+established by the originating component.
+</p>
+
+<p>
+A receiving component MUST NOT treat the receipt of Security Context
+as proof that all underlying dependencies remain valid.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.24 Policy Evaluation Conformance
+</h2>
+
+<p>
+A conforming Policy Evaluation implementation MUST evaluate all
+mandatory policy conditions applicable to the current request.
+</p>
+
+<p>
+Policy Evaluation MUST use the applicable Policy Object and policy
+version.
+</p>
+
+<p>
+The evaluation process MUST produce a deterministic result for the
+same effective policy state and equivalent security context, unless
+the applicable policy explicitly permits nondeterministic behavior.
+</p>
+
+<p>
+Policy Evaluation MUST NOT omit a mandatory condition merely because
+another condition has already produced a positive result.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.25 Authorization Decision Conformance
+</h2>
+
+<p>
+A conforming implementation MUST generate an Authorization Decision
+that accurately represents the result of the applicable
+authorization evaluation.
+</p>
+
+<p>
+An Authorization Decision MUST NOT contain an authorization scope
+greater than the scope permitted by its inputs.
+</p>
+
+<p>
+The Decision state MUST be explicitly represented or otherwise
+deterministically recoverable.
+</p>
+
+<p>
+An implementation MUST NOT represent an unresolved or failed
+authorization evaluation as an Allow decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.26 Conditional Authorization Conformance
+</h2>
+
+<p>
+Where conditional authorization is supported, the implementation
+MUST evaluate the conditions specified by the applicable
+Entitlement, Policy, and Authorization requirements.
+</p>
+
+<p>
+An Allow decision MAY be conditional upon one or more security or
+business conditions.
+</p>
+
+<p>
+A condition that is required for authorization MUST be established
+before the protected operation is executed.
+</p>
+
+<p>
+If a mandatory condition cannot be established, the resulting
+authorization state MUST be non-authorized.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.27 Authorization Scope Conformance
+</h2>
+
+<p>
+An Authorization Decision MUST define or securely reference its
+applicable authorization scope.
+</p>
+
+<p>
+The scope MAY include one or more Services, Resources, Actions,
+transactions, sessions, or other protocol-defined boundaries.
+</p>
+
+<p>
+A conforming implementation MUST NOT expand the scope during
+propagation, reconstruction, evaluation, or Service enforcement.
+</p>
+
+<p>
+A requested operation outside the applicable scope MUST NOT be
+authorized by that Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.28 Decision Binding Conformance
+</h2>
+
+<p>
+An Authorization Decision MUST remain bound to the subject,
+security context, Service, scope, and other dependencies required by
+the applicable authorization process.
+</p>
+
+<p>
+Decision binding MUST prevent a valid decision for one protected
+operation from being incorrectly reused for an unrelated operation.
+</p>
+
+<p>
+A conforming implementation MUST validate decision binding before
+executing a protected operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.29 Decision Lifecycle Conformance
+</h2>
+
+<p>
+Authorization Decisions that have a defined lifecycle MUST support
+the applicable lifecycle states.
+</p>
+
+<p>
+A conforming implementation MUST distinguish at least the security
+semantics of a valid decision from those of an expired, revoked, or
+invalidated decision.
+</p>
+
+<p>
+A decision that has entered a non-authorized lifecycle state MUST NOT
+be used to authorize a protected operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.30 Revocation Conformance
+</h2>
+
+<p>
+Where revocation is applicable, a conforming implementation MUST
+support revocation of the applicable protocol object or security
+state.
+</p>
+
+<p>
+Revocation MUST prevent the revoked state from being treated as
+currently valid for protected authorization processing.
+</p>
+
+<p>
+Where a revoked object is a dependency of an active Authorization
+Decision, the implementation MUST perform the applicable
+invalidation or revalidation processing.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.31 Revalidation Conformance
+</h2>
+
+<p>
+A conforming implementation MUST perform revalidation whenever a
+normative dependency requires confirmation of current security
+state.
+</p>
+
+<p>
+Revalidation MUST evaluate the current applicable state and MUST NOT
+merely confirm the existence of a previously valid decision.
+</p>
+
+<p>
+A failed revalidation MUST result in a non-authorized outcome for
+the affected protected operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.32 Expiration Conformance
+</h2>
+
+<p>
+Protocol objects and decisions with expiration requirements MUST
+enforce their applicable expiration conditions.
+</p>
+
+<p>
+An expired object MUST NOT be treated as active or valid.
+</p>
+
+<p>
+Where expiration of one object invalidates dependent authorization
+state, the implementation MUST apply the applicable dependency
+rules.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.33 Invalidation Conformance
+</h2>
+
+<p>
+A conforming implementation MUST support invalidation of dependent
+security state where the applicable dependency requires such
+invalidation.
+</p>
+
+<p>
+Invalidation MUST propagate sufficiently to prevent a stale
+Authorization Decision from authorizing a protected operation.
+</p>
+
+<p>
+An implementation MAY use immediate or event-driven invalidation,
+periodic revalidation, or another mechanism, provided that the
+resulting behavior satisfies the applicable security requirement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.34 Fail-Closed Conformance
+</h2>
+
+<p>
+A conforming implementation MUST fail closed whenever a mandatory
+authorization condition cannot be reliably established.
+</p>
+
+<p>
+Fail-Closed behavior SHALL apply to failures involving mandatory
+authentication state, Entitlement state, Policy state,
+Authorization state, Security Context, or other required security
+dependencies.
+</p>
+
+<p>
+An implementation MUST NOT use an Allow default to recover from an
+unknown or unresolved security condition.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.35 Service Enforcement Conformance
+</h2>
+
+<p>
+A Service that performs protected operations MUST enforce the
+applicable Authorization Decision before execution.
+</p>
+
+<p>
+Service enforcement MUST verify the applicability of the decision to
+the current request.
+</p>
+
+<p>
+The Service MUST reject execution when:
+</p>
+
+<ul>
+
+<li>
+the Authorization Decision is absent;
+</li>
+
+<li>
+the decision is expired;
+</li>
+
+<li>
+the decision is revoked;
+</li>
+
+<li>
+the decision is invalidated;
+</li>
+
+<li>
+the decision scope does not cover the requested operation;
+</li>
+
+<li>
+a mandatory condition is not satisfied; or</li>
+
+<li>
+a required Security Context cannot be established.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+9.36 Service Enforcement Boundary
+</h2>
+
+<p>
+The Service Enforcement Boundary defines the point at which an
+Authorization Decision becomes an enforceable condition for
+protected Service execution.
+</p>
+
+<p>
+A conforming implementation MUST maintain a clear enforcement
+boundary between authorization evaluation and Service execution.
+</p>
+
+<p>
+The Service MUST NOT execute a protected operation before the
+required authorization conditions have been established.
+</p>
+
+<p>
+An implementation MAY combine evaluation and enforcement internally,
+provided that the resulting behavior preserves the normative
+separation of authorization decision and Service execution.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+9.37 Cross-Service Entitlement Conformance
+</h2>
+
+<p>
+Where an Entitlement is reused across multiple Services, each
+Service MUST independently determine whether the Entitlement is
+applicable to the requested operation.
+</p>
+
+<p>
+Cross-Service reuse MUST NOT implicitly broaden the scope,
+permissions, conditions, or validity period of the Entitlement.
+</p>
+
+<p>
+A Service MUST NOT assume that authorization granted by another
+Service constitutes authorization for the current Service.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.38 Entitlement Reuse Conformance
+</h2>
+
+<p>
+An Entitlement MAY be reused when its scope and applicable
+conditions permit such reuse.
+</p>
+
+<p>
+The implementation MUST preserve the identity of the Entitlement
+and its applicable validity and security state during reuse.
+</p>
+
+<p>
+Reuse MUST NOT create an independent authorization state that
+continues to be valid after the source Entitlement becomes invalid,
+expired, or revoked.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.39 Policy Version Conformance
+</h2>
+
+<p>
+A Policy Object used for authorization evaluation MUST identify the
+policy version applicable to the evaluation.
+</p>
+
+<p>
+A conforming implementation MUST NOT silently substitute a different
+policy version when such substitution could alter the authorization
+result.
+</p>
+
+<p>
+Where policy version changes invalidate previously evaluated
+authorization state, the applicable invalidation or revalidation
+requirements MUST be applied.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.40 Decision Reuse Conformance
+</h2>
+
+<p>
+An Authorization Decision MAY be reused only within the scope and
+conditions for which the decision remains valid.
+</p>
+
+<p>
+Before reuse, the implementation MUST verify all dependencies that
+are required to remain unchanged for the decision to remain valid.
+</p>
+
+<p>
+A decision MUST NOT be reused after expiration, revocation,
+invalidation, or failed revalidation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.41 Distributed Processing Conformance
+</h2>
+
+<p>
+A distributed implementation MUST preserve the security semantics
+of the protocol when protocol processing is divided among multiple
+components.
+</p>
+
+<p>
+Each component that evaluates or enforces security state MUST
+operate on sufficiently authenticated and integrity-protected
+protocol data.
+</p>
+
+<p>
+Distribution MUST NOT introduce an authorization state that could
+not be produced by a conforming logical implementation of the
+protocol.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.42 Authorization Context Reconstruction Conformance
+</h2>
+
+<p>
+Where an Authorization Context is reconstructed by a component, the
+component MUST reconstruct the context from authenticated,
+integrity-protected, and applicable protocol state.
+</p>
+
+<p>
+The reconstructed context MUST NOT contain broader permissions or
+scope than the originating context.
+</p>
+
+<p>
+If required information is missing, inconsistent, stale, or
+otherwise unverifiable, the reconstruction MUST NOT produce an
+Allow authorization result.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.43 Decision Consistency Conformance
+</h2>
+
+<p>
+Distributed components that independently evaluate the same
+authorization state SHOULD produce equivalent authorization
+results.
+</p>
+
+<p>
+Where consistency is a normative requirement, a conforming
+implementation MUST ensure that conflicting authorization decisions
+cannot result in unauthorized Service execution.
+</p>
+
+<p>
+A more restrictive decision MUST NOT be overridden solely because
+another component produced a less restrictive result.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.44 Dependency Precedence Conformance
+</h2>
+
+<p>
+Where multiple protocol dependencies affect authorization, the
+implementation MUST apply the precedence rules defined by the
+applicable protocol and policy.
+</p>
+
+<p>
+A dependency that requires denial, invalidation, or fail-closed
+processing MUST NOT be overridden by a dependency that merely
+permits authorization.
+</p>
+
+<p>
+The absence of an explicitly permitted authorization condition MUST
+NOT be interpreted as permission to bypass a mandatory restriction.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.45 Authorization State Continuity
+</h2>
+
+<p>
+A conforming implementation MUST preserve the security meaning of an
+Authorization Decision when the decision is transmitted, stored,
+cached, reconstructed, or otherwise propagated.
+</p>
+
+<p>
+State continuity MUST preserve the decision identity, applicable
+scope, dependencies, validity conditions, and security state.
+</p>
+
+<p>
+Any transformation that could alter those properties MUST be treated
+as a new authorization evaluation unless the transformation is
+explicitly defined as semantically equivalent.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.46 Authorization Invalidation Propagation
+</h2>
+
+<p>
+When a security dependency becomes invalid, the implementation MUST
+propagate the resulting authorization invalidation to all
+dependent authorization state within the applicable security
+boundary.
+</p>
+
+<p>
+Propagation MUST be sufficient to prevent stale authorization state
+from being used for protected execution.
+</p>
+
+<p>
+An implementation MUST NOT rely solely on local state when the
+applicable dependency has been invalidated by an authoritative
+component.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.47 Revocation Event Processing
+</h2>
+
+<p>
+A conforming implementation that supports event-driven revocation
+MUST process authoritative revocation events affecting active
+security state.
+</p>
+
+<p>
+A revocation event MUST identify, directly or through a secure
+reference, the protocol object or security state affected by the
+revocation.
+</p>
+
+<p>
+Processing of a valid revocation event MUST NOT restore or extend
+the validity of the affected security state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.48 Audit Traceability Conformance
+</h2>
+
+<p>
+A conforming implementation MUST provide sufficient audit
+traceability for security-relevant authorization processing where
+audit requirements apply.
+</p>
+
+<p>
+The audit record SHOULD permit reconstruction of the relevant
+authorization decision, including the applicable subject,
+Entitlement, Policy, decision state, and Service operation.
+</p>
+
+<p>
+Audit information MUST NOT be used as a substitute for real-time
+authorization enforcement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.49 Security Event Logging
+</h2>
+
+<p>
+Security-relevant events SHOULD be logged when required by the
+applicable deployment security policy.
+</p>
+
+<p>
+Events that SHOULD be considered for logging include authentication
+results, Entitlement changes, policy changes, authorization
+decisions, revocation events, invalidation events, and failed
+authorization attempts.
+</p>
+
+<p>
+Logging MUST NOT expose sensitive credential material or other
+security information prohibited by the applicable security
+requirements.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.50 Error Handling Conformance
+</h2>
+
+<p>
+A conforming implementation MUST handle protocol errors without
+creating an unauthorized security state.
+</p>
+
+<p>
+Protocol errors affecting mandatory authorization dependencies MUST
+produce a non-authorized outcome unless the applicable protocol
+explicitly defines a more restrictive result.
+</p>
+
+<p>
+Error recovery MUST NOT silently bypass authentication,
+Entitlement, Policy, Authorization, or Service enforcement
+requirements.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.51 Recovery Conformance
+</h2>
+
+<p>
+After a failure affecting security state, an implementation MUST
+restore or reconstruct the security state using authoritative
+protocol information.
+</p>
+
+<p>
+Cached or previously valid authorization state MUST NOT be treated
+as authoritative after a failure when its validity cannot be
+established.
+</p>
+
+<p>
+Recovery processing MUST preserve fail-closed behavior until the
+required security state has been successfully re-established.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.52 Implementation Equivalence
+</h2>
+
+<p>
+Two implementations SHALL be considered conformant with respect to
+a normative protocol behavior when they produce equivalent externally
+observable security results for equivalent protocol inputs and
+security state.
+</p>
+
+<p>
+Internal implementation techniques MAY differ provided that such
+differences do not alter the normative behavior of the protocol.
+</p>
+
+<p>
+An implementation MUST NOT claim conformance solely because its
+internal architecture resembles the architecture described by this
+specification.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.53 Conformance Claim
+</h2>
+
+<p>
+An implementation claiming Version 2.0 conformance MUST identify
+the protocol components, objects, and normative requirements that it
+implements.
+</p>
+
+<p>
+Where an implementation does not support an optional capability,
+the implementation MAY omit that capability provided that all
+mandatory requirements remain satisfied.
+</p>
+
+<p>
+A conformance claim MUST NOT imply support for a capability that is
+not actually implemented.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.54 Conformance Levels
+</h2>
+
+<p>
+Version 2.0 defines the following conceptual conformance levels:
+</p>
+
+<table>
+
+<tr>
+<th>
+Level
+</th>
+
+<th>
+Meaning
+</th>
+</tr>
+
+<tr>
+<td>
+Core
+</td>
+
+<td>
+Implements the mandatory protocol objects, state transitions,
+security requirements, and authorization enforcement requirements.
+</td>
+</tr>
+
+<tr>
+<td>
+Extended
+</td>
+
+<td>
+Implements Core requirements together with applicable optional
+capabilities such as conditional authorization and cross-service
+Entitlement reuse.
+</td>
+</tr>
+
+<tr>
+<td>
+Distributed
+</td>
+
+<td>
+Implements the requirements applicable to distributed processing,
+security context propagation, authorization state reconstruction,
+and distributed decision consistency.
+</td>
+</tr>
+
+</table>
+
+<p>
+An implementation MAY satisfy more than one conformance level when
+all requirements applicable to the claimed levels are satisfied.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+9.55 Mandatory Conformance Requirements
+</h2>
+
+<p>
+The following requirements are mandatory for a conforming
+implementation of Version 2.0:
+</p>
+
+<ul>
+
+<li>
+The implementation MUST preserve the separation between
+Authentication and Authorization.
+</li>
+
+<li>
+The implementation MUST process Entitlement as a protocol-level
+security object where Entitlement processing is applicable.
+</li>
+
+<li>
+The implementation MUST evaluate applicable Policy requirements
+before producing an Authorization Decision.
+</li>
+
+<li>
+The implementation MUST enforce the resulting Authorization Decision
+before executing a protected Service operation.
+</li>
+
+<li>
+The implementation MUST prevent expired, revoked, or invalidated
+security state from authorizing protected operations.
+</li>
+
+<li>
+The implementation MUST fail closed when mandatory authorization
+conditions cannot be established.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+9.56 Normative Language Conformance
+</h2>
+
+<p>
+The terms MUST, MUST NOT, REQUIRED, SHALL, SHALL NOT, SHOULD,
+SHOULD NOT, MAY, and OPTIONAL are to be interpreted as normative
+requirements within this specification.
+</p>
+
+<p>
+Where a requirement is expressed using MUST or SHALL, a conforming
+implementation MUST satisfy the requirement.
+</p>
+
+<p>
+Where a requirement is expressed using SHOULD, an implementation MAY
+deviate only when a documented implementation-specific reason
+exists and the resulting behavior does not compromise mandatory
+security requirements.
+</p>
+
+<p>
+Where a capability is expressed using MAY or OPTIONAL, an
+implementation is not required to support the capability unless it
+claims conformance to a level that requires it.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.57 Backward Reference to Version 1.0
+</h2>
+
+<p>
+Version 2.0 incorporates the Authentication Protocol defined by
+Version 1.0 as the normative authentication reference where such
+authentication functionality is used.
+</p>
+
+<p>
+A Version 2.0 implementation MUST NOT modify the normative meaning
+of the Version 1.0 Authentication Protocol merely as a consequence
+of implementing the additional Version 2.0 protocol layers.
+</p>
+
+<p>
+Where Version 2.0 introduces additional security state above
+Authentication, that state MUST remain distinguishable from the
+underlying Authentication result.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.58 Interoperability Conformance
+</h2>
+
+<p>
+A conforming implementation intended to interoperate with another
+Version 2.0 implementation MUST exchange protocol objects and
+decisions according to the normative object and message definitions.
+</p>
+
+<p>
+Interoperable implementations MUST preserve the semantics of
+identity, credentials, authentication results, Entitlements,
+Policies, Authorization Decisions, Sessions, and Service
+requirements.
+</p>
+
+<p>
+An implementation MUST NOT reinterpret a normative protocol field
+in a manner that changes its security meaning.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.59 Conformance Testability
+</h2>
+
+<p>
+Normative requirements defined by this specification SHOULD be
+testable through observable protocol behavior.
+</p>
+
+<p>
+A conformance test MAY evaluate protocol messages, object states,
+state transitions, authorization decisions, invalidation behavior,
+Service enforcement, and failure handling.
+</p>
+
+<p>
+A test result MUST NOT be considered evidence of conformance when
+the test does not cover all mandatory requirements applicable to the
+claimed conformance level.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.60 Chapter Summary
+</h2>
+
+<p>
+Version 2.0 conformance is determined by externally observable
+compliance with the normative protocol, object, state, security,
+authorization, and Service enforcement requirements defined by this
+specification.
+</p>
+
+<p>
+Conformance does not require a particular internal implementation
+architecture. It requires that the implementation preserve the
+security semantics, dependency relationships, authorization
+boundaries, and fail-closed behavior defined by the specification.
+</p>
+
+<p>
+In particular, a conforming implementation MUST ensure that
+Authentication, Entitlement, Policy Evaluation, Authorization, and
+Service Enforcement remain logically consistent throughout the
+lifecycle of a protected operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+9.61 Chapter Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter08_security_model.html">
+Previous Chapter: Chapter 08 — Security Model
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="chapter10_use_cases.html">
+Next Chapter: Chapter 10 — Use Cases
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>
+
