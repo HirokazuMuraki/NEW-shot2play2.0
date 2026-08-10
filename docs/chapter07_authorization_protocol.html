@@ -1,0 +1,2736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 07 — Authorization Protocol | NEW-shot2play Protocol Suite Version 2.0
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+
+<section>
+
+<h1>
+Chapter 07 — Authorization Protocol
+</h1>
+
+<p>
+This chapter defines the Authorization Layer of the
+NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+The Authorization Layer converts the applicable authorization
+inputs and Policy Evaluation results into an explicit
+Authorization Decision that governs whether a requested Service
+Action may be executed.
+</p>
+
+<div class="normative must">
+
+<strong>NORMATIVE PRINCIPLE</strong><br><br>
+
+Authentication establishes authenticated identity.
+Entitlement establishes applicable rights or usage qualifications.
+Policy Evaluation determines whether applicable conditions are
+satisfied.
+Authorization determines whether the requested Service Action may
+be executed.
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>
+7.1 Purpose and Scope
+</h2>
+
+<p>
+The purpose of the Authorization Layer is to provide a distinct
+protocol mechanism for generating, validating, binding, and
+enforcing an Authorization Decision.
+</p>
+
+<p>
+This chapter defines:
+</p>
+
+<ul>
+
+<li>
+Authorization Object;
+</li>
+
+<li>
+Authorization Request;
+</li>
+
+<li>
+Authorization Context;
+</li>
+
+<li>
+Authorization Evaluation;
+</li>
+
+<li>
+Authorization Decision;
+</li>
+
+<li>
+Decision state;
+</li>
+
+<li>
+Decision validity;
+</li>
+
+<li>
+Decision binding;
+</li>
+
+<li>
+Service execution authorization;
+</li>
+
+<li>
+revocation and invalidation;
+</li>
+
+<li>
+revalidation;
+</li>
+
+<li>
+distributed authorization consistency;
+</li>
+
+<li>
+fail-closed behavior; and</li>
+
+<li>
+Authorization conformance requirements.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+7.2 Authorization as a Protocol Layer
+</h2>
+
+<p>
+Authorization SHALL be implemented as a protocol layer logically
+distinct from Authentication, Entitlement, and Policy Evaluation.
+</p>
+
+<p>
+The Authorization Layer SHALL consume the outputs of the preceding
+layers together with the current authorization request and required
+context.
+</p>
+
+<div class="object-definition">
+
+<pre>
+Authentication
+      |
+      v
+Authenticated Identity
+      |
+      v
+Entitlement
+      |
+      v
+Entitlement State
+      |
+      v
+Policy Evaluation
+      |
+      v
+Policy Evaluation Result
+      |
+      v
+Authorization
+      |
+      v
+Authorization Decision
+      |
+      v
+Service Execution
+</pre>
+
+</div>
+
+<p>
+The separation SHALL prevent a successful operation at an earlier
+layer from being interpreted as an authorization grant by itself.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.3 Authorization Object
+</h2>
+
+<p>
+An Authorization Object SHALL represent the authorization state or
+authorization result associated with a specific authorization
+operation.
+</p>
+
+<p>
+The Authorization Object SHALL be logically distinguishable from
+the Policy Object and Entitlement Object.
+</p>
+
+<p>
+Representative Authorization Object attributes include:
+</p>
+
+<ul>
+
+<li>
+Authorization Identifier;
+</li>
+
+<li>
+Authorization Request Identifier;
+</li>
+
+<li>
+Identity Identifier;
+</li>
+
+<li>
+Entitlement Identifier;
+</li>
+
+<li>
+Policy Identifier;
+</li>
+
+<li>
+Policy Version;
+</li>
+
+<li>
+Authorization Scope;
+</li>
+
+<li>
+Decision State;
+</li>
+
+<li>
+Decision Timestamp;
+</li>
+
+<li>
+Validity Interval;
+</li>
+
+<li>
+Decision Binding Information; and</li>
+
+<li>
+Service Execution Binding Information.
+</li>
+
+</ul>
+
+<p>
+The exact representation MAY vary between implementations,
+provided that the semantics defined by this specification are
+preserved.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.4 Authorization Identifier
+</h2>
+
+<p>
+Each Authorization operation SHALL have an Authorization Identifier
+or equivalent unique reference.
+</p>
+
+<p>
+The Authorization Identifier SHALL permit the Authorization
+Decision to be associated with:
+</p>
+
+<ul>
+
+<li>
+the corresponding Authorization Request;
+</li>
+
+<li>
+the applicable Policy Evaluation;
+</li>
+
+<li>
+the applicable Entitlement state;
+</li>
+
+<li>
+the Service Action; and</li>
+
+<li>
+the resulting Service execution.
+</li>
+
+</ul>
+
+<p>
+An Authorization Identifier SHALL NOT be reused for a semantically
+different authorization operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.5 Authorization Request
+</h2>
+
+<p>
+An Authorization Request SHALL identify the operation for which
+authorization is requested.
+</p>
+
+<p>
+An Authorization Request SHOULD contain:
+</p>
+
+<ul>
+
+<li>
+Request Identifier;
+</li>
+
+<li>
+Identity reference;
+</li>
+
+<li>
+Entitlement reference, where applicable;
+</li>
+
+<li>
+Policy reference, where applicable;
+</li>
+
+<li>
+Service Identifier;
+</li>
+
+<li>
+Resource Identifier;
+</li>
+
+<li>
+Action Identifier;
+</li>
+
+<li>
+requested scope;
+</li>
+
+<li>
+request timestamp; and</li>
+
+<li>
+required Authorization Context.
+</li>
+
+</ul>
+
+<p>
+The Authorization Request SHALL be bound to the Service Action for
+which authorization is being requested.
+</p>
+
+<p>
+A valid Authentication state without a corresponding valid
+Authorization Request SHALL NOT produce an Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.6 Authorization Request Integrity
+</h2>
+
+<p>
+The Authorization Request SHALL be protected against unauthorized
+modification between its creation and Authorization Evaluation.
+</p>
+
+<p>
+Where the request is transmitted between protocol components, the
+receiving component SHALL verify the integrity and authenticity
+requirements applicable to the request.
+</p>
+
+<p>
+A request that fails required integrity verification SHALL NOT
+produce an Allow Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.7 Authorization Context
+</h2>
+
+<p>
+Authorization Context contains the current state required to
+evaluate whether the requested Service Action may be authorized.
+</p>
+
+<p>
+Authorization Context MAY include:
+</p>
+
+<ul>
+
+<li>
+authenticated session state;
+</li>
+
+<li>
+Entitlement state;
+</li>
+
+<li>
+Policy Evaluation result;
+</li>
+
+<li>
+Service state;
+</li>
+
+<li>
+resource state;
+</li>
+
+<li>
+transaction state;
+</li>
+
+<li>
+device state;
+</li>
+
+<li>
+location state;
+</li>
+
+<li>
+time state;
+</li>
+
+<li>
+risk state; and</li>
+
+<li>
+external event state.
+</li>
+
+</ul>
+
+<p>
+Only context applicable to the requested operation SHALL be used to
+generate the Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.8 Authorization Context Assembly
+</h2>
+
+<p>
+Before Authorization Evaluation, the implementation SHALL assemble
+the required Authorization Context.
+</p>
+
+<p>
+Context assembly MAY require information from multiple protocol
+layers or distributed services.
+</p>
+
+<p>
+Where a required context element is unavailable, invalid, expired,
+revoked, or inconsistent, the implementation SHALL determine
+whether the Authorization Decision can still be established under
+the applicable Policy and security requirements.
+</p>
+
+<p>
+A required context element that cannot be established SHALL NOT be
+treated as valid merely because the request otherwise appears
+authentic.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.9 Authorization Evaluation
+</h2>
+
+<p>
+Authorization Evaluation SHALL combine the applicable
+authorization inputs to determine whether an Authorization Decision
+may be generated.
+</p>
+
+<p>
+Representative evaluation inputs include:
+</p>
+
+<ul>
+
+<li>
+Identity;
+</li>
+
+<li>
+Entitlement State;
+</li>
+
+<li>
+Policy Evaluation Result;
+</li>
+
+<li>
+Authorization Request;
+</li>
+
+<li>
+Authorization Context;
+</li>
+
+<li>
+Service State; and</li>
+
+<li>
+applicable security state.
+</li>
+
+</ul>
+
+<p>
+Authorization Evaluation SHALL use the authoritative state required
+by the applicable Policy and Authorization rules.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.10 Authorization Evaluation Model
+</h2>
+
+<p>
+The Authorization Evaluation Model defines the relationship between
+the principal authorization inputs and the Authorization Decision.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure17_authorization_evaluation_model.svg"
+alt="Authorization Evaluation Model"
+>
+
+<figcaption>
+Figure 17 — Authorization Evaluation Model
+</figcaption>
+
+</figure>
+
+<p>
+The evaluation SHALL establish whether the required authorization
+conditions are simultaneously satisfied.
+</p>
+
+<p>
+An Allow result SHALL require satisfaction of all required
+conditions applicable to the requested Service Action.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.11 Authorization Decision
+</h2>
+
+<p>
+An Authorization Decision SHALL explicitly indicate the result of
+Authorization Evaluation.
+</p>
+
+<p>
+Representative Decision results include:
+</p>
+
+<ul>
+
+<li>
+Allow;
+</li>
+
+<li>
+Deny; and</li>
+
+<li>
+Indeterminate or Fail-Closed.
+</li>
+
+</ul>
+
+<p>
+The Authorization Decision SHALL be associated with the
+Authorization Identifier.
+</p>
+
+<p>
+An Authorization Decision SHALL NOT be interpreted as a permanent
+right to execute the Service Action.
+</p>
+
+<p>
+The Decision SHALL remain subject to its validity interval, scope,
+binding conditions, and applicable revocation or invalidation
+rules.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.12 Authorization Decision Dependencies
+</h2>
+
+<p>
+The Authorization Decision SHALL depend on the required inputs
+defined by the applicable Authorization and Policy rules.
+</p>
+
+<p>
+Representative dependencies include:
+</p>
+
+<ul>
+
+<li>
+authenticated identity;
+</li>
+
+<li>
+current Entitlement state;
+</li>
+
+<li>
+applicable Policy;
+</li>
+
+<li>
+Policy Evaluation result;
+</li>
+
+<li>
+Authorization Request;
+</li>
+
+<li>
+Authorization Context; and</li>
+
+<li>
+current security state.
+</li>
+
+</ul>
+
+<p>
+Where a required dependency is invalid or unavailable, the
+Authorization Decision SHALL NOT produce an Allow result unless the
+applicable protocol explicitly establishes that the dependency is
+not required for the requested operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.13 Decision Dependency and Precedence
+</h2>
+
+<p>
+Authorization Decision generation SHALL apply deterministic
+dependency and precedence rules.
+</p>
+
+<p>
+Where multiple authorization inputs provide conflicting results,
+the implementation SHALL apply the applicable precedence rules
+rather than selecting a result arbitrarily.
+</p>
+
+<p>
+Security-relevant invalidation, revocation, expiration, or
+integrity failure SHALL take precedence over a previously established
+Allow condition where the affected state is required for continued
+authorization.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.14 Authorization Decision Validity
+</h2>
+
+<p>
+An Authorization Decision SHALL have an explicitly determinable
+validity state.
+</p>
+
+<p>
+Validity MAY be established by:
+</p>
+
+<ul>
+
+<li>
+validity interval;
+</li>
+
+<li>
+Decision State;
+</li>
+
+<li>
+Entitlement state;
+</li>
+
+<li>
+Policy state;
+</li>
+
+<li>
+authorization scope;
+</li>
+
+<li>
+service state; and</li>
+
+<li>
+security state.
+</li>
+
+</ul>
+
+<p>
+A Decision that is no longer valid SHALL NOT be enforced.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.15 Authorization Scope
+</h2>
+
+<p>
+An Authorization Decision SHALL identify the scope of the
+authorization being granted.
+</p>
+
+<p>
+Scope MAY include:
+</p>
+
+<ul>
+
+<li>
+Service;
+</li>
+
+<li>
+Resource;
+</li>
+
+<li>
+Action;
+</li>
+
+<li>
+Operation parameters;
+</li>
+
+<li>
+transaction;
+</li>
+
+<li>
+time interval; and</li>
+
+<li>
+other Policy-defined constraints.
+</li>
+
+</ul>
+
+<p>
+An implementation SHALL NOT use an Authorization Decision outside
+its defined scope.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.16 Conditional Authorization
+</h2>
+
+<p>
+An Authorization Decision MAY be conditional upon one or more
+continuing conditions.
+</p>
+
+<p>
+A continuing condition MAY include:
+</p>
+
+<ul>
+
+<li>
+continued Entitlement validity;
+</li>
+
+<li>
+continued Policy validity;
+</li>
+
+<li>
+continued session validity;
+</li>
+
+<li>
+transaction state;
+</li>
+
+<li>
+resource state;
+</li>
+
+<li>
+time validity;
+</li>
+
+<li>
+location validity;
+</li>
+
+<li>
+device validity; or</li>
+
+<li>
+security state.
+</li>
+
+</ul>
+
+<p>
+Where a continuing condition becomes unsatisfied, the Authorization
+Decision SHALL be subject to revalidation or invalidation according
+to the applicable protocol rules.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.17 Decision State
+</h2>
+
+<p>
+An Authorization Decision SHALL have an explicit state.
+</p>
+
+<p>
+Representative states include:
+</p>
+
+<ul>
+
+<li>
+Pending;
+</li>
+
+<li>
+Allow;
+</li>
+
+<li>
+Deny;
+</li>
+
+<li>
+Invalid;
+</li>
+
+<li>
+Revoked; and</li>
+
+<li>
+Expired.
+</li>
+
+</ul>
+
+<p>
+State transitions SHALL be governed by explicit protocol rules.
+</p>
+
+<p>
+An implementation SHALL NOT transition an Invalid, Revoked, or
+Expired Decision directly to Allow without a new valid
+Authorization Evaluation.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+7.18 Decision Binding
+</h2>
+
+<p>
+An Authorization Decision SHALL be bound to the authorization
+operation for which it was generated.
+</p>
+
+<p>
+The binding SHALL prevent an Authorization Decision generated for
+one request, resource, action, or service context from being
+silently reused for a different authorization operation.
+</p>
+
+<p>
+Representative binding inputs include:
+</p>
+
+<ul>
+
+<li>
+Authorization Identifier;
+</li>
+
+<li>
+Authorization Request Identifier;
+</li>
+
+<li>
+Identity Identifier;
+</li>
+
+<li>
+Entitlement Identifier;
+</li>
+
+<li>
+Policy Identifier and Version;
+</li>
+
+<li>
+Service Identifier;
+</li>
+
+<li>
+Resource Identifier;
+</li>
+
+<li>
+Action Identifier; and</li>
+
+<li>
+applicable Authorization Context.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+7.19 Decision Binding to Service Execution
+</h2>
+
+<p>
+A Service SHALL execute a protected operation only when the
+execution is authorized by a valid Authorization Decision.
+</p>
+
+<p>
+The Authorization Decision SHALL be associated with the Service
+Action being executed.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure25_decision_binding_service_execution.svg"
+alt="Decision Binding Service Execution"
+>
+
+<figcaption>
+Figure 25 — Authorization Decision Binding to Service Execution
+</figcaption>
+
+</figure>
+
+<p>
+A Service MUST NOT treat the existence of an Authorization
+Identifier alone as sufficient authorization.
+</p>
+
+<p>
+The Service SHALL verify the validity, scope, and applicable
+conditions of the Authorization Decision before executing the
+protected operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.20 Service Execution Boundary
+</h2>
+
+<p>
+The Service Execution Boundary separates authorization processing
+from execution of the protected Service Action.
+</p>
+
+<p>
+The boundary SHALL ensure that:
+</p>
+
+<ul>
+
+<li>
+an invalid Decision cannot authorize execution;
+</li>
+
+<li>
+a Decision outside its defined scope cannot authorize execution;
+</li>
+
+<li>
+an expired Decision cannot authorize execution;
+</li>
+
+<li>
+a revoked Decision cannot authorize execution; and</li>
+
+<li>
+a Decision associated with a different Service Action cannot be
+silently reused.
+</li>
+
+</ul>
+
+<p>
+Authorization SHALL therefore be treated as a prerequisite to
+protected Service execution rather than as a description of the
+execution itself.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.21 Decision State Transition
+</h2>
+
+<p>
+Authorization Decisions SHALL transition between defined states
+according to explicit protocol rules.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure18_decision_enforcement_state_transition.svg"
+alt="Decision Enforcement State Transition"
+>
+
+<figcaption>
+Figure 18 — Decision Enforcement State Transition
+</figcaption>
+
+</figure>
+
+<p>
+A representative lifecycle is:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Pending
+   |
+   v
+Authorization Evaluation
+   |
+   +-----> Deny
+   |
+   v
+Allow
+   |
+   +-----> Expired
+   |
+   +-----> Revoked
+   |
+   +-----> Invalid
+   |
+   v
+Service Execution
+</pre>
+
+</div>
+
+<p>
+A state transition SHALL NOT bypass required authorization
+validation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.22 Decision State Continuity
+</h2>
+
+<p>
+An Authorization Decision SHALL preserve sufficient state
+continuity to permit the implementation to determine whether the
+Decision remains valid.
+</p>
+
+<p>
+The state continuity MAY be maintained through:
+</p>
+
+<ul>
+
+<li>
+Decision Identifier;
+</li>
+
+<li>
+state version;
+</li>
+
+<li>
+transaction reference;
+</li>
+
+<li>
+service execution reference;
+</li>
+
+<li>
+Entitlement state reference; and</li>
+
+<li>
+Policy Version reference.
+</li>
+
+</ul>
+
+<figure>
+
+<img
+src="../figures/figure29_authorization_decision_state_continuity.svg"
+alt="Authorization Decision State Continuity"
+>
+
+<figcaption>
+Figure 29 — Authorization Decision State Continuity
+</figcaption>
+
+</figure>
+
+</section>
+
+
+<section>
+
+<h2>
+7.23 Decision Lifecycle
+</h2>
+
+<p>
+The Authorization Decision lifecycle SHALL support creation,
+validation, enforcement, invalidation, and termination.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure34_authorization_decision_state_lifecycle.svg"
+alt="Authorization Decision State Lifecycle"
+>
+
+<figcaption>
+Figure 34 — Authorization Decision State Lifecycle
+</figcaption>
+
+</figure>
+
+<p>
+The lifecycle SHALL ensure that an Authorization Decision that has
+become invalid cannot remain effective solely because it was
+previously granted.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.24 Revocation
+</h2>
+
+<p>
+An Authorization Decision MAY be revoked before its nominal
+expiration time.
+</p>
+
+<p>
+Revocation MAY result from:
+</p>
+
+<ul>
+
+<li>
+Entitlement revocation;
+</li>
+
+<li>
+Policy revocation;
+</li>
+
+<li>
+security state change;
+</li>
+
+<li>
+administrative action;
+</li>
+
+<li>
+resource state change;
+</li>
+
+<li>
+transaction cancellation; or</li>
+
+<li>
+other security-relevant events.
+</li>
+
+</ul>
+
+<p>
+A revoked Authorization Decision SHALL NOT authorize subsequent
+Service execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.25 Revocation and Revalidation
+</h2>
+
+<p>
+Where an Authorization Decision remains effective for a period of
+time, the implementation SHOULD support revalidation against
+current authorization state.
+</p>
+
+<p>
+Revalidation SHALL determine whether the conditions supporting the
+Decision remain satisfied.
+</p>
+
+<p>
+Revalidation MAY be triggered by:
+</p>
+
+<ul>
+
+<li>
+time interval expiration;
+</li>
+
+<li>
+Entitlement state change;
+</li>
+
+<li>
+Policy state change;
+</li>
+
+<li>
+security event;
+</li>
+
+<li>
+resource state change; or</li>
+
+<li>
+explicit Service request.
+</li>
+
+</ul>
+
+<figure>
+
+<img
+src="../figures/figure35_authorization_decision_revocation_revalidation_propagation.svg"
+alt="Authorization Decision Revocation Revalidation Propagation"
+>
+
+<figcaption>
+Figure 35 — Authorization Decision Revocation, Revalidation, and
+Propagation
+</figcaption>
+
+</figure>
+
+</section>
+
+
+<section>
+
+<h2>
+7.26 Authorization Invalidation
+</h2>
+
+<p>
+An Authorization Decision SHALL become Invalid when a required
+condition for continued authorization is no longer satisfied and
+the applicable protocol requires invalidation.
+</p>
+
+<p>
+Invalidation MAY be caused by:
+</p>
+
+<ul>
+
+<li>
+Entitlement expiration;
+</li>
+
+<li>
+Entitlement revocation;
+</li>
+
+<li>
+Policy change;
+</li>
+
+<li>
+security state change;
+</li>
+
+<li>
+Decision integrity failure;
+</li>
+
+<li>
+binding failure; or</li>
+
+<li>
+distributed state inconsistency.
+</li>
+
+</ul>
+
+<p>
+An Invalid Decision SHALL NOT be treated as Allow.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.27 Invalidation and Fail-Closed Propagation
+</h2>
+
+<p>
+Where an authorization dependency becomes invalid, the invalid
+state SHALL propagate to the Authorization Decision when that
+dependency is required for continued authorization.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure31_authorization_invalidation_fail_closed_propagation.svg"
+alt="Authorization Invalidation Fail Closed Propagation"
+>
+
+<figcaption>
+Figure 31 — Authorization Invalidation and Fail-Closed Propagation
+</figcaption>
+
+</figure>
+
+<p>
+The propagation mechanism SHALL prevent an invalid upstream state
+from being interpreted as a valid downstream authorization grant.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.28 Authorization Decision Dependency Model
+</h2>
+
+<p>
+The Authorization Decision SHALL depend on all required
+authorization inputs.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure32_authorization_decision_dependency_precedence.svg"
+alt="Authorization Decision Dependency and Precedence Model"
+>
+
+<figcaption>
+Figure 32 — Authorization Decision Dependency and Precedence Model
+</figcaption>
+
+</figure>
+
+<p>
+The dependency model SHALL establish that a Decision cannot be
+validly generated when a required dependency is missing, invalid,
+expired, revoked, or inconsistent.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.29 Decision and Service Execution Continuity
+</h2>
+
+<p>
+Where a Service Action spans multiple processing stages, the
+Authorization Decision SHALL remain associated with the execution
+throughout the protected operation.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure33_authorization_decision_binding_service_execution.svg"
+alt="Authorization Decision Binding Service Execution"
+>
+
+<figcaption>
+Figure 33 — Authorization Decision Binding and Service Execution
+</figcaption>
+
+</figure>
+
+<p>
+An intermediate processing component SHALL NOT silently replace,
+weaken, or broaden the authorization scope.
+</p>
+
+<p>
+Where the Service Action is delegated to another trusted component,
+the authorization binding SHALL be preserved or explicitly
+re-established.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.30 Distributed Authorization
+</h2>
+
+<p>
+The Authorization Protocol MAY be implemented across multiple
+distributed components.
+</p>
+
+<p>
+Distributed components MAY include:
+</p>
+
+<ul>
+
+<li>
+Authorization Service;
+</li>
+
+<li>
+Policy Evaluation Service;
+</li>
+
+<li>
+Entitlement Service;
+</li>
+
+<li>
+Service Gateway;
+</li>
+
+<li>
+Application Service; and</li>
+
+<li>
+Audit or Security Service.
+</li>
+
+</ul>
+
+<p>
+Distributed processing SHALL preserve the semantic meaning of the
+Authorization Decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.31 Distributed Decision Consistency
+</h2>
+
+<p>
+Where multiple components maintain or consume the same
+Authorization Decision, they SHALL use a consistent Decision
+identity and state model.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure30_distributed_authorization_decision_consistency.svg"
+alt="Distributed Authorization Decision Consistency"
+>
+
+<figcaption>
+Figure 30 — Distributed Authorization Decision Consistency
+</figcaption>
+
+</figure>
+
+<p>
+A component SHALL NOT independently convert a Deny, Invalid,
+Revoked, or Expired state into Allow.
+</p>
+
+<p>
+State propagation SHALL preserve security-relevant precedence.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.32 Distributed Authorization Context Reconstruction
+</h2>
+
+<p>
+A distributed implementation MAY reconstruct Authorization Context
+at a downstream processing component.
+</p>
+
+<p>
+Context reconstruction SHALL use authoritative sources and SHALL
+preserve the authorization semantics of the original request.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure27_distributed_authorization_context_reconstruction.svg"
+alt="Distributed Authorization Context Reconstruction"
+>
+
+<figcaption>
+Figure 27 — Distributed Authorization Context Reconstruction
+</figcaption>
+
+</figure>
+
+<p>
+A reconstructed context SHALL NOT be treated as equivalent to the
+original context when security-relevant state has changed.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.33 Authorization Context Continuity
+</h2>
+
+<p>
+Where authorization processing spans multiple protocol components,
+the Authorization Context SHALL remain traceable across the
+processing chain.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure28_authorization_context_continuity.svg"
+alt="Authorization Context Continuity"
+>
+
+<figcaption>
+Figure 28 — Authorization Context Continuity
+</figcaption>
+
+</figure>
+
+<p>
+The implementation SHOULD preserve context provenance, integrity,
+and freshness throughout the authorization operation.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.34 Authorization Scope Propagation
+</h2>
+
+<p>
+Authorization scope SHALL propagate consistently across distributed
+processing stages.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure26_authorization_scope_propagation.svg"
+alt="Authorization Scope Propagation"
+>
+
+<figcaption>
+Figure 26 — Authorization Scope Propagation
+</figcaption>
+
+</figure>
+
+<p>
+A downstream component SHALL NOT broaden an authorization scope
+without a new valid Authorization Decision or an explicitly defined
+delegation rule.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>
+7.35 Fail-Closed Authorization
+</h2>
+
+<p>
+The Authorization Layer SHALL fail closed whenever a required
+condition for an Allow Decision cannot be reliably established.
+</p>
+
+<p>
+Fail-Closed behavior SHALL apply to security-relevant conditions
+including:
+</p>
+
+<ul>
+
+<li>
+missing required authorization input;
+</li>
+
+<li>
+invalid Entitlement state;
+</li>
+
+<li>
+expired Entitlement;
+</li>
+
+<li>
+revoked Entitlement;
+</li>
+
+<li>
+invalid Policy Evaluation result;
+</li>
+
+<li>
+invalid Authorization Context;
+</li>
+
+<li>
+Decision integrity failure;
+</li>
+
+<li>
+binding failure;
+</li>
+
+<li>
+distributed state inconsistency; and</li>
+
+<li>
+security state invalidation.
+</li>
+
+</ul>
+
+<p>
+A failure SHALL NOT be converted into an Allow result merely
+because a previous Decision was Allow.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.36 Security Invariant
+</h2>
+
+<p>
+The Authorization Protocol SHALL maintain security invariants
+throughout the lifetime of an Authorization Decision.
+</p>
+
+<p>
+At minimum, the following invariants SHALL apply:
+</p>
+
+<ol>
+
+<li>
+An Allow Decision SHALL correspond to a valid Authorization Request.
+</li>
+
+<li>
+An Allow Decision SHALL be supported by the required Entitlement
+state.
+</li>
+
+<li>
+An Allow Decision SHALL be supported by the applicable Policy
+Evaluation.
+</li>
+
+<li>
+An Allow Decision SHALL remain within its defined Authorization
+Scope.
+</li>
+
+<li>
+An Invalid, Revoked, or Expired Decision SHALL NOT authorize Service
+Execution.
+</li>
+
+<li>
+A downstream component SHALL NOT broaden an Authorization Decision.
+</li>
+
+<li>
+A security-relevant invalidation SHALL propagate to dependent
+authorization state.
+</li>
+
+<li>
+Failure to establish a required condition SHALL prevent Allow.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+7.37 Revocation State Propagation
+</h2>
+
+<p>
+Where an upstream authorization dependency is revoked, the
+revocation state SHALL be capable of propagating to dependent
+Authorization Decisions.
+</p>
+
+<p>
+The propagation mechanism MAY be push-based, pull-based,
+event-based, or implemented through another deterministic
+mechanism.
+</p>
+
+<p>
+Regardless of implementation method, a dependent component SHALL
+not continue to enforce an Authorization Decision that is known to
+be revoked.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.38 Revalidation Requirements
+</h2>
+
+<p>
+An implementation SHALL define when an existing Authorization
+Decision requires revalidation.
+</p>
+
+<p>
+Revalidation SHALL be required where continued authorization
+depends upon state that may change during the lifetime of the
+Decision.
+</p>
+
+<p>
+Representative triggers include:
+</p>
+
+<ul>
+
+<li>
+Entitlement state change;
+</li>
+
+<li>
+Policy state change;
+</li>
+
+<li>
+security state change;
+</li>
+
+<li>
+resource state change;
+</li>
+
+<li>
+transaction state change;
+</li>
+
+<li>
+validity interval boundary; and</li>
+
+<li>
+explicit security event.
+</li>
+
+</ul>
+
+<p>
+A failed revalidation SHALL prevent continued Allow enforcement when
+the affected condition is required for authorization.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.39 Authorization Decision Freshness
+</h2>
+
+<p>
+An Authorization Decision MAY have a freshness requirement.
+</p>
+
+<p>
+Freshness MAY be represented by:
+</p>
+
+<ul>
+
+<li>
+Decision Version;
+</li>
+
+<li>
+state version;
+</li>
+
+<li>
+issue timestamp;
+</li>
+
+<li>
+revalidation timestamp;
+</li>
+
+<li>
+expiration time; or</li>
+
+<li>
+an equivalent freshness indicator.
+</li>
+
+</ul>
+
+<p>
+A stale Decision SHALL NOT be used where current authorization state
+is required.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.40 Authorization Replay Protection
+</h2>
+
+<p>
+An Authorization Decision SHALL be protected against unauthorized
+replay where replay could cause an unauthorized Service Action.
+</p>
+
+<p>
+Replay protection MAY use:
+</p>
+
+<ul>
+
+<li>
+unique Authorization Identifier;
+</li>
+
+<li>
+request identifier;
+</li>
+
+<li>
+transaction identifier;
+</li>
+
+<li>
+nonce;
+</li>
+
+<li>
+Decision Version;
+</li>
+
+<li>
+validity interval; or</li>
+
+<li>
+cryptographic binding.
+</li>
+
+</ul>
+
+<p>
+An Authorization Decision SHALL NOT be replayable across an
+unauthorized Service, Resource, Action, or authorization context.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.41 Authorization Decision Integrity
+</h2>
+
+<p>
+The integrity of an Authorization Decision SHALL be protected
+against unauthorized modification.
+</p>
+
+<p>
+Where cryptographic protection is used, the receiving component
+SHALL verify the applicable integrity mechanism before enforcement.
+</p>
+
+<p>
+A Decision that fails integrity verification SHALL be treated as
+Invalid or Fail-Closed and SHALL NOT authorize Service Execution.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.42 Authorization Decision Provenance
+</h2>
+
+<p>
+The implementation SHOULD maintain provenance information sufficient
+to determine how an Authorization Decision was generated.
+</p>
+
+<p>
+Provenance SHOULD include:
+</p>
+
+<ul>
+
+<li>
+Authorization Request;
+</li>
+
+<li>
+Identity reference;
+</li>
+
+<li>
+Entitlement reference;
+</li>
+
+<li>
+Policy Identifier;
+</li>
+
+<li>
+Policy Version;
+</li>
+
+<li>
+Policy Evaluation result;
+</li>
+
+<li>
+Authorization Context reference;
+</li>
+
+<li>
+Decision state; and</li>
+
+<li>
+Service execution reference.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+7.43 Audit Traceability
+</h2>
+
+<p>
+Security-relevant Authorization operations SHOULD be traceable
+through an audit record or equivalent protected event stream.
+</p>
+
+<p>
+An audit record SHOULD identify:
+</p>
+
+<ul>
+
+<li>
+Authorization Identifier;
+</li>
+
+<li>
+Authorization Request Identifier;
+</li>
+
+<li>
+Decision result;
+</li>
+
+<li>
+Decision state;
+</li>
+
+<li>
+Policy Version;
+</li>
+
+<li>
+Entitlement reference;
+</li>
+
+<li>
+Service Action;
+</li>
+
+<li>
+Decision timestamp;
+</li>
+
+<li>
+revalidation event, where applicable; and</li>
+
+<li>
+revocation or invalidation event, where applicable.
+</li>
+
+</ul>
+
+<p>
+Audit information SHALL be protected against unauthorized
+modification where it is relied upon for security or
+traceability.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.44 Authorization and Cross-Service Entitlement
+</h2>
+
+<p>
+An Authorization Decision MAY depend on an Entitlement issued or
+established by a different Service.
+</p>
+
+<p>
+Where Cross-Service Entitlement Reuse is supported, the receiving
+Service SHALL independently determine whether the Entitlement
+satisfies the applicable Policy conditions.
+</p>
+
+<p>
+The receiving Service SHALL evaluate at minimum:
+</p>
+
+<ul>
+
+<li>
+Entitlement validity;
+</li>
+
+<li>
+Entitlement scope;
+</li>
+
+<li>
+issuer or authority;
+</li>
+
+<li>
+identity binding;
+</li>
+
+<li>
+Policy applicability; and</li>
+
+<li>
+current authorization context.
+</li>
+
+</ul>
+
+<p>
+Cross-Service Entitlement Reuse SHALL NOT bypass local
+Authorization Policy.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.45 Conditional Service Execution
+</h2>
+
+<p>
+A Service MAY permit execution only while the conditions associated
+with an Authorization Decision remain satisfied.
+</p>
+
+<p>
+Where execution is conditional, the Service SHALL evaluate or
+receive sufficient state to determine whether the conditions remain
+valid.
+</p>
+
+<p>
+A Service SHALL terminate, suspend, or deny protected execution
+when a required continuing authorization condition becomes
+unsatisfied.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.46 Authorization Decision and Service Enforcement
+</h2>
+
+<p>
+The Service Enforcement Point SHALL enforce the Authorization
+Decision before execution of a protected operation.
+</p>
+
+<p>
+The Enforcement Point SHALL verify the applicable:
+</p>
+
+<ul>
+
+<li>
+Decision state;
+</li>
+
+<li>
+Decision validity;
+</li>
+
+<li>
+Authorization Scope;
+</li>
+
+<li>
+Service binding;
+</li>
+
+<li>
+Resource binding;
+</li>
+
+<li>
+Action binding; and</li>
+
+<li>
+continuing security conditions.
+</li>
+
+</ul>
+
+<p>
+The Enforcement Point SHALL NOT rely solely upon the presence of an
+authenticated session.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.47 Authorization Decision Enforcement Failure
+</h2>
+
+<p>
+If the Service cannot establish that a valid Authorization Decision
+exists, the protected operation SHALL NOT be executed.
+</p>
+
+<p>
+An Enforcement failure MAY result in:
+</p>
+
+<ul>
+
+<li>
+Deny;
+</li>
+
+<li>
+Fail-Closed;
+</li>
+
+<li>
+Retry;
+</li>
+
+<li>
+Revalidation; or</li>
+
+<li>
+reconstruction of the required Authorization Context.
+</li>
+
+</ul>
+
+<p>
+Recovery processing SHALL NOT bypass required authorization
+conditions.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+7.48 Authorization Security Requirements
+</h2>
+
+<p>
+A conforming implementation SHALL protect the Authorization
+Protocol against unauthorized authorization grants.
+</p>
+
+<p>
+At minimum, the implementation SHALL:
+</p>
+
+<ul>
+
+<li>
+bind Authorization Decisions to Authorization Requests;
+</li>
+
+<li>
+validate required Entitlement state;
+</li>
+
+<li>
+validate applicable Policy Evaluation results;
+</li>
+
+<li>
+maintain Authorization Scope;
+</li>
+
+<li>
+protect Decision integrity;
+</li>
+
+<li>
+prevent unauthorized Decision replay;
+</li>
+
+<li>
+support required invalidation and revocation;
+</li>
+
+<li>
+preserve Decision state precedence;
+</li>
+
+<li>
+fail closed when required authorization conditions cannot be
+established; and</li>
+
+<li>
+prevent invalid Decisions from authorizing Service Execution.
+</li>
+
+</ul>
+
+</section>
+
+
+<section>
+
+<h2>
+7.49 Authorization Conformance Requirements
+</h2>
+
+<p>
+An implementation conforms to the Authorization Protocol
+requirements of this chapter only if it:
+</p>
+
+<ol>
+
+<li>
+implements an identifiable Authorization Object or equivalent
+authorization state;
+</li>
+
+<li>
+accepts an explicit Authorization Request;
+</li>
+
+<li>
+performs Authorization Evaluation using required authorization
+inputs;
+</li>
+
+<li>
+generates an explicit Authorization Decision;
+</li>
+
+<li>
+defines Decision states and state transitions;
+</li>
+
+<li>
+binds Decisions to the applicable Service Action;
+</li>
+
+<li>
+enforces Authorization Scope;
+</li>
+
+<li>
+supports required invalidation and revocation behavior;
+</li>
+
+<li>
+prevents unauthorized replay;
+</li>
+
+<li>
+maintains integrity and provenance of security-relevant Decision
+state;
+</li>
+
+<li>
+preserves authorization semantics across distributed components;
+</li>
+
+<li>
+fails closed when required conditions cannot be established; and</li>
+
+<li>
+prevents an invalid, revoked, or expired Decision from authorizing
+Service Execution.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+7.50 Design Invariants
+</h2>
+
+<p>
+The following invariants SHALL govern the Authorization Layer.
+</p>
+
+<ol>
+
+<li>
+Authentication SHALL NOT imply Authorization.
+</li>
+
+<li>
+Entitlement SHALL NOT imply Authorization without Policy and
+Authorization Evaluation.
+</li>
+
+<li>
+Policy Evaluation SHALL NOT itself constitute Service execution.
+</li>
+
+<li>
+An Allow Decision SHALL depend on all required authorization
+conditions.
+</li>
+
+<li>
+An Authorization Decision SHALL remain within its defined scope.
+</li>
+
+<li>
+Invalidation, revocation, and expiration SHALL prevent continued
+enforcement where applicable.
+</li>
+
+<li>
+A downstream component SHALL NOT broaden an upstream authorization
+grant.
+</li>
+
+<li>
+A failure to establish a required condition SHALL prevent Allow.
+</li>
+
+<li>
+Authorization state SHALL remain traceable across distributed
+processing.
+</li>
+
+<li>
+Service execution SHALL require a valid Authorization Decision.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+7.51 Summary
+</h2>
+
+<p>
+The Authorization Layer provides the final protocol-level decision
+mechanism between Policy Evaluation and protected Service
+Execution.
+</p>
+
+<p>
+The Authorization Protocol separates the generation of an
+Authorization Decision from execution of the authorized operation.
+This separation permits authorization state to remain independently
+traceable, revocable, revalidated, and enforceable across
+distributed Service components.
+</p>
+
+<p>
+The model establishes that:
+</p>
+
+<ol>
+
+<li>
+Authentication establishes identity but does not establish
+authorization;
+</li>
+
+<li>
+Entitlement establishes applicable rights or usage qualifications;
+</li>
+
+<li>
+Policy Evaluation determines whether applicable conditions are
+satisfied;
+</li>
+
+<li>
+Authorization Evaluation combines the required authorization
+inputs;
+</li>
+
+<li>
+the Authorization Decision explicitly identifies Allow, Deny, or
+an equivalent fail-closed result;
+</li>
+
+<li>
+the Decision SHALL be bound to the Authorization Request and
+Service Action;
+</li>
+
+<li>
+the Decision SHALL remain subject to scope, validity, and
+continuing conditions;
+</li>
+
+<li>
+revocation and invalidation SHALL prevent unauthorized continued
+execution;
+</li>
+
+<li>
+distributed components SHALL preserve Decision semantics;
+</li>
+
+<li>
+failure to establish required authorization state SHALL prevent
+Allow; and</li>
+
+<li>
+protected Service Execution SHALL require a valid Authorization
+Decision.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+7.52 Chapter Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter06_policy_evaluation.html">
+Previous Chapter: Chapter 06 — Policy Evaluation
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="chapter08_security_model.html">
+Next Chapter: Chapter 08 — Security Model
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
+
