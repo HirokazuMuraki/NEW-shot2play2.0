@@ -1,0 +1,1331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+Chapter 02 - Protocol Architecture | NEW-shot2play Protocol Suite Version 2.0
+</title>
+
+<link rel="stylesheet" href="../css/patent.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<header class="spec-header">
+
+<div class="spec-title">
+NEW-shot2play Protocol Suite Version 2.0
+</div>
+
+<div class="spec-version">
+Technical Specification<br>
+Design Freeze Version 2.0 Revision 1.1<br>
+Normative Specification
+</div>
+
+</header>
+
+
+<main>
+
+<h1>
+Chapter 02 — Protocol Architecture
+</h1>
+
+<p>
+This chapter defines the protocol architecture of the
+NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+<p>
+The architecture establishes the logical relationships between
+identity, credentials, authentication, entitlement, policy
+evaluation, authorization, and service execution.
+</p>
+
+<div class="normative must">
+
+<strong>Normative Status</strong><br><br>
+
+An implementation conforming to Version 2.0 MUST preserve the
+logical separation and dependency relationships defined in this
+chapter, even where multiple protocol functions are implemented
+within the same software component.
+
+</div>
+
+
+<section>
+
+<h2>
+2.1 Architectural Scope
+</h2>
+
+<p>
+The Version 2.0 protocol architecture defines a layered processing
+model in which an authenticated identity becomes an input to
+subsequent entitlement and authorization processing.
+</p>
+
+<p>
+The architecture is applicable to both centralized and distributed
+implementations.
+</p>
+
+<p>
+A centralized implementation MAY execute multiple protocol layers
+within a single trusted component.
+</p>
+
+<p>
+A distributed implementation MAY assign different protocol layers
+to different services, processes, hosts, or administrative domains.
+</p>
+
+<p>
+In either case, the semantic relationships between protocol objects
+and authorization decisions SHALL remain unchanged.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.2 Layered Protocol Architecture
+</h2>
+
+<p>
+Version 2.0 defines seven logical protocol layers:
+</p>
+
+<table>
+
+<tr>
+<th>
+Layer
+</th>
+
+<th>
+Primary Function
+</th>
+
+<th>
+Primary Output
+</th>
+</tr>
+
+<tr>
+<td>
+Identity Layer
+</td>
+
+<td>
+Represents the subject identity.
+</td>
+
+<td>
+Identity Object
+</td>
+</tr>
+
+<tr>
+<td>
+Credential Layer
+</td>
+
+<td>
+Represents authentication credentials and trust information.
+</td>
+
+<td>
+Credential Object
+</td>
+</tr>
+
+<tr>
+<td>
+Authentication Layer
+</td>
+
+<td>
+Establishes authenticated identity.
+</td>
+
+<td>
+Authentication Object
+</td>
+</tr>
+
+<tr>
+<td>
+Entitlement Layer
+</td>
+
+<td>
+Establishes and maintains rights and usage qualifications.
+</td>
+
+<td>
+Entitlement Object
+</td>
+</tr>
+
+<tr>
+<td>
+Policy Layer
+</td>
+
+<td>
+Defines conditions applicable to authorization.
+</td>
+
+<td>
+Policy Object
+</td>
+</tr>
+
+<tr>
+<td>
+Authorization Layer
+</td>
+
+<td>
+Evaluates authorization inputs and produces a decision.
+</td>
+
+<td>
+Authorization Object
+</td>
+</tr>
+
+<tr>
+<td>
+Application Layer
+</td>
+
+<td>
+Enforces the authorization result at the protected service.
+</td>
+
+<td>
+Service Execution
+</td>
+</tr>
+
+</table>
+
+<p>
+The logical architecture is illustrated by Figure 01.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure01_overall_architecture.svg"
+alt="Overall architecture of the NEW-shot2play Protocol Suite Version 2.0"
+style="max-width:100%; height:auto;"
+>
+
+<figcaption>
+Figure 01 — Overall Architecture
+</figcaption>
+
+</figure>
+
+</section>
+
+
+<section>
+
+<h2>
+2.3 Architectural Processing Direction
+</h2>
+
+<p>
+The normal processing direction proceeds from identity
+establishment toward service execution.
+</p>
+
+<div class="object-definition">
+
+<pre>
+Identity
+   ↓
+Credential
+   ↓
+Authentication
+   ↓
+Entitlement
+   ↓
+Policy Evaluation
+   ↓
+Authorization
+   ↓
+Service
+</pre>
+
+</div>
+
+<p>
+Each downstream layer MAY consume state produced by an upstream
+layer, but SHALL NOT assume that successful processing by an
+upstream layer automatically establishes the validity of all
+downstream conditions.
+</p>
+
+<p>
+For example, successful authentication SHALL establish an
+authenticated identity but SHALL NOT establish that an applicable
+Entitlement exists.
+</p>
+
+<p>
+Similarly, the existence of an Entitlement SHALL NOT by itself
+establish that a requested action is authorized.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.4 Authentication Boundary
+</h2>
+
+<p>
+The Authentication Layer defines the boundary between identity
+establishment and subsequent authorization processing.
+</p>
+
+<p>
+The Authentication Layer SHALL determine whether the subject has
+successfully completed the applicable authentication procedure.
+</p>
+
+<p>
+The resulting Authentication Object MAY contain:
+</p>
+
+<ul>
+
+<li>
+Subject Identifier
+</li>
+
+<li>
+Authentication Method
+</li>
+
+<li>
+Authentication Result
+</li>
+
+<li>
+Authentication Time
+</li>
+
+<li>
+Authentication Transaction Identifier
+</li>
+
+<li>
+Authentication Assurance Information
+</li>
+
+</ul>
+
+<p>
+The authentication result SHALL be treated as an input to
+authorization processing rather than as an authorization decision.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.5 Entitlement Boundary
+</h2>
+
+<p>
+The Entitlement Layer introduces an independently managed protocol
+object representing a right, capability, eligibility, or usage
+qualification.
+</p>
+
+<p>
+An Entitlement MAY be established by:
+</p>
+
+<ul>
+
+<li>
+a successful transaction;
+</li>
+
+<li>
+a verified event;
+</li>
+
+<li>
+a purchase;
+</li>
+
+<li>
+a visit;
+</li>
+
+<li>
+an attendance event;
+</li>
+
+<li>
+an administrative operation; or
+</li>
+
+<li>
+another service-defined entitlement event.
+</li>
+
+</ul>
+
+<p>
+The Entitlement Object SHALL remain logically distinguishable from
+the Authentication Object.
+</p>
+
+<p>
+The Entitlement Layer SHALL maintain the authoritative state
+required to determine whether the entitlement is currently
+effective.
+</p>
+
+<p>
+Figure 15 defines the lifecycle of an Entitlement.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure15_entitlement_lifecycle.svg"
+alt="Entitlement lifecycle"
+style="max-width:100%; height:auto;"
+>
+
+<figcaption>
+Figure 15 — Entitlement Lifecycle
+</figcaption>
+
+</figure>
+
+
+<section>
+
+<h2>
+2.6 Policy Boundary
+</h2>
+
+<p>
+The Policy Layer defines the conditions under which a requested
+operation MAY be authorized.
+</p>
+
+<p>
+A Policy MAY evaluate conditions relating to:
+</p>
+
+<ul>
+
+<li>
+subject identity;
+</li>
+
+<li>
+requested action;
+</li>
+
+<li>
+resource;
+</li>
+
+<li>
+service;
+</li>
+
+<li>
+entitlement state;
+</li>
+
+<li>
+time;
+</li>
+
+<li>
+location;
+</li>
+
+<li>
+device;
+</li>
+
+<li>
+transaction state;
+</li>
+
+<li>
+risk; and
+</li>
+
+<li>
+other contextual information defined by the service.
+</li>
+
+</ul>
+
+<p>
+Policy evaluation SHALL be logically distinguishable from
+authentication and entitlement acquisition.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.7 Authorization Boundary
+</h2>
+
+<p>
+The Authorization Layer combines the authorization inputs required
+to determine whether a requested operation may proceed.
+</p>
+
+<p>
+At minimum, applicable authorization processing SHALL consider:
+</p>
+
+<ul>
+
+<li>
+authenticated identity;
+</li>
+
+<li>
+authorization request;
+</li>
+
+<li>
+applicable entitlement;
+</li>
+
+<li>
+applicable policy; and
+</li>
+
+<li>
+authorization context.
+</li>
+
+</ul>
+
+<p>
+The resulting Authorization Decision SHALL indicate whether the
+requested operation is permitted.
+</p>
+
+<p>
+An Allow result SHALL require that all required authorization
+conditions have been established as valid.
+</p>
+
+<p>
+If a required authorization condition cannot be established,
+the implementation SHALL NOT convert the condition into an Allow
+result.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.8 Service Enforcement Boundary
+</h2>
+
+<p>
+The Application Layer contains the protected service boundary at
+which an Authorization Decision is enforced.
+</p>
+
+<p>
+A protected service operation MUST NOT be executed solely because
+the requester is authenticated.
+</p>
+
+<p>
+The service SHALL verify the applicability of the Authorization
+Decision to the requested operation before performing the protected
+operation.
+</p>
+
+<p>
+The decision SHALL remain bound to the applicable authorization
+request, subject, and authorization state.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.9 Layer Independence
+</h2>
+
+<p>
+The logical independence of the protocol layers is a normative
+architectural property.
+</p>
+
+<p>
+A conforming implementation MAY combine two or more logical layers
+inside a single process or service.
+</p>
+
+<p>
+Such implementation-level combination SHALL NOT eliminate the
+semantic distinction between:
+</p>
+
+<ul>
+
+<li>
+authentication state;
+</li>
+
+<li>
+entitlement state;
+</li>
+
+<li>
+policy state;
+</li>
+
+<li>
+authorization state; and
+</li>
+
+<li>
+service execution state.
+</li>
+
+</ul>
+
+<p>
+This separation permits an authorization decision to depend on
+state that was established independently from the current
+authentication operation.
+</p>
+
+</section>
+
+<section>
+
+<h2>
+2.10 Protocol Object Interaction
+</h2>
+
+<p>
+The protocol layers operate on distinct logical objects.
+The principal objects relevant to the architecture are:
+</p>
+
+<table>
+
+<tr>
+<th>
+Object
+</th>
+
+<th>
+Layer
+</th>
+
+<th>
+Architectural Role
+</th>
+</tr>
+
+<tr>
+<td>
+Identity Object
+</td>
+
+<td>
+Identity Layer
+</td>
+
+<td>
+Represents the subject identity.
+</td>
+</tr>
+
+<tr>
+<td>
+Credential Object
+</td>
+
+<td>
+Credential Layer
+</td>
+
+<td>
+Represents credentials and associated trust information.
+</td>
+</tr>
+
+<tr>
+<td>
+Authentication Object
+</td>
+
+<td>
+Authentication Layer
+</td>
+
+<td>
+Represents the result and state of authentication.
+</td>
+</tr>
+
+<tr>
+<td>
+Entitlement Object
+</td>
+
+<td>
+Entitlement Layer
+</td>
+
+<td>
+Represents a right, capability, eligibility, or usage qualification.
+</td>
+</tr>
+
+<tr>
+<td>
+Policy Object
+</td>
+
+<td>
+Policy Layer
+</td>
+
+<td>
+Represents authorization conditions and evaluation rules.
+</td>
+</tr>
+
+<tr>
+<td>
+Authorization Object
+</td>
+
+<td>
+Authorization Layer
+</td>
+
+<td>
+Represents the authorization request, evaluation state, and decision.
+</td>
+</tr>
+
+<tr>
+<td>
+Session Object
+</td>
+
+<td>
+Cross-layer
+</td>
+
+<td>
+Represents protocol session state where applicable.
+</td>
+</tr>
+
+<tr>
+<td>
+Service Object
+</td>
+
+<td>
+Application Layer
+</td>
+
+<td>
+Represents the protected service or resource.
+</td>
+</tr>
+
+</table>
+
+<p>
+The logical distinction between these objects SHALL be preserved
+even when multiple objects are implemented by a common data store
+or software component.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.11 Authorization Input Composition
+</h2>
+
+<p>
+An Authorization Decision is produced from multiple logically
+independent inputs.
+</p>
+
+<div class="object-definition">
+
+<pre>
+Authenticated Identity
+          +
+Authorization Request
+          +
+Entitlement State
+          +
+Policy
+          +
+Authorization Context
+          ↓
+Authorization Evaluation
+          ↓
+Authorization Decision
+</pre>
+
+</div>
+
+<p>
+No single input SHALL be treated as a substitute for another
+required input.
+</p>
+
+<p>
+In particular, successful authentication SHALL NOT substitute for
+an applicable Entitlement, and an applicable Entitlement SHALL NOT
+substitute for Policy Evaluation.
+</p>
+
+<p>
+Figure 17 defines the authorization evaluation model.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure17_authorization_evaluation_model.svg"
+alt="Authorization evaluation model"
+style="max-width:100%; height:auto;"
+>
+
+<figcaption>
+Figure 17 — Authorization Evaluation Model
+</figcaption>
+
+</figure>
+
+</section>
+
+
+<section>
+
+<h2>
+2.12 Entitlement and Transaction Binding
+</h2>
+
+<p>
+Entitlement state MAY be established or modified as the result of
+a protocol transaction.
+</p>
+
+<p>
+A transaction that establishes, consumes, modifies, or revokes an
+Entitlement SHALL remain traceably associated with the applicable
+Entitlement Object.
+</p>
+
+<p>
+Where an Entitlement is created from an event or transaction, the
+resulting Entitlement SHOULD retain sufficient information to
+establish the origin of the entitlement.
+</p>
+
+<p>
+Where an Entitlement is consumed, the consumption operation SHALL
+result in an authoritative state update.
+</p>
+
+<p>
+Figure 16 defines the transaction binding relationship.
+</p>
+
+<figure>
+
+<img
+src="../figures/figure16_entitlement_transaction_binding.svg"
+alt="Entitlement transaction binding"
+style="max-width:100%; height:auto;"
+>
+
+<figcaption>
+Figure 16 — Entitlement Transaction Binding
+</figcaption>
+
+</figure>
+
+</section>
+
+
+<section>
+
+<h2>
+2.13 Authorization Decision Binding
+</h2>
+
+<p>
+An Authorization Decision SHALL be bound to the authorization
+request for which it was produced.
+</p>
+
+<p>
+The binding SHALL permit the service enforcement layer to determine
+whether the decision applies to:
+</p>
+
+<ul>
+
+<li>
+the requesting subject;
+</li>
+
+<li>
+the requested action;
+</li>
+
+<li>
+the requested resource;
+</li>
+
+<li>
+the requested service;
+</li>
+
+<li>
+the applicable Entitlement state; and
+</li>
+
+<li>
+the applicable authorization context.
+</li>
+
+</ul>
+
+<p>
+A decision MUST NOT be reused for an unrelated request merely
+because the same subject has previously received an Allow result.
+</p>
+
+<p>
+Where the authorization state changes in a manner that invalidates
+a previously issued decision, the implementation SHALL prevent
+continued reliance on the invalid decision according to the
+invalidation and enforcement requirements defined in later
+chapters.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.14 Distributed Authorization Architecture
+</h2>
+
+<p>
+Version 2.0 supports distributed authorization processing.
+</p>
+
+<p>
+An implementation MAY distribute authorization processing across
+multiple services or administrative components.
+</p>
+
+<p>
+Examples include:
+</p>
+
+<ul>
+
+<li>
+a central entitlement service;
+</li>
+
+<li>
+a policy evaluation service;
+</li>
+
+<li>
+a local authorization decision service;
+</li>
+
+<li>
+a service-specific enforcement component; and
+</li>
+
+<li>
+an audit or security-state service.
+</li>
+
+</ul>
+
+<p>
+Distribution SHALL NOT alter the semantic meaning of an
+Authorization Decision.
+</p>
+
+<p>
+Each component participating in authorization processing SHALL
+operate on the authoritative state applicable to its role.
+</p>
+
+<p>
+Where authorization state is propagated between components,
+the implementation SHALL preserve the information necessary to
+determine whether the propagated state remains valid.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.15 Distributed State Consistency
+</h2>
+
+<p>
+A distributed implementation MUST account for changes to
+authorization-relevant state.
+</p>
+
+<p>
+Authorization-relevant state includes, as applicable:
+</p>
+
+<ul>
+
+<li>
+Entitlement state;
+</li>
+
+<li>
+Policy state;
+</li>
+
+<li>
+authentication state;
+</li>
+
+<li>
+revocation state;
+</li>
+
+<li>
+security state;
+</li>
+
+<li>
+transaction state; and
+</li>
+
+<li>
+authorization decision state.
+</li>
+
+</ul>
+
+<p>
+A component SHALL NOT treat locally cached authorization state as
+authoritative when the protocol requires a newer authoritative
+state to be consulted.
+</p>
+
+<p>
+Where required state cannot be established as valid, the
+implementation SHALL apply the fail-closed behavior specified by
+the applicable authorization requirements.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.16 Architectural Invariants
+</h2>
+
+<p>
+The following invariants SHALL apply throughout the Version 2.0
+architecture.
+</p>
+
+<ol>
+
+<li>
+Authentication establishes identity but does not establish
+authorization.
+</li>
+
+<li>
+Entitlement is an independent protocol object.
+</li>
+
+<li>
+Authorization depends on applicable entitlement and policy state.
+</li>
+
+<li>
+An Authorization Decision SHALL be derived from the applicable
+authorization inputs.
+</li>
+
+<li>
+A previously successful authorization result SHALL NOT automatically
+remain valid after a relevant authorization state change.
+</li>
+
+<li>
+A required authorization condition that is invalid, unavailable,
+revoked, expired, or otherwise inconsistent SHALL NOT be interpreted
+as a valid Allow condition.
+</li>
+
+<li>
+Service execution SHALL remain subject to authorization enforcement.
+</li>
+
+<li>
+Distribution of authorization processing SHALL NOT weaken the
+defined authorization semantics.
+</li>
+
+</ol>
+
+</section>
+
+
+<section>
+
+<h2>
+2.17 Implementation Independence
+</h2>
+
+<p>
+The Version 2.0 architecture defines protocol semantics rather
+than requiring a particular implementation technology.
+</p>
+
+<p>
+A conforming implementation MAY use:
+</p>
+
+<ul>
+
+<li>
+microservices;
+</li>
+
+<li>
+monolithic services;
+</li>
+
+<li>
+distributed databases;
+</li>
+
+<li>
+message queues;
+</li>
+
+<li>
+event-driven processing;
+</li>
+
+<li>
+synchronous APIs;
+</li>
+
+<li>
+asynchronous APIs; or
+</li>
+
+<li>
+other implementation mechanisms.
+</li>
+
+</ul>
+
+<p>
+The selected implementation mechanism SHALL NOT change the
+normative relationships among authentication, entitlement,
+policy evaluation, authorization, and service enforcement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.18 Architectural Security Boundary
+</h2>
+
+<p>
+The authorization boundary represents a security-critical
+transition between protocol evaluation and protected service
+execution.
+</p>
+
+<p>
+A service MUST NOT execute a protected operation unless the
+required Authorization Decision has been successfully established.
+</p>
+
+<p>
+The enforcement boundary SHALL prevent an unverified, expired,
+revoked, invalid, or otherwise inapplicable authorization result
+from being treated as an Allow condition.
+</p>
+
+<p>
+The detailed security requirements governing this boundary are
+defined in Chapter 08.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.19 Architectural Summary
+</h2>
+
+<p>
+The Version 2.0 protocol architecture separates identity
+establishment from entitlement, policy evaluation, authorization,
+and service enforcement.
+</p>
+
+<p>
+The resulting architecture can be summarized as:
+</p>
+
+<div class="object-definition">
+
+<pre>
+Identity
+   ↓
+Credential
+   ↓
+Authentication
+   ↓
+Entitlement
+   ↓
+Policy
+   ↓
+Authorization
+   ↓
+Service Enforcement
+</pre>
+
+</div>
+
+<p>
+The architecture permits entitlement state and authorization policy
+to be established independently from the current authentication
+event while retaining a deterministic relationship between
+authorization inputs and the resulting decision.
+</p>
+
+<p>
+This separation is a fundamental architectural property of the
+NEW-shot2play Protocol Suite Version 2.0.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+2.20 Chapter Navigation
+</h2>
+
+<div class="chapter-nav">
+
+<a href="chapter01_framework_overview.html">
+Previous Chapter: Chapter 01 — Framework Overview
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="index.html">
+Index
+</a>
+
+&nbsp;&nbsp;|&nbsp;&nbsp;
+
+<a href="chapter03_identity_credential_model.html">
+Next Chapter: Chapter 03 — Identity and Credential Model
+</a>
+
+</div>
+
+</section>
+
+</main>
+
+
+<footer class="spec-footer">
+
+Copyright (c) Shot2Play Inc.<br>
+
+NEW-shot2play Protocol Suite Version 2.0
+
+</footer>
+
+
+</div>
+
+</body>
+
+</html>
