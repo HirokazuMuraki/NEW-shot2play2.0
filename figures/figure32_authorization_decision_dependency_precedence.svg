@@ -1,0 +1,664 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1600"
+     height="1200"
+     viewBox="0 0 1600 1200">
+
+  <title>Figure32 — Authorization Decision Dependency and Precedence Model</title>
+
+  <desc>
+    Authorization Decision Dependency and Precedence Model.
+    The left panel shows the normal authorization dependency flow.
+    The right panel shows fail-closed precedence when a required
+    authorization basis cannot be established.
+  </desc>
+
+  <defs>
+    <marker id="arrow"
+            markerWidth="10"
+            markerHeight="10"
+            refX="9"
+            refY="5"
+            orient="auto"
+            markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 Z"/>
+    </marker>
+  </defs>
+
+  <!-- ====================================================== -->
+  <!-- Canvas                                                  -->
+  <!-- ====================================================== -->
+
+  <rect x="0" y="0"
+        width="1600"
+        height="1200"
+        fill="#ffffff"/>
+
+  <!-- ====================================================== -->
+  <!-- Title                                                    -->
+  <!-- ====================================================== -->
+
+  <text x="800" y="45"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="28"
+        font-weight="bold">
+    Figure32 — Authorization Decision Dependency and Precedence Model
+  </text>
+
+  <text x="800" y="75"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16">
+    Required authorization inputs, decision dependency, and fail-closed precedence
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- LEFT PANEL                                               -->
+  <!-- ====================================================== -->
+
+  <rect x="50" y="105"
+        width="730"
+        height="1015"
+        rx="14"
+        ry="14"
+        fill="#ffffff"
+        stroke="#666666"
+        stroke-width="2"/>
+
+  <text x="415" y="140"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21"
+        font-weight="bold">
+    Authorization Dependency Flow
+  </text>
+
+  <!-- Authentication State -->
+  <rect x="135" y="175"
+        width="560"
+        height="70"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#333333"
+        stroke-width="2"/>
+
+  <text x="415" y="204"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Authentication State
+  </text>
+
+  <text x="415" y="227"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Identity Establishment
+  </text>
+
+  <!-- Authentication → Identity -->
+  <line x1="415" y1="245"
+        x2="415" y2="275"
+        stroke="#333333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Authenticated Identity -->
+  <rect x="135" y="275"
+        width="560"
+        height="70"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#333333"
+        stroke-width="2"/>
+
+  <text x="415" y="304"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Authenticated Identity
+  </text>
+
+  <text x="415" y="327"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Subject Identifier / Assurance
+  </text>
+
+  <!-- Authorization Request -->
+  <rect x="135" y="385"
+        width="560"
+        height="70"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#333333"
+        stroke-width="2"/>
+
+  <text x="415" y="414"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Authorization Request
+  </text>
+
+  <text x="415" y="437"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Action / Resource / Service
+  </text>
+
+  <!-- Entitlement -->
+  <rect x="135" y="485"
+        width="560"
+        height="70"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#333333"
+        stroke-width="2"/>
+
+  <text x="415" y="514"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Entitlement State
+  </text>
+
+  <text x="415" y="537"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Current Authoritative Right
+  </text>
+
+  <!-- Policy -->
+  <rect x="135" y="585"
+        width="560"
+        height="70"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#333333"
+        stroke-width="2"/>
+
+  <text x="415" y="614"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Policy State
+  </text>
+
+  <text x="415" y="637"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Applicable Authorization Conditions
+  </text>
+
+  <!-- Context -->
+  <rect x="135" y="685"
+        width="560"
+        height="70"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#333333"
+        stroke-width="2"/>
+
+  <text x="415" y="714"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Authorization Context
+  </text>
+
+  <text x="415" y="737"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Time / Service / Device / Risk / Transaction
+  </text>
+
+  <!-- Identity → Validation -->
+  <path d="M415 345 L415 375"
+        fill="none"
+        stroke="#333333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Request → Validation -->
+  <path d="M415 455 L415 475"
+        fill="none"
+        stroke="#333333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Entitlement → Validation -->
+  <path d="M415 555 L415 575"
+        fill="none"
+        stroke="#333333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Policy → Validation -->
+  <path d="M415 655 L415 675"
+        fill="none"
+        stroke="#333333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Context → Validation -->
+  <path d="M415 755 L415 775"
+        fill="none"
+        stroke="#333333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Validated Basis -->
+  <rect x="135" y="790"
+        width="560"
+        height="70"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#222222"
+        stroke-width="3"/>
+
+  <text x="415" y="819"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Validated Authorization Basis
+  </text>
+
+  <text x="415" y="842"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Required Inputs Established as Valid
+  </text>
+
+  <!-- Basis → Evaluation -->
+  <line x1="415" y1="860"
+        x2="415" y2="885"
+        stroke="#222222"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Evaluation -->
+  <rect x="135" y="885"
+        width="560"
+        height="85"
+        rx="12"
+        ry="12"
+        fill="#ffffff"
+        stroke="#222222"
+        stroke-width="3"/>
+
+  <text x="415" y="919"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="20"
+        font-weight="bold">
+    Authorization Decision Evaluation
+  </text>
+
+  <text x="415" y="946"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Evaluate current authoritative security state
+  </text>
+
+  <!-- Evaluation → Decision -->
+  <line x1="415" y1="970"
+        x2="415" y2="990"
+        stroke="#222222"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Decision -->
+  <rect x="230" y="990"
+        width="370"
+        height="70"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#222222"
+        stroke-width="3"/>
+
+  <text x="415" y="1032"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="19"
+        font-weight="bold">
+    Authorization Decision
+  </text>
+
+  <!-- Decision split -->
+  <path d="M415 1060 L305 1060 L305 1080"
+        fill="none"
+        stroke="#333333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <path d="M415 1060 L525 1060 L525 1080"
+        fill="none"
+        stroke="#333333"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Allow -->
+  <rect x="220" y="1080"
+        width="170"
+        height="45"
+        rx="8"
+        ry="8"
+        fill="#ffffff"
+        stroke="#333333"
+        stroke-width="2"/>
+
+  <text x="305" y="1109"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    ALLOW
+  </text>
+
+  <!-- Deny -->
+  <rect x="440" y="1080"
+        width="170"
+        height="45"
+        rx="8"
+        ry="8"
+        fill="#ffffff"
+        stroke="#333333"
+        stroke-width="2"/>
+
+  <text x="525" y="1109"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    DENY
+  </text>
+
+  <!-- ====================================================== -->
+  <!-- RIGHT PANEL                                              -->
+  <!-- ====================================================== -->
+
+  <rect x="820" y="105"
+        width="730"
+        height="1015"
+        rx="14"
+        ry="14"
+        fill="#ffffff"
+        stroke="#666666"
+        stroke-width="2"/>
+
+  <text x="1185" y="140"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21"
+        font-weight="bold">
+    Fail-Closed Precedence
+  </text>
+
+  <!-- Invalid Authentication -->
+  <rect x="885" y="180"
+        width="560"
+        height="60"
+        rx="9"
+        ry="9"
+        fill="#ffffff"
+        stroke="#444444"
+        stroke-width="2"/>
+
+  <text x="1165" y="216"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Authentication Invalid
+  </text>
+
+  <!-- Invalid Request -->
+  <rect x="885" y="270"
+        width="560"
+        height="60"
+        rx="9"
+        ry="9"
+        fill="#ffffff"
+        stroke="#444444"
+        stroke-width="2"/>
+
+  <text x="1165" y="306"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Authorization Request Invalid
+  </text>
+
+  <!-- Invalid Entitlement -->
+  <rect x="885" y="360"
+        width="560"
+        height="60"
+        rx="9"
+        ry="9"
+        fill="#ffffff"
+        stroke="#444444"
+        stroke-width="2"/>
+
+  <text x="1165" y="396"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Entitlement Invalid / Expired / Revoked
+  </text>
+
+  <!-- Invalid Policy -->
+  <rect x="885" y="450"
+        width="560"
+        height="60"
+        rx="9"
+        ry="9"
+        fill="#ffffff"
+        stroke="#444444"
+        stroke-width="2"/>
+
+  <text x="1165" y="486"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Policy Invalid / Unavailable
+  </text>
+
+  <!-- Invalid Context -->
+  <rect x="885" y="540"
+        width="560"
+        height="60"
+        rx="9"
+        ry="9"
+        fill="#ffffff"
+        stroke="#444444"
+        stroke-width="2"/>
+
+  <text x="1165" y="576"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17"
+        font-weight="bold">
+    Required Context Invalid / Unavailable
+  </text>
+
+  <!-- Invalid inputs → convergence -->
+  <line x1="1165" y1="240"
+        x2="1165" y2="265"
+        stroke="#444444"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="1165" y1="330"
+        x2="1165" y2="355"
+        stroke="#444444"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="1165" y1="420"
+        x2="1165" y2="445"
+        stroke="#444444"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="1165" y1="510"
+        x2="1165" y2="535"
+        stroke="#444444"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <line x1="1165" y1="600"
+        x2="1165" y2="625"
+        stroke="#444444"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Cannot establish basis -->
+  <rect x="885" y="625"
+        width="560"
+        height="85"
+        rx="12"
+        ry="12"
+        fill="#ffffff"
+        stroke="#222222"
+        stroke-width="3"/>
+
+  <text x="1165" y="659"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Required Authorization Basis
+  </text>
+
+  <text x="1165" y="687"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="18"
+        font-weight="bold">
+    Cannot Be Established
+  </text>
+
+  <!-- Basis → Deny -->
+  <line x1="1165" y1="710"
+        x2="1165" y2="745"
+        stroke="#222222"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Fail closed -->
+  <rect x="885" y="745"
+        width="560"
+        height="85"
+        rx="12"
+        ry="12"
+        fill="#ffffff"
+        stroke="#222222"
+        stroke-width="3"/>
+
+  <text x="1165" y="780"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="21"
+        font-weight="bold">
+    DENY / FAIL-CLOSED
+  </text>
+
+  <text x="1165" y="807"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Allow is not permitted
+  </text>
+
+  <!-- Fail closed → boundary -->
+  <line x1="1165" y1="830"
+        x2="1165" y2="855"
+        stroke="#222222"
+        stroke-width="2"
+        marker-end="url(#arrow)"/>
+
+  <!-- Protected boundary -->
+  <rect x="885" y="855"
+        width="560"
+        height="85"
+        rx="12"
+        ry="12"
+        fill="#ffffff"
+        stroke="#222222"
+        stroke-width="3"/>
+
+  <text x="1165" y="890"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="19"
+        font-weight="bold">
+    Protected Service Boundary
+  </text>
+
+  <text x="1165" y="917"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Unauthorized operation prevented
+  </text>
+
+  <!-- Security invariant -->
+  <rect x="885" y="975"
+        width="560"
+        height="75"
+        rx="10"
+        ry="10"
+        fill="#ffffff"
+        stroke="#555555"
+        stroke-width="2"/>
+
+  <text x="1165" y="1005"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="16"
+        font-weight="bold">
+    Security Invariant
+  </text>
+
+  <text x="1165" y="1030"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Required invalid state SHALL NOT produce ALLOW
+  </text>
+
+  <!-- Explanatory note -->
+  <text x="1165" y="1085"
+        text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14">
+    Failure of any required basis prevents authorization.
+  </text>
+
+</svg>
