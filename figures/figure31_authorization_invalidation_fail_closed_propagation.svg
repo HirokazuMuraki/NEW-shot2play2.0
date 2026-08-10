@@ -1,0 +1,852 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2600"
+     height="3300"
+     viewBox="0 0 2600 3300">
+
+<title>Figure31 Authorization Invalidation and Fail-Closed Propagation</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0.
+A previously valid authorization becomes invalid or restricted.
+The invalidation propagates through the decision lineage and downstream
+enforcement state. Protected execution is fail-closed unless a new valid
+authorization basis is established through controlled recovery.
+</desc>
+
+<!-- ========================================================= -->
+<!-- CANVAS -->
+<!-- ========================================================= -->
+
+<rect x="0" y="0" width="2600" height="3300" fill="white"/>
+
+
+<!-- ========================================================= -->
+<!-- TITLE -->
+<!-- ========================================================= -->
+
+<text x="1300" y="70"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="38"
+      font-weight="bold">
+Figure31 Authorization Invalidation and Fail-Closed Propagation
+</text>
+
+<text x="1300" y="112"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="1300" y="145"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Invalidation · Propagation · Enforcement · Fail-Closed · Controlled Recovery
+</text>
+
+
+<!-- ========================================================= -->
+<!-- CORE PRINCIPLE -->
+<!-- ========================================================= -->
+
+<rect x="150" y="190"
+      width="2300"
+      height="210"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1300" y="238"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Core Security Principle
+</text>
+
+<text x="1300" y="280"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="17">
+A previously valid authorization SHALL NOT remain effective after
+its authoritative security basis becomes invalid or restricted.
+</text>
+
+<text x="1300" y="320"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+UNKNOWN OR UNRESOLVED AUTHORIZATION SHALL NOT BE INTERPRETED AS ALLOW.
+</text>
+
+<text x="1300" y="360"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Dependent execution paths SHALL be restricted, invalidated,
+re-evaluated, or blocked.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- MAIN PATH LABEL -->
+<!-- ========================================================= -->
+
+<text x="1300" y="465"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+MAIN INVALIDATION AND ENFORCEMENT PATH
+</text>
+
+
+<!-- ========================================================= -->
+<!-- BOX 1 -->
+<!-- ========================================================= -->
+
+<rect x="650" y="510"
+      width="1300"
+      height="300"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1300" y="560"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Previously Valid Authorization
+</text>
+
+<text x="1300" y="610"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Decision ID · Parent Decision ID · Transaction ID
+</text>
+
+<text x="1300" y="650"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Entitlement · Scope · Security Context
+</text>
+
+<text x="1300" y="700"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Valid within the applicable policy, entitlement,
+security context, and authorization lifetime.
+</text>
+
+<text x="1300" y="755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Previously executable state
+</text>
+
+
+<!-- ========================================================= -->
+<!-- ARROW 1 -->
+<!-- ========================================================= -->
+
+<line x1="1300" y1="810"
+      x2="1300" y2="870"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="1291,860 1309,860 1300,878"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- BOX 2 -->
+<!-- ========================================================= -->
+
+<rect x="650" y="890"
+      width="1300"
+      height="300"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1300" y="940"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Invalidation Source
+</text>
+
+<text x="1300" y="990"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Entitlement Revocation · Authorization Expiration
+</text>
+
+<text x="1300" y="1030"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Security Context Invalidity · Transaction Cancellation / Mismatch
+</text>
+
+<text x="1300" y="1070"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Policy / Risk / Assurance Change
+</text>
+
+<text x="1300" y="1135"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Authoritative security condition changes
+</text>
+
+
+<!-- ========================================================= -->
+<!-- ARROW 2 -->
+<!-- ========================================================= -->
+
+<line x1="1300" y1="1190"
+      x2="1300" y2="1250"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="1291,1240 1309,1240 1300,1258"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- BOX 3 -->
+<!-- ========================================================= -->
+
+<rect x="650" y="1270"
+      width="1300"
+      height="300"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1300" y="1320"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Invalidation Event
+</text>
+
+<text x="1300" y="1370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Event ID · Decision ID · Parent Decision ID
+</text>
+
+<text x="1300" y="1410"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Transaction ID · Reason · Source · Effective Time
+</text>
+
+<text x="1300" y="1450"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Propagation Status · Security-State Transition
+</text>
+
+<text x="1300" y="1515"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Traceable invalidation state
+</text>
+
+
+<!-- ========================================================= -->
+<!-- ARROW 3 -->
+<!-- ========================================================= -->
+
+<line x1="1300" y1="1570"
+      x2="1300" y2="1630"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="1291,1620 1309,1620 1300,1638"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- BOX 4 -->
+<!-- ========================================================= -->
+
+<rect x="650" y="1650"
+      width="1300"
+      height="300"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1300" y="1700"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Decision-Lineage Propagation
+</text>
+
+<text x="1300" y="1750"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Parent Decision State → Derived Decision State
+</text>
+
+<text x="1300" y="1790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Scope Restriction · Re-evaluation · Invalidation
+</text>
+
+<text x="1300" y="1830"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Downstream dependencies inherit the applicable restriction.
+</text>
+
+<text x="1300" y="1895"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+No downstream scope expansion
+</text>
+
+
+<!-- ========================================================= -->
+<!-- ARROW 4 -->
+<!-- ========================================================= -->
+
+<line x1="1300" y1="1950"
+      x2="1300" y2="2010"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="1291,2000 1309,2000 1300,2018"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- BOX 5 -->
+<!-- ========================================================= -->
+
+<rect x="650" y="2030"
+      width="1300"
+      height="300"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1300" y="2080"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="27"
+      font-weight="bold">
+Downstream State Enforcement
+</text>
+
+<text x="1300" y="2130"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+ALLOW only if authorization validity is established.
+</text>
+
+<text x="1300" y="2170"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+REDUCE SCOPE · RECHECK / REAUTHORIZE
+</text>
+
+<text x="1300" y="2210"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+DENY / INVALIDATE · FAIL CLOSED when unresolved
+</text>
+
+<text x="1300" y="2275"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Execution remains constrained by the effective security state.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- ARROW 5 -->
+<!-- ========================================================= -->
+
+<line x1="1300" y1="2330"
+      x2="1300" y2="2390"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="1291,2380 1309,2380 1300,2398"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- FAIL CLOSED -->
+<!-- ========================================================= -->
+
+<rect x="650" y="2410"
+      width="1300"
+      height="300"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="5"/>
+
+<text x="1300" y="2460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="29"
+      font-weight="bold">
+Fail-Closed Boundary
+</text>
+
+<text x="1300" y="2510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Protected execution SHALL be blocked when required authorization
+validity cannot be established.
+</text>
+
+<text x="1300" y="2550"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Missing Lineage · Invalid Parent · Expired State · Revoked Entitlement
+</text>
+
+<text x="1300" y="2590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Invalid Context · Integrity Failure · Unresolved Conflict
+</text>
+
+<text x="1300" y="2645"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20"
+      font-weight="bold">
+UNKNOWN ≠ ALLOW
+</text>
+
+
+<!-- ========================================================= -->
+<!-- ARROW 6 -->
+<!-- ========================================================= -->
+
+<line x1="1300" y1="2710"
+      x2="1300" y2="2770"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="1291,2760 1309,2760 1300,2778"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- PROTECTED EXECUTION -->
+<!-- ========================================================= -->
+
+<rect x="650" y="2790"
+      width="1300"
+      height="300"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1300" y="2840"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="29"
+      font-weight="bold">
+Protected Service Execution
+</text>
+
+<text x="1300" y="2890"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Execution is permitted only when the effective authorization
+satisfies all applicable constraints.
+</text>
+
+<text x="1300" y="2930"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Valid Authorization → Execute
+</text>
+
+<text x="1300" y="2970"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Invalid / Unknown Authorization → Block
+</text>
+
+<text x="1300" y="3035"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+No implicit fallback to the previous authorization state.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- CONTROLLED RECOVERY -->
+<!-- ========================================================= -->
+
+<text x="350" y="465"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+CONTROLLED RECOVERY
+</text>
+
+<rect x="80" y="510"
+      width="500"
+      height="500"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="330" y="565"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="26"
+      font-weight="bold">
+Controlled Recovery
+</text>
+
+<text x="330" y="620"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Recovery requires a
+</text>
+
+<text x="330" y="650"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+new valid security basis.
+</text>
+
+<text x="330" y="710"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Re-authentication
+</text>
+
+<text x="330" y="750"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Security Context Re-establishment
+</text>
+
+<text x="330" y="790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement Re-evaluation
+</text>
+
+<text x="330" y="830"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy Re-evaluation
+</text>
+
+<text x="330" y="870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Reauthorization
+</text>
+
+<text x="330" y="910"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+New Transaction Binding
+</text>
+
+<text x="330" y="965"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Invalidated decisions SHALL NOT
+</text>
+
+<text x="330" y="990"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+be reused as the recovery basis.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- RECOVERY ARROW -->
+<!-- ========================================================= -->
+
+<line x1="330" y1="1010"
+      x2="330" y2="1070"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="321,1060 339,1060 330,1078"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- NEW AUTHORIZATION BASIS -->
+<!-- ========================================================= -->
+
+<rect x="80" y="1090"
+      width="500"
+      height="500"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="330" y="1140"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+New Valid
+</text>
+
+<text x="330" y="1175"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Authorization Basis
+</text>
+
+<text x="330" y="1235"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+New Decision ID
+</text>
+
+<text x="330" y="1275"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+New Security Context
+</text>
+
+<text x="330" y="1315"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+New Entitlement Evaluation
+</text>
+
+<text x="330" y="1355"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+New Policy Evaluation
+</text>
+
+<text x="330" y="1395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+New Transaction Binding
+</text>
+
+<text x="330" y="1460"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Only this newly established basis
+</text>
+
+<text x="330" y="1490"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+may restore protected execution.
+</text>
+
+<text x="330" y="1545"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Invalidated state is not restored.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- RECOVERY ARROW 2 -->
+<!-- ========================================================= -->
+
+<line x1="330" y1="1590"
+      x2="330" y2="1650"
+      stroke="black"
+      stroke-width="4"/>
+
+<polygon points="321,1640 339,1640 330,1658"
+         fill="black"/>
+
+
+<!-- ========================================================= -->
+<!-- RECOVERY RESULT -->
+<!-- ========================================================= -->
+
+<rect x="80" y="1670"
+      width="500"
+      height="330"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="330" y="1725"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Authorization
+</text>
+
+<text x="330" y="1760"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="24"
+      font-weight="bold">
+Re-established
+</text>
+
+<text x="330" y="1820"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+A new authorization state is established.
+</text>
+
+<text x="330" y="1860"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+The new state becomes the basis for
+</text>
+
+<text x="330" y="1890"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+subsequent protected execution.
+</text>
+
+<text x="330" y="1950"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+This is a new authorization state.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- SECURITY INVARIANT -->
+<!-- ========================================================= -->
+
+<rect x="650" y="3160"
+      width="1300"
+      height="110"
+      rx="14"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1300" y="3200"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Security Invariant: Invalidated authorization cannot be reused as a broader authorization basis.
+</text>
+
+<text x="1300" y="3235"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Controlled recovery requires a newly established security basis.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- FOOTER -->
+<!-- ========================================================= -->
+
+<text x="1300" y="3285"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Authorization Invalidation → Lineage Propagation → Fail-Closed Enforcement → Controlled Recovery
+</text>
+
+</svg>
