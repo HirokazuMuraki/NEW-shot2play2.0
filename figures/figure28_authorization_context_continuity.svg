@@ -1,0 +1,1299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="2400"
+     height="3300"
+     viewBox="0 0 2400 3300">
+
+<title>Figure28 Authorization Context Continuity Model</title>
+
+<desc>
+NEW-shot2play Protocol Suite Version 2.0.
+Authorization context continuity across multiple service boundaries,
+with independent local policy evaluation and non-escalation of authority.
+</desc>
+
+<rect x="0" y="0" width="2400" height="3300" fill="white"/>
+
+<!-- ========================================================= -->
+<!-- TITLE -->
+<!-- ========================================================= -->
+
+<text x="1200" y="70"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="36"
+      font-weight="bold">
+Figure28 Authorization Context Continuity Model
+</text>
+
+<text x="1200" y="108"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="20">
+NEW-shot2play Protocol Suite Version 2.0
+</text>
+
+<text x="1200" y="140"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Context Continuity Across Service Boundaries Without Automatic Authority Propagation
+</text>
+
+
+<!-- ========================================================= -->
+<!-- CORE PRINCIPLE -->
+<!-- ========================================================= -->
+
+<rect x="70" y="185"
+      width="2260"
+      height="360"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="235"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      font-weight="bold">
+Core Principle
+</text>
+
+<rect x="160" y="275"
+      width="900"
+      height="190"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="610" y="320"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Context Continuity
+</text>
+
+<text x="610" y="365"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Security-relevant information remains
+</text>
+
+<text x="610" y="395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+semantically connected across services.
+</text>
+
+<text x="610" y="435"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Provenance · Integrity · Scope · Validity
+</text>
+
+
+<rect x="1340" y="275"
+      width="900"
+      height="190"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1790" y="320"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="23"
+      font-weight="bold">
+Authority Continuity
+</text>
+
+<text x="1790" y="365"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+Receiving service does not automatically
+</text>
+
+<text x="1790" y="395"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16">
+inherit or expand authorization authority.
+</text>
+
+<text x="1790" y="435"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Local Policy · Local Authorization
+</text>
+
+
+<text x="1200" y="510"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Context Continuity ≠ Authority Continuity
+</text>
+
+
+<!-- ========================================================= -->
+<!-- MULTI-SERVICE PIPELINE -->
+<!-- ========================================================= -->
+
+<rect x="70" y="590"
+      width="2260"
+      height="720"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="640"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      font-weight="bold">
+Multi-Service Context Continuity
+</text>
+
+
+<!-- SERVICE A -->
+
+<rect x="110" y="710"
+      width="430"
+      height="480"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="325" y="755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service A
+</text>
+
+<text x="325" y="790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Originating Service
+</text>
+
+<line x1="155" y1="815"
+      x2="495" y2="815"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="325" y="850"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Reconstructed Context
+</text>
+
+<text x="325" y="885"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Subject · Session · Entitlement
+</text>
+
+<text x="325" y="915"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Policy · Transaction · Resource
+</text>
+
+<text x="325" y="945"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Scope · Risk · Temporal State
+</text>
+
+<line x1="155" y1="975"
+      x2="495" y2="975"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="325" y="1010"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Local Authorization
+</text>
+
+<text x="325" y="1040"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Decision + Execution
+</text>
+
+<text x="325" y="1090"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Context prepared for propagation
+</text>
+
+
+<!-- boundary A/B -->
+
+<line x1="540" y1="950"
+      x2="610" y2="950"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="605,940 605,960 620,950"
+         fill="black"/>
+
+<text x="575" y="905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">
+Boundary
+</text>
+
+
+<!-- SERVICE B -->
+
+<rect x="620" y="710"
+      width="430"
+      height="480"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="835" y="755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service B
+</text>
+
+<text x="835" y="790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Receiving Service
+</text>
+
+<line x1="665" y1="815"
+      x2="1005" y2="815"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="835" y="850"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Verify Context
+</text>
+
+<text x="835" y="885"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Provenance · Integrity · Freshness
+</text>
+
+<text x="835" y="915"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Correlation · Scope · Trust
+</text>
+
+<text x="835" y="950"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Local Request Binding
+</text>
+
+<line x1="665" y1="975"
+      x2="1005" y2="975"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="835" y="1010"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Local Policy Evaluation
+</text>
+
+<text x="835" y="1040"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Independent Authorization
+</text>
+
+<text x="835" y="1090"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Authority MAY be reduced
+</text>
+
+
+<!-- boundary B/C -->
+
+<line x1="1050" y1="950"
+      x2="1120" y2="950"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1115,940 1115,960 1130,950"
+         fill="black"/>
+
+<text x="1085" y="905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">
+Boundary
+</text>
+
+
+<!-- SERVICE C -->
+
+<rect x="1130" y="710"
+      width="430"
+      height="480"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1345" y="755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service C
+</text>
+
+<text x="1345" y="790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Receiving Service
+</text>
+
+<line x1="1175" y1="815"
+      x2="1515" y2="815"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1345" y="850"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Context Continuity
+</text>
+
+<text x="1345" y="885"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Semantic Meaning Preserved
+</text>
+
+<text x="1345" y="915"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Scope / Validity Preserved
+</text>
+
+<text x="1345" y="950"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Transaction Binding Preserved
+</text>
+
+<line x1="1175" y1="975"
+      x2="1515" y2="975"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1345" y="1010"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Local Policy Evaluation
+</text>
+
+<text x="1345" y="1040"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Local Authorization Decision
+</text>
+
+<text x="1345" y="1090"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+No Automatic Authority Expansion
+</text>
+
+
+<!-- boundary C/D -->
+
+<line x1="1560" y1="950"
+      x2="1630" y2="950"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1625,940 1625,960 1640,950"
+         fill="black"/>
+
+<text x="1595" y="905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="12"
+      font-weight="bold">
+Boundary
+</text>
+
+
+<!-- SERVICE D -->
+
+<rect x="1640" y="710"
+      width="430"
+      height="480"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1855" y="755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="22"
+      font-weight="bold">
+Service D
+</text>
+
+<text x="1855" y="790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Downstream Service
+</text>
+
+<line x1="1685" y1="815"
+      x2="2025" y2="815"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1855" y="850"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Verify / Transform
+</text>
+
+<text x="1855" y="885"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Canonical → Service-Specific
+</text>
+
+<text x="1855" y="915"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Meaning Preserved
+</text>
+
+<text x="1855" y="950"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Constraints Preserved
+</text>
+
+<line x1="1685" y1="975"
+      x2="2025" y2="975"
+      stroke="black"
+      stroke-width="2"/>
+
+<text x="1855" y="1010"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Local Authorization
+</text>
+
+<text x="1855" y="1040"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Allow / Deny / Reauthorize
+</text>
+
+<text x="1855" y="1090"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Fail Closed if Required
+</text>
+
+
+<!-- Continuity line -->
+
+<line x1="325" y1="1210"
+      x2="1855" y2="1210"
+      stroke="black"
+      stroke-width="3"
+      stroke-dasharray="14,8"/>
+
+<text x="1090" y="1245"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+Semantic Context Continuity
+</text>
+
+
+<!-- ========================================================= -->
+<!-- BOUNDARY MODEL -->
+<!-- ========================================================= -->
+
+<rect x="70" y="1360"
+      width="2260"
+      height="610"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="1410"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      font-weight="bold">
+Service Boundary Verification Model
+</text>
+
+
+<rect x="120" y="1490"
+      width="620"
+      height="390"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="430" y="1535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Incoming Context
+</text>
+
+<text x="430" y="1580"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Issuer
+</text>
+
+<text x="430" y="1615"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Provenance
+</text>
+
+<text x="430" y="1650"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Integrity
+</text>
+
+<text x="430" y="1685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Validity
+</text>
+
+<text x="430" y="1720"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Scope
+</text>
+
+<text x="430" y="1755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction Binding
+</text>
+
+<text x="430" y="1790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Trust Relationship
+</text>
+
+
+<line x1="740" y1="1680"
+      x2="805" y2="1680"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="800,1670 800,1690 815,1680"
+         fill="black"/>
+
+
+<rect x="815" y="1490"
+      width="770"
+      height="390"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1200" y="1535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Boundary Verification
+</text>
+
+<text x="1200" y="1580"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+1. Verify provenance and issuer authority
+</text>
+
+<text x="1200" y="1615"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+2. Verify integrity and authenticity
+</text>
+
+<text x="1200" y="1650"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+3. Verify freshness and revocation state
+</text>
+
+<text x="1200" y="1685"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+4. Correlate subject / transaction / resource
+</text>
+
+<text x="1200" y="1720"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+5. Verify applicable scope
+</text>
+
+<text x="1200" y="1755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+6. Apply local trust requirements
+</text>
+
+<text x="1200" y="1790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+7. Bind verified context to local request
+</text>
+
+
+<line x1="1585" y1="1680"
+      x2="1650" y2="1680"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1645,1670 1645,1690 1660,1680"
+         fill="black"/>
+
+
+<rect x="1660" y="1490"
+      width="620"
+      height="390"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1970" y="1535"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Local Trust Result
+</text>
+
+<text x="1970" y="1590"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+TRUSTED
+</text>
+
+<text x="1970" y="1635"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+PARTIALLY TRUSTED
+</text>
+
+<text x="1970" y="1680"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+UNTRUSTED
+</text>
+
+<text x="1970" y="1730"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Trusted context may continue.
+</text>
+
+<text x="1970" y="1760"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Partial trust may require restrictions.
+</text>
+
+<text x="1970" y="1790"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Untrusted context SHALL NOT authorize.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- TRANSFORMATION -->
+<!-- ========================================================= -->
+
+<rect x="70" y="2020"
+      width="2260"
+      height="520"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="2070"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      font-weight="bold">
+Context Transformation and Non-Escalation
+</text>
+
+
+<rect x="140" y="2140"
+      width="650"
+      height="310"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="465" y="2185"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Canonical Context
+</text>
+
+<text x="465" y="2230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Subject
+</text>
+
+<text x="465" y="2265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Entitlement
+</text>
+
+<text x="465" y="2300"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Policy
+</text>
+
+<text x="465" y="2335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction
+</text>
+
+<text x="465" y="2370"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Scope / Validity / Provenance
+</text>
+
+<text x="465" y="2410"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Security constraints
+</text>
+
+
+<line x1="790" y1="2295"
+      x2="870" y2="2295"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="865,2285 865,2305 880,2295"
+         fill="black"/>
+
+
+<rect x="880" y="2140"
+      width="640"
+      height="310"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1200" y="2185"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Service-Specific Transformation
+</text>
+
+<text x="1200" y="2230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Canonical representation
+</text>
+
+<text x="1200" y="2265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+→ Service-specific representation
+</text>
+
+<text x="1200" y="2305"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Semantic meaning preserved
+</text>
+
+<text x="1200" y="2345"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Mandatory constraints preserved
+</text>
+
+<text x="1200" y="2385"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Scope cannot expand
+</text>
+
+<text x="1200" y="2420"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Authority cannot be created
+</text>
+
+
+<line x1="1520" y1="2295"
+      x2="1600" y2="2295"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1595,2285 1595,2305 1610,2295"
+         fill="black"/>
+
+
+<rect x="1610" y="2140"
+      width="650"
+      height="310"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1935" y="2185"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Effective Downstream Context
+</text>
+
+<text x="1935" y="2230"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Effective Scope
+</text>
+
+<text x="1935" y="2265"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Effective Validity
+</text>
+
+<text x="1935" y="2300"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Local Constraints
+</text>
+
+<text x="1935" y="2335"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Local Policy
+</text>
+
+<text x="1935" y="2375"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+Effective Authority ≤ Supported Authority
+</text>
+
+<text x="1935" y="2415"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14">
+Downstream service may reduce authority.
+</text>
+
+
+<!-- ========================================================= -->
+<!-- LOCAL AUTHORIZATION / FAILURE -->
+<!-- ========================================================= -->
+
+<rect x="70" y="2590"
+      width="2260"
+      height="540"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="2640"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="28"
+      font-weight="bold">
+Local Authorization, Reauthorization and Failure Handling
+</text>
+
+
+<rect x="110" y="2710"
+      width="650"
+      height="330"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="435" y="2755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Local Policy Evaluation
+</text>
+
+<text x="435" y="2800"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Resource Sensitivity
+</text>
+
+<text x="435" y="2835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Action
+</text>
+
+<text x="435" y="2870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Transaction State
+</text>
+
+<text x="435" y="2905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Risk / Trust
+</text>
+
+<text x="435" y="2940"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Local Security Requirements
+</text>
+
+<text x="435" y="2985"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Independent decision
+</text>
+
+
+<line x1="760" y1="2875"
+      x2="830" y2="2875"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="825,2865 825,2885 840,2875"
+         fill="black"/>
+
+
+<rect x="840" y="2710"
+      width="700"
+      height="330"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1190" y="2755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Authorization Outcome
+</text>
+
+<text x="1190" y="2800"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+ALLOW
+</text>
+
+<text x="1190" y="2835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+DENY
+</text>
+
+<text x="1190" y="2870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+CONDITIONAL
+</text>
+
+<text x="1190" y="2905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="16"
+      font-weight="bold">
+REAUTHORIZE
+</text>
+
+<text x="1190" y="2940"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Reauthentication / Reentitlement / Re-evaluation
+</text>
+
+<text x="1190" y="2985"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Decision is local to the receiving service
+</text>
+
+
+<line x1="1540" y1="2875"
+      x2="1610" y2="2875"
+      stroke="black"
+      stroke-width="3"/>
+
+<polygon points="1605,2865 1605,2885 1620,2875"
+         fill="black"/>
+
+
+<rect x="1620" y="2710"
+      width="660"
+      height="330"
+      rx="10"
+      fill="white"
+      stroke="black"
+      stroke-width="3"/>
+
+<text x="1950" y="2755"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="21"
+      font-weight="bold">
+Failure / Recovery
+</text>
+
+<text x="1950" y="2800"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Missing Context
+</text>
+
+<text x="1950" y="2835"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Expired / Revoked Context
+</text>
+
+<text x="1950" y="2870"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Invalid Transaction Binding
+</text>
+
+<text x="1950" y="2905"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Invalid Trust Relationship
+</text>
+
+<text x="1950" y="2940"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15"
+      font-weight="bold">
+DENY / REAUTH / REENTITLE / REAUTHORIZE
+</text>
+
+<text x="1950" y="2985"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="14"
+      font-weight="bold">
+Fail Closed for Protected Operations
+</text>
+
+
+<!-- ========================================================= -->
+<!-- AUDIT -->
+<!-- ========================================================= -->
+
+<rect x="70" y="3180"
+      width="2260"
+      height="100"
+      rx="12"
+      fill="white"
+      stroke="black"
+      stroke-width="4"/>
+
+<text x="1200" y="3220"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="18"
+      font-weight="bold">
+Audit Continuity: Request ID · Subject ID · Context ID · Policy Version · Verification Result · Authorization Result · Timestamp
+</text>
+
+<text x="1200" y="3250"
+      text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="15">
+Every service boundary remains traceable across the authorization path.
+</text>
+
+</svg>
