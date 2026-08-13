@@ -225,7 +225,23 @@ whether the conditions required for authorization are satisfied.
 <section>
 
 <h2>
-A.11 Policy Version
+A.11 Policy Evaluation Result
+</h2>
+
+<p>
+Policy Evaluation Result is the result produced by Policy
+Evaluation indicating whether the applicable Policy conditions
+are satisfied and identifying any Policy-defined conditions
+applicable to subsequent protocol processing.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.12 Policy Version
 </h2>
 
 <p>
@@ -239,7 +255,7 @@ which an Entitlement or Authorization Decision was evaluated.
 <section>
 
 <h2>
-A.12 Authorization
+A.13 Authorization
 </h2>
 
 <p>
@@ -255,7 +271,7 @@ or other protected target.
 <section>
 
 <h2>
-A.13 Authorization Decision
+A.14 Authorization Decision
 </h2>
 
 <p>
@@ -276,7 +292,7 @@ Policy-defined conditions.
 <section>
 
 <h2>
-A.14 Authorization State
+A.15 Authorization State
 </h2>
 
 <p>
@@ -291,7 +307,7 @@ Entitlement, Service, resource, transaction, or operation.
 <section>
 
 <h2>
-A.15 Authorization Context
+A.16 Authorization Context
 </h2>
 
 <p>
@@ -307,7 +323,7 @@ an Authorization Decision.
 <section>
 
 <h2>
-A.16 Authorization Scope
+A.17 Authorization Scope
 </h2>
 
 <p>
@@ -322,7 +338,7 @@ Authorization Decision is effective.
 <section>
 
 <h2>
-A.17 Decision Binding
+A.18 Decision Binding
 </h2>
 
 <p>
@@ -338,7 +354,29 @@ depends.
 <section>
 
 <h2>
-A.18 Service
+A.19 Security Context
+</h2>
+
+<p>
+Security Context is the collection of security-relevant state
+and references required by a protocol component to evaluate or
+enforce a security condition.
+</p>
+
+<p>
+Security Context MAY include authentication state, integrity
+state, freshness information, validity information, revocation
+or invalidation state, and other security-relevant information
+required by the applicable protocol layer.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.20 Service
 </h2>
 
 <p>
@@ -353,7 +391,7 @@ applies an Authorization Decision.
 <section>
 
 <h2>
-A.19 Service Enforcement
+A.21 Service Enforcement
 </h2>
 
 <p>
@@ -368,7 +406,7 @@ before execution of the requested operation.
 <section>
 
 <h2>
-A.20 Transaction
+A.22 Transaction
 </h2>
 
 <p>
@@ -383,7 +421,7 @@ Authorization Decision, or Service Enforcement process.
 <section>
 
 <h2>
-A.21 Effective Time
+A.23 Effective Time
 </h2>
 
 <p>
@@ -398,7 +436,23 @@ is permitted to become effective.
 <section>
 
 <h2>
-A.22 Expiration
+A.24 Validity
+</h2>
+
+<p>
+Validity is the condition under which an Entitlement,
+Authorization Decision, or other time- or state-dependent
+protocol object remains applicable for the purpose for which
+it was established.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.25 Expiration
 </h2>
 
 <p>
@@ -414,7 +468,28 @@ ended.
 <section>
 
 <h2>
-A.23 Revocation
+A.26 Freshness
+</h2>
+
+<p>
+Freshness is the property indicating that protocol state or
+security-relevant information is sufficiently recent for the
+applicable Policy or security requirement.
+</p>
+
+<p>
+Freshness is distinct from Validity and does not by itself
+establish that an Entitlement or Authorization Decision
+remains valid.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.27 Revocation
 </h2>
 
 <p>
@@ -429,7 +504,22 @@ previously defined expiration.
 <section>
 
 <h2>
-A.24 Usage Count
+A.28 Invalidation
+</h2>
+
+<p>
+Invalidation is the protocol state transition or mechanism by
+which previously established protocol state is made no longer
+applicable for subsequent processing or enforcement.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.29 Usage Count
 </h2>
 
 <p>
@@ -444,13 +534,13 @@ authorization condition.
 <section>
 
 <h2>
-A.25 Cross-Service Authorization
+A.30 Cross-Service Authorization
 </h2>
 
 <p>
 Cross-Service Authorization is authorization in which an
-Entitlement, authorization context, or other authorization
-state established in relation to one Service is used by another
+Entitlement, authorization context, or other authorization state
+established in relation to one Service is used by another
 Service in accordance with applicable Policy.
 </p>
 
@@ -460,22 +550,7 @@ Service in accordance with applicable Policy.
 <section>
 
 <h2>
-A.26 Authorization Continuity
-</h2>
-
-<p>
-Authorization Continuity is the continued applicability of
-authorization state across multiple operations, Sessions,
-Services, or execution components when permitted by Policy.
-</p>
-
-</section>
-
-
-<section>
-
-<h2>
-A.27 Authorization State Reconstruction
+A.31 Authorization State Reconstruction
 </h2>
 
 <p>
@@ -491,7 +566,7 @@ interruption.
 <section>
 
 <h2>
-A.28 Authorization Decision Caching
+A.32 Authorization Decision Caching
 </h2>
 
 <p>
@@ -507,7 +582,7 @@ scope, revocation, and Policy requirements.
 <section>
 
 <h2>
-A.29 Fail-Closed
+A.33 Fail-Closed
 </h2>
 
 <p>
@@ -522,7 +597,7 @@ valid authorization state to permit execution.
 <section>
 
 <h2>
-A.30 Protected Operation
+A.34 Protected Operation
 </h2>
 
 <p>
@@ -536,7 +611,7 @@ to an Authorization Decision and Service Enforcement.
 <section>
 
 <h2>
-A.31 Authorization Request
+A.35 Authorization Request
 </h2>
 
 <p>
@@ -552,7 +627,7 @@ protected target.
 <section>
 
 <h2>
-A.32 Authorization State Continuity
+A.36 Authorization State Continuity
 </h2>
 
 <p>
@@ -568,7 +643,7 @@ transitions.
 <section>
 
 <h2>
-A.33 Normative Requirement
+A.37 Normative Requirement
 </h2>
 
 <p>
@@ -582,7 +657,7 @@ this specification using terms such as MUST or MUST NOT.
 <section>
 
 <h2>
-A.34 Conforming Implementation
+A.38 Conforming Implementation
 </h2>
 
 <p>
@@ -598,20 +673,51 @@ Enforcement defined by this specification.
 <section>
 
 <h2>
-A.35 Appendix Navigation
+A.39 Conformance Class
+</h2>
+
+<p>
+Conformance Class is a defined category of conformance
+requirements identifying the mandatory protocol behavior that
+a conforming implementation is required to support.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+A.40 Layer Conformance
+</h2>
+
+<p>
+Layer Conformance is conformance to the mandatory requirements
+applicable to a particular protocol layer, including the
+requirements governing its inputs, outputs, state transitions,
+and interactions with adjacent protocol layers.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>
+Appendix Navigation
 </h2>
 
 <div class="chapter-nav">
 
-<a href="chapter10_use_cases.html">
+<p>
 Previous: Chapter 10 — Use Cases
-</a>
+</p>
 
-&nbsp;&nbsp;|&nbsp;&nbsp;
-
+<p>
 <a href="index.html">
 Index
 </a>
+</p>
 
 </div>
 
@@ -623,14 +729,19 @@ Index
 
 <footer class="spec-footer">
 
-Copyright (c) Shot2Play Inc.<br>
+<p>
+Copyright (c) Shot2Play Inc.
+</p>
 
+<p>
 NEW-shot2play Protocol Suite Version 2.0
+</p>
 
 </footer>
 
 
 </div>
+
 
 </body>
 
