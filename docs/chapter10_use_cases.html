@@ -482,6 +482,20 @@ unrestricted authorization.
 10.17 Authorization Decision Expiration
 </h2>
 
+<figure class="figure-container">
+
+<img
+src="../figures/figure34_authorization_decision_state_lifecycle.svg"
+alt="Figure 34 — Authorization Decision State Lifecycle"
+>
+
+<div class="figure-caption">
+Figure 34 — Authorization Decision State Lifecycle
+</div>
+
+</figure>
+
+
 <p>
 An Authorization Decision MAY have a validity period independent
 of the lifetime of the authenticated Session.
@@ -505,6 +519,20 @@ Authorization Decision MUST be established.
 <h2>
 10.18 Authorization Revocation
 </h2>
+
+<figure class="figure-container">
+
+<img
+src="../figures/figure35_authorization_decision_revocation_revalidation_propagation.svg"
+alt="Figure 35 — Authorization Decision Revocation and Revalidation Propagation"
+>
+
+<div class="figure-caption">
+Figure 35 — Authorization Decision Revocation and Revalidation Propagation
+</div>
+
+</figure>
+
 
 <p>
 An Entitlement, Policy condition, or other authorization basis
@@ -531,6 +559,20 @@ enforcement boundary.
 10.19 Fail-Closed Authorization
 </h2>
 
+<figure class="figure-container">
+
+<img
+src="../figures/figure31_authorization_invalidation_fail_closed_propagation.svg"
+alt="Figure 31 — Authorization Invalidation and Fail-Closed Propagation"
+>
+
+<div class="figure-caption">
+Figure 31 — Authorization Invalidation and Fail-Closed Propagation
+</div>
+
+</figure>
+
+
 <p>
 When a required authorization state cannot be established as
 valid, the Service MUST fail closed when required by Policy.
@@ -556,6 +598,33 @@ operation.
 <h2>
 10.20 Authorization Decision Binding
 </h2>
+
+<figure class="figure-container">
+
+<img
+src="../figures/figure32_authorization_decision_dependency_precedence.svg"
+alt="Figure 32 — Authorization Decision Dependency and Precedence Model"
+>
+
+<div class="figure-caption">
+Figure 32 — Authorization Decision Dependency and Precedence Model
+</div>
+
+</figure>
+
+<figure class="figure-container">
+
+<img
+src="../figures/figure33_authorization_decision_binding_service_execution.svg"
+alt="Figure 33 — Authorization Decision Binding to Service Execution"
+>
+
+<div class="figure-caption">
+Figure 33 — Authorization Decision Binding to Service Execution
+</div>
+
+</figure>
+
 
 <p>
 An Authorization Decision MAY be bound to the subject,
@@ -707,6 +776,20 @@ state cannot be established or validated.
 <h2>
 10.26 Distributed Authorization
 </h2>
+
+<figure class="figure-container">
+
+<img
+src="../figures/figure30_distributed_authorization_decision_consistency.svg"
+alt="Figure 30 — Distributed Authorization Decision Consistency Model"
+>
+
+<div class="figure-caption">
+Figure 30 — Distributed Authorization Decision Consistency Model
+</div>
+
+</figure>
+
 
 <p>
 Authorization Decisions MAY be generated or enforced across
