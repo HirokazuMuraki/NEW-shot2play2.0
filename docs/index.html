@@ -96,7 +96,7 @@ Authorization
 
         ↓
 
-Service
+Service Execution
 </pre>
 
 
@@ -175,7 +175,8 @@ Entitlement Layer
 </td>
 
 <td>
-Defines rights, permissions, and usage qualifications.
+Defines Entitlement as a protocol-level object that connects
+authenticated identity with service authorization decisions.
 </td>
 </tr>
 
@@ -197,7 +198,9 @@ Authorization Layer
 </td>
 
 <td>
-Generates conditional authorization decisions.
+Evaluates authorization conditions and produces authorization
+decisions and capabilities for service execution, subject to
+applicable policy, context, and entitlement constraints.
 </td>
 </tr>
 
@@ -426,51 +429,87 @@ Figure 01
 </td>
 
 <td>
+<a href="../figures/figure01_overall_architecture.svg">
 Overall Architecture
+</a>
 </td>
 </tr>
 
 
 <tr>
 <td>
-Figure 02
+Figure 13
 </td>
 
 <td>
-Authentication and Authorization Separation
-</td>
-</tr>
-
-
-<tr>
-<td>
-Figure 03
-</td>
-
-<td>
-Entitlement Object
+<a href="../figures/figure13_entitlement_policy_authorization.svg">
+Entitlement Policy Authorization
+</a>
 </td>
 </tr>
 
 
 <tr>
 <td>
-Figure 04
+Figure 15
 </td>
 
 <td>
-Policy Evaluation Engine
+<a href="../figures/figure15_entitlement_lifecycle.svg">
+Entitlement Lifecycle
+</a>
 </td>
 </tr>
 
 
 <tr>
 <td>
-Figure 05
+Figure 24
 </td>
 
 <td>
-Conditional Authorization
+<a href="../figures/figure24_context_assembly_policy_decision.svg">
+Context Assembly and Policy Decision Model
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Figure 25
+</td>
+
+<td>
+<a href="../figures/figure25_decision_binding_service_execution.svg">
+Decision Binding and Service Execution Model
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Figure 35
+</td>
+
+<td>
+<a href="../figures/figure35_authorization_decision_revocation_revalidation_propagation.svg">
+Authorization Decision Revocation and Revalidation Propagation
+</a>
+</td>
+</tr>
+
+
+<tr>
+<td>
+Figure 30
+</td>
+
+<td>
+<a href="../figures/figure30_distributed_authorization_decision_consistency.svg">
+Distributed Authorization Decision Consistency Model
+</a>
 </td>
 </tr>
 
@@ -495,16 +534,18 @@ Version Relationship
 
 <p>
 
-Version 1.0 remains the Baseline Specification
-(Normative Reference).
+Version 1.0 remains the Baseline Specification and Normative Reference
+for the Authentication Protocol.
 
 </p>
 
 
 <p>
 
-Version 2.0 introduces additional protocol layers above
-Authentication Protocol and defines a new authorization framework.
+Version 2.0 preserves that authentication foundation while introducing
+a new protocol architecture that extends the authenticated identity
+with Entitlement, Policy Evaluation, and Authorization layers for
+controlled Service Execution.
 
 </p>
 
