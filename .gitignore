@@ -69,3 +69,6 @@ backups/
 
 .Trashes
 ehthumbs.db
+
+# Working backup of superseded normative requirements
+protocol/normative_requirements_backup_60sections.md
