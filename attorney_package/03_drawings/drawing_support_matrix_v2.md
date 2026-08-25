@@ -57,13 +57,13 @@ Version 2.0では、以下の図面をCanonical Figureとして扱う。
 
 | Figure | 内容 | 主なSupport対象 |
 |---|---|---|
-| Figure 1 | Overall Protocol Architecture | 全体処理構造 |
-| Figure 2 | Authentication and Entitlement Relationship | Authentication / Entitlement |
-| Figure 3 | Entitlement Object / Lifecycle | Entitlement / Lifecycle |
-| Figure 4 | Context and Policy Evaluation | Context / Policy Evaluation |
-| Figure 5 | Authorization Decision and Capability | Authorization / Decision / Enforcement |
-| Figure 6 | Authorization State / Revocation | State / Revocation / Revalidation |
-| Figure 7 | Distributed Authorization Consistency | 分散環境 / Consistency |
+| Figure 01 | Overall Protocol Architecture | 全体処理構造 |
+| Figure 13 | Authentication and Entitlement Relationship | Authentication / Entitlement |
+| Figure 15 | Entitlement Object / Lifecycle | Entitlement / Lifecycle |
+| Figure 24 | Context and Policy Evaluation | Context / Policy Evaluation |
+| Figure 25 | Authorization Decision and Capability | Authorization / Decision / Enforcement |
+| Figure 35 | Authorization State / Revocation | State / Revocation / Revalidation |
+| Figure 30 | Distributed Authorization Consistency | 分散環境 / Consistency |
 
 ---
 
@@ -73,12 +73,12 @@ Version 2.0では、以下の図面をCanonical Figureとして扱う。
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Authentication処理 | §7, §33 | Figure 1, Figure 2 | Strong |
-| Authentication Object | §8, §9, §10 | Figure 1, Figure 2 | Strong |
-| Authentication Object Validity | §9–12 | Figure 2, Figure 3 | Critical |
-| Authentication Object Expiration | §10 | Figure 3 | Strong |
-| Authentication Freshness | §12 | Figure 2, Figure 3 | Strong |
-| Replay防止 | §13 | Figure 2, Figure 3 | Strong |
+| Authentication処理 | §7, §33 | Figure 01, Figure 13 | Strong |
+| Authentication Object | §8, §9, §10 | Figure 01, Figure 13 | Strong |
+| Authentication Object Validity | §9–12 | Figure 13, Figure 15 | Critical |
+| Authentication Object Expiration | §10 | Figure 15 | Strong |
+| Authentication Freshness | §12 | Figure 13, Figure 15 | Strong |
+| Replay防止 | §13 | Figure 13, Figure 15 | Strong |
 
 ---
 
@@ -88,13 +88,13 @@ Version 2.0では、以下の図面をCanonical Figureとして扱う。
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Authentication Result | §5, §7, §15 | Figure 2 | Strong |
-| Entitlement | §14–17 | Figure 2, Figure 3 | Strong |
-| Authentication ResultとEntitlementの分離 | §15 | Figure 2, Figure 3 | Critical |
-| Entitlementの独立Lifecycle | §15, §29, §30 | Figure 3, Figure 6 | Critical |
-| 複数Entitlement | §16, §17, §41, §42 | Figure 3 | Strong |
-| Conditional Entitlement | §16 | Figure 3 | Strong |
-| Cross-Service Entitlement | §17 | Figure 2, Figure 3 | Strong |
+| Authentication Result | §5, §7, §15 | Figure 13 | Strong |
+| Entitlement | §14–17 | Figure 13, Figure 15 | Strong |
+| Authentication ResultとEntitlementの分離 | §15 | Figure 13, Figure 15 | Critical |
+| Entitlementの独立Lifecycle | §15, §29, §30 | Figure 15, Figure 35 | Critical |
+| 複数Entitlement | §16, §17, §41, §42 | Figure 15 | Strong |
+| Conditional Entitlement | §16 | Figure 15 | Strong |
+| Cross-Service Entitlement | §17 | Figure 13, Figure 15 | Strong |
 
 ---
 
@@ -109,13 +109,13 @@ Entitlementの時間的Validityとを同一視せず、
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Authentication Object Validity | §9 | Figure 2, Figure 3 | Critical |
-| Authentication Object Expiration | §10 | Figure 3 | Strong |
-| Entitlement Validity | §11, §14 | Figure 3, Figure 6 | Critical |
-| 両者の独立性 | §11 | Figure 2, Figure 3 | Critical |
-| 短時間Authentication Object | §9, §11, §35 | Figure 2, Figure 3 | Strong |
-| 長時間Entitlement | §11, §34, §38 | Figure 3, Figure 6 | Strong |
-| Authentication ObjectのValidity延長とは独立したEntitlement管理 | §11 | Figure 3 | Strong |
+| Authentication Object Validity | §9 | Figure 13, Figure 15 | Critical |
+| Authentication Object Expiration | §10 | Figure 15 | Strong |
+| Entitlement Validity | §11, §14 | Figure 15, Figure 35 | Critical |
+| 両者の独立性 | §11 | Figure 13, Figure 15 | Critical |
+| 短時間Authentication Object | §9, §11, §35 | Figure 13, Figure 15 | Strong |
+| 長時間Entitlement | §11, §34, §38 | Figure 15, Figure 35 | Strong |
+| Authentication ObjectのValidity延長とは独立したEntitlement管理 | §11 | Figure 15 | Strong |
 
 ### 重要事項
 
@@ -143,13 +143,13 @@ Validityの独立したLifecycleをSupportすることを確認する。
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Policy | §18 | Figure 4 | Strong |
-| Policy Evaluation | §19 | Figure 4 | Critical |
-| Authentication Resultを入力として利用 | §19 | Figure 4 | Strong |
-| Entitlementを入力として利用 | §19 | Figure 4 | Critical |
-| Security Contextを利用 | §27 | Figure 4 | Strong |
-| Transactionを利用 | §28 | Figure 4 | Strong |
-| Policy Evaluation結果 | §19 | Figure 4 | Strong |
+| Policy | §18 | Figure 24 | Strong |
+| Policy Evaluation | §19 | Figure 24 | Critical |
+| Authentication Resultを入力として利用 | §19 | Figure 24 | Strong |
+| Entitlementを入力として利用 | §19 | Figure 24 | Critical |
+| Security Contextを利用 | §27 | Figure 24 | Strong |
+| Transactionを利用 | §28 | Figure 24 | Strong |
+| Policy Evaluation結果 | §19 | Figure 24 | Strong |
 
 ---
 
@@ -157,13 +157,13 @@ Validityの独立したLifecycleをSupportすることを確認する。
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Authorization Evaluation | §20 | Figure 4, Figure 5 | Strong |
-| Authorization Decision | §21 | Figure 5 | Critical |
-| Permit | §22 | Figure 5 | Strong |
-| Deny | §23 | Figure 5 | Strong |
-| Indeterminate | §24 | Figure 5 | Strong |
-| DecisionとPolicyの分離 | §21 | Figure 4, Figure 5 | Strong |
-| DecisionとService Executionの分離 | §21, §25, §26 | Figure 5 | Critical |
+| Authorization Evaluation | §20 | Figure 24, Figure 25 | Strong |
+| Authorization Decision | §21 | Figure 25 | Critical |
+| Permit | §22 | Figure 25 | Strong |
+| Deny | §23 | Figure 25 | Strong |
+| Indeterminate | §24 | Figure 25 | Strong |
+| DecisionとPolicyの分離 | §21 | Figure 24, Figure 25 | Strong |
+| DecisionとService Executionの分離 | §21, §25, §26 | Figure 25 | Critical |
 
 ---
 
@@ -171,13 +171,13 @@ Validityの独立したLifecycleをSupportすることを確認する。
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Enforcement | §25 | Figure 5 | Critical |
-| Authorization DecisionからEnforcementへの適用 | §25 | Figure 5 | Critical |
-| Service Execution | §26 | Figure 5 | Critical |
-| EnforcementによるService Execution制御 | §25, §26 | Figure 5 | Critical |
-| Permit後の追加条件確認 | §22, §25 | Figure 5 | Strong |
-| Service Executionの拒否・停止 | §23, §25 | Figure 5 | Strong |
-| DecisionとExecutionの分離 | §21, §25, §26 | Figure 5 | Critical |
+| Enforcement | §25 | Figure 25 | Critical |
+| Authorization DecisionからEnforcementへの適用 | §25 | Figure 25 | Critical |
+| Service Execution | §26 | Figure 25 | Critical |
+| EnforcementによるService Execution制御 | §25, §26 | Figure 25 | Critical |
+| Permit後の追加条件確認 | §22, §25 | Figure 25 | Strong |
+| Service Executionの拒否・停止 | §23, §25 | Figure 25 | Strong |
+| DecisionとExecutionの分離 | §21, §25, §26 | Figure 25 | Critical |
 
 ---
 
@@ -185,10 +185,10 @@ Validityの独立したLifecycleをSupportすることを確認する。
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Security Context | §27 | Figure 4 | Strong |
-| Transaction | §28 | Figure 4, Figure 5 | Strong |
-| Object State | §29 | Figure 3, Figure 6 | Strong |
-| State Transition | §29, §30, §31 | Figure 6 | Strong |
+| Security Context | §27 | Figure 24 | Strong |
+| Transaction | §28 | Figure 24, Figure 25 | Strong |
+| Object State | §29 | Figure 15, Figure 35 | Strong |
+| State Transition | §29, §30, §31 | Figure 35 | Strong |
 
 ---
 
@@ -196,12 +196,12 @@ Validityの独立したLifecycleをSupportすることを確認する。
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Revocation | §30 | Figure 6 | Critical |
-| Revalidation | §31 | Figure 6 | Strong |
-| Fail-Closed | §32 | Figure 6 | Strong |
-| Entitlement State | §29, §30 | Figure 3, Figure 6 | Strong |
-| Authorization State | §29, §30 | Figure 6 | Strong |
-| Revocation後のDecision制御 | §30–32 | Figure 6 | Strong |
+| Revocation | §30 | Figure 35 | Critical |
+| Revalidation | §31 | Figure 35 | Strong |
+| Fail-Closed | §32 | Figure 35 | Strong |
+| Entitlement State | §29, §30 | Figure 15, Figure 35 | Strong |
+| Authorization State | §29, §30 | Figure 35 | Strong |
+| Revocation後のDecision制御 | §30–32 | Figure 35 | Strong |
 
 ---
 
@@ -209,11 +209,11 @@ Validityの独立したLifecycleをSupportすることを確認する。
 
 | 項目 | 明細書Support | 図面Support | 評価 |
 |---|---|---|---|
-| Distributed System | §37 | Figure 7 | Critical |
-| 複数Service / Server | §37 | Figure 7 | Strong |
-| Authorization情報のConsistency | §37 | Figure 7 | Critical |
-| Entitlementの分散利用 | §17, §37 | Figure 3, Figure 7 | Strong |
-| Revocationの分散反映 | §30, §37 | Figure 6, Figure 7 | Strong |
+| Distributed System | §37 | Figure 30 | Critical |
+| 複数Service / Server | §37 | Figure 30 | Strong |
+| Authorization情報のConsistency | §37 | Figure 30 | Critical |
+| Entitlementの分散利用 | §17, §37 | Figure 15, Figure 30 | Strong |
+| Revocationの分散反映 | §30, §37 | Figure 35, Figure 30 | Strong |
 
 ---
 
@@ -238,7 +238,7 @@ Enforcementを介してService Executionを制御する。
 
 ## A. Authentication Result / Entitlement Separation
 
-**Support:** Figure 2, Figure 3
+**Support:** Figure 13, Figure 15
 
 Authenticationの結果として得られるAuthentication Resultと、
 Service利用に関するEntitlementを同一Objectとして扱うのではなく、
@@ -250,7 +250,7 @@ Service利用に関するEntitlementを同一Objectとして扱うのではな�
 
 ## B. Independent Validity
 
-**Support:** Figure 2, Figure 3
+**Support:** Figure 13, Figure 15
 
 Authentication ObjectのValidityとEntitlementのValidityを
 異なるLifecycleとして管理可能とする。
@@ -261,7 +261,7 @@ Authentication ObjectのValidityとEntitlementのValidityを
 
 ## C. Policy Evaluation
 
-**Support:** Figure 4
+**Support:** Figure 24
 
 Authentication Result、Entitlementおよびその他のContextを
 Policy Evaluationへ入力する関係を示す。
@@ -272,7 +272,7 @@ Policy Evaluationへ入力する関係を示す。
 
 ## D. Authorization Decision / Enforcement / Service Execution
 
-**Support:** Figure 5
+**Support:** Figure 25
 
 Policy Evaluation等に基づいてAuthorization Decisionを生成し、
 そのDecisionをEnforcementに適用し、
@@ -284,7 +284,7 @@ Enforcementを介してService Executionを制御する関係を示す。
 
 ## E. Revocation / Revalidation
 
-**Support:** Figure 6
+**Support:** Figure 35
 
 Authorizationおよび関連ObjectのState、
 RevocationおよびRevalidationを含むLifecycleを示す。
@@ -295,7 +295,7 @@ RevocationおよびRevalidationを含むLifecycleを示す。
 
 ## F. Distributed Authorization Consistency
 
-**Support:** Figure 7
+**Support:** Figure 30
 
 複数のServiceまたはServerにおいて、
 Authorization関連情報および状態を扱う構成を示す。
