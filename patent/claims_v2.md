@@ -825,9 +825,7 @@ Consumed、CompletedまたはFailedの一以上のStateを有する、
 
 ## 【請求項25】
 
-前記ObjectのStateがAuthorization Decisionとは独立して管理され、
-前記Stateが前記Policy EvaluationまたはAuthorization Evaluationの
-入力情報として使用される、
+前記ObjectのStateがAuthorization Decisionとは独立して管理される、
 
 請求項24に記載の情報処理システム。
 
@@ -845,9 +843,8 @@ Authentication状態、Entitlement状態またはObject Stateの
 
 ## 【請求項27】
 
-前記Transactionが、Authentication Result、Entitlement、
-Authorization DecisionまたはService Execution Resultの
-一以上を関連付ける、
+前記Transactionが、Authentication、Entitlement、Authorization
+またはService Executionの一以上を関連付ける、
 
 請求項1から26のいずれか一項に記載の情報処理システム。
 
