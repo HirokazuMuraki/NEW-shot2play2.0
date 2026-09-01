@@ -321,7 +321,8 @@ Authentication Objectには、所定のValidity Periodを設定できる。
 
 Authentication ObjectのValidityは、EntitlementのValidityとは独立して管理できる。
 
-この限定は重要なFallbackとする。
+この構成は本発明の重要な技術的特徴として保持する。
+ただし、現在のClaim 1に既に含まれる構成であるため、Claim 1から後退するFallbackとしては扱わない。
 
 ---
 
@@ -335,7 +336,10 @@ Expiration後には、当該Authentication ObjectをAuthenticationに使用で�
 
 ## 16. Authentication ValidityとEntitlement Validity
 
-以下の関係を重要なFallbackとして保持する。
+以下の関係を重要な技術的特徴として保持する。
+
+ただし、現在のClaim 1に既に含まれる構成であるため、
+Claim 1から後退するFallbackとしては扱わない。
 
 Authentication Object Validity
 ≠
@@ -821,7 +825,11 @@ Service Execution
 
 # 51. Fallback Structure — 第二段階
 
-第二Fallbackでは、Authentication ObjectのValidityとEntitlement Validityの分離を追加する。
+Validity分離はClaim 1に既に含まれるため、
+本Fallback階層では独立した後退構成として扱わない。
+
+Authentication Object ValidityとEntitlement Validityの分離は、
+本発明の重要な技術的特徴として、明細書および請求項全体との整合性を維持する。
 
 ```text
 Authentication Object
@@ -1151,9 +1159,12 @@ Authentication Object使用不可
 
 ---
 
-# 71. Authentication ValidityとEntitlement ValidityのFallback
+# 71. Authentication ValidityとEntitlement Validity
 
-この関係は独立した重要なFallbackとする。
+この関係は本発明の重要な技術的特徴として保持する。
+
+ただし、現在のClaim 1に既に含まれる構成であるため、
+Claim 1から後退するFallbackとしては扱わない。
 
 ```text
 Authentication Object Validity
@@ -1258,13 +1269,9 @@ Policy Evaluation → Authorization Decision → Enforcement → Service Executi
 
 ### Priority 3
 
-Authentication Object ValidityとEntitlement Validityの分離
-
-### Priority 4
-
 Conditional Entitlement
 
-### Priority 5
+### Priority 4
 
 Cross-Service Entitlement
 
@@ -1299,11 +1306,10 @@ QR Code / WebAuthn / Public Key Cryptography
 3. Authorization Decisionを明確化する。
 4. Enforcementを明確化する。
 5. Service Executionとの分離を明確化する。
-6. Authentication ValidityとEntitlement Validityの分離を追加する。
-7. Conditional Entitlementを追加する。
-8. Cross-Serviceを追加する。
-9. Revocation / Revalidationを追加する。
-10. 最後に具体的Authentication方式を検討する。
+6. Conditional Entitlementを追加する。
+7. Cross-Serviceを追加する。
+8. Revocation / Revalidationを追加する。
+9. 最後に具体的Authentication方式を検討する。
 
 ---
 
