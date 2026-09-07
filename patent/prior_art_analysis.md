@@ -113,6 +113,27 @@ Freshness、Entitlement Validity、Entitlement Revocation、Object State等を
 Entitlementを別ServiceのAuthorization条件として利用できる構成をFallback
 として保持する。
 
+### 3.8 Concrete Prior-Art References
+
+以下は、上記の既知技術領域を具体的な文献・仕様書に結び付けるための代表例である。
+これらはClaim 1の全構成を単一文献が開示することを意味するものではなく、
+各技術領域との比較対象を明確にするために記載する。
+
+| 文献番号等 | 文献名 | 日付情報 | 主な開示内容 | Claim 1との比較対象 | 本発明との差異・留意点 |
+|---|---|---|---|---|---|
+| US20080184336A1 | Policy resolution in an entitlement management system | Priority: 2007-01-29 / Publication: 2008-07-31 | Entitlement management、policy administration、policy decision point、policy enforcement point、分散環境でのpolicy-based enforcement | Entitlement、Policy Evaluation、Authorization、Enforcement | Entitlement / policy / enforcementの既知例。ただし本発明のAuthentication Resultとの独立管理およびAuthentication Object ValidityとEntitlement Validityの独立管理との関係は別途確認が必要 |
+| US20140282831A1 | Dynamic policy-based entitlements from external data repositories | Priority: 2013-03-15 / Publication: 2014-09-18 | Context-based policy、entitlement request、policy decision point、外部データリポジトリを利用したentitlement評価 | Entitlement、Policy Evaluation、Context | Contextに基づくentitlement評価の既知例。本発明のAuthentication Resultとの分離およびValidityの独立管理との組合せは別途確認が必要 |
+| US20230049227A1 | System and method for authenticating client devices communicating with an enterprise system | Filing: 2021-08-13 | PEP、PIP、PDP、entitlements database、client deviceの認証・権限評価、API invocationの許可 | Authentication、Entitlement、Policy / Authorization、Enforcement | Authentication、entitlement、policy enforcementの組合せを含む既知例。ただしClaim 1の全構成が単一文献に開示されるとの判断ではない |
+| US20240305635A1 | System and method for authenticating client devices communicating with an enterprise system | Filing: 2024-05-16 / Publication: 2024-09-12 | PEP、PIP、PDP、entitlements database、client deviceの認証・権限評価、API invocationの許可 | Authentication、Entitlement、Policy / Authorization、Enforcement | 上記技術の具体的公開例。本発明の独立Validity構造との関係は別途比較が必要 |
+| RFC 8628 | OAuth 2.0 Device Authorization Grant | August 2019 | 別端末のuser agentを用いたdevice authorization、device code / user code、verification URI、短時間のauthorization flow | OAuth / Device Authorization、Temporary Object | Device Authorizationおよび一時的codeの既知例。本発明のEntitlement lifecycleとの分離とは異なる |
+| W3C WebAuthn Level 2 / Level 3 | Web Authentication: An API for accessing Public Key Credentials | Level 2 Recommendation: 2021-04-08 / Level 3 Candidate Recommendation Snapshot: 2026-05-26 | Public-key credentials、challenge-response、authenticatorを利用したWeb Authentication | Authentication、Public-key Authentication | Authentication mechanismの既知仕様。本発明のEntitlement、Policy Evaluation、Authorization、Enforcementの構成とは別の技術領域 |
+| FIDO Alliance | Passkeys / Cross-Device Authentication | 公開仕様・技術情報 | 別端末からのQR等を利用したCross-Device Authentication、passkeyによる認証 | QR / Cross-Device Authentication、Authentication | Cross-device / QR authenticationの既知例。本発明のCross-Service Entitlementとは異なる概念 |
+
+**文献情報についての注記：** 上表の日付・文献番号等は、今回確認できた公開情報に
+基づく代表例である。日本国内での公開公報、同族公報、引用関係、優先権の連鎖、
+具体的な請求項・段落・図面の対応については、弁理士がJ-PlatPat等を用いて一次資料を
+確認した上で確定する。
+
 ---
 
 ## 4. Preliminary Difference Analysis
