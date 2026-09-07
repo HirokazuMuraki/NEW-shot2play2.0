@@ -379,6 +379,19 @@ Authorization DecisionはPolicyそのものでも、Policy Evaluationそのも�
 でもなく、Policy Evaluation等によって得られた結果をサービス実行に
 適用するための判断情報として管理することができる。
 
+本明細書におけるAuthorization Decisionの結果を示すPermitは、
+Authorization Layerにおいて用いられるAllowに対応するAuthorization
+Decision Resultとして扱うことができる。
+
+Permit、DenyおよびIndeterminateはAuthorization Decisionの結果を
+示す概念であり、Pending、Allow、Deny、Invalid、Revoked、Expired等の
+Decision Stateとは区別される。
+
+したがって、Authorization Decision ResultとDecision Stateとは
+同一の情報である必要はなく、Authorization Decision Resultに基づく
+判断結果と、その判断または認可状態のライフサイクル状態とを
+独立して管理することができる。
+
 ---
 
 ## 22. Permit

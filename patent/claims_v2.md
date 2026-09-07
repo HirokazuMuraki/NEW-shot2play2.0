@@ -770,6 +770,12 @@ TransactionまたはObject Stateの一以上を入力として実行される、
 
 請求項1から18のいずれか一項に記載の情報処理システム。
 
+なお、本明細書におけるAuthorization Decisionの結果を示すPermitは、
+Authorization Layerにおいて用いられるAllowに対応するAuthorization
+Decision Resultとして扱うことができる。Permit、DenyおよびIndeterminate
+はAuthorization Decisionの結果を示す概念であり、Pending、Allow、
+Deny、Invalid、Revoked、Expired等のDecision Stateとは区別される。
+
 ---
 
 ## 【請求項20】
