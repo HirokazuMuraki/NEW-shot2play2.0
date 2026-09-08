@@ -129,17 +129,17 @@ Claim 1では、少なくとも以下を中心とする。
 * Authorization Decisionに基づくEnforcement
 * Enforcementを介したService Executionの制御
 
-### Independent Claim 2 — 情報処理方法
+### Independent Claim 31 — 情報処理方法
 
 Claim 1と実質的に対応する処理を、情報処理方法として保護する。
 
-### Independent Claim 3 — プログラム
+### Independent Claim 36 — プログラム
 
-Claim 1またはClaim 2に対応する処理をコンピュータに実行させるプログラムとして保護する。
+Claim 1またはClaim 31に対応する処理をコンピュータに実行させるプログラムとして保護する。
 
-### Independent Claim 4 — 記録媒体
+### Claim 37 — 記録媒体
 
-当該プログラムを記録したコンピュータ読み取り可能な記録媒体として保護する。
+Claim 36に記載のプログラムを記録したコンピュータ読み取り可能な記録媒体として保護する。
 
 ---
 
