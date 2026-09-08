@@ -877,18 +877,22 @@ Evaluation, a Decision SHALL NOT be created without that evaluation.
 
 ## 10.2 Decision States
 
-An Authorization Decision MAY have the following states:
+An Authorization Decision MAY have the following Decision States,
+which describe the current validity and processing status of the
+Authorization Decision:
 
-- Permit
-- Deny
-- Indeterminate
-- Revalidation Required
+- Granted
+- Denied
+- Pending Revalidation
 - Suspended
 - Revoked
 - Expired
 - Invalid
 
 The applicable Policy MAY define additional states.
+
+Decision State SHALL remain distinct from the authorization outcome
+indicated by the Authorization Decision.
 
 ## 10.3 Permit Decision
 

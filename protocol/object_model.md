@@ -2132,12 +2132,13 @@ An Authorization Decision SHALL remain distinct from:
 
 ## 17.2 Decision States
 
-An Authorization Decision MAY have the following logical states:
+An Authorization Decision MAY have the following logical states,
+which describe the current validity and processing status of the
+Authorization Decision:
 
-- Permit
-- Deny
-- Indeterminate
-- Revalidation Required
+- Granted
+- Denied
+- Pending Revalidation
 - Invalidated
 - Expired
 - Revoked
@@ -2146,6 +2147,9 @@ The applicable Policy MAY define additional states.
 
 A state SHALL have a deterministic semantic meaning within the applicable
 protocol.
+
+Decision State SHALL remain distinct from the authorization outcome
+indicated by the Authorization Decision.
 
 ---
 
