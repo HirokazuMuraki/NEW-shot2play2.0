@@ -277,6 +277,9 @@ Entitlement
 Policy Evaluation
   |
   v
+Authorization Evaluation
+  |
+  v
 Authorization Decision
   |
   v
