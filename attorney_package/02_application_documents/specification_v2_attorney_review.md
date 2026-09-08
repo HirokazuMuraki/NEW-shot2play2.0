@@ -180,6 +180,12 @@ Service Executionは保護対象となるサービス処理の実行であり、
 
 Service ExecutionはAuthorization DecisionおよびEnforcementを経て実行可能な状態となる。
 
+例えば、所定のEntitlementを有する利用者についてPermitが生成された場合、Enforcementによりクーポン、ポイントその他の特典を付与する処理をService Executionとして実行することができる。
+
+また、Service ExecutionはAPIを介して実行することができる。例えば、Authorization Decisionに基づいてAPIへのアクセスを許可し、Enforcementにより許可されたAPI処理のみを実行することができる。
+
+これらの場合においても、Authentication、Entitlement、Policy Evaluation、Authorization Decision、EnforcementおよびService Executionは、それぞれ異なる処理として管理することができる。
+
 ## 20. Security Context
 
 Policy EvaluationおよびAuthorization EvaluationではSecurity Contextを利用できる。時刻、位置、端末状態、ネットワーク状態、セッション状態、利用環境その他を含めることができる。

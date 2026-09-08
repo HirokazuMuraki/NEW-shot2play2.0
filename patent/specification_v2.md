@@ -451,6 +451,18 @@ Service Executionには、情報取得、情報変更、Resourceへのアクセ�
 Service Executionは、Authorization DecisionおよびEnforcementを経て
 実行可能な状態となる。
 
+例えば、所定のEntitlementを有する利用者についてPermitが生成された
+場合、Enforcementによりクーポン、ポイントその他の特典を付与する
+処理をService Executionとして実行することができる。
+
+また、Service ExecutionはAPIを介して実行することができる。
+例えば、Authorization Decisionに基づいてAPIへのアクセスを許可し、
+Enforcementにより許可されたAPI処理のみを実行することができる。
+
+これらの場合においても、Authentication、Entitlement、
+Policy Evaluation、Authorization Decision、Enforcementおよび
+Service Executionは、それぞれ異なる処理として管理することができる。
+
 ---
 
 ## 27. Security Context
