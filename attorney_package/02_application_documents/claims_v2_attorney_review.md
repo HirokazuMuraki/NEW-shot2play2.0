@@ -617,7 +617,6 @@ Object State、StateとAuthorizationとの分離、Security ContextおよびTran
 - Claim 1 — 情報処理システム
 - Claim 31 — 情報処理方法
 - Claim 36 — プログラム
-- Claim 37 — 記録媒体
 
 ### システム従属Claim
 
@@ -626,6 +625,10 @@ Claim 2～30
 ### 方法従属Claim
 
 Claim 32～35
+
+### その他の従属Claim
+
+Claim 37 — Claim 36に従属する記録媒体
 
 この構造については、最終的な請求項数、従属関係および日本出願上の適切な構成について弁理士による判断を求める。
 
