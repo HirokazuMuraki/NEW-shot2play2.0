@@ -182,6 +182,37 @@ Service ExecutionはAuthorization DecisionおよびEnforcementを経て実行可
 
 例えば、所定のEntitlementを有する利用者についてPermitが生成された場合、Enforcementによりクーポン、ポイントその他の特典を付与する処理をService Executionとして実行することができる。
 
+また、Service Executionは、決済処理、割引処理または特典付与処理に
+適用することができる。
+
+例えば、利用者についてAuthenticationを実行し、その結果として得られた
+Authentication Resultと、当該利用者について別途管理されている
+Entitlementとを取得することができる。
+
+Policy Evaluationでは、Authentication Result、Entitlement、購入対象、
+購入金額、利用時刻、会員状態その他のContextを評価することができる。
+
+その評価結果に基づいてAuthorization Decisionを生成し、当該
+Authorization DecisionをEnforcementにおいてService Executionへ
+適用することができる。
+
+例えば、所定のEntitlementを有する利用者について、所定の商品または
+Serviceの購入に対する割引を許可するAuthorization Decisionを生成し、
+Enforcementによって割引条件を決済処理に適用することができる。
+
+また、所定のEntitlementに基づいてポイント、クーポンその他の特典を
+付与するService Executionを許可することもできる。
+
+この場合、Entitlementの存在またはValidityのみを直接Service Execution
+の実行条件とするのではなく、Policy EvaluationおよびAuthorization
+Decisionを介して、購入対象、金額、時刻、会員状態その他のContextを
+考慮した制御を行うことができる。
+
+さらに、Authorization DecisionとService Executionとの間にEnforcement
+を設けることにより、Authorization Decisionに基づく許可、拒否、
+制限または停止を、実際の決済処理、割引処理または特典付与処理に適用
+することができる。
+
 また、Service ExecutionはAPIを介して実行することができる。例えば、Authorization Decisionに基づいてAPIへのアクセスを許可し、Enforcementにより許可されたAPI処理のみを実行することができる。
 
 これらの場合においても、Authentication、Entitlement、Policy Evaluation、Authorization Decision、EnforcementおよびService Executionは、それぞれ異なる処理として管理することができる。

@@ -389,7 +389,14 @@ Authentication ResultとEntitlementの独立性をより強く限定する。
 
 ## Fallback B
 
-Authentication ObjectのValidityとEntitlementのValidityとの時間的独立性を追加する。
+Authentication ObjectのValidityとEntitlementのValidityとの時間的独立性は、
+現行のClaim 1に既に含まれる構成である。
+
+したがって、この構成単独ではClaim 1から後退するFallbackとはならない。
+
+将来、Claim 1の補正等によって当該構成がClaim 1から外れる場合には、
+Authentication ObjectのValidityとEntitlementのValidityとの時間的独立性を
+Fallbackとして再構成することができる。
 
 ## Fallback C
 
