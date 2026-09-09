@@ -51,6 +51,7 @@ In particular, the following concepts SHALL remain distinct:
 - Policy
 - Policy Evaluation
 - Authorization
+- Authorization Evaluation
 - Authorization Decision
 - Service Execution
 
@@ -95,6 +96,15 @@ Policy Evaluation applies those rules to available decision inputs.
 The result of Policy Evaluation is an input to the Authorization stage.
 
 A Policy SHALL NOT itself be treated as an Authorization Decision.
+
+Authorization Evaluation is the processing stage within
+Authorization that evaluates whether the applicable authorization
+conditions are satisfied based on Policy Evaluation results and
+other authorized decision inputs.
+
+Authorization Evaluation is distinct from Authorization Decision.
+The evaluation information produced by Authorization Evaluation is
+used to establish the Authorization Decision.
 
 ---
 

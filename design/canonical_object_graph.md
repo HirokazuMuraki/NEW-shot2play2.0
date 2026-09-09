@@ -223,6 +223,9 @@ Evaluation              |                    |
   +-------------------------------+
                   |
                   v
+       Authorization Evaluation
+                  |
+                  v
        Authorization Decision
                   |
                   v

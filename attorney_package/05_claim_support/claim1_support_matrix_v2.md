@@ -28,6 +28,8 @@ Entitlement
 ↓
 Policy Evaluation
 ↓
+Authorization Evaluation
+↓
 Authorization Decision
 ↓
 Enforcement
