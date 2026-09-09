@@ -1617,6 +1617,8 @@ The principal Version 2.0 processing relationship SHALL be expressed as:
          ↓
     Authorization Decision
          ↓
+    Enforcement
+         ↓
     Service Execution
          ↓
     Evidence / Audit
@@ -1646,6 +1648,8 @@ The canonical security relationship SHALL be understood as:
           Policy Evaluation
                ↓
        Authorization Decision
+               ↓
+          Enforcement
                ↓
          Service Execution
 
@@ -1723,6 +1727,7 @@ named technical concepts:
 - Authorization Decision
 - Authorization Scope
 - Authorization Context
+- Enforcement
 - Service Execution
 - Evidence
 - Audit Information
@@ -1817,7 +1822,8 @@ The following responsibility separation SHALL be preserved.
 | Entitlement Management | Create, maintain, and manage Entitlements |
 | Entitlement Evaluation | Determine whether Entitlements satisfy conditions |
 | Policy Evaluation | Apply configurable rules to decision inputs |
-| Authorization | Generate or enforce Authorization Decisions |
+| Authorization | Perform authorization evaluation and establish Authorization Decisions |
+| Enforcement | Apply Authorization Decisions to Service Execution |
 | Service Execution | Perform the business operation |
 | Evidence | Preserve verifiable processing information |
 | Audit | Preserve processing traceability |
@@ -1849,6 +1855,9 @@ The central conceptual distinction of Version 2.0 is:
 
     Authorization Decision
         = "What explicit decision governs execution?"
+
+    Enforcement
+        = "How is the Authorization Decision applied to execution?"
 
     Service Execution
         = "What business operation is actually performed?"
